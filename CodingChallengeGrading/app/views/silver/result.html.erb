@@ -1,17 +1,17 @@
 <h1>Results</h1>
 <p>
-	Expected value: 3 <BR>
-	Actual value: 3 <BR>
 	<script type='text/vbscript'>
 	<%= @uploaded_file_text %>
 	Dim expectedValue
 	Dim actualValue
 	expectedValue = 3
 	actualValue = SilverChallenge()
+	document.write("Expected value: "&expectedValue&"<BR>")
+	document.write("Actual value: "&actualValue&"<BR>")
 	If expectedValue = actualValue Then
-	document.write('Result: PASS')
+	document.write("Result: PASS")
 	Else
-	document.write('Result: FAIL')
+	document.write("Result: FAIL")
 	End If
 	</script>
 </p>
