@@ -14,16 +14,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/bin
-/config
-/db
-/lib
 /log
-/public
-/test
-/vendor
-/config.ru
-/Gemfile
-/Gemfile.lock
-/Rakefile
-/README.rdoc
