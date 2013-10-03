@@ -2,11 +2,11 @@
 <p>
 	<script type='text/vbscript'>
 	<%= @uploaded_file_text.html_safe %>
-	<% Dir.entries('res').each do |file| %>
+	<% Dir.entries('res/'+params[:controller]).each do |file| %>
     <% if(File.directory?(file)==false) %>
-    <%= File.read('res/'+file).html_safe %>
+    <%= File.read('res/'+params[:controller]+"/"+file).html_safe %>
 	<% end %> 
 	<% end %>
 	</script>
 </p>
-<%= link_to('Submit again',silver_path)%>
+<%= link_to('Submit again',root_path)%>

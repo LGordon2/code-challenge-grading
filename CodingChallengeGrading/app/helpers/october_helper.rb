@@ -1,0 +1,2 @@
+module OctoberHelper
+end

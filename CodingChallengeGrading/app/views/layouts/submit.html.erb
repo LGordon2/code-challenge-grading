@@ -1,5 +1,6 @@
-<h1>Silver Challenge Submission</h1>
+<h1><%= params[:controller].capitalize + " " + params[:action].capitalize %> Code Challenge</h1>
 <%= form_tag({action: :result},multipart: true) do %>
 <%= file_field_tag 'script' %>
 <%= submit_tag 'Submit' %>
 <% end %>
+<%= yield %>
