@@ -8,6 +8,7 @@
 	<% Dir.entries('res/'+challenge_month+'/'+challenge_type).each do |file| %>
     <% if(File.directory?(file)==false) %>
     <%= File.read('res/'+challenge_month+"/"+challenge_type+"/"+file).html_safe %>
+    document.write("<BR><BR>")
 	<% end %> 
 	<% end %>
 	</script>
