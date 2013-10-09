@@ -1,4 +1,7 @@
 CodingChallengeGrading::Application.routes.draw do
+  resources :users
+  #resources :october
+  get 'login' => 'welcome#login'
   get "october/bronze"
   get "october/silver"
   get "october/gold"
@@ -9,7 +12,7 @@ CodingChallengeGrading::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'welcome#index'
+   root 'welcome#login2'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
