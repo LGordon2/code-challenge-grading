@@ -1,0 +1,24 @@
+
+
+document.write("****Test Case 5****<BR>")
+Dim testCase5
+Dim expectedGCD_testCase5
+Dim actualGCD_testCase5
+Dim startTime_testCase5
+Dim elapsedTime_testCase5
+
+expectedGCD_testCase5 = 1
+startTime_testCase5 = Timer
+actualGCD_testCase5 = SilverChallenge(Array(100, 20, 50, 840, 1230, 90, 180, 9040))
+elapsedTime_testCase5 = Timer - startTime_testCase5
+
+document.write("Execution time: "& elapsedTime &"<BR>")
+
+If elapsedTime_testCase5 < 60 Then
+	startTime = Timer
+	document.write("<font color=""green"">PASS</font><BR>")
+	elapsedTime = Timer - startTime
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")

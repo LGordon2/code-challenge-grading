@@ -1,0 +1,17 @@
+
+document.write("****Test Case 2****<BR>")
+Dim testCase2
+Dim expectedFactorial_testCase2
+Dim actualFactorial_testCase2
+
+expectedFactorial_testCase2 = 1
+actualFactorial_testCase2 = SilverChallenge(1)
+document.write("Expected 1!: "& expectedFactorial_testCase2 &"<BR>")
+document.write("Actual 1!:"&actualFactorial_testCase2&"<BR>")
+
+If actualFactorial_testCase2 = expectedFactorial_testCase2 Then
+	document.write("<font color=""green"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
