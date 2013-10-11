@@ -7,8 +7,7 @@
 					<br>
 				</header>
 
-				<!-- <img src="logo.png" width=400 height=400 />  -->
-				<%= image_tag("Logo.png",width: 400, height: 400) %>
+				<%= image_tag("logo.png",width: 400, height: 400) %>
 			</article>
 		</section>
 
@@ -21,6 +20,11 @@
 				<header>
 					<h3>Login with Orasi Credentials</h3>
 				</header>
+				<% if flash.now[:alert] %>
+				<div id="error_explanation">
+					<%= flash.now[:alert] %>
+				</div>
+				<% end %>
 				<%= form_tag sessions_path do %>
 				<p>
 					<%= label_tag :username %>
@@ -37,11 +41,6 @@
 				</p>
 				<% end %>
 				<br>
-				<% if flash.now[:alert] %>
-				<div class="notice">
-					<%= flash.now[:alert] %>
-				</div>
-				<% end %>
 
 			</div>
 
