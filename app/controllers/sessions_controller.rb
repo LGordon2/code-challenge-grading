@@ -3,14 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:username], params[:password])
+    user = User.authenticate(params[:username].downcase, params[:password])
     if user
       session[:user_id] = user.id
       session[:change] = true
       redirect_to root_url, :notice => "Logged In"
     else
-      flash.now.alert = "Invalid username or password"
-      render "new"
+      redirect_to root_url, :alert => "Invalid username or password."
     end
   end
 
