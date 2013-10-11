@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:username].downcase, params[:password])
+    user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
       session[:change] = true
