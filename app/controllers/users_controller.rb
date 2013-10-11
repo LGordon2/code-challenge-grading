@@ -24,7 +24,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    
     @user = User.new(user_params)
+    @user.username = @user.username.downcase
 
     respond_to do |format|
       if @user.save
@@ -42,6 +44,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        @user.username = @user.username.downcase
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
