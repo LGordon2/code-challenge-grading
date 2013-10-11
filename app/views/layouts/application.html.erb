@@ -1,14 +1,92 @@
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Orasi Coding Challenge</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+  <title>Orasi Monthly Code Challenge</title>
+  <!-- <link rel="stylesheet" href="master2.css" type="text/css" media="screen" /> -->
+  <%= stylesheet_link_tag "master2.css" %>
 </head>
+<style type="text/css">
+    select {height: 20; width: 100; max-height: 12}
+</style>
 <body>
 
+<header>
+  <h1>Orasi Monthly Coding Challenge</h1>
+</header>
+<nav>
+
+
+
+      <div id="fade_in">
+
+      <ul id="navbar1">
+    <li><%= link_to "Bronze League", october_bronze_path %><!--<a href="#">Bronze League</a>--></li>
+    <li><<%= link_to "Silver League", october_silver_path %></li>
+    <li><%= link_to "Gold League", october_gold_path %></li>
+    <li><select id="month">
+      <option>June</option>
+      <option>July</option>
+      <option>August</option>
+      <option>September</option>
+      <option selected="selected">October</option>
+    </select>
+    </li>
+
+    </ul>
+
+
+
+     <% if current_user %>
+
+        <ul id="navbar2">
+          <li><%= link_to "Log out", log_out_path %></li>
+          <li><p> Welcome, <%= current_user.username %>. </p> </li>
+
+      <% end %>
+      </ul>
+    </div>
+
+
+          <script type="text/javascript">
+
+
+
+             <% if current_user && session[:change] %>
+                 document.getElementById("fade_in").className = "fade-in";
+                 <% session[:firstLogin] = nil %>
+             <% elsif current_user %>
+                 document.getElementById("fade_in").id = "visible";
+             <% elsif session[:change] %>
+
+                document.getElementById("visible").className = "fade-out";
+             <% end %>
+
+
+
+
+
+
+
+
+
+          </script>
+
+
+
+
+
+
+
+
+</nav>
+      <% flash.each do |name, msg| %>
+       <%= content_tag :div, msg, :id => "flash_#[name}" %>
+    <% end %>
 <%= yield %>
+
 
 </body>
 </html>
+
+

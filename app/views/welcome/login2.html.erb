@@ -10,27 +10,7 @@
 select {height: 20; width: 100; max-height: 12}
 </style>
 <body>
-  
-	<header>
-		<h1>Orasi Monthly Coding Challenge</h1>
-	</header>
-	<nav>
-		<ul><div id="fadeout" class="fadedout">
-			<li><%= link_to "Bronze League", october_bronze_path %><!--<a href="#">Bronze League</a>--></li>
-			<li><<%= link_to "Silver League", october_silver_path %></li>
-			<li><%= link_to "Gold League", october_gold_path %></li>
-			<li><select id="month">
-				<option>June</option>
-				<option>July</option>
-				<option>August</option>
-				<option>September</option>
-				<option selected="selected">October</option>
-			</select>
-			</div>
-</li>
-		</ul>
-	</nav>
-	
+
 	<div id="content">
 		<div id="mainContent">
 			<section>
@@ -49,30 +29,48 @@ select {height: 20; width: 100; max-height: 12}
 		</div>
 		<aside>
 			<section>
-				<div id="loginstuff">
+
+				<div id="fade_out">
+
 				<header>
 					<h3>Login with Orasi Credentials</h3>
 				</header>
-				<br>
-					Username: 
-					<li><input class="inputform" type="email" name="formEmail"></li>
+                  <%= form_tag sessions_path do %>
+                      <p>
+                        <%= label_tag :username %><br />
+                        <%= text_field_tag :username, params[:username] %>
+                      </p>
+                      <p>
+                        <%= label_tag :password %><br />
+                        <%= password_field_tag :password %>
+                      </p>
+                      <p class="button"><%= submit_tag "Log in" %></p>
+                  <% end %>
 				<br>
 
-					Password:
-				
-					<li><input class="inputform "type="password" name="formPass"></li>
-				
-				<a href="#" class="button-link" onClick="fade(this)"> Login </a>
 				</div>
-<script type="text/javascript">
-        function fade(btnElement) {
-            
-                document.getElementById("fadeout").className = "fade-in";
-		document.getElementById("loginstuff").className = "fade-out";
-             
-            }
-        
-    </script>
+
+              <% if current_user %>
+
+                  <script type="text/javascript">
+
+
+                      <% if current_user && session[:change] %>
+                         document.getElementById("fade_out").className = "fade-out";
+                        <% session[:change] = nil %>
+                      <% elsif current_user %>
+                        document.getElementById("fade_out").id = "notVisible";
+                       <% elsif session[:change] %>
+
+                        document.getElementById("notVisible").id = "fade_in";
+
+                        <% end %>
+
+
+
+
+                  </script>
+              <% end %>
 			</section>
 			
 		</aside>

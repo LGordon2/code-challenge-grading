@@ -7,26 +7,37 @@
 header, footer, aside, nav, article {  
     display: block;  
 }  
- #fadeout{	opacity:0;
+ #fade_in{	opacity:0;
             -webkit-transition: opacity 0.5s ease-in; //for chrome, safari
             -moz-transition: opacity 0.5s ease-in; //for mozilla firefox
             -o-transition: opacity 0.5s ease-in; //for opera
 		transition: opacity 0.5s ease-in;        
 }
- #loginstuff{	opacity:1;
+  #visible{
+            opacity: 1;
+
+  }
+  #notVisible{
+
+      opacity: 0;
+  }
+ #fade_out{	opacity:1;
             -webkit-transition: opacity 0.5s ease-in; //for chrome, safari
             -moz-transition: opacity 0.5s ease-in; //for mozilla firefox
             -o-transition: opacity 0.5s ease-in; //for opera
 		transition: opacity 0.5s ease-in;        
 }
-   #loginstuff.fade-out
-        {
-            opacity:0;
-        }
-        #fadeout.fade-in
-        {
-            opacity:1;
-        } 
+
+#fade_in.fade-in
+{
+
+    opacity:1;
+}
+
+#fade_out.fade-out
+{
+    opacity:0;
+}
 body {  
     margin: 0 auto;  
     width: 940px;  
@@ -66,12 +77,29 @@ nav ul{
 	width:940px;
 	list-style: none;
 }
-nav ul li {  
-    float: left;  
+#navbar1 li{
+    float:left;
+}
+#navbar2 li{
+    float: right;
+}
+nav ul li {
+    display: inline;
 }
 
-  
-    nav ul li a {  
+    nav ul li p,a, select{
+                       margin-top: 0;
+        margin-right: 20px;
+        width: 140px;
+        font-size: 14px;
+        font-weight:900;
+        line-height: 44px;
+        text-align: center;
+        vertical-align:top;
+        text-decoration: none;
+        color: #f0f0f0;
+    }
+    /*nav ul li a {
         display: block;  
         margin-right: 20px;  
         width: 140px;  
@@ -79,14 +107,16 @@ nav ul li {
 	font-weight:900;
         line-height: 44px;  
         text-align: center;
-	/*vertical-align:center;*/  
+	*//*vertical-align:center;*//*
         text-decoration: none;  
         color: #f0f0f0;  
 }
+*/
     nav ul li select{
+        color: #1D62A3;
 	position: absolute;
-	bottom: 0;
-	margin-top:10px;
+	bottom: 20;
+	margin-top:5px;
 	
 }
 
@@ -102,14 +132,14 @@ nav ul li {
        .inputform{
 		width:200px;	
 }
-#intro {  
+/*#intro {
     margin-top: 66px;  
     padding: 44px;  
     background: #467612 url("test.png") top left  repeat-x;
- background-size: 100%;  
-    border-radius: 50px;  
+ background-size: 100%;
+    border-radius: 50px;
 }  
-#intro h2, #intro p��{  
+#intro h2, p{
     width: 336px;  
 }  
   
@@ -122,7 +152,7 @@ nav ul li {
 #intro p {  
     padding: 0;  
     color: #d9f499;  
-}  
+}*/
 #content {  
     display: table;  
 }  
