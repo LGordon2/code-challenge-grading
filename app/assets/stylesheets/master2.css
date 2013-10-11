@@ -63,10 +63,13 @@ h3 {
 p {  
     padding-bottom: 22px;  
 }  
+a {
+	color: green;
+}
 nav{
 	position: absolute;
 	height: 40px;
-	vertical-align: bottom;
+	vertical-align: 0;
 	text-align: center;
 	left: 0;
 	width:100%;
@@ -115,7 +118,7 @@ nav ul li {
     nav ul li select{
         color: #1D62A3;
 	position: absolute;
-	bottom: 20;
+	bottom: 20px;
 	margin-top:5px;
 	
 }
