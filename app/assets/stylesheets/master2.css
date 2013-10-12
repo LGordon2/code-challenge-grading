@@ -90,7 +90,7 @@ nav ul li {
     display: inline;
 }
 
-    nav ul li p,a, select{
+    nav ul li p,nav ul li a, nav ul li select{
                        margin-top: 0;
         margin-right: 20px;
         width: 140px;
