@@ -2,6 +2,7 @@ CodingChallengeGrading::Application.routes.draw do
   get "sessions/new"
   resources :users
   resources :sessions
+  resources :comments
   #resources :october
   get 'login' => 'welcome#login'
   get "log_out" => "sessions#destroy", :as => "log_out"

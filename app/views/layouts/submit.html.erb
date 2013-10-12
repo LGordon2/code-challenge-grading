@@ -1,4 +1,4 @@
-<%= form_tag({action: :result},multipart: true) do %>
+<%= form_tag({:controller => :october, action: :result},multipart: true) do %>
 <%= file_field_tag 'script' %>
 <%= submit_tag 'Submit' %>
 <% end %>
