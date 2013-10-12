@@ -7,7 +7,7 @@
 					<br>
 				</header>
 
-				<%= image_tag("logo.png",width: 400, height: 400) %>
+				<%= image_tag("Logo.png",width: 400, height: 400) %>
 			</article>
 		</section>
 
@@ -22,7 +22,7 @@
 				</header>
 				<% if flash.now[:alert] %>
 				<div id="error_explanation">
-					<%= flash.now[:alert] %>
+					<h2><%= flash.now[:alert] %></h2>
 				</div>
 				<% end %>
 				<%= form_tag sessions_path do %>

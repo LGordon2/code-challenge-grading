@@ -2,9 +2,7 @@
 <html lang="en">
 	<head>
 		<title>Orasi Monthly Code Challenge</title>
-		<!-- <link rel="stylesheet" href="master2.css" type="text/css" media="screen" /> -->
-		<%= stylesheet_link_tag "master2.css" %>
-		<%= stylesheet_link_tag "welcome" %>
+		<!-- <%= stylesheet_link_tag "master2.css" %> -->
 	</head>
 	<style type="text/css">
 		select {
@@ -19,7 +17,7 @@
 			<h1>Orasi Monthly Coding Challenge</h1>
 		</header>
 		<nav>
-
+			<% if current_user %>
 			<div id="fade_in">
 
 				<ul id="navbar1">
@@ -44,7 +42,7 @@
 
 				</ul>
 
-				<% if current_user %>
+				
 
 				<ul id="navbar2">
 					<li>
@@ -56,10 +54,10 @@
 						</p>
 					</li>
 
-					<% end %>
+					
 				</ul>
 			</div>
-
+			<% end %>
 			<script type="text/javascript"><% if current_user && session[:change] %>document.getElementById("fade_in").className = "fade-in";<% session[:firstLogin] = nil %><% elsif current_user %>document.getElementById("fade_in").id = "visible";<% elsif session[:change] %>document.getElementById("visible").className = "fade-out";<% end %></script>
 
 		</nav>
