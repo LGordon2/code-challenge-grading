@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
 
   def self.authenticate(username, password)
-    user = User.find_by_username(username)
+    user = User.find_by_username(username.downcase)
     return user && user.password == password ? user : nil
   end
 end
