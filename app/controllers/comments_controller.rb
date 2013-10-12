@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     @comment.save
-    render 'october/silver'
+    render "#{session[:month]}/#{session[:league]}"
   end
 
   private

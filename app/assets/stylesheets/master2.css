@@ -64,7 +64,7 @@ p {
     padding-bottom: 22px;  
 }  
 a {
-	color: green;
+	color: #1D62A3;
 }
 nav{
 	position: absolute;
@@ -156,6 +156,28 @@ nav ul li {
     padding: 0;  
     color: #d9f499;  
 }*/
+#challengeRow{
+
+    vertical-align: top;
+}
+#challengeHeader{
+    margin-top: 0;
+    display:table;
+    color: #1D62A3;
+    width: 100%;
+}
+#challengeTitle{
+    vertical-align: middle;
+    display: table-cell;
+    float: left;
+}
+#commentCount{
+    vertical-align: middle;
+    display: table-cell;
+    color: #1D62A3;
+    text-decoration: underline;
+    float: right;
+}
 #content {  
     display: table;  
 }  
@@ -163,15 +185,21 @@ nav ul li {
     #mainContent {  
         display: table-cell;  
         width: 620px;  
-        padding-right: 22px;  
-    }  
+        padding-right: 22px;
+        vertical-align:top;
+    }
+
   
     aside {
-	vertical-align: top;
-	padding-top:125px; 
+        vertical-align:top;
+
         display: table-cell;  
         width: 500px;
-    }  
+    }
+    aside h3{
+    padding-top: 0;
+    text-align: center;
+    }
 .button-link{
 	display:block;
 	width:50px;
@@ -210,7 +238,7 @@ user-select:none;
     border: solid 1px #203E5F;
 }
 aside button{
-	margin-top:25px;
+	margin-top:0px;
 	margin-left:70px;
 }
 aside div button{
@@ -219,23 +247,44 @@ aside div button{
 aside header{
 	margin-top:40px;
 }
-.blogPost{  
-    /* Column-count not implemented yet */  
-    column-count: 1;  
+#content{
+    display: table;
+         }
+#mainContent{
+    display: table-cell;
+}
+#submitPanel{
+    vertical-align:top;
+    display: table-cell;
+}
+/*
+.blogPost{
+    */
+/* Column-count not implemented yet *//*
+
+    column-count: 2;
     margin-top: 40px;  
   
-    /* Column-gap not implemented yet */  
+    */
+/* Column-gap not implemented yet *//*
+
     column-gap: 22px;  
       
 }  
   
-    /*.blogPost header {  
+    */
+/*.blogPost header {
         column-span: all;  
-    } */
+    } *//*
+
 .blogPost img {  
     margin: 22px 0;  
-      
-}   
+*/
+    }
+
+#comments{
+    display: table-row;
+}
 section#comments article:nth-child(odd) {  
     padding: 21px;  
     background: #E3E3E3;  
@@ -253,4 +302,16 @@ section#comments article:nth-child(even) {
     /* Border-radius not implemented yet */  
     -moz-border-radius: 11px;  
     -webkit-border-radius: 11px;  
-} 
+}
+#challengeHeader a{
+    color: #1D62A3;
+}
+#fileButton{
+    visibility: hidden;
+}
+#evaluateButton{
+    visibility: hidden;
+}
+#styledButton{
+    display:block;
+}
