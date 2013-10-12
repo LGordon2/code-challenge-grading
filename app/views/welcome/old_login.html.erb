@@ -1,0 +1,58 @@
+<div id="content">
+	<div id="mainContent">
+		<section>
+			<article class="blogPost">
+
+				<header>
+					<br>
+				</header>
+
+				<%= image_tag("Logo.png",width: 400, height: 400) %>
+			</article>
+		</section>
+
+	</div>
+	<aside>
+		<section>
+
+			<div id="fade_out">
+
+				<header>
+					<h3>Login with Orasi Credentials</h3>
+				</header>
+				<% if flash.now[:alert] %>
+				<div id="error_explanation">
+					<h2><%= flash.now[:alert] %></h2>
+				</div>
+				<% end %>
+				<%= form_tag sessions_path do %>
+				<p>
+					<%= label_tag :username %>
+					<br />
+					<%= text_field_tag :username, params[:username] %>
+				</p>
+				<p>
+					<%= label_tag :password %>
+					<br />
+					<%= password_field_tag :password %>
+				</p>
+				<p class="button">
+					<%= submit_tag "Log in" %>
+				</p>
+				<%= link_to "New user?", 'users/new' %>
+				<% end %>
+				<br>
+
+			</div>
+
+			<% if current_user %>
+
+			<script type="text/javascript"><% if current_user && session[:change] %>document.getElementById("fade_out").className = "fade-out";<% session[:change] = nil %><% elsif current_user %>document.getElementById("fade_out").id = "notVisible";<% elsif session[:change] %>
+    document.getElementById("notVisible").id = "fade_in";
+
+<% end %></script>
+			<% end %>
+		</section>
+
+	</aside>
+</div>
