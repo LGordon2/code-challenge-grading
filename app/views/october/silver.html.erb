@@ -29,15 +29,16 @@
       </aside>
       </div>
     </div>
+  </div>
   <div id="commentRow">
 		<section id="comments">
 			<h3>Comments</h3>
-
+                                 <br>
               <% comments.each do |comment| %>
                   <article>
 				<header>
 					<strong><%= comment.name %></strong> on<time datetime="2009-06-29T23:40:09+01:00"> <%= comment.created_at %>  </time>
-				</header>
+				</header>    <br>
 				<p>
 					<%= comment.comment %>
 				</p>
@@ -46,7 +47,7 @@
 
 		</section>
       <%= form_for :comment, url: {:controller => "comments", :action => "create"} do |f| %>
-
+             <br><br>
 			<h3>Post a comment</h3>
 			<p>
 
@@ -57,12 +58,12 @@
 
 			<p>
               <%= f.label :comment %> <br>
-              <%= f.text_area :comment %>
+              <%= f.text_area :comment, :label => "", :cols => "158", :rows => "5", :placeholder => "Questions? Comments? Concerns? Let us know!" %>
 			</p>
 			<p>
-				<%= f.submit %>
+              <%= f.submit :class =>"btn btn-primary btn-lg" %>
 			</p>
 		<% end %>
 	</div>
-  </div>
-</div>
+
+           <br><br><br>

@@ -6866,3 +6866,71 @@ td.visible-print {
     display: none !important;
   }
 }
+#mainContent {
+  display: table-cell;
+  width: 620px;
+  padding-right: 22px;
+  vertical-align:top;
+}
+
+
+aside {
+  vertical-align:top;
+
+  display: table-cell;
+  width: 500px;
+}
+#content{
+  display: table;
+}
+#mainContent{
+  display: table-cell;
+}
+#submitPanel{
+  vertical-align:top;
+  display: table-cell;
+}
+#comment_row{
+  display:table-row;
+}
+#comments{
+  text-align: left;
+  width: 1000px;
+  display: table-cell;
+  column-span:all;
+  -webkit-column-span:all; /* Safari and Chrome */
+}
+section#comments article:nth-child(odd) {
+  padding: 21px;
+  background: #d7d7d7;
+  border: 1px solid #d7d7d7;
+  color: #296FAB;
+  /* Border-radius not implemented yet */
+  border-radius: 11px;
+  -webkit-border-radius: 11px;
+}
+section#comments article:nth-child(even) {
+  padding: 21px;
+  background: #ffffff;
+  border: 1px solid #E3E3E3;
+  color: #296FAB;
+  /* Border-radius not implemented yet */
+  border-radius: 11px;
+  -webkit-border-radius: 11px;
+}
+textarea{
+  border-radius: 11px;
+}
+section#comments article:nth-child(odd) header{
+  background: #d7d7d7;
+  color: #296FAB;
+}
+#fileButton{
+  visibility: hidden;
+}
+#evaluateButton{
+  visibility: hidden;
+}
+#comments p{
+  color: #296FAB  ;
+}

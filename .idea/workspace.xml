@@ -2,28 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9569bc05-2a0d-40e8-9c96-1756958f13eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/welcome/login.html.erb" afterPath="$PROJECT_DIR$/app/views/welcome/login.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/october/bronze.html.erb" afterPath="$PROJECT_DIR$/app/views/october/bronze.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/october/gold.html.erb" afterPath="$PROJECT_DIR$/app/views/october/gold.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/master2.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/master2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/october/silver.html.erb" afterPath="$PROJECT_DIR$/app/views/october/silver.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/submit.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/submit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="code-challenge-grading.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381621740708" ignored="false" />
+    <file path="/Dummy.txt" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381694970372" ignored="false" />
     <file path="/comments_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381581209372" ignored="false" />
-    <file path="/silver.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381584139521" ignored="false" />
+    <file path="/silver.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381701295887" ignored="false" />
     <file path="/routes.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381545997150" ignored="false" />
-    <file path="/submit.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381613363084" ignored="false" />
+    <file path="/submit.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381700885278" ignored="false" />
     <file path="/application_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381630793935" ignored="false" />
     <file path="/comment.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381549985926" ignored="false" />
     <file path="/login.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381632125878" ignored="false" />
     <file path="/master2.css" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381628500470" ignored="false" />
-    <file path="/bronze.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381629409035" ignored="false" />
-    <file path="/gold.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381608060381" ignored="false" />
+    <file path="/bronze.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381705515893" ignored="false" />
+    <file path="/gold.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381701665933" ignored="false" />
     <file path="/user.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381626463258" ignored="false" />
     <file path="/sessions_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381631678961" ignored="false" />
     <file path="/application.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381628457197" ignored="false" />
     <file path="/users_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381630888339" ignored="false" />
     <file path="/welcome_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381630815685" ignored="false" />
     <file path="/october_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381630760459" ignored="false" />
+    <file path="/bootstrap.css.scss" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381701401520" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +49,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="silver.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/october/silver.html.erb">
+      <file leaf-file-name="application.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="44" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-8.5">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6921" column="22" selection-start="121787" selection-end="121787" vertical-scroll-proportion="-17.04">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/welcome/login.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="40" selection-start="483" selection-end="505" vertical-scroll-proportion="-14.384615">
               <folding />
             </state>
           </provider>
@@ -55,16 +79,34 @@
       <file leaf-file-name="bronze.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/october/bronze.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="65" column="9" selection-start="2011" selection-end="2061" vertical-scroll-proportion="-12.692307">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gold.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="silver.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/october/silver.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="63" selection-start="2039" selection-end="2039" vertical-scroll-proportion="-12.923077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gold.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/october/gold.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="109" selection-start="1549" selection-end="1549" vertical-scroll-proportion="-13.423077">
+            <state line="64" column="59" selection-start="2069" selection-end="2069" vertical-scroll-proportion="1.3411016">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submit.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/submit.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="66" selection-start="75" selection-end="105" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -73,61 +115,7 @@
       <file leaf-file-name="master2.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/master2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="17" selection-start="2326" selection-end="2326" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sessions_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="35" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="54" selection-start="1807" selection-end="1807" vertical-scroll-proportion="-15.307693">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="35" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="october_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/october_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="30" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/welcome/login.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="91" selection-start="888" selection-end="888" vertical-scroll-proportion="0.61187214">
+            <state line="319" column="0" selection-start="5984" selection-end="5984" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -142,6 +130,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GitLogSettings">
     <option name="myDateState">
@@ -151,22 +144,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
         <option value="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/submit.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/views/october/gold.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/october/silver.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/master2.css" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/october/bronze.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/october_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/welcome_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/welcome/login.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/master2.css" />
+        <option value="$PROJECT_DIR$/app/views/layouts/submit.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/october/bronze.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/october/silver.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/october/gold.html.erb" />
       </list>
     </option>
   </component>
@@ -202,6 +195,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -217,34 +212,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -287,10 +254,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -307,6 +270,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="october" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,24 +312,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -378,7 +327,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,102 +353,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Layouts" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.LayoutsFolder" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ControllersFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-challenge-grading" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ApplicationFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ApplicationController" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ControllerClassNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Rails.Development: code-challenge-grading">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -681,7 +551,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="921" extended-state="0" />
+    <frame x="-8" y="-8" width="1696" height="921" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33248407" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -689,7 +559,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18482251" sideWeight="0.66751593" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19216646" sideWeight="0.66751593" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33248407" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -767,114 +637,58 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="265" selection-end="266" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/result.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/submit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="24" selection-start="25" selection-end="25" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="103" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/master2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="17" selection-start="2326" selection-end="2326" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/october/silver.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="44" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-8.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="54" selection-start="1807" selection-end="1807" vertical-scroll-proportion="-15.307693">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/october_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="30" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="40" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="35" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="35" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/october/gold.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="109" selection-start="1549" selection-end="1549" vertical-scroll-proportion="-13.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/october/bronze.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/master2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="319" column="0" selection-start="5984" selection-end="5984" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/welcome/login.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="91" selection-start="888" selection-end="888" vertical-scroll-proportion="0.61187214">
+        <state line="22" column="40" selection-start="483" selection-end="505" vertical-scroll-proportion="-14.384615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6921" column="22" selection-start="121787" selection-end="121787" vertical-scroll-proportion="-17.04">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/submit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="66" selection-start="75" selection-end="105" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/october/bronze.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="9" selection-start="2011" selection-end="2061" vertical-scroll-proportion="-12.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/october/silver.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="63" selection-start="2039" selection-end="2039" vertical-scroll-proportion="-12.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/october/gold.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="59" selection-start="2069" selection-end="2069" vertical-scroll-proportion="1.3411016">
           <folding />
         </state>
       </provider>
