@@ -3,8 +3,10 @@ CodingChallengeGrading::Application.routes.draw do
   resources :sessions
   resources :comments
   #resources :october
+  get 'new_user' => 'users#new'
+  post 'new_user' => 'users#create'
   get 'login' => 'welcome#login'
-  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "logout" => "sessions#destroy"
   get "october/bronze"
   get "october/silver"
   get "october/gold"
@@ -15,7 +17,7 @@ CodingChallengeGrading::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'welcome#login'
+   root 'welcome#root'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

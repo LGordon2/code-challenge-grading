@@ -10,12 +10,9 @@
 		<title>Orasi Coding Challenge</title>
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-
-		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-		<link rel="shortcut icon" href="/favicon.ico">
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-		<%= stylesheet_link_tag "bootstrap3.css" %>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		<%= stylesheet_link_tag "bootstrap.css" %>
+		<%= javascript_include_tag "application.js"%> 
+		
 	</head>
 
 	<body>
@@ -27,7 +24,7 @@
 					<% end %>
 					<ul class="nav nav-pills pull-right">
 						<li>
-							<a href="#">Bronze</a>
+							<%= link_to "Bronze", october_bronze_path%>
 						</li>
 						<li>
 							<%= link_to "Silver", october_silver_path%>
@@ -36,8 +33,17 @@
 							<%= link_to "Gold", october_gold_path %>
 						</li>
 						<li>
+							<% if current_user.nil? %>
 							<%= link_to "Login", login_path %>
+							<% else %>
+							<%= link_to "Logout", logout_path %>
+							<% end %>
 						</li>
+						<% if current_user %>
+						<li>
+							<p>Welcome, <%= current_user.username.capitalize if current_user %></p>
+						</li>
+						<% end %>
 					</ul>
 				</div>
 			</div>
@@ -45,11 +51,8 @@
 		
 		
 		
-		<div class="container text-center">
+		<div class="container">
 		<%= yield %>
-		<footer class="masthead">
-		<a href="https://twitter.com/orasi" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a>
-		</footer>
 		</div>
 		
 		

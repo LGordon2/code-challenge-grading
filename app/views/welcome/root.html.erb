@@ -1,0 +1,5 @@
+<% if current_user%>
+<%= render template: 'welcome/index'%>
+<% else %>
+<%= render template: 'welcome/login' %>
+<% end %>

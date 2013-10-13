@@ -1,7 +1,8 @@
 <div>
-	<h1 class="masthead text-center bigtitle">Orasi Coding Challenge</h1>
+	<h1 class="masthead bigtitle">Orasi Coding Challenge</h1>
 </div>
 <div>
+
 	<%= form_tag sessions_path do %>
 	<p>
 		<%= label_tag :username %>
@@ -9,13 +10,21 @@
 		<%= text_field_tag :username, params[:username] %>
 	</p>
 	<p>
-		<%= label_tag :password %>
+		<%= label_tag :password, nil, class: "align-left" %>
 		<br />
 		<%= password_field_tag :password %>
 	</p>
+	<%if flash[:alert]%>
+	<div id="error_explanation">
+		<h2><%= flash[:alert] %></h2>
+	</div>
+	<%end%>
 	<p class="button">
-		<%= submit_tag "Log in", class: "btn btn-primary btn-lg" %>
+		<%= submit_tag "Login", class: "btn btn-primary btn-lg" %>
 	</p>
-	<%= link_to "New user?", 'users/new' %>
+	<%= link_to "New user?", users_path %>
 	<% end %>
+	<footer class="masthead text-center">
+		<a href="https://twitter.com/orasi" class="twitter-follow-button" data-show-count="true" data-lang="en"></a>
+	</footer>
 </div>

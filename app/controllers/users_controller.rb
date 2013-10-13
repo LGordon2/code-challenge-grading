@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+  
+  def new_user
+    @user = User.new
+  end
 
   # GET /users/1
   # GET /users/1.json
