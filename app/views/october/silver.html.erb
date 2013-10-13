@@ -1,4 +1,68 @@
+<% session[:month] = "october" %>
+<% session[:league] = "silver" %>
 <div id="content">
-	<iframe src="https://docs.google.com/viewer?srcid=0ByiedtMqH31-ZzEwV1J0eDBOUlk&pid=explorer&embedded=true" width="800" height="1024"></iframe>
+  <div id="ChallengeRow">
+	<div id="mainContent">
+		<section>
+			<article class="blogPost">
+                 <% comments = current_comments(session[:league],session[:month]) %>
+              <div id="challengeHeader">
+				<div id="challengeTitle">
+					<h3>Greatest Common Divisor</h3 >
+                  </div>
+              <div id ="commentCount"><a href=#comments>
+                  <%= comments.count %>
+                  Comments</a>
+				</div>
+                </div>
+
+                <iframe src="https://dl.dropboxusercontent.com/u/21712432/SilverLeagueOctober2013.pdf" width="600" height="750"></iframe>
+
+			</article>
+		</section>
+    </div>
+      <div id="submitPanel">
+
+        <aside>
+        <%= render template: 'layouts/submit' %>
+
+      </aside>
+      </div>
+    </div>
+  <div id="commentRow">
+		<section id="comments">
+			<h3>Comments</h3>
+
+              <% comments.each do |comment| %>
+                  <article>
+				<header>
+					<strong><%= comment.name %></strong> on<time datetime="2009-06-29T23:40:09+01:00"> <%= comment.created_at %>  </time>
+				</header>
+				<p>
+					<%= comment.comment %>
+				</p>
+			</article>
+                  <% end %>
+
+		</section>
+      <%= form_for :comment, url: {:controller => "comments", :action => "create"} do |f| %>
+
+			<h3>Post a comment</h3>
+			<p>
+
+                <%= f.hidden_field :name, :value => current_user.username.capitalize %>
+              <%= f.hidden_field :month, :value => session[:month] %>
+              <%= f.hidden_field :league, :value => session[:league] %>
+			</p>
+
+			<p>
+              <%= f.label :comment %> <br>
+              <%= f.text_area :comment %>
+			</p>
+			<p>
+				<%= f.submit %>
+			</p>
+		<% end %>
+	</div>
+  </div>
 </div>
-<%= render template: 'layouts/submit' %>

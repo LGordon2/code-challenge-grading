@@ -1,4 +1,26 @@
-<%= form_tag({action: :result},multipart: true) do %>
-<%= file_field_tag 'script' %>
-<%= submit_tag 'Submit' %>
+
+ <h3> Submit Solution</h3>
+<button onClick="clickFileButton()"> Select File </button>
+<button onClick="clickSubmitButton()"> Submit </button>
+<p id="filePath"></p>
+<%= form_tag({:controller => :october, action: :result},multipart: true,:id => "submissionForm") do %>
+    <%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
+
+
+    <%= submit_tag 'Evaluate', :id => "evaluateButton" %>
 <% end %>
+<script type="text/javascript">
+
+
+  function clickFileButton(){
+
+            document.getElementById("fileButton").click();
+
+        }
+  function getFilePath(){
+      document.getElementById("filePath").innerHTML =document.getElementById("fileButton").files.item(0).name;
+  }
+  function clickSubmitButton(){
+      document.getElementById("submissionForm").submit();
+  }
+    </script>

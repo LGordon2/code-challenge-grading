@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  comment: MyString
+  month: MyString
+  league: MyString
+
+two:
+  name: MyString
+  comment: MyString
+  month: MyString
+  league: MyString
