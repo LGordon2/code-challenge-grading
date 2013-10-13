@@ -50,7 +50,7 @@
         <h3>Post a comment</h3>
         <p>
 
-          <%= f.hidden_field :name, :value => current_user.username.capitalize %>
+          <%= f.hidden_field :name, :value => session[:f_name].capitalize + " " + session[:l_name].capitalize %>
           <%= f.hidden_field :month, :value => session[:month] %>
           <%= f.hidden_field :league, :value => session[:league] %>
         </p>

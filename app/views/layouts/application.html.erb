@@ -27,7 +27,7 @@
 						<%= link_to "Bronze League", october_bronze_path %><!--<a href="#">Bronze League</a>-->
 					</li>
 					<li>
-						<<%= link_to "Silver League", october_silver_path %>
+						<%= link_to "Silver League", october_silver_path %>
 					</li>
 					<li>
 						<%= link_to "Gold League", october_gold_path %>
@@ -52,7 +52,7 @@
 					</li>
 					<li>
 						<p>
-							Welcome, <%= current_user.username.capitalize %>.
+							Welcome, <%= session[:f_name].capitalize %>.
 						</p>
 					</li>
 
@@ -63,9 +63,11 @@
 			<script type="text/javascript"><% if current_user && session[:change] %>document.getElementById("fade_in").className = "fade-in";<% session[:firstLogin] = nil %><% elsif current_user %>document.getElementById("fade_in").id = "visible";<% elsif session[:change] %>document.getElementById("visible").className = "fade-out";<% end %></script>
 
 		</nav>
+        <h6>
 		<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, :id => "flash_#[name}" %>
+		<%= content_tag :div, msg, :id => "flash_#{name}", :class => "error_message" %>
 		<% end %>
+        </h6>
 		<BR>
 		<BR>
 		<div>
