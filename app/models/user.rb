@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-   validates_uniqueness_of :username
-  validates_presence_of :username
   VALID_EMAIL_REGEX = %r{[a-zA-Z]+\.[a-zA-Z]+\@orasi\.com}
   validates_format_of :username, :with => VALID_EMAIL_REGEX , :message => "must be Orasi email address."
 

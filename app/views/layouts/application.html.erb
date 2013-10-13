@@ -9,18 +9,23 @@
 		<title>Orasi Coding Challenge</title>
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 		<%= stylesheet_link_tag "bootstrap.css" %>
-		<%= javascript_include_tag "application.js"%> 
-		
+		<%= javascript_include_tag "application.js"%>
+
 	</head>
 
 	<body>
 		<header>
 			<div class="container">
 				<div class="navbar">
-					<%= link_to root_path do %> 
+					<%= link_to root_path do %>
 					<%= image_tag "Logo.png", width: "50px", height: "auto"%>
 					<% end %>
 					<ul class="nav nav-pills pull-right">
+						<% if current_user.nil? %>
+						<li>
+							<%= link_to "Login", login_path %>
+						</li>
+						<% else %>
 						<li>
 							<%= link_to "Bronze", october_bronze_path%>
 						</li>
@@ -30,30 +35,24 @@
 						<li>
 							<%= link_to "Gold", october_gold_path %>
 						</li>
+
 						<li>
-							<% if current_user.nil? %>
-							<%= link_to "Login", login_path %>
-							<% else %>
 							<%= link_to "Logout", logout_path %>
-							<% end %>
 						</li>
-						<% if current_user %>
 						<li>
-							<p>Welcome, <%= current_user.username.capitalize if current_user %></p>
+							<p>
+								Welcome, <%= session[:f_name].capitalize + " " + session[:l_name].capitalize if current_user %>
+							</p>
 						</li>
 						<% end %>
 					</ul>
 				</div>
 			</div>
 		</header>
-		
-		
-		
+
 		<div class="container">
-		<%= yield %>
+			<%= yield %>
 		</div>
-		
-		
-		
+
 	</body>
 </html>

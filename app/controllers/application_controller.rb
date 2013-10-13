@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :current_comments
-            before_action :require_login
 
   private
 

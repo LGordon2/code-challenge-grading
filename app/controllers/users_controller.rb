@@ -1,14 +1,9 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [:new]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-  end
-  
-  def new_user
-    @user = User.new
   end
 
   # GET /users/1
@@ -19,7 +14,6 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-
   end
 
   # GET /users/1/edit
