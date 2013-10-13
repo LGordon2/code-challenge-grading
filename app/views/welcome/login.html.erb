@@ -40,10 +40,10 @@
 					<%= submit_tag "Log in" %>
 
 				</p>
-                  <%= button_to "New User", new_user_path, :class => "button"  %>
+
 				<% end %>
 				<br>
-
+              <%= button_to "New User", new_user_path, :class => "button", :method => "get"  %>
 			</div>
 
 			<% if current_user %>
