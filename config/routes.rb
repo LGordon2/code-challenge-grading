@@ -5,6 +5,7 @@ CodingChallengeGrading::Application.routes.draw do
   #resources :october
   get 'new_user' => 'users#new'
   post 'new_user' => 'users#create'
+  get 'create_success' => 'users#show'
   get 'login' => 'welcome#login'
   get "logout" => "sessions#destroy"
   get "october/bronze"

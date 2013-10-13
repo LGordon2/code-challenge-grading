@@ -1,14 +1,14 @@
 <% session[:month] = "october" %>
 <% session[:league] = "bronze" %>
-<div id="content">
+<div id="content" class='text-center'>
   <div id="ChallengeRow">
     <div id="mainContent">
       <section>
         <article class="blogPost">
           <% comments = current_comments(session[:league],session[:month]) %>
           <div id="challengeHeader">
-            <div id="challengeTitle">
-              <h3>Factorials</h3>
+            <div id="challengeTitle" class='bigtitle'>
+              <h1>Factorials</h1>
             </div>
             <div id ="commentCount"><a href=#comments>
               <%= comments.count %>

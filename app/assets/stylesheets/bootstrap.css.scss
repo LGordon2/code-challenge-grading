@@ -12,6 +12,11 @@
 
 $orasi_blue: #296FAB;
 
+.field{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .challenge_link{
     transition:color 1s;
   -webkit-transition:color 1s;
@@ -42,6 +47,7 @@ $orasi_blue: #296FAB;
   ul li {
     font-size: 12px;
     list-style: square;
+    color: red;
   }
 }
 

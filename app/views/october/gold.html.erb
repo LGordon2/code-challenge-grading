@@ -1,14 +1,14 @@
 <% session[:month] = "october" %>
 <% session[:league] = "gold" %>
-<div id="content">
+<div id="content" class='text-center'>
   <div id="ChallengeRow">
     <div id="mainContent">
       <section>
         <article class="blogPost">
           <% comments = current_comments(session[:league],session[:month]) %>
           <div id="challengeHeader">
-            <div id="challengeTitle">
-              <h3>Finding Reducible Primes</h3>
+            <div id="challengeTitle" class='bigtitle'>
+              <h1>Finding Reducible Primes</h1>
             </div>
             <div id ="commentCount"><a href=#comments>
               <%= comments.count %>
