@@ -1,5 +1,5 @@
-<% challenge_type = request.env['HTTP_REFERER'].split('/').last %>
-<% challenge_month = params[:controller] %>
+<% challenge_type = session[:league] %>
+<% challenge_month = session[:month] %>
 <h1>Results for <%= challenge_month.capitalize + " " + challenge_type.capitalize %></h1>
 <p>
 	<script type='text/vbscript'>
