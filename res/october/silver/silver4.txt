@@ -8,12 +8,12 @@ Dim expectedGCD_testCase4
 Dim actualGCD_testCase4
 
 expectedGCD_testCase4 = 1
-actualGCD_testCase4 = SilverChallenge(Array(100, 20, 50, 840, 1230, 90, 180, 9040))
+actualGCD_testCase4 = function_name(Array(100, 20, 50, 840, 1230, 90, 180, 9040))
 document.write("Expected GCD: "& expectedGCD_testCase4 &"<BR>")
 document.write("Actual GCD:"&actualGCD_testCase4&"<BR>")
 
 If actualGCD_testCase4 = expectedGCD_testCase4 Then
-	document.write("<font color=""green"">PASS</font><BR>")
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
 Else
 	document.write("<font color=""red"">FAIL</font><BR>")
 End If

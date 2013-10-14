@@ -5,7 +5,7 @@ Dim expectedFactorial_testCase5
 Dim actualFactorial_testCase5
 
 expectedFactorial_testCase5 = 3628800
-actualFactorial_testCase5 = SilverChallenge(10)
+actualFactorial_testCase5 = function_name(10)
 document.write("Expected 10!: "& expectedFactorial_testCase5 &"<BR>")
 document.write("Actual 10!:"&actualFactorial_testCase5&"<BR>")
 

@@ -9,16 +9,17 @@ Dim elapsedTime_testCase5
 
 expectedGCD_testCase5 = 1
 startTime_testCase5 = Timer
-actualGCD_testCase5 = SilverChallenge(Array(100, 20, 50, 840, 1230, 90, 180, 9040))
+actualGCD_testCase5 = function_name(Array(100, 20, 50, 840, 1230, 90, 180, 9040))
 elapsedTime_testCase5 = Timer - startTime_testCase5
 
-document.write("Execution time: "& elapsedTime &"<BR>")
+document.write("Execution time: "& elapsedTime_testCase5 &"<BR>")
 
 If elapsedTime_testCase5 < 60 Then
-	startTime = Timer
-	document.write("<font color=""green"">PASS</font><BR>")
-	elapsedTime = Timer - startTime
+
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+
 Else
+
 	document.write("<font color=""red"">FAIL</font><BR>")
 End If
 document.write("*****************")

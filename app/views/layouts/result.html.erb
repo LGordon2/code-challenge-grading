@@ -4,10 +4,11 @@
 <p>
 	<script type='text/vbscript'>
 	<%= params[:script].read.html_safe %>
-
+      <% functionName = session[:f_name].capitalize + session[:l_name].capitalize %>
 	<% Dir.entries('res/'+challenge_month+'/'+challenge_type).each do |file| %>
     <% if(File.directory?(file)==false) %>
-    <%= File.read('res/'+challenge_month+"/"+challenge_type+"/"+file).html_safe %>
+    <% function_script = File.read('res/'+challenge_month+"/"+challenge_type+"/"+file) %>
+     <%= function_script.gsub('function_name', functionName).html_safe %>
     document.write("<BR><BR>")
 	<% end %> 
 	<% end %>

@@ -5,8 +5,8 @@ Dim testCase4
 Dim expectedFactorial_testCase4
 Dim actualFactorial_testCase4
 
-expectedFactorial_testCase1 = 720
-actualFactorial_testCase4 = SilverChallenge(6)
+expectedFactorial_testCase4 = 720
+actualFactorial_testCase4 = function_name(6)
 document.write("Expected 6!: "& expectedFactorial_testCase4 &"<BR>")
 document.write("Actual 6!:"&actualFactorial_testCase4&"<BR>")
 
