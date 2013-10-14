@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9569bc05-2a0d-40e8-9c96-1756958f13eb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/Logo (1).png" />
-      <change type="DELETED" beforePath="C:\Users\Linley's\Desktop\ChallengeSite\code-challenge-grading\res\october\silver\test_case1.vbs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Linley's\Desktop\ChallengeSite\code-challenge-grading\res\october\silver\test_case2.vbs" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/october/bronze/bronze1.txt" afterPath="$PROJECT_DIR$/res/october/bronze/bronze1.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/october/bronze/bronze2.txt" afterPath="$PROJECT_DIR$/res/october/bronze/bronze2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/october/bronze/bronze3.txt" afterPath="$PROJECT_DIR$/res/october/bronze/bronze3.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/october/bronze/bronze4.txt" afterPath="$PROJECT_DIR$/res/october/bronze/bronze4.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/october/bronze/bronze5.txt" afterPath="$PROJECT_DIR$/res/october/bronze/bronze5.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/october/gold/NoTestCasesExist.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/submit.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/submit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -22,7 +12,7 @@
     <file path="/comments_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381581209372" ignored="false" />
     <file path="/silver.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381701295887" ignored="false" />
     <file path="/routes.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381545997150" ignored="false" />
-    <file path="/submit.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381716300012" ignored="false" />
+    <file path="/submit.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381717089502" ignored="false" />
     <file path="/application_controller.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381630793935" ignored="false" />
     <file path="/comment.rb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381549985926" ignored="false" />
     <file path="/login.html.erb" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381632125878" ignored="false" />
@@ -39,6 +29,7 @@
     <file path="/bronze1.txt" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381707257379" ignored="false" />
     <file path="/bronze2.txt" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381707310049" ignored="false" />
     <file path="/application.js" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381716207372" ignored="false" />
+    <file path="/gold1.txt" changelist="9569bc05-2a0d-40e8-9c96-1756958f13eb" time="1381717444724" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +49,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="submit.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="submit.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/submit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="2" selection-start="538" selection-end="559" vertical-scroll-proportion="-7.8461537">
+            <state line="1" column="0" selection-start="17" selection-end="45" vertical-scroll-proportion="0.03803132">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoTestCasesExist.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/october/gold/NoTestCasesExist.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,10 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="12" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.8152174">
+            <state line="32" column="0" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -87,10 +87,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="bronze.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/october/bronze.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="bootstrap.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6937" column="25" selection-start="122025" selection-end="122025" vertical-scroll-proportion="0.0">
+            <state line="6937" column="16" selection-start="122025" selection-end="122025" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,7 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/welcome/login.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/master2.css" />
@@ -134,6 +142,7 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/res/october/gold/gold1.txt" />
         <option value="$PROJECT_DIR$/app/views/layouts/submit.html.erb" />
       </list>
     </option>
@@ -209,6 +218,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="silver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-challenge-grading" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-challenge-grading" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="october" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gold" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -435,6 +466,9 @@
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Linley's\Desktop\ChallengeSite\code-challenge-grading\res\october\gold" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Linley's\Desktop\ChallengeSite\code-challenge-grading\app\assets\images" />
       <recent name="C:\Users\Linley's\Desktop\ChallengeSite\code-challenge-grading\res\october\silver" />
@@ -484,6 +518,32 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
       <method />
     </configuration>
+    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
       <module name="" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -498,6 +558,28 @@
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method />
     </configuration>
     <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
@@ -711,20 +793,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/october/gold.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="59" selection-start="869" selection-end="869" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/october/bronze/bronze5.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="34" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
@@ -804,24 +872,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6937" column="25" selection-start="122025" selection-end="122025" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/submit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="538" selection-end="559" vertical-scroll-proportion="-7.8461537">
+        <state line="6937" column="16" selection-start="122025" selection-end="122025" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="12" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.8152174">
+        <state line="32" column="0" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/october/bronze.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/october/gold/NoTestCasesExist.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/submit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="17" selection-end="45" vertical-scroll-proportion="0.03803132">
+          <folding />
         </state>
       </provider>
     </entry>
