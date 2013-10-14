@@ -1,13 +1,18 @@
 <h3> Submit Solution</h3>         <br>
-<button onClick="clickFileButton()" class="btn btn-primary btn-lg">
-	Select File
-</button>
-<button onClick="clickSubmitButton()" class="btn btn-primary btn-lg">
-	Submit
-</button>
-<p id="filePath"></p>
-<%= form_tag({:controller => :october, action: :result},multipart: true,:id => "submissionForm") do %>
-<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
+<div id="submitButtonPanel">
 
-<%= submit_tag 'Evaluate', :id => "evaluateButton" %>
+
+<%= form_tag({:controller => :october, action: :result},multipart: true,:id => "submissionForm") do %>
+
+<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
+      <%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
+<%= submit_tag 'Evaluate', :id => "evaluateButton", :onClick =>"clickSubmitButton();return false" %>
+<%= label_tag(:evaluateButton, "Evaluate",:class => "btn btn-primary btn-lg") %>
+
 <% end %>
+  <p id="filePath"></p>
+</div>
+
+<div id="loadingPanel">
+   <h3> Results are Loading. <br> Please be patient...</h3>
+    </div>

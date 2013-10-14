@@ -9,7 +9,7 @@ document.write("Expected 0!: "& expectedFactorial_testCase1 &"<BR>")
 document.write("Actual 0!:"&actualFactorial_testCase1&"<BR>")
 
 If actualFactorial_testCase1 = expectedFactorial_testCase1 Then
-	document.write("<font color=""green"">PASS</font><BR>")
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
 Else
 	document.write("<font color=""red"">FAIL</font><BR>")
 End If
