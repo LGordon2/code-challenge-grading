@@ -1,0 +1,6 @@
+<% Submission.joins(:user).each do |submission| %>
+<code>
+<%= submission.submission_code %>
+</code>
+<BR>
+<% end %>

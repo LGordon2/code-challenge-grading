@@ -10,5 +10,9 @@ class OctoberController < ChallengeMonthController
   end
   
   def result
+    submission = Submission.new
+    submission.user_id = session[:user_id]
+    submission.submission_code = params[:script].read
+    submission.save
   end
 end
