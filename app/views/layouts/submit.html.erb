@@ -5,7 +5,7 @@
 
 
 <%= form_tag({:controller => :october, action: :result},multipart: true,:id => "submissionForm") do %>
-
+<% params[:league] = action_name %>
 <%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
       <%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
 <%= submit_tag 'Evaluate', :id => "evaluateButton", :onClick =>"clickSubmitButton();return false" %>

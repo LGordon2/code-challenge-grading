@@ -10,9 +10,11 @@ class OctoberController < ChallengeMonthController
   end
   
   def result
-    submission = Submission.new
-    submission.user_id = session[:user_id]
-    submission.submission_code = params[:script].read
-    submission.save
+    @submission = Submission.new
+    @submission.user_id = session[:user_id]
+    @submission.submission_code = params[:script].read
+    @submission.month = controller_name
+    @submission.league = request.env['HTTP_REFERER'].match(controller_name+'/(\w+)/?')[1]
+    @submission.save
   end
 end

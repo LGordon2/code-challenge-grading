@@ -1,6 +1,13 @@
 <% Submission.joins(:user).each do |submission| %>
+<% if !submission.submission_code.nil? %>
+<%= submission.month.capitalize.to_s+' '+submission.league.capitalize %> Submitted on: <%= submission.created_at %>
+<pre>
 <code>
-<%= submission.submission_code %>
+<% submission.submission_code.lines do |line| %>
+<%= line %>
+<% end %>
 </code>
-<BR>
+</pre>
+<% end %>
+ <BR>
 <% end %>
