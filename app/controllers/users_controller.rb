@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     
     @user = User.new(user_params)
     @user.username = @user.username.downcase
-
+    @user.first_name,@user.last_name = @user.username.split('@').first.split('.')
     respond_to do |format|
       if @user.save
         format.html { redirect_to create_success_path, notice: 'User was successfully created.' }

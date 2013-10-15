@@ -45,7 +45,7 @@
 						</li>
 						<li>
 							<p>
-								Welcome, <%= session[:f_name].capitalize + " " + session[:l_name].capitalize if current_user %>
+								Welcome, <%= link_to current_user.first_name.capitalize + ' ' + current_user.last_name.capitalize, :profile %>
 							</p>
 						</li>
 						<% end %>

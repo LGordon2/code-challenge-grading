@@ -48,14 +48,14 @@
       <% end %>
 
     </section>
-    <%= form_for :comment, url: {:controller => "comments", :action => "create"} do |f| %>
+    <%= form_for :comment do |f| %>
         <br><br>
         <h3>Post a comment</h3>
         <p>
 
-          <%= f.hidden_field :name, :value => session[:f_name].capitalize + " " + session[:l_name].capitalize %>
-          <%= f.hidden_field :month, :value => session[:month] %>
-          <%= f.hidden_field :league, :value => session[:league] %>
+          <%= f.hidden_field :name, :value => current_user.capitalize + " " + current_user.capitalize %>
+          <%= f.hidden_field :month, :value => controller_name %>
+          <%= f.hidden_field :league, :value => action_name %>
         </p>
 
         <p>

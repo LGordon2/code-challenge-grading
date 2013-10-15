@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     @comment.save
-    render "#{session[:month]}/#{session[:league]}"
+    redirect_to :back
   end
 
   private
