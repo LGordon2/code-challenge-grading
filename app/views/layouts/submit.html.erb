@@ -1,20 +1,23 @@
-<br><br><br><Br>
+<br>
+<br>
+<br>
+<Br>
 <div id="submitButtonPanel">
-<h3> Submit Solution</h3>         <br>
+	<h3> Submit Solution</h3>
+	<br>
 
+	<%= form_tag(action_name, method: :post,multipart: true,:id => "submissionForm") do %>
+	<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
+	<%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
+	<%= submit_tag 'Evaluate', :id => "evaluateButton", :onClick =>"clickSubmitButton();return false" %>
+	<%= label_tag(:evaluateButton, "Evaluate",:class => "btn btn-primary btn-lg") %>
 
-
-<%= form_tag({:controller => :october, action: :result},multipart: true,:id => "submissionForm") do %>
-
-<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
-      <%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
-<%= submit_tag 'Evaluate', :id => "evaluateButton", :onClick =>"clickSubmitButton();return false" %>
-<%= label_tag(:evaluateButton, "Evaluate",:class => "btn btn-primary btn-lg") %>
-
-<% end %>
-  <p id="filePath"></p>
+	<% end %>
+	<p id="filePath"></p>
 </div>
 
 <div id="loadingPanel">
-   <h3> Results are Loading. <br> Please be patient...</h3>
-    </div>
+	<h3> Results are Loading.
+	<br>
+	Please be patient...</h3>
+</div>

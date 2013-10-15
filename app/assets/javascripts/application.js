@@ -28,7 +28,7 @@ function clickSubmitButton() {
     $('#submitButtonPanel').fadeOut("slow",function(){
         $('#loadingPanel').fadeIn("slow").delay(2000,function(){
 
-            document.getElementById("submissionForm").submit();
+            $("#submissionForm").submit();
 
 
         });

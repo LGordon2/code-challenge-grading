@@ -8,7 +8,4 @@ class OctoberController < ChallengeMonthController
 
   def gold
   end
-  
-  def result
-  end
 end
