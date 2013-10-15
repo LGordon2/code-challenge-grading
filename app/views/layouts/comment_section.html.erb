@@ -1,0 +1,44 @@
+<% comments = Comment.where(month: controller_name, league: action_name) %>
+<div id="commentRow">
+	<section id="comments">
+		<br>
+		<h3>Comments</h3>
+		<br>
+		<% comments.each do |comment| %>
+		<article>
+			<header>
+				<strong><%= comment.name %></strong> on
+				<time datetime="2009-06-29T23:40:09+01:00">
+					<%= comment.created_at %>
+				</time>
+			</header>
+			<br>
+			<p>
+				<%= comment.comment %>
+			</p>
+		</article>
+		<% end %>
+
+	</section>
+
+	<%= form_for :comment, url: :comments, method: :post do |f| %>
+	<br>
+	<br>
+	<h3>Post a comment</h3>
+	<p>
+
+		<%= f.hidden_field :name, :value => current_user.first_name.capitalize + " " + current_user.last_name.capitalize %>
+		<%= f.hidden_field :month, :value => controller_name %>
+		<%= f.hidden_field :league, :value => action_name %>
+	</p>
+
+	<p>
+		<%= f.label :comment %>
+		<br>
+		<%= f.text_area :comment, :label => "", :cols => "158", :rows => "5", :placeholder => "Questions? Comments? Concerns? Let us know!" %>
+	</p>
+	<p>
+		<%= f.submit :class =>"btn btn-primary btn-lg" %>
+	</p>
+	<% end %>
+</div>
