@@ -2,7 +2,15 @@
 <div id="submitButtonPanel">
 <h3> Submit Solution</h3>         <br>
 
+<script type="text/javascript">
+	 var browserIsIE;
+</script>
+<script type='text/vbscript'>
+	browserIsIE=true
+</script>
 
+
+<div id="SubmissionForm">
 
 <%= form_tag({:controller => :october, action: :result},multipart: true,:id => "submissionForm") do %>
 
@@ -13,8 +21,25 @@
 
 <% end %>
   <p id="filePath"></p>
+  </div>
 </div>
 
 <div id="loadingPanel">
    <h3> Results are Loading. <br> Please be patient...</h3>
     </div>
+<div id="NonIEWarning">
+	<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.<br> Please use Internet Explorer to upload files.</h3>
+</div>
+<script type="text/javascript">
+   
+   document.getElementById("NonIEWarning").style.display='none';
+   if(browserIsIE==true){
+   	document.getElementById("SubmissionForm").style.display='block';
+   	document.getElementById("NonIEWarning").style.display='none';
+   }else{
+   	document.getElementById("NonIEWarning").style.display='block';
+   	document.getElementById("SubmissionForm").style.display='none';
+   }
+   	
+</script>
+
