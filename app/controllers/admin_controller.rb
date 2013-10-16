@@ -1,4 +1,6 @@
 class AdminController < ApplicationController
+  before_action :validate_user_is_admin 
+  
   def update
     user = User.find(params[:id])
     user.password = params[:user][:password]
@@ -10,4 +12,10 @@ class AdminController < ApplicationController
       redirect_to :back 
     end
   end
+  
+  private 
+  
+    def validate_user_is_admin
+      redirect_to root_path, notice: "Insufficient privileges" unless current_user.admin  
+    end
 end

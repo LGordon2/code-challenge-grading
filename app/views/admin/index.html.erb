@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% User.where('id!=?',current_user.id).each do |user| %>
+    <% User.where.not(id: current_user.id).each do |user| %>
       <tr>
         <td><%= user.username %></td>
         <td><%= link_to 'Edit', user %></td>
