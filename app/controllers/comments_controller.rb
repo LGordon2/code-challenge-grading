@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :verify_user, only: :destroy
   def new
   end
 
@@ -18,6 +19,8 @@ class CommentsController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:month, :league, :comment, :name)
-
+    end
+    def verify_user
+      redirect_to :back, notice: "Insufficient privileges" unless current_user.admin or Comment.find(params[:id]).user_id==current_user.id
     end
 end
