@@ -10,6 +10,9 @@
 </script>
 
 <div id="submitButtonPanel">
+	<% if current_user.admin %>
+	<%= link_to "Get all submissions", october_bronze_all_path %>
+	<% end %>
 	<h3> Submit Solution</h3>
 	<br>
 	<%= form_tag(action_name, method: :post,multipart: true,:id => "submissionForm") do %>

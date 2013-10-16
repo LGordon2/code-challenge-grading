@@ -1,4 +1,4 @@
-<% Submission.joins(:user).order('created_at DESC').each do |submission| %>
+<% Submission.joins(:user).where(user_id: current_user.id).order('created_at DESC').each do |submission| %>
 <% if !submission.submission_code.nil? %>
 <%= submission.month.capitalize.to_s+' '+submission.league.capitalize %> submitted on: <%= submission.created_at.localtime.strftime('%b %e \'%g at %R') %>
 <pre>

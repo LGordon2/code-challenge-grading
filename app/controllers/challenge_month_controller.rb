@@ -24,4 +24,8 @@ class ChallengeMonthController < ApplicationController
   def challenge_month
     controller_name
   end
+  
+  def submission_json
+    render json: Submission.where(month: challenge_month, league: challenge_league).select(:submission_code).to_a
+  end
 end
