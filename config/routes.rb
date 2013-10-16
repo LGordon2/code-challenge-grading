@@ -12,6 +12,8 @@ CodingChallengeGrading::Application.routes.draw do
   get "october/bronze"
   get "october/silver"
   get "october/gold"
+  get 'admin' => 'admin#index'
+  delete '/admin/:id' => 'users#destroy', as: :user
   post 'october/bronze' => 'october#result'
   post 'october/silver' => 'october#result'
   post "october/gold" => 'october#result'

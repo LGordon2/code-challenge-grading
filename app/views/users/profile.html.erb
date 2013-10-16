@@ -1,4 +1,4 @@
-<% Submission.joins(:user).each do |submission| %>
+<% Submission.joins(:user).order('created_at DESC').each do |submission| %>
 <% if !submission.submission_code.nil? %>
 <%= submission.month.capitalize.to_s+' '+submission.league.capitalize %> Submitted on: <%= submission.created_at %>
 <pre>

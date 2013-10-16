@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    user = User.authenticate(params[:username].downcase, params[:password])
-    if user
+    if user = User.authenticate(params[:username].downcase, params[:password])
       session[:user_id] = user.id
       session[:change] = true
       redirect_to root_url, :notice => "Logged In"
