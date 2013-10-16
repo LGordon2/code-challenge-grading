@@ -26,3 +26,4 @@ Changing password for <%= User.find(params[:id]).username %>
 	<%= f.submit options={:class => 'btn btn-primary btn-lg', :url=>:admin} %>
 </div>
 <% end %>
+<%= link_to "Back", :admin %>
