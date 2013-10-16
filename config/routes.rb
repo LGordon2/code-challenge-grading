@@ -18,7 +18,7 @@ CodingChallengeGrading::Application.routes.draw do
   post 'october/bronze' => 'october#result'
   post 'october/silver' => 'october#result'
   post "october/gold" => 'october#result'
-  get 'october/bronze/all' => 'october#submission_json'
+  get 'all_submissions' => 'october#submission_json'
   get "welcome/index"
   delete "comments/:id" => "comments#destroy"
   delete "submissions/:id" => "profile#destroy" , as: :submission
