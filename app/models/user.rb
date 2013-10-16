@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :submissions
   validates :username, presence:true, uniqueness: {case_sensitive: false}
 
   validates_confirmation_of :password

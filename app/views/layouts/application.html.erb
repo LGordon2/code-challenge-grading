@@ -45,8 +45,12 @@
 						</li>
 						<li>
 							<p>
-								Welcome, <%= session[:f_name].capitalize + " " + session[:l_name].capitalize if current_user %>
+								Welcome, <%= link_to current_user.first_name.capitalize + ' ' + current_user.last_name.capitalize, :profile %>
 							</p>
+						</li>
+						<li>
+							<% require 'digest/md5' %>
+							<%= image_tag("http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(current_user.username)}?s=50&r=g&d=blank")%>
 						</li>
 						<% end %>
 					</ul>

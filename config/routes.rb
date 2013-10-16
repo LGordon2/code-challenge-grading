@@ -4,6 +4,7 @@ CodingChallengeGrading::Application.routes.draw do
   resources :comments
   #resources :october
   get 'new_user' => 'users#new'
+  get 'profile' => 'users#profile'
   post 'new_user' => 'users#create'
   get 'create_success' => 'users#show'
   get 'login' => 'welcome#login'
@@ -11,8 +12,10 @@ CodingChallengeGrading::Application.routes.draw do
   get "october/bronze"
   get "october/silver"
   get "october/gold"
+  post 'october/bronze' => 'october#result'
+  post 'october/silver' => 'october#result'
+  post "october/gold" => 'october#result'
   get "welcome/index"
-  post "october" => 'october#result'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
