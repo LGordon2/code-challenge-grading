@@ -8,6 +8,7 @@
 <script type='text/vbscript'>
 	browserIsIE=true
 </script>
+
 <div id="submitButtonPanel">
 	<h3> Submit Solution</h3>
 	<br>
@@ -26,9 +27,11 @@
 	<br>
 	Please be patient...</h3>
 </div>
+<% if !request.env['HTTP_USER_AGENT'].include?'MSIE' %>
 <div id="NonIEWarning">
 	<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.<br> Please use Internet Explorer to upload files.</h3>
 </div>
+<% end %>
 <script type="text/javascript">
    
    document.getElementById("NonIEWarning").style.display='none';
