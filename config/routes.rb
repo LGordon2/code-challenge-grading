@@ -1,8 +1,7 @@
 CodingChallengeGrading::Application.routes.draw do
-  get "sessions/new"
   resources :sessions
   resources :comments
-  #resources :october
+  get "sessions/new"
   get 'new_user' => 'users#new'
   get 'profile' => 'users#profile'
   post 'new_user' => 'users#create'

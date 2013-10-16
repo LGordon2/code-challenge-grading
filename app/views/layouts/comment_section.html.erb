@@ -7,7 +7,10 @@
 		<% comments.each do |comment| %>
 		<article>
 			<header>
-				<strong><%= comment.name %></strong> on
+				<% comment_user = User.find(comment.user_id) %>
+				<% require 'digest/md5' %>
+				<%= image_tag("http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(comment_user.username)}?s=50&r=g&d=mm")%>
+				<strong><%= comment_user.first_name.capitalize + ' ' + comment_user.last_name.capitalize %></strong> on
 				<time datetime="2009-06-29T23:40:09+01:00">
 					<%= comment.created_at %>
 				</time>
@@ -16,13 +19,9 @@
 			<p>
 				<%= comment.comment %>
 			</p>
+			<% if comment.user_id == current_user.id or current_user.admin %>
 			<%= link_to 'Delete', comment_path(comment),:method => :delete, data: {confirm: "Are you sure you want to delete this comment?" }, :id => comment.id %>
-                <script type="text/javascript">
-                    $("#commentTest").hide();
-                  if ("<%= current_user.first_name.capitalize + " " + current_user.last_name.capitalize %>"!= "<%= comment.name %>"){
-                 $("#<%= comment.id %>").hide();
-                  }
-                </script>
+			<% end %>
 		</article>
 		<% end %>
 
@@ -33,8 +32,6 @@
 	<br>
 	<h3>Post a comment</h3>
 	<p>
-
-		<%= f.hidden_field :name, :value => current_user.first_name.capitalize + " " + current_user.last_name.capitalize %>
 		<%= f.hidden_field :month, :value => controller_name %>
 		<%= f.hidden_field :league, :value => action_name %>
 	</p>
