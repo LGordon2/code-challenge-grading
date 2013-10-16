@@ -11,7 +11,7 @@
 				<%= image_tag("http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(comment_user.username)}?s=50&r=g&d=mm")%>
 				<strong><%= comment_user.first_name.capitalize + ' ' + comment_user.last_name.capitalize %></strong> on
 				<time datetime="2009-06-29T23:40:09+01:00">
-					<%= comment.created_at %>
+					<%= comment.created_at.localtime.strftime('%b %e \'%g at %R') %>
 				</time>
 			</header>
 			<br>

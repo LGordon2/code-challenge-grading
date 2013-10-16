@@ -1,6 +1,6 @@
 <% Submission.joins(:user).order('created_at DESC').each do |submission| %>
 <% if !submission.submission_code.nil? %>
-<%= submission.month.capitalize.to_s+' '+submission.league.capitalize %> Submitted on: <%= submission.created_at %>
+<%= submission.month.capitalize.to_s+' '+submission.league.capitalize %> submitted on: <%= submission.created_at.localtime.strftime('%b %e \'%g at %R') %>
 <pre>
 <code>
 <% submission.submission_code.lines do |line| %>
