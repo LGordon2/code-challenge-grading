@@ -13,6 +13,7 @@ CodingChallengeGrading::Application.routes.draw do
   get "october/gold"
   get "welcome/index"
   post "october" => 'october#result'
+  delete "comments/:id" => "comments#destroy"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
