@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
     begin
       @_current_user ||= User.find(session[:user_id]) if session[:user_id]
     rescue
-      @_current_user=nil
       session[:user_id] = nil
       session[:change] = true
     end
