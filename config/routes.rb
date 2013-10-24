@@ -1,11 +1,9 @@
 CodingChallengeGrading::Application.routes.draw do
+  get "profile/view"
+  get "admin/index"
   resources :sessions
   resources :comments
   get "sessions/new"
-  get 'new_user' => 'users#new'
-  get 'profile' => 'users#profile'
-  post 'new_user' => 'users#create'
-  get 'create_success' => 'users#show'
   get 'login' => 'welcome#login'
   get "logout" => "sessions#destroy"
   get "october/bronze"
