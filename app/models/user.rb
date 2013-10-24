@@ -1,3 +1,5 @@
+require 'bcrypt'
+require 'net/ldap'
 class User < ActiveRecord::Base
   include BCrypt
   
@@ -10,8 +12,17 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => VALID_EMAIL_REGEX , :message => "must be Orasi email address."
 
   def self.authenticate(username, password)
-    user = User.find_by_username(username.downcase)
-    return user && user.password == password ? user : nil
+     first_part_username,_ = username.split('@')  
+     ldap = Net::LDAP.new :host => '10.238.242.32',
+     :port => 389,
+     :auth => {
+           :method => :simple,
+           :username => "ORASI\\#{first_part_username}",
+           :password => password
+     }
+     return ldap.bind ? User.find_by_username(username.downcase) : nil
+    #user = User.find_by_username(username.downcase)
+    #return user && user.password == password ? user : nil
   end
 
   def password
