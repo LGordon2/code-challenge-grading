@@ -2,17 +2,13 @@
 <br>
 <br>
 <Br>
-	<script type="text/javascript">
-	 var browserIsIE;
-</script>
-<script type='text/vbscript'>
-	browserIsIE=true
-</script>
-
+<script type="text/javascript">var browserIsIE;</script>
+<script type='text/vbscript'>browserIsIE = true</script>
+<% if current_user.admin %>
+<%= link_to "Get all submissions", all_submissions_path %>
+<% end %>
 <div id="submitButtonPanel">
-	<% if current_user.admin %>
-	<%= link_to "Get all submissions", all_submissions_path %>
-	<% end %>
+
 	<h3> Submit Solution</h3>
 	<br>
 	<%= form_tag(action_name, method: :post,multipart: true,:id => "submissionForm") do %>
@@ -32,18 +28,19 @@
 </div>
 <% if !request.env['HTTP_USER_AGENT'].include?'MSIE' %>
 <div id="NonIEWarning">
-	<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.<br> Please use Internet Explorer to upload files.</h3>
+	<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.
+	<br>
+	Please use Internet Explorer to upload files.</h3>
 </div>
 <% end %>
 <script type="text/javascript">
-   
-   document.getElementById("NonIEWarning").style.display='none';
-   if(browserIsIE==true){
-   	document.getElementById("submitButtonPanel").style.display='block';
-   	document.getElementById("NonIEWarning").style.display='none';
-   }else{
-   	document.getElementById("NonIEWarning").style.display='block';
-   	document.getElementById("submitButtonPanel").style.display='none';
-   }
-   	
+    document.getElementById("NonIEWarning").style.display = 'none';
+    if (browserIsIE == true) {
+        document.getElementById("submitButtonPanel").style.display = 'block';
+        document.getElementById("NonIEWarning").style.display = 'none';
+    } else {
+        document.getElementById("NonIEWarning").style.display = 'block';
+        document.getElementById("submitButtonPanel").style.display = 'none';
+    }
+
 </script>
