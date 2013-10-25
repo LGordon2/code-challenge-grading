@@ -1,0 +1,17 @@
+document.write("****Test Case 1****<BR>")
+Dim testCase1
+Dim expectedNonReducingPrime_testCase1
+Dim actualNonReducingPrime_testCase1
+
+expectedNonReducingPrime_testCase1 = 111
+actualNonReducingPrime_testCase1 = function_name(99)
+document.write("Expected 0!: "& expectedNonReducingPrime_testCase1 &"<BR>")
+document.write("Actual 0!:"&actualNonReducingPrime_testCase1&"<BR>")
+
+If actualNonReducingPrime_testCase1 = expectedNonReducingPrime_testCase1 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+
