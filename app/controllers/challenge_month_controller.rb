@@ -26,6 +26,6 @@ class ChallengeMonthController < ApplicationController
   end
   
   def submission_json
-    render json: Submission.group(:user_id).having('max(created_at)').select(:submission_code).to_a
+    render json: Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').select(:submission_code).to_a
   end
 end

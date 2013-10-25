@@ -9,12 +9,19 @@ class ApplicationController < ActionController::Base
   private
   
   def current_user
-    @_current_user ||= User.find(session[:user_id]) if session[:user_id]
+    #Preventing if something goes wrong with cookies.
+    begin
+      @_current_user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue
+      session[:user_id] = nil
+      session[:change] = true
+    end
   end
 
   def current_comments(league, month)
     return Comment.find_all_by_league_and_month(league, month)
   end
+  
   def require_login
     unless current_user
       flash[:error] = "You must be logged in to access this section"

@@ -1,33 +1,40 @@
 CodingChallengeGrading::Application.routes.draw do
+  #Main page (login, logout, etc.)
   resources :sessions
-  resources :comments
   get "sessions/new"
-  get 'new_user' => 'users#new'
-  get 'profile' => 'users#profile'
-  post 'new_user' => 'users#create'
-  get 'create_success' => 'users#show'
+  get "welcome/index"
   get 'login' => 'welcome#login'
   get "logout" => "sessions#destroy"
+  
+  #Admin routes.
+  get 'admin' => 'admin#index'
+  
+  #Month submissions.
   get "october/bronze"
   get "october/silver"
   get "october/gold"
-  get 'admin' => 'admin#index'
-  get 'admin/:id' => 'admin#show'
-  patch 'admin/:id' => 'admin#update'
-  delete '/admin/:id' => 'users#destroy', as: :user
+  
+  #Results.
   post 'october/bronze' => 'october#result'
   post 'october/silver' => 'october#result'
   post "october/gold" => 'october#result'
-  get 'all_submissions' => 'october#submission_json'
-  get "welcome/index"
+  
+  #Comments
+  resources :comments
   delete "comments/:id" => "comments#destroy"
-  delete "submissions/:id" => "profile#destroy" , as: :submission
+  
+  #User profile
+  get "profile/view"
+  delete "profile/submissions/:id" => "profile#destroy" , as: :submission
+  
+  #Getting all the submissions.
+  get 'all_submissions' => 'october#submission_json'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'welcome#root'
+  root 'welcome#root'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
