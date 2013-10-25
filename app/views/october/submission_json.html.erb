@@ -1,0 +1,6 @@
+<% Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').each do |submission| %>
+<% submission.submission_code.lines do |line| %>
+<%= line %><BR>
+<%end%>
+<BR><BR>
+<%end%>
