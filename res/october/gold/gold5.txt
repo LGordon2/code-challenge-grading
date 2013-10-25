@@ -9,17 +9,21 @@ Dim elapsedTime_testCase5
 
 expectedNonReduciblePrime_testCase5 = 41094011
 startTime_testCase5 = Timer
-actualGCD_testCase5 = function_name(41000000)
+actualNonReduciblePrime_testCase5 = function_name(41000000)
 elapsedTime_testCase5 = Timer - startTime_testCase5
 
 document.write("Execution time: "& elapsedTime_testCase5 &"<BR>")
-
+If expectedNonReduciblePrime_testCase5 = actualNonReduciblePrime_testCase5
 If elapsedTime_testCase5 < 120 Then
 
 	document.write("<font color=""#00ff00"">PASS</font><BR>")
 
 Else
 
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+	
+Else
 	document.write("<font color=""red"">FAIL</font><BR>")
 End If
 document.write("*****************")

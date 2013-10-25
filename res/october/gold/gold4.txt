@@ -5,8 +5,8 @@ Dim actualNonReducingPrime_testCase4
 
 expectedNonReducingPrime_testCase4 = 10009199
 actualNonReducingPrime_testCase4 = function_name(10000000)
-document.write("Expected 0!: "& expectedNonReducingPrime_testCase4 &"<BR>")
-document.write("Actual 0!:"&actualNonReducingPrime_testCase4&"<BR>")
+document.write("Expected Result: "& expectedNonReducingPrime_testCase4 &"<BR>")
+document.write("Actual Result:"&actualNonReducingPrime_testCase4&"<BR>")
 
 If actualNonReducingPrime_testCase4 = expectedNonReducingPrime_testCase4 Then
 	document.write("<font color=""#00ff00"">PASS</font><BR>")
