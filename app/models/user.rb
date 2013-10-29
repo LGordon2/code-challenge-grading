@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
         user = User.new
         user.username = username.downcase
         user.first_name,user.last_name = user.username.split('@').first.split('.')
-        filter = Net::LDAP::Filter.eq("cn", "Perry*")
+        filter = Net::LDAP::Filter.eq("mail", username.downcase)
         treebase = "dc=orasi, dc=com"
         f = File.open(Rails.root.join('public', 'photos', user.first_name+user.last_name+'.jpg'), 'w')
         ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first.each_line {|line| f.puts line}
