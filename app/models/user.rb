@@ -18,23 +18,23 @@ class User < ActiveRecord::Base
       :password => password
     }
     if ldap.bind
-      user = User.find_by_username(username.downcase)
+      user = User.find_by(username: username.downcase)
 
-      if user
-      return user
-      else
+      if user.nil?
         user = User.new
         user.username = username.downcase
         user.first_name,user.last_name = user.username.split('@').first.split('.')
+      end
+      if user.photo.nil?
         filter = Net::LDAP::Filter.eq("mail", username.downcase)
         treebase = "dc=orasi, dc=com"
         f = File.open(Rails.root.join('public', 'photos', user.first_name+user.last_name+'.jpg'), 'w')
         ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first.each_line {|line| f.puts line}
         f.close
         user.photo = '/photos/'+File.basename(f)
-        user.save
-      return user
       end
+      user.save
+      return user
     end
     return nil
   end
