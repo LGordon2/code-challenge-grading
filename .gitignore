@@ -18,3 +18,4 @@ sqlite3.exe
 /log
 .settings/*
 .DS_Store
+public/photos
