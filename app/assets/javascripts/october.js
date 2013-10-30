@@ -14,14 +14,10 @@
 var edit,cancel;
 
 edit = function(button){
-    $(button).siblings(".comment-body").hide();
-    $(button).siblings(".comment-edit").show();
-    $(button).siblings(".cancel-btn,.update-btn").show();
+    $(button).siblings(".comment-body,.comment-edit,.cancel-btn,.update-btn").toggle();
 };
 cancel = function(button){
-    $(button).siblings(".comment-body").show();
-    $(button).siblings(".comment-edit").hide();
-    $(button).siblings(".update-btn").hide();
-    $(button).hide();
+    $(button).siblings(".comment-body,.comment-edit,.update-btn").toggle();
+    $(button).toggle();
 };
         
