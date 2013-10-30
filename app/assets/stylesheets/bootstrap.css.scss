@@ -12,6 +12,13 @@
 
 $orasi_blue: #296FAB;
 
+.animated {
+-webkit-transition: height 0.2s;
+-moz-transition: height 0.2s;
+transition: height 0.2s;
+}
+
+
 .field{
   margin-top: 10px;
   margin-bottom: 10px;
