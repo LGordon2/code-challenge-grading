@@ -32,6 +32,7 @@
 
 	</section>
 
+	<section>
 	<%= form_for :comment, url: :comments, method: :post do |f| %>
 	<br>
 	<br>
@@ -44,10 +45,11 @@
 	<p>
 		<%= f.label :comment %>
 		<br>
-		<%= f.text_area :comment, :label => "", :cols => "158", :rows => "5", :placeholder => "Questions? Comments? Concerns? Let us know!" %>
+		<%= f.text_area :comment, :label => "", :rows => "5", :placeholder => "Questions? Comments? Concerns? Let us know!", class: 'animated' %>
 	</p>
 	<p>
 		<%= f.submit :class =>"btn btn-primary btn-lg" %>
 	</p>
 	<% end %>
+	</section>
 </div>
