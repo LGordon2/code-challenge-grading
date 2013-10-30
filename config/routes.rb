@@ -21,7 +21,6 @@ CodingChallengeGrading::Application.routes.draw do
   
   #Comments
   resources :comments
-  delete "comments/:id" => "comments#destroy"
   
   #User profile
   get "profile/view"

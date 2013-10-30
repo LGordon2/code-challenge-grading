@@ -10,14 +10,22 @@
 				<% comment_user = User.find(comment.user_id) %>
 				<%= image_tag current_user.photo, width: 50, height: 50 %>
 				<strong><%= comment_user.first_name.capitalize + ' ' + comment_user.last_name.capitalize %></strong> -- <%= time_ago_in_words(comment.created_at) %> ago.
-				
+
 			</header>
 			<br>
-			<p>
-				<%= comment.comment %>
-			</p>
-			<% if comment.user_id == current_user.id or current_user.admin %>
-			<%= link_to 'Delete', comment_path(comment),:method => :delete, data: {confirm: "Are you sure you want to delete this comment?" }, :id => comment.id %>
+			<%= form_for comment do |f| %>
+				<p class="comment-body" style="display: block;">
+					<%= comment.comment %>
+				</p>
+				<p class="comment-edit" style="display: none;">
+					<%= f.text_area :comment, cols: 100 %>
+				</p>
+				<% if comment.user_id == current_user.id or current_user.admin %>
+					<%= f.submit 'Update', class: 'update-btn', style: 'display: none;' %>
+					<%= button_tag 'Cancel', href: 'javascript:void(0);', class: "cancel-btn", type: 'button', style: 'display: none;'%>
+					<%= link_to 'Edit', 'javascript:void(0);', class: 'edit-btn'%>
+					<%= link_to 'Delete', comment_path(comment) ,:method => :delete, data: {confirm: "Are you sure you want to delete this comment?" }, :id => comment.id %>
+				<% end %>
 			<% end %>
 		</article>
 		<% end %>
