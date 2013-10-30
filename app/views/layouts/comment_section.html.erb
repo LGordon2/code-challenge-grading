@@ -18,7 +18,7 @@
 					<%= comment.comment %>
 				</p>
 				<p class="comment-edit" style="display: none;">
-					<%= f.text_area :comment, cols: 100 %>
+					<%= f.text_area :comment %>
 				</p>
 				<% if comment.user_id == current_user.id or current_user.admin %>
 					<%= f.submit 'Update', class: 'update-btn', style: 'display: none;' %>
