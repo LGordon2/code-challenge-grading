@@ -1,7 +1,16 @@
 class CommentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_action :verify_user, except: :create
+  before_action :set_comment, except: :create
   def new
+  end
+
+  def created_time
+    render json: @comment.created_at
+  end
+  
+  def updated_time
+    render json: @comment.updated_at
   end
 
   def create
@@ -24,10 +33,16 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
   private
-    def comment_params
-      params.require(:comment).permit(:month, :league, :comment, :name)
-    end
-    def verify_user
-      redirect_to :back, notice: "Insufficient privileges" unless current_user.admin or Comment.find(params[:id]).user_id==current_user.id
-    end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:month, :league, :comment, :name)
+  end
+
+  def verify_user
+    redirect_to :back, notice: "Insufficient privileges" unless current_user.admin or Comment.find(params[:id]).user_id==current_user.id
+  end
 end
