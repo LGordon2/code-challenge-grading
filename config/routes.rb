@@ -23,6 +23,7 @@ CodingChallengeGrading::Application.routes.draw do
   resources :comments
   get 'comments/time/created/:id' => 'comments#created_time', as: :comment_created_time
   get 'comments/time/updated/:id' => 'comments#updated_time', as: :comment_updated_time
+  get 'comments/:month/:league' => 'comments#show'
   
   #User profile
   get "profile/view"

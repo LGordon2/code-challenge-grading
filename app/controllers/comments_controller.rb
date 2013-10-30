@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :verify_user, except: :create
-  before_action :set_comment, except: :create
+  before_action :verify_user, except: [:create, :show, :created_time, :updated_time]
+  before_action :set_comment, except: [:create, :show]
+  
   def new
   end
 
@@ -11,6 +12,10 @@ class CommentsController < ApplicationController
   
   def updated_time
     render json: @comment.updated_at
+  end
+  
+  def show
+    render json: Comment.where(month: params[:month], league: params[:league])
   end
 
   def create
