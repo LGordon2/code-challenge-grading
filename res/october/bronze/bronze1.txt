@@ -5,8 +5,13 @@ Dim actualFactorial_testCase1
 
 expectedFactorial_testCase1 = 1
 actualFactorial_testCase1 = function_name(0)
-document.write("Expected 0!: "& expectedFactorial_testCase1 &"<BR>")
-document.write("Actual 0!:"&actualFactorial_testCase1&"<BR>")
+document.write("Expected 0!: "& expectedFactorial_testCase1 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual 0!:"&actualFactorial_testCase1&"<BR>")
+End If
 
 If actualFactorial_testCase1 = expectedFactorial_testCase1 Then
 	document.write("<font color=""#00ff00"">PASS</font><BR>")

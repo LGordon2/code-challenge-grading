@@ -8,7 +8,12 @@ Dim actualGCD_testCase2
 expectedGCD_testCase2 = 1
 actualGCD_testCase2 = function_name(Array(142341, 512345))
 document.write("Expected GCD: "& expectedGCD_testCase2 &"<BR>")
-document.write("Actual GCD:"&actualGCD_testCase2&"<BR>")
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual GCD:"&actualGCD_testCase2&"<BR>")
+End If
 
 If actualGCD_testCase2 = expectedGCD_testCase2 Then
 	document.write("<font color=""#00ff00"">PASS</font><BR>")

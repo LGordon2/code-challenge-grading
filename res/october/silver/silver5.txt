@@ -12,14 +12,19 @@ startTime_testCase5 = Timer
 actualGCD_testCase5 = function_name(Array(100, 20, 50, 840, 1230, 90, 180, 9040))
 elapsedTime_testCase5 = Timer - startTime_testCase5
 
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
 document.write("Execution time: "& elapsedTime_testCase5 &"<BR>")
 
-If elapsedTime_testCase5 < 60 Then
+	If elapsedTime_testCase5 < 60 Then
 
-	document.write("<font color=""#00ff00"">PASS</font><BR>")
+		document.write("<font color=""#00ff00"">PASS</font><BR>")
+	
+	Else
 
-Else
-
-	document.write("<font color=""red"">FAIL</font><BR>")
+		document.write("<font color=""red"">FAIL</font><BR>")
+	End If
 End If
+
 document.write("*****************")

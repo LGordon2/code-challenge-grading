@@ -7,7 +7,12 @@ Dim actualFactorial_testCase2
 expectedFactorial_testCase2 = 1
 actualFactorial_testCase2 = function_name(1)
 document.write("Expected 1!: "& expectedFactorial_testCase2 &"<BR>")
-document.write("Actual 1!:"&actualFactorial_testCase2&"<BR>")
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual 1!:"&actualFactorial_testCase2&"<BR>")
+End If
 
 If actualFactorial_testCase2 = expectedFactorial_testCase2 Then
 	document.write("<font color=""#00ff00"">PASS</font><BR>")

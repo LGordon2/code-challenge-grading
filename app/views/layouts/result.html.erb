@@ -1,17 +1,30 @@
 <h1>Results for <%= challenge_month.capitalize + " " + challenge_league.capitalize %></h1>
 <p>
 	<script type='text/vbscript'>
+	
 	<%= submission.submission_code.html_safe %>
+
       <% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
+
 	<% Dir.entries('res/'+challenge_month+'/'+challenge_league).sort.each do |file| %>
-    <% if(File.directory?(file)==false) %>
+   
+<% if(File.directory?(file)==false) %>
+
     <% function_script = File.read('res/'+challenge_month+"/"+challenge_league+"/"+file) %>
+	On Error Resume Next	
      <%= function_script.gsub('function_name', functionName).html_safe %>
-    document.write("<BR><BR>")
-	<% end %> 
+	On Error GoTo 0
+
+document.write("<BR><BR>")
+	
+
+
+<% end %> 
 	<% end %>
 	</script>
 </p>
+
+
 
 <%= yield %>
 <%= link_to('Submit again',(challenge_month+'_'+challenge_league).to_sym)%>

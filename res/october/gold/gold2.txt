@@ -3,10 +3,15 @@ Dim testCase2
 Dim expectedNonReducingPrime_testCase2
 Dim actualNonReducingPrime_testCase2
 
-expectedNonReducingPrime_testCase2 = 731
+expectedNonReducingPrime_testCase2 = 1013
 actualNonReducingPrime_testCase2 = function_name(719)
 document.write("Expected Result: "& expectedNonReducingPrime_testCase2 &"<BR>")
-document.write("Actual Result:"&actualNonReducingPrime_testCase2&"<BR>")
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualNonReducingPrime_testCase2&"<BR>")
+End If
 
 If actualNonReducingPrime_testCase2 = expectedNonReducingPrime_testCase2 Then
 	document.write("<font color=""#00ff00"">PASS</font><BR>")

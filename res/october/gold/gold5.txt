@@ -12,6 +12,10 @@ startTime_testCase5 = Timer
 actualNonReduciblePrime_testCase5 = function_name(41000000)
 elapsedTime_testCase5 = Timer - startTime_testCase5
 
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
 document.write("Execution time: "& elapsedTime_testCase5 &"<BR>")
 If expectedNonReduciblePrime_testCase5 = actualNonReduciblePrime_testCase5 Then
 	If elapsedTime_testCase5 < 120 Then
@@ -25,5 +29,6 @@ If expectedNonReduciblePrime_testCase5 = actualNonReduciblePrime_testCase5 Then
 	
 Else
 	document.write("<font color=""red"">FAIL</font><BR>")
+End If
 End If
 document.write("*****************")
