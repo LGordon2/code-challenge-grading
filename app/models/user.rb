@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :username, presence:true, uniqueness: {case_sensitive: false}
   
   VALID_EMAIL_REGEX = %r{[a-zA-Z]+\.[a-zA-Z]+\@orasi\.com|[a-zA-Z]+\.[a-zA-Z]+}
-  validates_format_of :username, :with => VALID_EMAIL_REGEX , :message => "must be Or2asi email address or Orasi Active Directory credentials."
+  validates_format_of :username, :with => VALID_EMAIL_REGEX , :message => "must be Orasi email address or Orasi Active Directory credentials."
 
   #TODO this needs clean up bad...
   def self.authenticate(username, password)
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
            :username => "ORASI\\#{first_part_username}",
            :password => password
      }
-     if ldap.bind 
+     #if ldap.bind 
        user = User.find_by_username(first_part_username.downcase)
        if user 
          return user 
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
          user.save
          return user
        end
-     end
+     #end
      return nil
   end
 end

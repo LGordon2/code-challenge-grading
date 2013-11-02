@@ -5,11 +5,18 @@ class ChallengeMonthController < ApplicationController
   
   def result
     @submission = Submission.new
-    @submission.user_id = session[:user_id]
+    if params[:ProxySubmission].blank?
+	    @submission.user_id = session[:user_id]
+    else
+	    @ProxyUser = User.find_by_username(params[:ProxySubmission].downcase)
+    	    @submission.user_id = @ProxyUser.id
+    end
+
     @submission.submission_code = params[:script].read
     @submission.month = challenge_month
     @submission.league = challenge_league
     @submission.save
+    	
     render template:'layouts/result'
   end
   
