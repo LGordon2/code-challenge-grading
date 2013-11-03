@@ -11,10 +11,12 @@
 
 	<h3> Submit Solution</h3>
 	<br>
+<%= button_tag "Enable Proxy Submission", :id =>"enableProxySubmission", :class => "btn btn-primary btn-lg", :onClick=>"enableProxySubmission();return false" %> 
 	<%= form_tag(action_name, method: :post,multipart: true,:id => "submissionForm") do %>
 	<% if current_user.admin %>
-		<%= text_field_tag "ProxySubmission",  current_user.first_name.capitalize + current_user.last_name.capitalize  %>
-		<%= label_tag(:ProxyField, "Function Name") %>
+	 
+		<%= text_field_tag "ProxySubmission", nil,  :class =>"proxySubmissionField",:style => "display:none"  %>
+		<%= label_tag(:ProxyField, "Proxy Username",:style => "display:none", :class =>"proxySubmissionField") %>
 	<% end %>
 	<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
 	<%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
