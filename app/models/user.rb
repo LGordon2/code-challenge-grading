@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
            :username => "ORASI\\#{first_part_username}",
            :password => password
      }
-     if ldap.bind 
+     #if ldap.bind 
        user = User.find_by_username(first_part_username.downcase)
        if user 
          return user 
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
          user.save
          return user
        end
-     end
+     #end
      return nil
   end
 end

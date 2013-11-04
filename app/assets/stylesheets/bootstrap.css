@@ -6911,3 +6911,27 @@ section#comments article:nth-child(odd) header{
 #loadingPanel{
   display: none;
 }
+.redConnect4{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left:100px;
+  top:0px
+}
+.blackConnect4{
+  display: none;
+  position: absolute;
+  z-index: 2;
+}
+.connect4{
+  position: absolute;
+  z-index: 3;
+  background-color:#ffffff;
+  
+}
+#connect4Panel{
+  background-color:#FFF200;
+  position:relative;
+  width:725px;
+  height:650px;
+}	

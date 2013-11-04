@@ -1,0 +1,22 @@
+<div id="connect4Panel" style="position:relative,background-color:#FFF200,width:750px,height:650px;">
+<% (1..6).each do |y| %>
+	<% (1..7).each do |x| %>
+			
+			<%=  image_tag("Connect4.png", :class => "connect4", :onClick => "FlyIn1(#{x},#{y})",:name => "c#{x}_#{y}", :id => "c#{x}_#{y}", :style => "position:absolute,top:#{y*100-100}px,left:#{x*100-100}px") %>
+			<%= image_tag("black.png", :class => "blackConnect4",:name => "b#{x}_#{y}", :id => "b#{x}_#{y}", :style => "position:absolute,top:#{y*100-100}px,left:#{x*100-100}px") %>
+			<%= image_tag("red.png", :class => "redConnect4", :name => "r#{x}_#{y}", :id => "r#{x}_#{y}", :style => "position:absolute,top:#{y*100-100}px,left:#{x*100-100}px") %>
+			<%= image_tag("white.png", :style => "position:static") %>
+	<% end %>
+	<br>
+<% end %>
+</div>
+
+<script>
+
+
+function FlyIn1(x, y){
+var element = document.getElementById("r" + x + "_" + y);
+element.style.display = "inline";
+alert(element);
+}
+</script>
