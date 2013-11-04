@@ -9,17 +9,18 @@ $(document).on "ready page:change", ->
     element.css("left",event.pageX-element.width()/2) if event.pageX < container.offset().left+container.width()-element.width()/4 and event.pageX >= container.offset().left+element.width()/2
   draw_board()
   $("#checker").on "click", ->
-    connect_four.add(1,5,"red")
-    connect_four.add(6,5,"black")
+    connect_four.add(i,j,"black") for j in [0..5] for i in [0..6]
 
 # create a namespace to export our public methods
 connect_four = exports? and exports or @connect_four = {}
 connect_four.add = (x,y,color) ->
-  board = $("canvas#board")[0]
-  return if x < 0 or x > (board.width/100 - 1) or y < 0 or y > (board.height/100 - 1)
-  new_img = $('<img src="/assets/'+color+'.png" class = "testChecker" style="position:absolute;left:'+(x*100+362.5)+'px;top:0px;z-index:-1;" width="100" height="100">')
+  board = $("canvas#board")
+  board_left = board.position().left
+  board_top = board.position().top
+  return if x < 0 or x > (board.width()/100 - 1) or y < 0 or y > (board.height()/100 - 1)
+  new_img = $('<img src="/assets/'+color+'.png" style="position:absolute;left:'+(x*100+board_left+1)+'px;top:0px;z-index:-1;" width="100" height="100">')
   $("div:last").first().after(new_img)
-  new_img.animate({top:(y*100+162.5)+'px'},"slow")
+  new_img.animate({top:(y*100+board_top+2)+'px'},"slow")
           
 draw_board = ->
   block = $("canvas#block")[0]
