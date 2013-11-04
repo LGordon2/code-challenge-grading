@@ -1,4 +1,5 @@
 CodingChallengeGrading::Application.routes.draw do
+  get "connect_four/index"
   #Main page (login, logout, etc.)
   resources :sessions
   get "sessions/new"
