@@ -24,8 +24,8 @@
 					<%= f.text_area :comment, class: 'animated' %>
 				</p>
 				<% if comment.user_id == current_user.id or current_user.admin %>
-					<%= f.submit 'Update', class: 'update-btn', style: 'display: none;' %>
-					<%= button_tag 'Cancel', href: 'javascript:void(0);', class: "cancel-btn", type: 'button', style: 'display:none;'%>
+					<%= f.submit 'Update', class: 'update-btn btn', style: 'display: none;' %>
+					<%= button_tag 'Cancel', href: 'javascript:void(0);', class: "cancel-btn btn", type: 'button', style: 'display:none;'%>
 					<%= link_to 'Edit', 'javascript:void(0);', class: 'edit-btn'%>
 					<%= link_to 'Delete', comment_path(comment) ,:method => :delete, data: {confirm: "Are you sure you want to delete this comment?" }, :id => comment.id %>
 				<% end %>
