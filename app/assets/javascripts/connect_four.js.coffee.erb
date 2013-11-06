@@ -6,13 +6,28 @@
 connect_four = exports? and exports or @connect_four = {}
 
 $(document).on "ready page:change", ->
-  $(document).on "mousemove", ->
-    container = $(".container").first()
-    $("#testTitle").text(container.offset().left)
-    element = $("#checker")
-    element.css("left",event.pageX-element.width()/2) if event.pageX < container.offset().left+container.width()-element.width()/4 and event.pageX >= container.offset().left+element.width()/2
   draw_board()
-  testAdd()
+  valid_msg "Game started",->
+    demo()
+  
+demo = ->
+  valid_msg "Player's Turn", ->
+    connect_four.add 0,5,"red", ->
+      invalid_msg "The computer cheats", ->
+        connect_four.add_to_col 1,"black", ->
+          connect_four.add_to_col 2,"black", ->
+            connect_four.add_to_col 3,"black", ->
+              connect_four.add_to_col 4,"black",->
+                drawline(1,5,4,5)
+
+#Private
+recursive_add_to_col = (column,row,color,callback) ->
+  return if row < 0
+  return connect_four.add column,row,color,callback if $("#checker#{column}_#{row}").length==0
+  recursive_add_to_col column,row-1,color,callback
+
+connect_four.add_to_col = (column,color,callback) ->
+  recursive_add_to_col column,5,color,callback
 
 drawline = (start_col,start_row,end_col,end_row) ->
   board = $("canvas#board")
@@ -43,7 +58,7 @@ connect_four.add = (x,y,color,callback) ->
   board_left = board.position().left
   board_top = board.position().top
   return if x < 0 or x > (board.width()/100 - 1) or y < 0 or y > (board.height()/100 - 1)
-  new_img = $('<img src="/assets/'+color+'.png" class="checker" style="position:absolute;left:'+(x*100+board_left+1)+'px;top:0px;z-index:-1;" width="100" height="100">')
+  new_img = $('<img src="/assets/'+color+'.png" class="checker" id="checker'+x+'_'+y+'"style="position:absolute;left:'+(x*100+board_left+1)+'px;top:0px;z-index:-1;" width="100" height="100">')
   $("div:last").first().after(new_img)
   new_img.animate({top:(y*100+board_top+2)+'px'},"slow",callback)
           
