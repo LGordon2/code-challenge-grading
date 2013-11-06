@@ -6,8 +6,13 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "should not see index" do
+    get :index
+    assert_response :redirect
+  end
+  
   test "should be logged in" do
-    get :index, session: {:user_id => User.first}
+    get :index, nil, session: {:user_id => users(:lew).id}
     assert_response :success
   end
 

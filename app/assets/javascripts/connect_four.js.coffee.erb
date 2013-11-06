@@ -7,26 +7,26 @@ connect_four = exports? and exports or @connect_four = {}
 
 $(document).on "ready page:change", ->
   draw_board()
-  valid_msg "Game started",->
-    demo()
+  connect_four.valid_msg "Game started",->
+    PlayTheGame()
   
 demo = ->
-  valid_msg "Player's Turn", ->
+  connect_four.valid_msg "Player's Turn", ->
     connect_four.add 0,5,"red", ->
-      invalid_msg "The computer cheats", ->
-        connect_four.add_to_col 1,"black", ->
-          connect_four.add_to_col 2,"black", ->
-            connect_four.add_to_col 3,"black", ->
-              connect_four.add_to_col 4,"black",->
+      connect_four.invalid_msg "The computer cheats", ->
+        connect_four.add 1,5,"black", ->
+          connect_four.add 2,5,"black", ->
+            connect_four.add 3,5,"black", ->
+              connect_four.add 4,5,"black",->
                 drawline(1,5,4,5)
 
 #Private
 recursive_add_to_col = (column,row,color,callback) ->
   return if row < 0
-  return connect_four.add column,row,color,callback if $("#checker#{column}_#{row}").length==0
+  return add column,row,color,callback if $("#checker#{column}_#{row}").length==0
   recursive_add_to_col column,row-1,color,callback
 
-connect_four.add_to_col = (column,color,callback) ->
+add_to_col = (column,color,callback) ->
   recursive_add_to_col column,5,color,callback
 
 drawline = (start_col,start_row,end_col,end_row) ->
@@ -44,11 +44,11 @@ drawline = (start_col,start_row,end_col,end_row) ->
   board_ctx.closePath()
  
 
-valid_msg = (msg, callback) ->
+connect_four.valid_msg = (msg, callback) ->
   $("#info_txt").fadeOut ->
     $("#info_txt").text(msg).css("color","white").fadeIn(callback)
 
-invalid_msg = (msg, callback) ->
+connect_four.invalid_msg = (msg, callback) ->
   $("#info_txt").text(msg).css("color","red").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast", callback)
 
 

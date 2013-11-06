@@ -1,7 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  username: MyString
+lew:
+  username: lewis.gordon@orasi.com
+  first_name: lewis
+  last_name: gordon
+  admin: "true"
 
-two:
-  username: MyString
+user:
+  username: user@orasi.com
+  first_name: test
+  last_name: user
+
+admin:
+  username: admin@orasi.com
+  first_name: test
+  last_name: admin
+  admin: "true"

@@ -1,5 +1,5 @@
 class ChallengeMonthController < ApplicationController
-  
+  before_action :require_login
   #To get the challenge_month and challenge_league.
   helper_method :challenge_month, :challenge_league, :submission
   
