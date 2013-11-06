@@ -1,4 +1,4 @@
-Function PlayConnectFour(gameBoard, color)
+Function RandomPlayer(gameBoard, color)
 Randomize
                 Dim AcceptableMoves()
                 Dim Counter
@@ -25,7 +25,7 @@ Randomize
                    max=uBound(AcceptableMoves)
                                 min=0
                                 Randomize
-                                PlayConnectFour=AcceptableMoves((Int((max-min+1)*Rnd+min)))
+                                RandomPlayer=AcceptableMoves((Int((max-min+1)*Rnd+min)))
  
  
  
@@ -39,83 +39,21 @@ Function CreateBlankGameBoard()
                 CreateBlankGameBoard=gameBoard
 End Function
  
-Function isLegalMove(gameBoard, ColumnIndex)
-If ColumnIndex >= 0 And ColumnIndex <= UBound(gameBoard)  Then
  
-   For row = 0 to UBound(gameBoard,2)
-                   If gameBoard(ColumnIndex, row) = ""  Then
-                                   isLegalMove = True
-                                   Exit Function
-                   End If
-               
-   Next
-Else
-                isLegalMove = False
-                'msgbox("2")
-                Exit Function
-End If
- 
-isLegalMove = False
- 
-End Function
- 
-Function FindNextPositionInColumn(gameBoard, ColumnIndex)
-   For row = UBound(gameBoard,2) to 0 step -1
-                   If gameBoard(ColumnIndex, row) = "" Then
-                                   FindNextPositionInColumn = ColumnIndex & "," & row
-                                  
-                                   Exit Function
-                   End If
-   Next
-End Function
- 
+Function PlayConnectFour(gameBoardString, playerName, color)
+	
+	gameBoardJaggedArray = Split(Split(gameBoardString, ";"),",")
+	gameBoard = CreateBlankGameBoard()
 
-Function PlayTheGame()
-gameBoard = CreateBlankGameBoard()
-gameCounter = 0
-Do While gameCounter < (UBound(gameBoard)+1) * (UBound(gameBoard,2) +1) And EndOfGame = False
- 
-                gameCounter = gameCounter + 1
-    gameBoardCopy = gameBoard
- 
- 
-                Player1Column = PlayConnectFour(gameBoardcopy, "red")
-                If IsLegalMove(gameBoard, Player1Column) Then
-                                Player1Move = FindNextPositionInColumn(gameBoard, Player1Column)
-                                'msgbox(Player1Move)
-                                If Player1Move <> "Error" Then
-                                                Player1Move =  Split(Player1Move, ",")
-            connect_four.add Player1Move(0), Player1Move(1), "red"
-                                                gameBoard(Player1Move(0), Player1Move(1))= "R"
-                                                EndOfGame = isEndOfGame(gameBoard)
-                                End If
-                Else
-                                invalid_msg("Illegal Move Attempted by Player1.  The Column Index [" & Player1Column &"] is not valid")
-                                EndOfGame = True
-                End If
-                               
-                gameCounter = gameCounter + 1
-                gameBoardCopy = gameBoard
-   If EndOfGame = False Then
-                                Player2Column = PlayConnectFour(gameBoardCopy, "black")
-                                If IsLegalMove(gameBoard, Player2Column) Then
-                                                Player2Move = FindNextPositionInColumn(gameBoard, Player2Column)
-                                                'msgbox(Player2Move)
-                                                If Player2Move <> "Error" Then
-                                                                Player2Move =  Split(Player2Move, ",")
-                                                               
-                                                                connect_four.add Player2Move(0), Player2Move(1), "red"
-                                                                gameBoard(Player2Move(0), Player2Move(1))= "B"
-                                                                EndOfGame = isEndOfGame(gameBoard)
-                                                End If
-                                Else
-                                                invalid_msg("Illegal Move Attempted by Player2.  The Column Index [" & Player2Column &"] is not valid")
-                                                EndOfGame = True
-                                End If
-                End If
-                Loop
- End Function
- 
-Function isEndOfGame(gameBoard)
-   isEndOfGame = False
+	For i = 0 to uBound(gameBoard)
+		For j = 0 to uBound(gameBoard,2)
+			gameBoard(i,j) = gameBoardJaggedArray(i)(j)
+		Next
+	Next
+	
+	Execute("columnMove = " & playerName &"( gameBoard, """& color & """)")
+	
+	
+	PlayGameFromString = ColumnMove
+
 End Function
