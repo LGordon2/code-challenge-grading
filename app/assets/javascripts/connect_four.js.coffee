@@ -25,7 +25,7 @@ check_board = (color) ->
     [x,y] = @.id.split("pos")[1].split("_")
     all_checkers.push {x:x,y:y}
   for checker in all_checkers
-    positions = find_four(checker.x,checker.y,all_checkers)
+    positions = find_four(parseInt(checker.x),parseInt(checker.y),all_checkers)
     if positions?
       connect_four.valid_msg "Game completed. #{color[0].toUpperCase() + color[1..-1].toLowerCase()} wins!", ->
         drawline(positions[0].x,positions[0].y,positions[1].x,positions[1].y)
