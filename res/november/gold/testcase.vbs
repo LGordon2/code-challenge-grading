@@ -51,7 +51,11 @@ If ColumnIndex >= 0 And ColumnIndex <= UBound(gameBoard)  Then
    Next
 Else
                 isLegalMove = False
+<<<<<<< HEAD
                 msgbox("2")
+=======
+                'msgbox("2")
+>>>>>>> master
                 Exit Function
 End If
  
@@ -71,10 +75,14 @@ End Function
  
 gameBoard = CreateBlankGameBoard()
 gameCounter = 0
+<<<<<<< HEAD
 For i = 0 to Ubound(gameBoard, 2)
                 gameBoard(3,i) = "R"
  
 Next
+=======
+'connect_four.add 0,0,"red"
+>>>>>>> master
 Do While gameCounter < (UBound(gameBoard)+1) * (UBound(gameBoard,2) +1) And EndOfGame = False
  
                 gameCounter = gameCounter + 1
@@ -84,10 +92,17 @@ Do While gameCounter < (UBound(gameBoard)+1) * (UBound(gameBoard,2) +1) And EndO
                 Player1Column = PlayConnectFour(gameBoardcopy)
                 If IsLegalMove(gameBoard, Player1Column) Then
                                 Player1Move = FindNextPositionInColumn(gameBoard, Player1Column)
+<<<<<<< HEAD
                                 msgbox(Player1Move)
                                 If Player1Move <> "Error" Then
                                                 Player1Move =  Split(Player1Move, ",")
          '   connect_four.add Player1Move(0), Player1Move(1), "red"
+=======
+                                'msgbox(Player1Move)
+                                If Player1Move <> "Error" Then
+                                                Player1Move =  Split(Player1Move, ",")
+            connect_four.add Player1Move(0), Player1Move(1), "red"
+>>>>>>> master
                                                 gameBoard(Player1Move(0), Player1Move(1))= "R"
                                                 EndOfGame = isEndOfGame(gameBoard)
                                 End If
@@ -102,11 +117,19 @@ Do While gameCounter < (UBound(gameBoard)+1) * (UBound(gameBoard,2) +1) And EndO
                                 Player2Column = PlayConnectFour(gameBoardCopy)
                                 If IsLegalMove(gameBoard, Player2Column) Then
                                                 Player2Move = FindNextPositionInColumn(gameBoard, Player2Column)
+<<<<<<< HEAD
                                                 msgbox(Player2Move)
                                                 If Player2Move <> "Error" Then
                                                                 Player2Move =  Split(Player2Move, ",")
                                                                
                                                                 'connect_four.add Player2Move(0), Player2Move(1), "red"
+=======
+                                                'msgbox(Player2Move)
+                                                If Player2Move <> "Error" Then
+                                                                Player2Move =  Split(Player2Move, ",")
+                                                               
+                                                                connect_four.add Player2Move(0), Player2Move(1), "red"
+>>>>>>> master
                                                                 gameBoard(Player2Move(0), Player2Move(1))= "B"
                                                                 EndOfGame = isEndOfGame(gameBoard)
                                                 End If

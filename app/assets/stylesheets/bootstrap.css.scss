@@ -12,6 +12,13 @@
 
 $orasi_blue: #296FAB;
 
+.animated {
+-webkit-transition: height 0.2s;
+-moz-transition: height 0.2s;
+transition: height 0.2s;
+}
+
+
 .field{
   margin-top: 10px;
   margin-bottom: 10px;
@@ -208,6 +215,11 @@ textarea {
   margin: 0;
   font-family: inherit;
   font-size: 100%;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
 }
 
 button,
@@ -6895,8 +6907,6 @@ aside {
 }
 #comments{
   text-align: left;
-  width: 1000px;
-  display: table-cell;
   column-span:all;
   -webkit-column-span:all; /* Safari and Chrome */
 }
