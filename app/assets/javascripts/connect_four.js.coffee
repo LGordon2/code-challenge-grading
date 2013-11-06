@@ -23,9 +23,9 @@ check_board = (color) ->
   all_checkers = []
   $(".#{color}.checker").each ->
     [x,y] = @.id.split("pos")[1].split("_")
-    all_checkers.push {x:x,y:y}
+    all_checkers.push {x:parseInt(x),y:parseInt(y)}
   for checker in all_checkers
-    positions = find_four(parseInt(checker.x),parseInt(checker.y),all_checkers)
+    positions = find_four(checker.x,checker.y,all_checkers)
     if positions?
       connect_four.valid_msg "Game completed. #{color[0].toUpperCase() + color[1..-1].toLowerCase()} wins!", ->
         drawline(positions[0].x,positions[0].y,positions[1].x,positions[1].y)
@@ -55,7 +55,7 @@ find_four2 = (x,y,a,acc,direction) ->
   included = false
   return true if acc==4
   for object in a
-    included = true if (parseInt(object.x) == parseInt(x) && parseInt(object.y) == parseInt(y))
+    included = true if (object.x == x && object.y == y)
   return false if not included or x<0 or x>6 or y<0 or y>5
   x-=1 if direction == "left" or direction == "bottomleft" or direction == "topleft"
   x+=1 if direction == "right" or direction == "topright" or direction == "bottomright"
