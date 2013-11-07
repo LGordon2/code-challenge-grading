@@ -19,6 +19,14 @@ play_game = ->
 	      add_to_col computer_move(), "black", ->
 	  	    play_game()
 
+connect_four.board_string = ->
+  board = $("canvas#board")
+  all = ("n" for i in [1..board.width()/100] for j in [1..board.height()/100])
+  $(".checker").each (index,element) ->
+    [x,y] = element.id.split("pos")[1].split("_")
+    all[y][x] = if $(this).hasClass("red") then "r" else "b"
+  all.join(";")
+
 check_board = (color) ->
   all_checkers = []
   $(".#{color}.checker").each ->
