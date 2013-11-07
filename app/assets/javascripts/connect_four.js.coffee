@@ -7,6 +7,8 @@ connect_four = exports? and exports or @connect_four = {}
 
 $(document).on "ready page:change", ->
   draw_board()
+  $(window).resize ->
+    update_checkers()
   connect_four.valid_msg "Game started",->
     play_game()
     
@@ -26,6 +28,15 @@ connect_four.board_string = ->
     [x,y] = element.id.split("pos")[1].split("_")
     all[y][x] = if $(this).hasClass("red") then "r" else "b"
   all.join(";")
+
+update_checkers = () ->
+  board = $("canvas#board")
+  board_left = board.position().left
+  board_top = board.position().top
+  $(".checker").each ->
+    [x,y] = @.id.split("pos")[1].split("_")
+    $(this).css("left",(parseInt(x)*100+board_left))
+    $(this).css("top",(parseInt(y)*100+board_top+2))
 
 check_board = (color) ->
   all_checkers = []
@@ -127,14 +138,15 @@ connect_four.invalid_msg = (msg, callback) ->
   $("#info_txt").text(msg).css("color","red").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast", callback)
 
 
+  
 connect_four.add = (x,y,color,callback) ->
   board = $("canvas#board")
   board_left = board.position().left
   board_top = board.position().top
   return if x < 0 or x > (board.width()/100 - 1) or y < 0 or y > (board.height()/100 - 1)
-  new_img = $('<img src="/assets/'+color+'.png" class="checker '+color+'" id="pos'+x+'_'+y+'"style="position:absolute;left:'+(x*100+board_left+1)+'px;top:0px;z-index:-1;" width="100" height="100">')
-  $("div:last").first().after(new_img)
-  new_img.animate({top:(y*100+board_top+2)+'px'},"slow",callback)
+  new_img = $("<img src=\"/assets/#{color}.png\" class=\"checker #{color}\" id=\"pos#{x}_#{y}\" style=\"position:absolute;left:#{(x*100+board_left)}px;z-index:-1;\" width=\"100\" height=\"100\">")
+  $("canvas:first").first().after(new_img)
+  new_img.animate({top:"#{(y*100+board_top+2)}px"},"slow",callback)
           
 draw_board = ->
   block = $("canvas#block")[0]
