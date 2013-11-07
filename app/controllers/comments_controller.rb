@@ -44,7 +44,8 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:month, :league, :comment, :name)
+    [:comment, :month, :league].each {|param| params.require(param)}
+    params.permit(:name)
   end
  
   def verify_user
