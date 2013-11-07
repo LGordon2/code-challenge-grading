@@ -3,7 +3,6 @@ CodingChallengeGrading::Application.routes.draw do
   #Main page (login, logout, etc.)
   resources :sessions
   get "sessions/new"
-  get "welcome/index"
   get 'login' => 'welcome#login'
   get "logout" => "sessions#destroy"
   
@@ -37,7 +36,7 @@ CodingChallengeGrading::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#root'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

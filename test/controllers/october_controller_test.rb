@@ -31,9 +31,26 @@ class OctoberControllerTest < ActionController::TestCase
   end
   
   test "should get gold if logged in" do
-    get :gold, nil, {'user_id' => users(:user).id}
+    get(:gold, nil, {user_id: users(:user).id})
     assert_nil flash[:error]
     assert_response :success
   end
 
+  test "should not post if not logged in" do
+    post :bronze
+    assert_response :redirect
+    post :silver
+    assert_response :redirect
+    post :gold
+    assert_response :redirect
+  end
+  
+  test "can post if logged in" do
+    post :bronze, nil, {'user_id' => users(:user).id}
+    assert_response :success
+    post :silver, nil, {'user_id' => users(:user).id}
+    assert_response :success
+    post :gold, nil, {'user_id' => users(:user).id}
+    assert_response :success
+  end
 end

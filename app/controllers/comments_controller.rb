@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:month, :league, :comment, :name)
   end
-
+ 
   def verify_user
     redirect_to :back, notice: "Insufficient privileges" unless current_user.admin or Comment.find(params[:id]).user_id==current_user.id
   end

@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  skip_before_filter :require_login
+  before_action :require_login, except: :login
   
   def current_user_photo_file
     f = Tempfile.new(['test','.jpg'], Rails.root.join('app','assets','images'),:encoding => 'utf-8')
@@ -7,4 +7,5 @@ class WelcomeController < ApplicationController
     f.close
     return f.path
   end
+  
 end
