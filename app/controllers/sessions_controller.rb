@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       session[:change] = true
       redirect_to root_url, :notice => "Logged In"
     else
-      redirect_to root_url, :alert => "Invalid username or password."
+      redirect_to :login, :alert => "Invalid username or password."
     end
   end
 
