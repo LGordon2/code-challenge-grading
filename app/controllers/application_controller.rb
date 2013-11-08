@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     rescue
       session[:user_id] = nil
       session[:change] = true
+      redirect_to :login
     end
   end
 
