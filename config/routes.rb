@@ -1,6 +1,4 @@
 CodingChallengeGrading::Application.routes.draw do
-  #Temp location for connect four
-  get "november/gold/connect4" => "connect_four#index"
   
   #Main page (login, logout, etc.)
   resources :sessions

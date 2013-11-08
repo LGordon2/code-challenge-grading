@@ -10,4 +10,9 @@ class SessionsControllerTest < ActionController::TestCase
     post :create, {username: "lewis.gordon@orasi.com",password: "tesatesatsefaef"}
     assert_response :redirect
   end
+  
+  test "should not allow invalid param" do
+    post :create, {username: "lewis.gordon@orasi.com",password: "test",test:"deadlycode"}
+    assert_response :redirect
+  end
 end
