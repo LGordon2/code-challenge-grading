@@ -1,11 +1,18 @@
+<% if @ProxyUser.blank? %>
+     		
+		<% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
+	<% else %>
+		<% functionName = @ProxyUser.first_name.capitalize + @ProxyUser.last_name.capitalize %>
+	<% end %> 
 <script type="text/vbscript">
+<%= @submission.submission_code.html_safe %>	
 <%= File.read('res/november/gold/testcase.vbs').html_safe %>
 </script>
 <script type="application/javascript">
 var computer_move, player_move, computers_name, players_name;
 
 player_move = function() {
-  return PlayConnectFour(connect_four.board_string(), "RandomPlayer", "red");
+  return PlayConnectFour(connect_four.board_string(), "<%= functionName %>", "red");
 };
 
 computer_move = function() {

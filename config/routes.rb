@@ -25,7 +25,7 @@ CodingChallengeGrading::Application.routes.draw do
   post "october/gold" => 'october#result'
   post "november/bronze" => 'november#result'
   post "november/silver" => 'november#result'
-  post "november/gold" => 'november#result'
+  post "november/gold" => 'connect_four#index'
   
   #Comments
   resources :comments
