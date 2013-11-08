@@ -1,5 +1,7 @@
 CodingChallengeGrading::Application.routes.draw do
-  get "connect_four/index"
+  #Temp location for connect four
+  get "november/gold/connect4" => "connect_four#index"
+  
   #Main page (login, logout, etc.)
   resources :sessions
   get "sessions/new"
@@ -13,11 +15,17 @@ CodingChallengeGrading::Application.routes.draw do
   get "october/bronze"
   get "october/silver"
   get "october/gold"
+  get "november/bronze"
+  get "november/silver"
+  get "november/gold"
   
   #Results.
   post 'october/bronze' => 'october#result'
   post 'october/silver' => 'october#result'
   post "october/gold" => 'october#result'
+  post "november/bronze" => 'november#result'
+  post "november/silver" => 'november#result'
+  post "november/gold" => 'november#result'
   
   #Comments
   resources :comments

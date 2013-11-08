@@ -1,0 +1,2 @@
+module NovemberHelper
+end

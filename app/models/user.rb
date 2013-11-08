@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => VALID_EMAIL_REGEX , :message => "must be Orasi email address."
 
   def self.authenticate(username, password)
+    return if password == ""
     first_part_username,_ = username.split('@')
     ldap = Net::LDAP.new :host => '10.238.242.32',
     :port => 389,

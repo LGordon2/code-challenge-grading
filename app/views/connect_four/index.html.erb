@@ -2,8 +2,22 @@
 <%= File.read('res/november/gold/testcase.vbs').html_safe %>
 </script>
 <script type="application/javascript">
-testAdd = function(){
-connect_four.add(1,5,"black");
+var computer_move, player_move, computers_name, players_name;
+
+player_move = function() {
+  return PlayConnectFour(connect_four.board_string(), "RandomPlayer", "red");
+};
+
+computer_move = function() {
+  return PlayConnectFour(connect_four.board_string(), "RandomPlayer", "black");
+};
+
+players_name = function() {
+  return "<%= current_user.first_name.capitalize %>";
+};
+
+computers_name = function() {
+  return "Computer";
 };
 </script>
 <div>

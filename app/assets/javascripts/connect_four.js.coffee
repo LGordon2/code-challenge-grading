@@ -11,13 +11,13 @@ $(document).on "ready page:change", ->
     update_checkers()
   connect_four.valid_msg "Game started",->
     play_game()
-    
+
 play_game = ->
 	return if done("black")
-	connect_four.valid_msg "Player's Turn", ->
+	connect_four.valid_msg "#{players_name()}'s Turn", ->
 	  add_to_col player_move(), "red", ->
 	    return if done("red")
-	    connect_four.valid_msg "Computer's Turn", ->
+	    connect_four.valid_msg "#{computers_name()}'s Turn", ->
 	      add_to_col computer_move(), "black", ->
 	  	    play_game()
 
@@ -88,23 +88,6 @@ find_four2 = (x,y,a,acc,direction) ->
   
 done = (color) ->
 	return check_board(color)
-
-player_move = ->
-	PlayConnectFour(connect_four.board_string(),"RandomPlayer", "red")	
-
-	
-computer_move = ->
-	PlayConnectFour(connect_four.board_string(),"RandomPlayer", "black")
-
-demo = ->
-  connect_four.valid_msg "Player's Turn", ->
-    connect_four.add 0,5,"red", ->
-      connect_four.invalid_msg "The computer cheats", ->
-        connect_four.add 1,5,"black", ->
-          connect_four.add 2,5,"black", ->
-            connect_four.add 3,5,"black", ->
-              connect_four.add 4,5,"black",->
-                drawline(1,5,4,5)
 
 #Private
 recursive_add_to_col = (column,row,color,callback) ->
