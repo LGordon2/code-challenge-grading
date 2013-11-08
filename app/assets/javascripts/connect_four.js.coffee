@@ -14,16 +14,16 @@ $(document).on "ready page:change", ->
 
 play_game = ->
 	return if done("black")
-	connect_four.valid_msg "#{players_name()}'s Turn", ->
+	connect_four.valid_msg "#{players_name("red")}'s Turn", ->
 	  add_to_col player_move(), "red", ->
 	    return if done("red")
-	    connect_four.valid_msg "#{computers_name()}'s Turn", ->
+	    connect_four.valid_msg "#{players_name("black")}'s Turn", ->
 	      add_to_col computer_move(), "black", ->
 	  	    play_game()
 
 connect_four.board_string = ->
   board = $("canvas#board")
-  all = ("n" for i in [1..board.width()/100] for j in [1..board.height()/100])
+  all = ("" for i in [1..board.width()/100] for j in [1..board.height()/100])
   $(".checker").each (index,element) ->
     [x,y] = element.id.split("pos")[1].split("_")
     all[y][x] = if $(this).hasClass("red") then "r" else "b"
@@ -46,7 +46,7 @@ check_board = (color) ->
   for checker in all_checkers
     positions = find_four(checker.x,checker.y,all_checkers)
     if positions?
-      connect_four.valid_msg "Game completed. #{color[0].toUpperCase() + color[1..-1].toLowerCase()} wins!", ->
+      connect_four.valid_msg "Game completed. #{players_name(color)} wins!", ->
         drawline(positions[0].x,positions[0].y,positions[1].x,positions[1].y)
       return true
   board = $("canvas#board")
@@ -76,10 +76,11 @@ find_four = (x,y,a) ->
 
 find_four2 = (x,y,a,acc,direction) ->
   included = false
+  board = $("canvas#board")
   return true if acc==4
   for object in a
     included = true if (object.x == x && object.y == y)
-  return false if not included or x<0 or x>6 or y<0 or y>5
+  return false if not included or x<0 or x>board.width()/100-1 or y<0 or y>board.height()/100-1
   x-=1 if direction == "left" or direction == "bottomleft" or direction == "topleft"
   x+=1 if direction == "right" or direction == "topright" or direction == "bottomright"
   y-=1 if direction == "up" or direction == "topright" or direction == "topleft"
@@ -112,7 +113,6 @@ drawline = (start_col,start_row,end_col,end_row) ->
   board_ctx.strokeStyle="#00FF00"
   board_ctx.stroke()
   board_ctx.closePath()
- 
 
 connect_four.valid_msg = (msg, callback) ->
   $("#info_txt").fadeOut ->
@@ -120,8 +120,6 @@ connect_four.valid_msg = (msg, callback) ->
 
 connect_four.invalid_msg = (msg, callback) ->
   $("#info_txt").text(msg).css("color","red").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast", callback)
-
-
   
 connect_four.add = (x,y,color,callback) ->
   board = $("canvas#board")

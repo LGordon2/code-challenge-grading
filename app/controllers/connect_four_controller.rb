@@ -1,6 +1,7 @@
 class ConnectFourController < ApplicationController
   before_action :require_login
   def index
+    return @demo=true if params[:demo]
     @submission = Submission.new
     if params[:ProxySubmission].blank?
 	    @submission.user_id = session[:user_id]
