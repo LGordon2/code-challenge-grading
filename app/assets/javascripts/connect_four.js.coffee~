@@ -57,6 +57,7 @@ check_board = (color) ->
   
 find_four = (x,y,a) ->
   #Returns start and end point
+  return null
   #Go left
   return [{x:x, y:y},{x:x-3,y:y}] if find_four2(x,y,a,0,"left")
   #Go right

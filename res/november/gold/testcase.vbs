@@ -1,4 +1,5 @@
 Function RandomPlayer(gameBoard, color)
+
 Randomize
                 Dim AcceptableMoves()
                 Dim Counter
@@ -9,7 +10,7 @@ Randomize
  
                 For columns = 0 to UBound(gameBoard,1)
                                 For row = 0 to uBound(gameBoard,2)
-                                                If gameBoard(columns, row) <>"" Then
+                                                If gameBoard(columns, row) <>"n" Then
                                                                 Counter=Counter+1
                                                 End If
                                 Next
@@ -42,18 +43,24 @@ End Function
  
 Function PlayConnectFour(gameBoardString, playerName, color)
 	
-	gameBoardJaggedArray = Split(Split(gameBoardString, ";"),",")
+	gameBoardJaggedArray = Split(gameBoardString, ";")
 	gameBoard = CreateBlankGameBoard()
 
+	For k = 0 to uBound(gameBoardJaggedArray)
+		gameBoardJaggedArray(k) = Split(gameBoardJaggedArray(k), ",")
+	Next
+
+
 	For i = 0 to uBound(gameBoard)
+		
 		For j = 0 to uBound(gameBoard,2)
-			gameBoard(i,j) = gameBoardJaggedArray(i)(j)
+			gameBoard(i,j) = gameBoardJaggedArray(j)(i)
 		Next
 	Next
 	
 	Execute("columnMove = " & playerName &"( gameBoard, """& color & """)")
 	
 	
-	PlayGameFromString = ColumnMove
+	PlayConnectFour = ColumnMove
 
 End Function
