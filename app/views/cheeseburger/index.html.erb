@@ -1,0 +1,231 @@
+<h1 id="mazeTitle"> Can I Haz Cheezeburger?!? </h1>
+<% if @ProxyUser.blank? %>
+     		
+		<% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
+	<% else %>
+		<% functionName = @ProxyUser.first_name.capitalize + @ProxyUser.last_name.capitalize %>
+	<% end %> 
+<script type="text/vbscript">
+
+<%= @submission.submission_code.html_safe if not @demo %>
+mazeArray = Array("ES","WS","","ES","EW","EW","EW","EW","EW","WS","NS","NS","","NE","EW","EW","EW","EW","W","NS","NS","NS","","ES","EW","EW","EW","EWS","EW","NWS","NS","NE","	X","NS","","","","NS","","NS","NS","S","S","NS","ES","EW","WS","NS","","NS","NS","NS","NES","NWS","NS","S","NS","NS","ES","NW","NS","NS","NS","NS","NS","NS","NS","NS","NS","S","NS","NS","NS","NS","NS","NS","N","NS","NS","NS","NS","NE","NW","NS","NS","NE","EW","NW","NS","NS","NE","EW","EW","NW","NE","EW","EW","EW","NEW","NW")
+
+	
+function getFileNameByIndex(index)
+
+	If isNumeric(index) Then
+		If mazeArray(index) = "" Then
+			getFileNameByIndex = "/assets/blank.png"
+		else
+			getFileNameByIndex = "/assets/" & mazeArray(index) & ".png"
+		End If
+	End If
+end function
+
+Function PlayMaze(playerName)
+	
+	Execute("result = " & playerName & "(Kitty)")
+	result = lCase(result)
+
+	If result <> "north" And result <> "south" And result <> "east" And result <> "west" Then
+		EndGameTrigger("Illegal Move [" & result & "]")
+	ElseIf result = "x" Then
+		EndGameTrigger("I HAZ CHEEZEBURGERZ!!!!")
+		PlayMaze = result
+	Else
+		Kitty.Move(result)
+	End If
+End Function
+
+Function MazeDemo(HungryKitty)
+for index = 0 to 10
+	options = Kitty.Look
+	numOptions = Len(options)
+	max=100
+	min=1
+
+	Randomize
+Select Case Mid(options,Int((numOptions-1+1)*Rnd+1),1)
+
+Case "N"
+	MazeDemo=("north")
+Case "S"
+	MazeDemo=("south")
+Case "E"
+	MazeDemo=("east")
+Case "W"
+	MazeDemo=("west")
+End Select
+Next
+End Function
+ 
+Class Kitten
+	Public x_location
+	Public y_location
+	Private goal
+	Private location_history
+
+	Private Sub Class_Initialize   ' Setup Initialize event.
+      		x_location= 9
+		y_location= 9
+		goal="3,4"
+	End Sub
+
+	Private Function add_to_location_history()
+		location_history = location_history & ";" & x_location & "," & y_location
+	End Function
+	
+	Public Function Move(direction)	
+		
+		Select Case lcase(direction)
+		Case "north"
+			If inStr(Look(), "N") Then
+				
+				add_to_location_history()
+				moveKitten("north")
+				y_location = y_location -1
+
+				
+			End If
+		Case "south"
+			If inStr(Look(), "S") Then
+				add_to_location_history()
+				moveKitten("south")
+				y_location = y_location +1
+			End If
+		Case "east"
+			If inStr(Look(), "E") Then
+				add_to_location_history()
+				moveKitten("east")
+				x_location = x_location +1
+			End If
+		Case "west"
+			If inStr(Look(), "W") Then
+				add_to_location_history()
+				moveKitten("west")
+				x_location = x_location -1
+			End If
+		End Select
+
+	End Function
+
+	Public Function Look()
+		Look = MazeArray(x_location + (y_location * 10))
+		
+	End Function
+
+	Public Function Remember()
+		Remember = location_history
+	
+	End Function
+End Class
+
+	set Kitty = Nothing
+	set Kitty = New Kitten
+</script>
+<div id="MazePanel" style="position:relative;font-size:0px">
+<% (1..10).each do |y| %>
+	<% (1..10).each do |x| %>
+			<%= image_tag("NEWS.png", :class => "Maze", :style => "position:absolute,top:#{y*30-30}px,left:#{x*30-30}px") %>
+	<% end %>
+	<br>
+<% end %>
+<%= image_tag("kitten.png", :id => "kitten", :style => "position:absolute;top:#{10*30-40}px;left:#{10*30-40}px;z-index:3") %>
+<%= image_tag("cheeseburger.png", :class => "cheeseburger", :style => "position:absolute;top:#{4*30-40}px;left:#{3*30-40}px;z-index:2") %>
+
+</div>
+<div id="hasCheeseburger" style="display:none">
+<%= image_tag("HasCheeseburger.png", :class => "hascheeseburger") %>
+</div>
+<div id="mazeError" style="display:none">
+<%= image_tag("error.png", :class => "mazeError") %>
+</div>
+<script>
+
+var elems = document.getElementsByClassName("Maze");
+for (i in elems){
+elems[i].src=getFileNameByIndex(i); 	
+	
+}
+ 
+$(document).ready(function(){
+	
+
+	GameController();
+
+
+});
+function GameController(){
+	PlayMaze("<%= functionName %>");
+	
+}
+
+function EndGameTrigger(message){
+if (message == "I HAZ CHEEZEBURGERZ!!!!"){
+	$("#MazePanel").fadeOut("slow", function(message){ 
+		$("#hasCheeseburger").fadeIn("slow");
+		});
+}else{
+	$("#MazePanel").fadeOut("slow", function(message){
+		$("#mazeError").fadeIn("slow");
+		});
+}
+	$("#mazeTitle").text(message);
+	
+$("#mazeTitle").css("innerHTML",message);
+}
+
+
+function moveKitten (direction){
+
+switch (direction)
+{
+case "north":
+
+var topValue = $("#kitten").css("top");
+topValue = parseInt(topValue) - 30;
+$("#kitten").animate({top:topValue.toString()+"px"}, {
+     easing: 'swing',
+     duration: 1000,
+     complete: function(){GameController();}
+        
+    });
+
+break;
+case "south":
+var topValue = $("#kitten").css("top");
+topValue = parseInt(topValue) + 30;
+$("#kitten").animate({top:topValue.toString()+"px"}, {
+     easing: 'swing',
+     duration: 1000,
+     complete: function(){GameController();}
+        
+    });
+
+break;
+case "east":
+var moveEast = $("#kitten").css("left");
+moveEast = parseInt(moveEast) + 30;
+$("#kitten").animate({left:moveEast.toString()+"px"}, {
+     easing: 'swing',
+     duration: 1000,
+     complete: function(){GameController();}
+        
+    });
+
+break;
+case "west":
+var moveWest = $("#kitten").css("left");
+moveWest = parseInt(moveWest) - 30;
+$("#kitten").animate({left:moveWest.toString()+"px"}, {
+     easing: 'swing',
+     duration: 1000,
+     complete: function(){GameController();}
+        
+    });
+
+break;
+}
+
+}
+</script>
