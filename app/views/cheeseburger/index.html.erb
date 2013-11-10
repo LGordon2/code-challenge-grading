@@ -8,19 +8,19 @@
 <script type="text/vbscript">
 
 <%= @submission.submission_code.html_safe if not @demo %>
-mazeArray = Array("ES","WS","","ES","EW","EW","EW","EW","EW","WS","NS","NS","","NE","EW","EW","EW","EW","W","NS","NS","NS","","ES","EW","EW","EW","EWS","EW","NWS","NS","NE","	X","NS","","","","NS","","NS","NS","S","S","NS","ES","EW","WS","NS","","NS","NS","NS","NES","NWS","NS","S","NS","NS","ES","NW","NS","NS","NS","NS","NS","NS","NS","NS","NS","S","NS","NS","NS","NS","NS","NS","N","NS","NS","NS","NS","NE","NW","NS","NS","NE","EW","NW","NS","NS","NE","EW","EW","NW","NE","EW","EW","EW","NEW","NW")
+
 
 	
-function getFileNameByIndex(index)
+Function getFileNameByIndex(index)
 
 	If isNumeric(index) Then
-		If mazeArray(index) = "" Then
+		If Kitty.get_directions(index) = "" Then
 			getFileNameByIndex = "/assets/blank.png"
 		else
-			getFileNameByIndex = "/assets/" & mazeArray(index) & ".png"
+			getFileNameByIndex = "/assets/" & Kitty.get_directions(index) & ".png"
 		End If
 	End If
-end function
+end Function
 
 Function PlayMaze(playerName)
 	
@@ -60,21 +60,33 @@ Next
 End Function
  
 Class Kitten
+
 	Public x_location
 	Public y_location
 	Private goal
 	Private location_history
+	Private mazeArray
 
 	Private Sub Class_Initialize   ' Setup Initialize event.
       		x_location= 9
 		y_location= 9
 		goal="3,4"
+		mazeArray = Array("ES","WS","","ES","EW","EW","EW","EW","EW","WS","NS","NS","","NE","EW","EW","EW","EW","W","NS","NS","NS","","ES","EW","EW","EW","EWS","EW","NWS","NS","NE","	X","NS","","","","NS","","NS","NS","S","S","NS","ES","EW","WS","NS","","NS","NS","NS","NES","NWS","NS","S","NS","NS","ES","NW","NS","NS","NS","NS","NS","NS","NS","NS","NS","S","NS","NS","NS","NS","NS","NS","N","NS","NS","NS","NS","NE","NW","NS","NS","NE","EW","NW","NS","NS","NE","EW","EW","NW","NE","EW","EW","EW","NEW","NW")
 	End Sub
 
 	Private Function add_to_location_history()
 		location_history = location_history & ";" & x_location & "," & y_location
+		
 	End Function
 	
+	Public Function get_directions(index)
+		get_directions = mazeArray(index)
+	End Function
+
+	Public Function Where()
+		Where = x_location & "," & y_location
+	End Function
+
 	Public Function Move(direction)	
 		
 		Select Case lcase(direction)
@@ -118,6 +130,11 @@ Class Kitten
 		Remember = location_history
 	
 	End Function
+
+	Public Function Smell()
+		Smell = goal
+	End Function
+
 End Class
 
 	set Kitty = Nothing
