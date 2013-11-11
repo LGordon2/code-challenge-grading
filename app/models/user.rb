@@ -5,11 +5,9 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :username, presence:true, uniqueness: {case_sensitive: false}
 
-  VALID_EMAIL_REGEX = %r{[a-zA-Z]+\.[a-zA-Z]+\@orasi\.com}
-  validates_format_of :username, :with => VALID_EMAIL_REGEX , :message => "must be Orasi email address."
-
   def self.authenticate(username, password)
     return if password == ""
+    logger.info username
     first_part_username,_ = username.split('@')
     ldap = Net::LDAP.new :host => '10.238.242.32',
     :port => 389,
