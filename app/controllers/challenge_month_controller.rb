@@ -32,7 +32,7 @@ class ChallengeMonthController < ApplicationController
     controller_name
   end
   
-  def submission_json
-    #render json: Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').to_a
+  def all_submissions
+    render template: 'layouts/all_submissions'
   end
 end

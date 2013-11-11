@@ -26,6 +26,8 @@ CodingChallengeGrading::Application.routes.draw do
   post "november/gold" => 'connect_four#index'
   get "november/gold/demo" => 'connect_four#index', demo: 'true'
   
+  #Getting all the submissions.
+  get 'all_submissions' => 'november#all_submissions'
   
   #Comments
   resources :comments
@@ -36,9 +38,6 @@ CodingChallengeGrading::Application.routes.draw do
   #User profile
   get "profile/view"
   delete "profile/submissions/:id" => "profile#destroy" , as: :submission
-  
-  #Getting all the submissions.
-  get 'all_submissions' => 'october#submission_json'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
