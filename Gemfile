@@ -36,6 +36,9 @@ end
 
 # Use LDAP for authentication
  gem 'net-ldap'
+ 
+ #SSL in dev
+ gem 'thin'
 
 # Use unicorn as the app server
 # gem 'unicorn'
