@@ -92,7 +92,7 @@ done = (color) ->
 
 #Private
 recursive_add_to_col = (column,row,color,callback) ->
-  return connect_four.invalid_msg("Invalid move [#{color}] tried to move to column [#{column+1}]") if row < 0 or column < 0 or column > $("canvas#board").width()/100-1
+  return connect_four.invalid_msg("Invalid move [#{players_name(color)}] tried to move to column [#{column+1}]") if row < 0 or column < 0 or column > $("canvas#board").width()/100-1
   return connect_four.add column,row,color,callback if $("#pos#{column}_#{row}").length==0
   recursive_add_to_col column,row-1,color,callback
 

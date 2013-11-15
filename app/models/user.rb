@@ -6,10 +6,12 @@ class User < ActiveRecord::Base
   validates :username, presence:true, uniqueness: {case_sensitive: false}
 
   def self.authenticate(username, password)
-    return unless username =~ /\w+\.\w+@orasi\.com/
+    return unless username =~ /\w+\.\w+@orasi\.com/ or username =~ /\w+\.\w+/
+    first_part_username,_ = username.split('@')
+    
     return if password == ""
     logger.info username
-    first_part_username,_ = username.split('@')
+    
     ldap = Net::LDAP.new :host => '10.238.242.32',
     :port => 389,
     :auth => {
@@ -26,7 +28,7 @@ class User < ActiveRecord::Base
         user.first_name,user.last_name = user.username.split('@').first.split('.')
       end
       if user.photo.nil?
-        filter = Net::LDAP::Filter.eq("mail", username.downcase)
+        filter = Net::LDAP::Filter.eq("mail", first_part_username+"@orasi.com")
         treebase = "dc=orasi, dc=com"
         f = File.open(Rails.root.join('public', 'photos', user.first_name+user.last_name+'.jpg'), 'w')
         ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first.each_line {|line| f.puts line}
