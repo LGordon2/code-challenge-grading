@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :username, presence:true, uniqueness: {case_sensitive: false}
 
   def self.authenticate(username, password)
+    return unless username =~ /\w+\.\w+@orasi\.com/
     return if password == ""
     logger.info username
     first_part_username,_ = username.split('@')
