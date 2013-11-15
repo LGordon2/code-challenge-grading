@@ -18,12 +18,6 @@ class User < ActiveRecord::Base
       :password => password
     }
     if ldap.bind
-      #Checking for old username style.
-      if user = User.find_by(username: username.downcase+"@orasi.com")
-        user.username = username.downcase
-        user.save
-      end
-      
       #Find the user by their username
       user = User.find_by(username: username.downcase)
 
