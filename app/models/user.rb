@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
       f = File.open(Rails.root.join('public', 'photos', user.first_name+user.last_name+'.jpg'), 'w')
       ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first.each_line {|line| f.puts line}
       f.close
-      user.photo = '/photos/'+File.basename(f) if user.photo.empty?
+      user.photo = '/photos/'+File.basename(f) if user.photo.nil? or user.photo.empty?
       user.save
       return user
     end
