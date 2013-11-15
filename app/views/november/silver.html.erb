@@ -1,2 +1,5 @@
 <% @challenge_title = 'I can has cheezburger?'%>
+<% content_for :supporting_link do %>
+  <%= link_to "Kitten Class", "/data/kitten_class.vbs" %><BR>
+<% end %>
 <%=render template: 'layouts/monthly_challenge'%>

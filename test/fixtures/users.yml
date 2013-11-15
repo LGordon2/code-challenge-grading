@@ -1,18 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 lew:
-  username: lewis.gordon@orasi.com
+  username: lewis.gordon
   first_name: lewis
   last_name: gordon
   admin: "true"
 
 user:
-  username: user@orasi.com
+  username: test.user
   first_name: test
   last_name: user
 
 admin:
-  username: admin@orasi.com
+  username: test.admin
   first_name: test
   last_name: admin
   admin: "true"
+
+emailuser:
+  username: userwith.email@orasi.com
+  first_name: userwith
+  last_name: email

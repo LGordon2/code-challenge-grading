@@ -7,7 +7,7 @@
 	<p>
 		<%= label_tag :username %>
 		<br />
-		<%= text_field_tag :username, params[:username], options={:title => "Orasi email address or first_name.last_name"} %>
+		<%= text_field_tag :username, params[:username], options={:pattern => '^\w+\.\w+$', :title => "FirstName.LastName", :placeholder => "john.doe"} %>
 	</p>
 	<p>
 		<%= label_tag :password, nil, class: "align-left" %>

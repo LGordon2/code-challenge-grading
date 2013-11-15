@@ -5,8 +5,9 @@
 <script type="text/javascript">var browserIsIE;</script>
 <script type='text/vbscript'>browserIsIE = true</script>
 <% if current_user.admin %>
-<%= link_to "Get all submissions", all_submissions_path %>
+<%= link_to "Get all submissions", all_submissions_path %><BR>
 <% end %>
+<%= yield :supporting_link %>
 <div id="submitButtonPanel">
 
 	<h3> Submit Solution</h3>
