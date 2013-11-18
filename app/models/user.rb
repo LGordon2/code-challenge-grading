@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
       filter = Net::LDAP::Filter.eq("mail", user.username.downcase+"@orasi.com")
       treebase = "dc=orasi, dc=com"
       f = File.open(Rails.root.join('public', 'photos', user.first_name+user.last_name+'.jpg'), 'w')
-      ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first.each_line {|line| f.puts line}
+      thumbnail_array = ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first
+      thumbnail_array.each_line {|line| f.puts line} unless thumbnail_array.nil? 
       f.close
       user.photo = '/photos/'+File.basename(f) if user.photo.nil? or user.photo.empty?
       user.save
