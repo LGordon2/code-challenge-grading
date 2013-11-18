@@ -1,5 +1,4 @@
 CodingChallengeGrading::Application.routes.draw do
-  
   #Main page (login, logout, etc.)
   resources :sessions
   get "sessions/new"
@@ -21,7 +20,7 @@ CodingChallengeGrading::Application.routes.draw do
   post 'october/bronze' => 'october#result'
   post 'october/silver' => 'october#result'
   post "october/gold" => 'october#result'
-  post "november/bronze" => 'november#result'
+  post "november/bronze" => 'fibonacci#index'
   post "november/silver" => 'cheeseburger#index'
   post "november/gold" => 'connect_four#index'
   get "november/gold/demo" => 'connect_four#index', demo: 'true'

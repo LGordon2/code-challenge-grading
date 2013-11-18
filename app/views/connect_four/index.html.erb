@@ -1,9 +1,8 @@
-<% if @ProxyUser.blank? %>
-     		
-		<% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
-	<% else %>
-		<% functionName = @ProxyUser.first_name.capitalize + @ProxyUser.last_name.capitalize %>
-	<% end %> 
+<% if @ProxyUser.blank? %>	
+	<% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
+<% else %>
+	<% functionName = @ProxyUser.first_name.capitalize + @ProxyUser.last_name.capitalize %>
+<% end %> 
 <script type="text/vbscript">
 <%= @submission.submission_code.html_safe if not @demo %>	
 <%= File.read('res/november/gold/testcase.vbs').html_safe %>
