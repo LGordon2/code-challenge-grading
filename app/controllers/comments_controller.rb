@@ -21,12 +21,14 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
+    CommentMailer.new_comment(User.find(@comment.user_id), @comment).deliver
     @comment.save
     redirect_to :back
   end
 
   def update
     @comment = Comment.find(params[:id])
+    CommentMailer.updated_comment(User.find(@comment.user_id), @comment, params[:comment])
     @comment.comment = params[:comment][:comment]
     @comment.save
     redirect_to :back
@@ -34,6 +36,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    CommentMailer.deleted_comment(User.find(@comment.user_id), @comment, current_user).deliver
     @comment.destroy
     redirect_to :back
   end

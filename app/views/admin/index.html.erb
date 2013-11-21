@@ -1,1 +1,77 @@
-<h1 id="testTitle">TODO</h1>
+<h1 id="testTitle">Usage Stats</h1>
+<div style="text-align: center">
+
+<table border="0" width ="800">
+<tr>
+<td></td>
+<td><b>Created Today</b></td>
+<td><b>Created This Week</b></td>
+<td><b>Created This Month</b></td>
+<td><b>All Time</b></td>
+</tr>
+<tr>
+<td><b>Users</b></td>
+<td>
+<%= User.where("created_at >= ?", Date.today.beginning_of_day).count %>
+</td>
+<td>
+<%= User.where("created_at >= ?", Date.today.beginning_of_week).count %>
+</td>
+<td>
+<%= User.where("created_at >= ?", Date.today.beginning_of_month).count %>
+</td>
+<td>
+<%= User.all.count %>
+</td></tr><tr>
+<td><b>Submissions</b></td>
+<td>
+<%= Submission.where("created_at >= ?", Date.today.beginning_of_day).count %>
+</td>
+<td>
+<%= Submission.where("created_at >= ?", Date.today.beginning_of_week).count %>
+</td>
+<td>
+<%= Submission.where("created_at >= ?", Date.today.beginning_of_month).count %>
+</td>
+<td>
+<%= Submission.all.count %>
+</td>
+</tr>
+</table>
+</div>
+<br><h1> Full User List </h1>
+<div style="text-align: center">
+
+<table border="0" width="800">
+<tr>
+<h2><strong>
+<td>      </td>
+<td><b>   Created   </b></td>
+<td><b>   Last Login </b>  </td>
+<td><b>   Number of Submissions  </b> </td>
+<td><b>   Admin?   </b></td></strong></h2>
+</tr>
+ 
+<% User.all.each do |user| %>
+
+<tr><td><b>
+<%= user.first_name.capitalize %>
+<%= user.last_name.capitalize %>
+</b></td><td>
+<%= user.created_at.to_formatted_s(:long_ordinal) %>
+</td><td>
+<%= user.updated_at.to_formatted_s(:long_ordinal) %>
+</td><td>
+<%= Submission.find(:all, :conditions => {:user_id => user.id}).count %>
+</td><td>
+
+<%= check_box_tag 'admin', user.admin, user.admin, :data => {:remote => true, :url => url_for( :action => 'add_admin', :id => user.id, :admin => user.admin, :authenticity_token =>form_authenticity_token ), :method => :put}, :class => 'adminCheckbox' %>
+
+</td>
+</tr>
+<% end %>
+</table>
+</div>
+<script>
+AuthToken = '<%= form_authenticity_token %>';
+</script>
