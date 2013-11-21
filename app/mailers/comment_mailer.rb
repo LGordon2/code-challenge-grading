@@ -14,7 +14,7 @@ class CommentMailer < ActionMailer::Base
 		@old_comment = old_comment
 		@new_comment = new_comment
 		
-		mail(to: User.all_admin_email_addresses, subject: "Comment Edited for #{comment.month.capitalize} #{comment.league.capitalize}")
+		mail(to: User.all_admin_email_addresses, subject: "Comment Edited for #{old_comment.month.capitalize} #{old_comment.league.capitalize}")
 	end
 	def deleted_comment(user, comment, deleter)
 		@user = user 
