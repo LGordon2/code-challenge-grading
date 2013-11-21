@@ -52,7 +52,7 @@
 <td><b>   Admin?   </b></td></strong></h2>
 </tr>
  
-<% User.all.each do |user| %>
+<% User.all.order(last_name: :asc).each do |user| %>
 
 <tr><td><b>
 <%= user.first_name.capitalize %>
