@@ -42,4 +42,9 @@ class User < ActiveRecord::Base
     end
     return nil
   end
+	def self.all_admin_email_addresses
+		admins_names = User.where('admin=? OR admin=?','true','t').pluck(:username)
+		admins_emails = admins_names.map{|name|(name.include?"@orasi.com") ? name: name + "@orasi.com"}
+		admins_emails
+	end
 end
