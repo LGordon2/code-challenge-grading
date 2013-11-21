@@ -12,26 +12,26 @@
 <tr>
 <td><b>Users</b></td>
 <td>
-<%= User.where("created_at >= ?", 1.day.ago.utc).count %>
+<%= User.where("created_at >= ?", Date.today.beginning_of_day).count %>
 </td>
 <td>
-<%= User.where("created_at >= ?", 1.week.ago.utc).count %>
+<%= User.where("created_at >= ?", Date.today.beginning_of_week).count %>
 </td>
 <td>
-<%= User.where("created_at >= ?", 1.month.ago.utc).count %>
+<%= User.where("created_at >= ?", Date.today.beginning_of_month).count %>
 </td>
 <td>
 <%= User.all.count %>
 </td></tr><tr>
 <td><b>Submissions</b></td>
 <td>
-<%= Submission.where("created_at >= ?", 1.day.ago.utc).count %>
+<%= Submission.where("created_at >= ?", Date.today.beginning_of_day).count %>
 </td>
 <td>
-<%= Submission.where("created_at >= ?", 1.week.ago.utc).count %>
+<%= Submission.where("created_at >= ?", Date.today.beginning_of_week).count %>
 </td>
 <td>
-<%= Submission.where("created_at >= ?", 1.month.ago.utc).count %>
+<%= Submission.where("created_at >= ?", Date.today.beginning_of_month).count %>
 </td>
 <td>
 <%= Submission.all.count %>
