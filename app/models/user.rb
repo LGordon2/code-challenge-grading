@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
       #Get their picture.
       filter = Net::LDAP::Filter.eq("mail", user.username.downcase+"@orasi.com")
       treebase = "dc=orasi, dc=com"
-      f = File.open(Rails.root.join('public', 'photos', user.first_name+user.last_name+'.jpg'), 'w')
+     f = File.open(Rails.root.join('public', 'photos', user.first_name+user.last_name+'.jpg'), 'w')
       ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first.each_line {|line| f.puts line}
       f.close
       user.photo = '/photos/'+File.basename(f) if user.photo.nil? or user.photo.empty?
@@ -47,4 +47,9 @@ class User < ActiveRecord::Base
     end
     return nil
   end
+	def self.all_admin_email_addresses
+		admins_names = User.where('admin=? OR admin=?','true','t').pluck(:username)
+		admins_emails = admins_names.map{|name|(name.include?"@orasi.com") ? name: name + "@orasi.com"}
+		admins_emails
+	end
 end

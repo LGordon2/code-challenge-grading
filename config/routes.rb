@@ -8,6 +8,8 @@ CodingChallengeGrading::Application.routes.draw do
   
   #Admin routes.
   get 'admin' => 'admin#index'
+  post 'admin/add_admin'
+  put 'admin/add_admin'
   
   #Month submissions.
   get "october/bronze"

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>A comment has been added</h1>
+    <p>
+      A commment has been added to the <%= @comment.month.capitalize %> <%= @comment.league.capitalize %> Challenge! <br> 
+      Comment author: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>.<br>
+	Comment: <%= @comment.comment %>
+    </p>
+    
+  </body>
+</html>
