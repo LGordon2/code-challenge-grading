@@ -39,6 +39,7 @@ CodingChallengeGrading::Application.routes.draw do
   #User profile
   get "profile/view"
   delete "profile/submissions/:id" => "profile#destroy" , as: :submission
+  patch "users/:id", to: "user#update", as: :user
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

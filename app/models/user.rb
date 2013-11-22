@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :username, presence:true, uniqueness: {case_sensitive: false}
 
+  attr_accessor :display_name
+
   def self.authenticate(username, password)
     return unless username =~ /^\w+\.\w+$/
     
@@ -46,5 +48,9 @@ class User < ActiveRecord::Base
 		admins_names = User.where('admin=? OR admin=?','true','t').pluck(:username)
 		admins_emails = admins_names.map{|name|(name.include?"@orasi.com") ? name: name + "@orasi.com"}
 		admins_emails
+	end
+	
+	def display_name
+	  self.first_name.capitalize + " " + self.last_name.capitalize
 	end
 end
