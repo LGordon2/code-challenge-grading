@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
 :port                 => 587,
 :domain               => "gmail.com",
 :user_name            => "OrasiCodeChallenge",
-:password             => "Challenge!",
+:password             => "Orasi01!",
 :authentication       => "plain",
 :enable_starttls_auto => true
 }

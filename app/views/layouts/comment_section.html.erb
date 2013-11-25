@@ -32,7 +32,7 @@
 				<% end %>
 			<% end %>
 					<%= form_for @comment_reply, style: 'height: 100%' do |g|%>
-						<p class="comment-edit" style="display: none;">
+						<p class="comment-edit" style="display:none;">
 							<%= g.text_area :comment, class: 'animated' %>
 							<%= g.hidden_field :month, :value => controller_name %>
 							<%= g.hidden_field :league, :value => action_name %>
@@ -44,7 +44,7 @@
 						<%= button_tag 'Cancel', href: 'javascript:void(0);', class: "cancel-btn btn", type: 'button', style: 'display:none;'%>
 						
 					<% end %> 	
-			<% reply_comments = Comment.where(reply_id: comment.id) %>
+			<% reply_comments = comment.replies %>
 				<% reply_comments.each do |reply| %>
 					<header>
 						<%= image_tag 'Reply.png', width: 25, height: 25, style: "vertical-align:middle;margin-left:50px" %>
