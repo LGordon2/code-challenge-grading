@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    CommentMailer.updated_comment(User.find(@comment.user_id), @comment, params[:comment])
+    CommentMailer.updated_comment(User.find(@comment.user_id), @comment, params[:comment][:comment]).deliver
     @comment.comment = params[:comment][:comment]
     @comment.save
     redirect_to :back
