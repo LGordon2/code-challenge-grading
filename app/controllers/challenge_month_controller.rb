@@ -31,7 +31,7 @@ class ChallengeMonthController < ApplicationController
   def challenge_month
     controller_name
   end
-  
+
   def all_submissions
     render template: 'layouts/all_submissions'
   end
