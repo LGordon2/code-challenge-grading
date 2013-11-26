@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
     if ldap.bind
       #Find the user by their username
       user = User.find_by(username: username.downcase)
-      user.touch
       #If the user doesn't exist make a new user.  Split their username to get their first name and last name
       if user.nil?
         user = User.new
@@ -39,7 +38,7 @@ class User < ActiveRecord::Base
       f.close
       user.photo = '/photos/'+File.basename(f) if user.photo.nil? or user.photo.empty?
       user.save
-      
+      user.touch 
       return user
     end
     return nil
