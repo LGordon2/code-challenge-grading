@@ -13,7 +13,7 @@ class CommentMailer < ActionMailer::Base
 		@reply_user = reply_user
 		@old_comment = old_comment
 		@new_comment = new_comment
-		mail(to: "#{user.first_name}.#{user.last_name}@orasi.com", subject: "Reply To Comment For #{old_comment.month.capitalize} #{old_comment.league.capitalize}")
+		mail(to: user, subject: "Reply To Comment For #{old_comment.month.capitalize} #{old_comment.league.capitalize}")
 	end
 
 	def updated_comment(user, old_comment, new_comment)

@@ -23,8 +23,15 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     CommentMailer.new_comment(User.find(@comment.user_id), @comment).deliver
     @comment.save
+    
     if @comment.reply_id
-	CommentMailer.reply_comment(User.find(Comment.find(@comment.reply_id).user_id), User.find(@comment.user_id),Comment.find(@comment.reply_id), @comment.comment).deliver
+	     original_poster = User.find(Comment.find(@comment.reply_id).user_id)
+       original_poster_email =original_poster.username.include?"@orasi.com" ? original_poster.username: original_poster.username + "@orasi.com"
+	     CommentMailer.reply_comment(User.find(Comment.find(@comment.reply_id).user_id), User.find(@comment.user_id),Comment.find(@comment.reply_id), @comment.comment).deliver
+	     reply_to = User.find(Comment.where(:reply_id => Comment.find(@comment.reply_id)).pluck(:user_id))
+	     reply_to_usernames = reply_to.map{|name|name.username}
+	     reply_to_emails = reply_to_usernames.map{|name|(name.include?"@orasi.com") ? name: name + "@orasi.com"}
+	     CommentMailer.reply_comment(reply_to_emails, User.find(@comment.user_id),Comment.find(@comment.reply_id), @comment.comment).deliver
     end
     redirect_to :back
   end
