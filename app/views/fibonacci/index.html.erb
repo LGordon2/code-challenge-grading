@@ -6,7 +6,7 @@
 </script>
 <script type="text/javascript">
   username = function(){
-  	return "<%= current_user.display_name %>";
+  	return "<%= current_user.first_name.capitalize + current_user.last_name.capitalize %>";
   };
 </script>
 <h1 id="numbers">
