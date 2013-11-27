@@ -8,13 +8,17 @@ class WelcomeControllerTest < ActionController::TestCase
   
   test "should not see index" do
     get :index
-    assert_response :redirect
-    assert_not_nil flash[:error]
+    assert_redirected_to :login
   end
   
   test "should be logged in and see index" do
     get :index, nil, {'user_id' => users(:lew).id}
     assert_response :success
+    assert_nil flash[:error]
+  end
+  
+  test "should not get error on index" do
+    get :index
     assert_nil flash[:error]
   end
 end
