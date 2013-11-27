@@ -3,27 +3,27 @@
 </div>
 <div>
 
-	<%= form_tag sessions_path do %>
+	<%= form_for :user do |f| %>
 	<p>
-		<%= label_tag :username %>
+		<%= f.label :username %>
 		<br />
-		<%= text_field_tag :username, params[:username], options={:pattern => '^\w+\.\w+$', :title => "FirstName.LastName", :placeholder => "john.doe"} %>
+		<%= f.text_field :username, options={:pattern => '^\w+\.\w+$', :title => "FirstName.LastName", :placeholder => "john.doe"} %>
 	</p>
 	<p>
-		<%= label_tag :password, nil, class: "align-left" %>
+		<%= f.label :password, nil, class: "align-left" %>
 		<br />
-		<%= password_field_tag :password %>
+		<%= f.password_field :password %>
 	</p>
-	<%if flash[:alert]%>
+	<%if flash[:error]%>
 	<div id="error_explanation">
-		<h2><%= flash[:alert] %></h2>
+		<h2><%= flash[:error] %></h2>
 	</div>
 	<%end%>
 	<p class="button">
-		<%= submit_tag "Login", class: "btn btn-primary btn-lg" %>
+		<%= f.submit "Login", class: "btn btn-primary btn-lg" %>
 	</p>
 	<% end %>
 	<footer class="masthead text-center">
-		<a href="https://github.com/LGordon2/code-challenge-grading/issues?state=open">Issues/Suggestions?</a>
+		<a href="http://github.com/LGordon2/code-challenge-grading/issues?state=open">Issues/Suggestions?</a>
 	</footer>
 </div>

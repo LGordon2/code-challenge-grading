@@ -1,12 +1,12 @@
 <h1>Numbers will flash for a while then turn to <em class="text-danger">red (fail)</em> or <em class="text-success">green (pass)</em>. </h1>
 
 <script type="text/vbscript">
-<%= @submission.submission_code.html_safe %>	
+<%= @submission.submission_code.html_safe unless @submission.submission_code.blank? %>	
 <%= File.read('res/november/bronze/testcase.vbs').html_safe %>
 </script>
 <script type="text/javascript">
   username = function(){
-  	return "<%= current_user.first_name.capitalize+current_user.last_name.capitalize %>";
+  	return "<%= current_user.display_name %>";
   };
 </script>
 <h1 id="numbers">

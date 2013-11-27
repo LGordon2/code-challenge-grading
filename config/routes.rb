@@ -1,9 +1,10 @@
 CodingChallengeGrading::Application.routes.draw do
   #Main page (login, logout, etc.)
-  resources :sessions
-  get "sessions/new"
-  get 'login' => 'welcome#login'
-  get "logout" => "sessions#destroy"
+  #resources :sessions
+  #get "sessions/new"
+  get 'login', to: 'welcome#login'
+  get "logout", to: "welcome#logout"
+  post 'login', to: 'welcome#validate_login'
   
   #Admin routes.
   get 'admin' => 'admin#index'

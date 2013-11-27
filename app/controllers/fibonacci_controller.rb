@@ -1,4 +1,6 @@
 class FibonacciController < ApplicationController
+  before_action :require_login
+  
   def index
     @submission = Submission.new
     if params[:ProxySubmission].blank?
@@ -8,7 +10,7 @@ class FibonacciController < ApplicationController
       @submission.user_id = @ProxyUser.id
     end
     
-    @submission.submission_code = params[:script].read
+    @submission.submission_code = params[:script].read unless params[:script].blank?
     @submission.month = "november"
     @submission.league = "bronze"
     @submission.save
