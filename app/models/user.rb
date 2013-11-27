@@ -1,14 +1,16 @@
 class User < ActiveRecord::Base
   has_many :submissions, dependent: :destroy
   has_many :comments, dependent: :destroy
-  validates :username, presence:true, uniqueness: {case_sensitive: false}
-  validates :username, format: {with: /\A\w+\.\w+\z/, message: "Username must be in the form FirstName.LastName"}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}, format: {with: /\A\w+\.\w+\z/, message: "Username must be in the form FirstName.LastName"}
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   attr_accessor :display_name
 
   def self.find_or_create(username)
     #Find the user by their username
     user = User.find_by(username: username.downcase)
+    
     #If the user doesn't exist make a new user.  Split their username to get their first name and last name
     if user.nil?
       user = User.new
