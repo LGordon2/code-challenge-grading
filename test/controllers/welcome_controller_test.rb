@@ -21,4 +21,22 @@ class WelcomeControllerTest < ActionController::TestCase
     get :index
     assert_nil flash[:error]
   end
+  
+  test "login password must not be blank" do
+    post :validate_login, user: {username: "test.user", password: ""}
+    assert_redirected_to :login
+    assert_not_nil flash[:error]
+  end
+  
+  test "picture not created if not connected to AD" do
+    post :validate_login, user: {username: "testing.rails", password: "test"}
+    assert_redirected_to :root
+    assert_nil flash[:error]
+  end
+  
+  test "login requires user param" do
+    assert_raises ActionController::ParameterMissing do
+      post :validate_login
+    end
+  end
 end

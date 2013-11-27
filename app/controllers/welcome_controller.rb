@@ -1,9 +1,10 @@
 class WelcomeController < ApplicationController
   before_action :require_login, only: :index
+  before_action :user_params, only: :validate_login
   
   def validate_login
     @ldap = get_ldap(params[:user][:username],params[:user][:password])
-    unless (@ldap.bind and !params[:user][:password].blank?) or Rails.env.development?
+    unless !params[:user][:password].blank? and (@ldap.bind or !Rails.env.production?)
       redirect_to :login, flash: {error: "Invalid username or password."}
       return
     end
