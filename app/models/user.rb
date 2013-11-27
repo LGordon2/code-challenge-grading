@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+
   attr_accessor :display_name
 
   def self.find_or_create(username)
@@ -32,6 +33,7 @@ class User < ActiveRecord::Base
     self.photo='/photos/' + self.first_name+self.last_name+'.jpg'
   end
   
+
 	def self.all_admin_email_addresses
 		admins_names = User.where('admin=? OR admin=?','true','t').pluck(:username)
 		admins_emails = admins_names.map{|name|(name.include?"@orasi.com") ? name: name + "@orasi.com"}

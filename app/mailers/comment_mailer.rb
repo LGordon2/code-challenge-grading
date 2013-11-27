@@ -4,18 +4,25 @@ class CommentMailer < ActionMailer::Base
 
 	def new_comment(user, comment)
 		@user = user 
-		@url = 'http://example.com/login'
 		@comment = comment
 		mail(to: User.all_admin_email_addresses, subject: "Comment Posted for #{comment.month.capitalize} #{comment.league.capitalize}")
 	end
-	def updated_comment(user, old_comment, new_comment)
+
+	def reply_comment(user, reply_user,old_comment, new_comment)
 		@user = user 
-		@url = 'http://example.com/login'
+		@reply_user = reply_user
 		@old_comment = old_comment
 		@new_comment = new_comment
-		
+		mail(to: user, subject: "Reply To Comment For #{old_comment.month.capitalize} #{old_comment.league.capitalize}")
+	end
+
+	def updated_comment(user, old_comment, new_comment)
+		@user = user 
+		@old_comment = old_comment
+		@new_comment = new_comment
 		mail(to: User.all_admin_email_addresses, subject: "Comment Edited for #{old_comment.month.capitalize} #{old_comment.league.capitalize}")
 	end
+
 	def deleted_comment(user, comment, deleter)
 		@user = user 
 		@comment = comment

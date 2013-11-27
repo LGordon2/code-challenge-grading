@@ -1,3 +1,4 @@
+
 #ActionMailer::Base.smtp_settings = {
 #:address              => "codechallenge.orasi.com",
 #:port                 => 25,
