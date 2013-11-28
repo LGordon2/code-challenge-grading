@@ -39,16 +39,59 @@
 							<%= link_to "Admin", :admin %>
 						</li>
 						<% end %>
-						<li>
-							
-  							<%= link_to "Bronze", november_bronze_path %>
+						<li class="dropdown">
+							<div class="btn-group" style="vertical-align: middle">
+  								<%= link_to "Bronze", november_bronze_path, :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
+  								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border: 0px;padding-top: 10px;padding-bottom: 10px">
+    								<span class="caret"></span>
+    								<span class="sr-only">Toggle Dropdown</span>
+  								</button>
   							
+  								<ul class="dropdown-menu", role="menu">
+  									<% bronze_challenges = Challenge.where(:league => "bronze").last(5).reverse%>
+  									<% bronze_challenges.each do |bronze|%>
+  										<li><%= link_to bronze.title, root_url + bronze.month + "/" + bronze.league, :role => "menuitem"%></li>
+  									<% end %>				
+  									<li class="divider"></li>
+  									<li><%= link_to "Archive", october_bronze_path, :role => "menuitem"%></li>
+  								</ul>
+  							</div>
 						</li>
-						<li>
-							<%= link_to "Silver", november_silver_path%>
+						<li class="dropdown">
+							<div class="btn-group" style="vertical-align: middle">
+  								<%= link_to "Silver", november_silver_path, :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
+  								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border: 0px;padding-top: 10px;padding-bottom: 10px">
+    								<span class="caret"></span>
+    								<span class="sr-only">Toggle Dropdown</span>
+  								</button>
+  							
+  								<ul class="dropdown-menu", role="menu">
+  									<li>
+  										<% silver_challenges = Challenge.where(:league => "silver").last(5).reverse%>
+  									<% silver_challenges.each do |silver|%>
+  										<li><%= link_to silver.title, root_url + silver.month + "/" + silver.league, :role => "menuitem"%></li>
+  									<% end %>	
+  									
+  									<li class="divider"></li>
+  									<li><%= link_to "Archive", october_bronze_path, :role => "menuitem"%></li>
+  								</ul>
 						</li>
-						<li>
-							<%= link_to "Gold", november_gold_path %>
+						<li class="dropdown">
+							<div class="btn-group" style="vertical-align: middle">
+  								<%= link_to "Gold", november_gold_path, :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
+  								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border: 0px;padding-top: 10px;padding-bottom: 10px">
+    								<span class="caret"></span>
+    								<span class="sr-only">Toggle Dropdown</span>
+  								</button>
+  							
+  								<ul class="dropdown-menu", role="menu">
+  									<% gold_challenges = Challenge.where(:league => "gold").last(5).reverse%>
+  									<% gold_challenges.each do |gold|%>
+  										<li><%= link_to gold.title, root_url + gold.month + "/" + gold.league, :role => "menuitem"%></li>
+  									<% end %>	
+  									<li class="divider"></li>
+  									<li><%= link_to "Archive", october_bronze_path, :role => "menuitem"%></li>
+  								</ul>
 						</li>
  
 						<li>

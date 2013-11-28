@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125221757) do
+ActiveRecord::Schema.define(version: 20131127231319) do
+
+  create_table "challenges", force: true do |t|
+    t.string  "month"
+    t.string  "league"
+    t.integer "year"
+    t.string  "title"
+    t.string  "winner"
+  end
 
   create_table "comments", force: true do |t|
     t.string   "name"

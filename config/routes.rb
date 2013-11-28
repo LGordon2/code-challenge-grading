@@ -2,6 +2,7 @@ CodingChallengeGrading::Application.routes.draw do
   #Main page (login, logout, etc.)
   #resources :sessions
   #get "sessions/new"
+  
   get 'login', to: 'welcome#login'
   get "logout", to: "welcome#logout"
   post 'login', to: 'welcome#validate_login'
@@ -12,6 +13,19 @@ CodingChallengeGrading::Application.routes.draw do
   put 'admin/add_admin'
   
   #Month submissions.
+  
+  get "june/bronze"
+  get "june/silver"
+  get "june/gold"
+  get "july/bronze"
+  get "july/silver"
+  get "july/gold"
+  get "august/bronze"
+  get "august/silver"
+  get "august/gold"
+  get "september/bronze"
+  get "september/silver"
+  get "september/gold"
   get "october/bronze"
   get "october/silver"
   get "october/gold"
@@ -20,6 +34,18 @@ CodingChallengeGrading::Application.routes.draw do
   get "november/gold"
   
   #Results.
+  post 'june/bronze' => 'june#result'
+  post 'june/silver' => 'june#result'
+  post "june/gold" => 'june#result'
+  post 'july/bronze' => 'july#result'
+  post 'july/silver' => 'july#result'
+  post "july/gold" => 'july#result'
+  post 'august/bronze' => 'august#result'
+  post 'august/silver' => 'august#result'
+  post "august/gold" => 'august#result'
+  post 'september/bronze' => 'september#result'
+  post 'september/silver' => 'september#result'
+  post "september/gold" => 'september#result'
   post 'october/bronze' => 'october#result'
   post 'october/silver' => 'october#result'
   post "october/gold" => 'october#result'

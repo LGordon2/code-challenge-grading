@@ -1,2 +1,2 @@
-<% @challenge_title = 'Finding Reducible Primes'%>
+<% @challenge_title = Challenge.find_by(:month => "october", :league => "gold", :year => 2013).title %>
 <%=render template: 'layouts/monthly_challenge'%>
