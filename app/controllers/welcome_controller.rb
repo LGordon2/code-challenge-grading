@@ -2,15 +2,20 @@ class WelcomeController < ApplicationController
   before_action :require_login, only: :index
   
   def validate_login
+    if !Rails.env.development?
     @ldap = get_ldap(params[:user][:username],params[:user][:password])
-    unless (@ldap.bind and !params[:user][:password].blank?) or Rails.env.development?
-      redirect_to :login, flash: {error: "Invalid username or password."}
-      return
+
+	unless (@ldap.bind and !params[:user][:password].blank?)
+      		redirect_to :login, flash: {error: "Invalid username or password."}
+      		return
+	end
     end
     
     #Get their picture.
     user = User.find_or_create(params[:user][:username])
-    user.retrieve_picture(@ldap) if @ldap.bind
+    if !Rails.env.development?
+	user.retrieve_picture(@ldap) if @ldap.bind
+    end
     if user.save!
       user.touch
       session[:user_id] = user.id
