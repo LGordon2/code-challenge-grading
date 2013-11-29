@@ -53,7 +53,7 @@
   										<li><%= link_to bronze.title, root_url + bronze.month + "/" + bronze.league, :role => "menuitem"%></li>
   									<% end %>				
   									<li class="divider"></li>
-  									<li><%= link_to "Archive", october_bronze_path, :role => "menuitem"%></li>
+  									<li><%= link_to "Archive", root_url + "archive/bronze", :role => "menuitem"%></li>
   								</ul>
   							</div>
 						</li>
@@ -73,7 +73,7 @@
   									<% end %>	
   									
   									<li class="divider"></li>
-  									<li><%= link_to "Archive", october_bronze_path, :role => "menuitem"%></li>
+  									<li><%= link_to "Archive", root_url + "archive/silver", :role => "menuitem"%></li>
   								</ul>
 						</li>
 						<li class="dropdown">
@@ -90,7 +90,7 @@
   										<li><%= link_to gold.title, root_url + gold.month + "/" + gold.league, :role => "menuitem"%></li>
   									<% end %>	
   									<li class="divider"></li>
-  									<li><%= link_to "Archive", october_bronze_path, :role => "menuitem"%></li>
+  									<li><%= link_to "Archive", root_url + "archive/gold", :role => "menuitem"%></li>
   								</ul>
 						</li>
  

@@ -1,0 +1,17 @@
+<h1><%= @league.capitalize %> League Archive</h1>
+
+<table cellpadding="5px" class="table">
+	<thead>
+		<td><h3>Challenge Title</h3></td>
+		<td><h3>Month</h3></td>
+		<td><h3>Winner</h3></tdf>
+	</thead>
+	<% Challenge.where(:league => @league).reverse.each do |challenge| %>
+
+		<tr>
+			<td><%= link_to challenge.title.capitalize, "#{root_url}#{challenge.month}/#{challenge.league}"%> <%= "    " %> </td>
+			<td><%= challenge.month.capitalize %> <%=challenge.year%> </td> 
+			<td><%= challenge.winner%></td>
+		</tr>
+<% end %>
+</table>

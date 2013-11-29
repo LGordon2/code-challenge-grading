@@ -1,4 +1,5 @@
 CodingChallengeGrading::Application.routes.draw do
+  get "archive/:league", to: 'archive#show'
   #Main page (login, logout, etc.)
   #resources :sessions
   #get "sessions/new"
