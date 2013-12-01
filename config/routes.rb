@@ -69,6 +69,9 @@ CodingChallengeGrading::Application.routes.draw do
   delete "profile/submissions/:id" => "profile#destroy" , as: :submission
   patch "users/:id", to: "user#update", as: :user
   
+  #API For Manager Portal
+  get "user/:last/:first"=> "user#submissions_history"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
