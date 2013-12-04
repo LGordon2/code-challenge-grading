@@ -1,53 +1,7 @@
-<h1>Usage Stats</h1>
-<div>
-	<table class="table">
-		<thead>
-			<td></td>
-			<td><b>Created Today</b></td>
-			<td><b>Created This Week</b></td>
-			<td><b>Created This Month</b></td>
-			<td><b>All Time</b></td>
-		</thead>
-		<tr>
-			<td>Users</td>
-			<td> <%= User.where("created_at >= ?", Date.today.beginning_of_day).count %> </td>
-			<td> <%= User.where("created_at >= ?", Date.today.beginning_of_week).count %> </td>
-			<td> <%= User.where("created_at >= ?", Date.today.beginning_of_month).count %> </td>
-			<td> <%= User.all.count %> </td>
-		</tr>
-		<tr>
-			<td>Submissions</td>
-			<td> <%= Submission.where("created_at >= ?", Date.today.beginning_of_day).count %> </td>
-			<td> <%= Submission.where("created_at >= ?", Date.today.beginning_of_week).count %> </td>
-			<td> <%= Submission.where("created_at >= ?", Date.today.beginning_of_month).count %> </td>
-			<td> <%= Submission.all.count %> </td>
-		</tr>
-	</table>
-</div>
-<br>
-<h1> Full User List </h1>
-<div>
-	<table class="table">
-		<thead>
-			<td><b>Name</b></td>
-			<td><b>Created</b></td>
-			<td><b>Last Login</b></td>
-			<td><b>Number of Submissions</b></td>
-			<td><b>Admin?</b></td>
-		</thead>
+<%= render 'admin_head'%>
+<% if @type == "users"%>
+<%= render 'user_list', :users => @users, :title => @title %>
+<% elsif @type == 'submissions' %>
+<%= render 'submission_list', :submissions => @submissions, :title => @title %>
 
-		<% User.all.order(last_name: :asc).each do |user| %>
-		<tr>
-			<td><b><%= user.display_name %></b></td>
-			<td id="testID"><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
-			<td><%= user.updated_at.to_formatted_s(:long_ordinal) %></td>
-			<td><%= user.submissions.count %></td>
-			<td>
-			<%= form_for user, remote: true do |u| %>
-			<%= u.check_box :admin, class: "admin_checkbox", disabled: user==current_user %>
-			<% end %>
-			</td>
-		</tr>
-		<% end %>
-	</table>
-</div>
+<% end %>

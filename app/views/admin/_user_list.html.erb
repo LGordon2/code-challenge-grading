@@ -1,0 +1,26 @@
+<h1> <%= "#{title}" %> </h1>
+<div>
+	<table class="table">
+		<thead>
+			<td><b>Name</b></td>
+			<td><b>Created</b></td>
+			<td><b>Last Login</b></td>
+			<td><b>Number of Submissions</b></td>
+			<td><b>Admin?</b></td>
+		</thead>
+
+		<% users.order(last_name: :asc).each do |user| %>
+		<tr>
+			<td><b><%= user.display_name %></b></td>
+			<td id="testID"><%= user.created_at.to_formatted_s(:long_ordinal) %></td>
+			<td><%= user.updated_at.to_formatted_s(:long_ordinal) %></td>
+			<td><%= user.submissions.count %></td>
+			<td>
+			<%= form_for user, remote: true do |u| %>
+			<%= u.check_box :admin, class: "admin_checkbox", disabled: user==current_user %>
+			<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>

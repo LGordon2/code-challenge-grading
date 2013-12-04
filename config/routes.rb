@@ -12,6 +12,9 @@ CodingChallengeGrading::Application.routes.draw do
   get 'admin' => 'admin#index'
   post 'admin/add_admin'
   put 'admin/add_admin'
+  get 'admin/users/:time' => 'admin#users'
+  get 'admin/submissions/:time' => 'admin#submissions'
+  
   
   #Month submissions.
   
