@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+    class AdminController < ApplicationController
   def index
     redirect_to :root unless current_user and current_user.admin
     @users = User.all
