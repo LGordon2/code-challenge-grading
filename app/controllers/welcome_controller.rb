@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   before_action :require_login, only: :index
   
   def validate_login
-    if !Rails.env.development?
+    if Rails.env.production?
     @ldap = get_ldap(params[:user][:username],params[:user][:password])
 
 
@@ -15,7 +15,7 @@ class WelcomeController < ApplicationController
     
     #Get their picture.
     user = User.find_or_create(params[:user][:username])
-    user.retrieve_picture(@ldap) if @ldap.bind if !Rails.env.development?
+    user.retrieve_picture(@ldap) if @ldap.bind if Rails.env.production?
 
     if user.save!
       user.touch
