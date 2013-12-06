@@ -2,6 +2,9 @@ CodingChallengeGrading::Application.routes.draw do
   get "archive/:league", to: 'archive#show'
   #Main page (login, logout, etc.)
   #resources :sessions
+  
+  #Tutorial Routes.
+  get 'tutorial' => 'tutorial#index'
   #get "sessions/new"
   
   get 'login', to: 'welcome#login'
