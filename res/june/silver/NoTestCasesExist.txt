@@ -1,0 +1,4 @@
+document.write("***************************************<BR>")
+document.write("No Test Cases Exist For This Challenge<BR>")
+document.write("***************************************")
+

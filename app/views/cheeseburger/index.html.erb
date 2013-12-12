@@ -29,9 +29,6 @@ Function PlayMaze(playerName)
 
 	If result <> "north" And result <> "south" And result <> "east" And result <> "west" Then
 		EndGameTrigger("Illegal Move [" & result & "]")
-	ElseIf result = "x" Then
-		EndGameTrigger("I HAZ CHEEZEBURGERZ!!!!")
-		PlayMaze = result
 	Else
 		Kitty.Move(result)
 	End If
@@ -70,7 +67,7 @@ Class Kitten
 	Private Sub Class_Initialize   ' Setup Initialize event.
       		x_location= 9
 		y_location= 9
-		goal="3,4"
+		goal="2,3"
 		mazeArray = Array("ES","WS","","ES","EW","EW","EW","EW","EW","WS","NS","NS","","NE","EW","EW","EW","EW","W","NS","NS","NS","","ES","EW","EW","EW","EWS","EW","NWS","NS","NE","	X","NS","","","","NS","","NS","NS","S","S","NS","ES","EW","WS","NS","","NS","NS","NS","NES","NWS","NS","S","NS","NS","ES","NW","NS","NS","NS","NS","NS","NS","NS","NS","NS","S","NS","NS","NS","NS","NS","NS","N","NS","NS","NS","NS","NE","NW","NS","NS","NE","EW","NW","NS","NS","NE","EW","EW","NW","NE","EW","EW","EW","NEW","NW")
 	End Sub
 
@@ -94,28 +91,28 @@ Class Kitten
 			If inStr(Look(), "N") Then
 				
 				add_to_location_history()
-				moveKitten("north")
 				y_location = y_location -1
-
+				moveKitten("north")
 				
 			End If
 		Case "south"
 			If inStr(Look(), "S") Then
 				add_to_location_history()
-				moveKitten("south")
 				y_location = y_location +1
+				moveKitten("south")
 			End If
 		Case "east"
 			If inStr(Look(), "E") Then
 				add_to_location_history()
-				moveKitten("east")
 				x_location = x_location +1
+				moveKitten("east")
+
 			End If
 		Case "west"
 			If inStr(Look(), "W") Then
 				add_to_location_history()
-				moveKitten("west")
 				x_location = x_location -1
+				moveKitten("west")
 			End If
 		End Select
 
@@ -136,7 +133,12 @@ Class Kitten
 	End Function
 
 End Class
-
+Function isEndGame()
+	
+	If Kitty.Where = Kitty.Smell Then
+		isEndGame = "true"
+	End If
+End Function
 	set Kitty = Nothing
 	set Kitty = New Kitten
 </script>
@@ -194,55 +196,109 @@ $("#mazeTitle").css("innerHTML",message);
 
 
 function moveKitten (direction){
-
-switch (direction)
-{
-case "north":
-
-var topValue = $("#kitten").css("top");
-topValue = parseInt(topValue) - 30;
-$("#kitten").animate({top:topValue.toString()+"px"}, {
-     easing: 'swing',
-     duration: 1000,
-     complete: function(){GameController();}
+if (isEndGame()=="true"){
+	moveKittenEndGame(direction);
+}else{
+	switch (direction)
+	{
+	case "north":
+	
+	var topValue = $("#kitten").css("top");
+	topValue = parseInt(topValue) - 30;
+	$("#kitten").animate({top:topValue.toString()+"px"}, {
+	     easing: 'swing',
+	     duration: 1000,
+	     complete: function(){GameController();}
+	        
+	    });
+	
+	break;
+	case "south":
+	var topValue = $("#kitten").css("top");
+	topValue = parseInt(topValue) + 30;
+	$("#kitten").animate({top:topValue.toString()+"px"}, {
+	     easing: 'swing',
+	     duration: 1000,
+	     complete: function(){GameController();}
         
-    });
+	    });
 
-break;
-case "south":
-var topValue = $("#kitten").css("top");
-topValue = parseInt(topValue) + 30;
-$("#kitten").animate({top:topValue.toString()+"px"}, {
-     easing: 'swing',
-     duration: 1000,
-     complete: function(){GameController();}
+	break;
+	case "east":
+	var moveEast = $("#kitten").css("left");
+	moveEast = parseInt(moveEast) + 30;
+	$("#kitten").animate({left:moveEast.toString()+"px"}, {
+	     easing: 'swing',
+	     duration: 1000,
+	     complete: function(){GameController();}
+	        
+	    });
+	
+	break;
+	case "west":
+	var moveWest = $("#kitten").css("left");
+	moveWest = parseInt(moveWest) - 30;
+	$("#kitten").animate({left:moveWest.toString()+"px"}, {
+	     	easing: 'swing',
+    		duration: 1000,
+     		complete: function(){GameController();}
         
-    });
+    	});
 
-break;
-case "east":
-var moveEast = $("#kitten").css("left");
-moveEast = parseInt(moveEast) + 30;
-$("#kitten").animate({left:moveEast.toString()+"px"}, {
-     easing: 'swing',
-     duration: 1000,
-     complete: function(){GameController();}
+	break;
+	}
+}
+}
+function moveKittenEndGame (direction){
+
+	switch (direction)
+	{
+	case "north":
+	
+	var topValue = $("#kitten").css("top");
+	topValue = parseInt(topValue) - 30;
+	$("#kitten").animate({top:topValue.toString()+"px"}, {
+	     easing: 'swing',
+	     duration: 1000,
+	     complete: function(){EndGameTrigger("I HAZ CHEEZEBURGERZ!!!!");}
+	        
+	    });
+	
+	break;
+	case "south":
+	var topValue = $("#kitten").css("top");
+	topValue = parseInt(topValue) + 30;
+	$("#kitten").animate({top:topValue.toString()+"px"}, {
+	     easing: 'swing',
+	     duration: 1000,
+	     complete: function(){EndGameTrigger("I HAZ CHEEZEBURGERZ!!!!");}
         
-    });
+	    });
 
-break;
-case "west":
-var moveWest = $("#kitten").css("left");
-moveWest = parseInt(moveWest) - 30;
-$("#kitten").animate({left:moveWest.toString()+"px"}, {
-     easing: 'swing',
-     duration: 1000,
-     complete: function(){GameController();}
+	break;
+	case "east":
+	var moveEast = $("#kitten").css("left");
+	moveEast = parseInt(moveEast) + 30;
+	$("#kitten").animate({left:moveEast.toString()+"px"}, {
+	     easing: 'swing',
+	     duration: 1000,
+	     complete: function(){EndGameTrigger("I HAZ CHEEZEBURGERZ!!!!");}
+	        
+	    });
+	
+	break;
+	case "west":
+	var moveWest = $("#kitten").css("left");
+	moveWest = parseInt(moveWest) - 30;
+	$("#kitten").animate({left:moveWest.toString()+"px"}, {
+	     	easing: 'swing',
+    		duration: 1000,
+     		complete: function(){EndGameTrigger("I HAZ CHEEZEBURGERZ!!!!");}
         
-    });
+    	});
 
-break;
+	break;
+	}
 }
 
-}
 </script>
