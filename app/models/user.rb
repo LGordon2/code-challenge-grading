@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :submissions, dependent: :destroy
   has_many :comments, dependent: :destroy
-  validates :username, presence: true, uniqueness: {case_sensitive: false}, format: {with: /\A\w+\.\w+\z/, message: "Username must be in the form FirstName.LastName"}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}
   validates :first_name, presence: true
   validates :last_name, presence: true
 
@@ -17,14 +17,32 @@ class User < ActiveRecord::Base
       user = User.new
       user.username = username.downcase
       user.first_name,user.last_name = user.username.split('.')
+      user.username = "#{user.first_name}#{user.last_name}".downcase if user.first_name.length==1
     end
     
     user.save
     return user
   end
   
+  def validate_against_ad(password)
+    #Do authentication against the AD.
+    return true unless Rails.env.production?
+    return false if password.blank? or username.blank?
+    
+    ldap = Net::LDAP.new :host => '10.238.242.32',
+    :port => 389,
+    :auth => {
+      :method => :simple,
+      :username => "ORASI\\#{username}",
+      :password => password
+    }
+    validated = ldap.bind
+    self.retrieve_picture(ldap) if validated
+    return validated
+  end
+  
   def retrieve_picture(ldap)
-    filter = Net::LDAP::Filter.eq("mail", self.username.downcase+"@orasi.com")
+    filter = Net::LDAP::Filter.eq("samaccountname", self.username.downcase)
     treebase = "dc=orasi, dc=com"
     f = File.open(Rails.root.join('public', 'photos', self.first_name+self.last_name+'.jpg'), 'w')
     thumbnail_array = ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first
