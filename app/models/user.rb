@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: {case_sensitive: false}
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :email, presence: true
 
-  
   attr_accessor :display_name
 
   def self.find_or_create(username)
@@ -26,17 +26,37 @@ class User < ActiveRecord::Base
   
   def validate_against_ad(password)
     #Do authentication against the AD.
-    return true unless Rails.env.production?
-    return false if password.blank? or username.blank?
+    return false if password.blank?
+    unless Rails.env.production?
+      self.first_name,self.last_name = self.username.downcase.split(".") if self.first_name.blank? or self.last_name.blank?
+      self.email = "#{self.username.downcase}@orasi.com" if self.email.blank?
+      return true
+    end
     
     ldap = Net::LDAP.new :host => '10.238.242.32',
     :port => 389,
     :auth => {
       :method => :simple,
-      :username => "ORASI\\#{username}",
+      :username => "ORASI\\#{self.username}",
       :password => password
     }
     validated = ldap.bind
+    if validated and (self.first_name.blank? or self.last_name.blank?)
+    
+      filter = Net::LDAP::Filter.eq("samaccountname", self.username)
+      treebase = "dc=orasi, dc=com"
+      self.first_name,self.last_name=ldap.search(
+        base: treebase,
+        filter: filter,
+        attributes: %w[displayname]
+      ).first.displayname.first.downcase.split(" ")
+      self.email=ldap.search(
+        base: treebase,
+        filter: filter,
+        attributes: %w[mail]
+      ).first.mail.first.downcase
+    end
+    
     self.retrieve_picture(ldap) if validated
     return validated
   end
