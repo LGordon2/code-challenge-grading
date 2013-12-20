@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
       :password => password
     }
     validated = ldap.bind
-    if validated and (self.first_name.blank? or self.last_name.blank?)
+    if validated and (self.first_name.blank? or self.last_name.blank? or self.email.blank?)
     
       filter = Net::LDAP::Filter.eq("samaccountname", self.username)
       treebase = "dc=orasi, dc=com"
