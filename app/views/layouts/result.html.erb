@@ -12,6 +12,7 @@
 		<% functionName = @ProxyUser.first_name.capitalize + @ProxyUser.last_name.capitalize %>
 	<% end %> 
 	
+<% if Dir.exists?('res/'+challenge_month+'/'+challenge_league) %>
 <% Dir.entries('res/'+challenge_month+'/'+challenge_league).sort.each do |file| %>
    
 <% if(File.directory?(file)==false) %>
@@ -23,6 +24,7 @@
 
 document.write("<BR><BR>")
 <% end %> 
+	<% end %>
 	<% end %>
 	</script>
 </p>
