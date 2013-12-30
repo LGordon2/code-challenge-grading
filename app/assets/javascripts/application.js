@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.autosize
+//= require jquery.timeago
+
 function clickFileButton() {
 
 	document.getElementById("fileButton").click();

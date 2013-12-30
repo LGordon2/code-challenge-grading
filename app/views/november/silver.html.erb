@@ -1,5 +1,5 @@
-<% @challenge_title = Challenge.find_by(:month => "november", :league => "silver", :year => 2013).title %>
 <% content_for :supporting_link do %>
   <%= link_to "Kitten Class", "/data/kitten_class.vbs" %><BR>
 <% end %>
-<%=render template: 'layouts/monthly_challenge'%>
+<%@challenge_title = Challenge.find_by(month: challenge_month, league: "silver", year: 2013).title %>
+<%=render template: "layouts/monthly_challenge"%>

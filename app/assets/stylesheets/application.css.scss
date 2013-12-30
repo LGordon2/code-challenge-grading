@@ -1,0 +1,52 @@
+/**
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.  
+ * 
+ *= require_self
+ *= require bootstrap
+ */
+
+.login-form
+{
+  width:200px;
+}
+
+.animated {
+-webkit-transition: height 0.2s;
+-moz-transition: height 0.2s;
+transition: height 0.2s;
+}
+
+
+.field{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.challenge_link{
+    transition:color 1s;
+  -webkit-transition:color 1s;
+}
+
+.challenge_link:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+header {
+  background-color: white;
+}
+.bigtitle{
+  font-size: 80px;
+}
+.masthead {
+  padding: 70px 0 30px;
+  margin-bottom: 0;
+  color: #fff;
+}
