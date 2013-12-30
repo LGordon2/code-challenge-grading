@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery
   helper_method :current_user
   helper_method :current_comments
+  
+  before_action :set_month_and_year
 
   private
   
@@ -26,6 +28,11 @@ class ApplicationController < ActionController::Base
     unless current_user
       redirect_to :login # halts request cycle
     end
+  end
+  
+  def set_month_and_year
+    @month = "November"
+    @year = "2013"
   end
 
 end

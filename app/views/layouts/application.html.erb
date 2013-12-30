@@ -11,7 +11,7 @@
 		<%= stylesheet_link_tag "application.css" %>
 		<%= javascript_include_tag "application.js"%>
 		<%= javascript_include_tag params[:controller] %>
-		
+		<%= yield :head %>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		  <script src="/assets/html5shiv.js"></script>
@@ -39,7 +39,7 @@
 						<% end %>
 						<li class="dropdown">
 							<div class="btn-group" style="vertical-align: middle">
-  								<%= link_to "Bronze", november_bronze_path, :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
+  								<%= link_to "Bronze", bronze_challenge_path(month: @month.downcase, year: @year), :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
   								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border: 0px;padding-top: 10px;padding-bottom: 10px">
     								<span class="caret"></span>
     								<span class="sr-only">Toggle Dropdown</span>
@@ -48,7 +48,7 @@
   								<ul class="dropdown-menu", role="menu">
   									<% bronze_challenges = Challenge.where(:league => "bronze").last(5).reverse%>
   									<% bronze_challenges.each do |bronze|%>
-  										<li><%= link_to bronze.title, root_url + bronze.month + "/" + bronze.league, :role => "menuitem"%></li>
+  										<li><%= link_to bronze.title, bronze_challenge_path(month: bronze.month, year: bronze.year), :role => "menuitem"%></li>
   									<% end %>				
   									<li class="divider"></li>
   									<li><%= link_to "Archive", root_url + "archive/bronze", :role => "menuitem"%></li>
@@ -57,7 +57,7 @@
 						</li>
 						<li class="dropdown">
 							<div class="btn-group" style="vertical-align: middle">
-  								<%= link_to "Silver", november_silver_path, :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
+  								<%= link_to "Silver", silver_challenge_path(month: @month.downcase, year: @year), :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
   								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border: 0px;padding-top: 10px;padding-bottom: 10px">
     								<span class="caret"></span>
     								<span class="sr-only">Toggle Dropdown</span>
@@ -67,7 +67,7 @@
   									<li>
   										<% silver_challenges = Challenge.where(:league => "silver").last(5).reverse%>
   									<% silver_challenges.each do |silver|%>
-  										<li><%= link_to silver.title, root_url + silver.month + "/" + silver.league, :role => "menuitem"%></li>
+  										<li><%= link_to silver.title, silver_challenge_path(month: silver.month, year: silver.year), :role => "menuitem"%></li>
   									<% end %>	
   									
   									<li class="divider"></li>
@@ -76,7 +76,7 @@
 						</li>
 						<li class="dropdown">
 							<div class="btn-group" style="vertical-align: middle">
-  								<%= link_to "Gold", november_gold_path, :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
+  								<%= link_to "Gold", gold_challenge_path(month: @month.downcase, year: @year), :class => "btn btn-default", :style => "color:#296fab;border:0px;vertical-algin:middle;padding-top:10px;padding-botton:10px" %>
   								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border: 0px;padding-top: 10px;padding-bottom: 10px">
     								<span class="caret"></span>
     								<span class="sr-only">Toggle Dropdown</span>
@@ -85,7 +85,7 @@
   								<ul class="dropdown-menu", role="menu">
   									<% gold_challenges = Challenge.where(:league => "gold").last(5).reverse%>
   									<% gold_challenges.each do |gold|%>
-  										<li><%= link_to gold.title, root_url + gold.month + "/" + gold.league, :role => "menuitem"%></li>
+  										<li><%= link_to gold.title, gold_challenge_path(month: gold.month, year: gold.year), :role => "menuitem"%></li>
   									<% end %>	
   									<li class="divider"></li>
   									<li><%= link_to "Archive", root_url + "archive/gold", :role => "menuitem"%></li>

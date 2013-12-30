@@ -1,3 +1,4 @@
+<% content_for :body do -%>
 <h1>Numbers will flash for a while then turn to <em class="text-danger">red (fail)</em> or <em class="text-success">green (pass)</em>. </h1>
 
 <script type="text/vbscript">
@@ -18,3 +19,8 @@
 	<% end %>
 	<% end %> ...
 </h1>
+<% end %>
+<% content_for :head do -%>
+<%= javascript_include_tag "fibonacci.js"%>
+<% end %>
+<%= render template: "layouts/result" %>

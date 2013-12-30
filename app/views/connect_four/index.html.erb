@@ -1,3 +1,4 @@
+<% content_for :body do -%>
 <% if @ProxyUser.blank? %>	
 	<% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
 <% else %>
@@ -43,3 +44,8 @@ players_name = function(color) {
 	<canvas id="block" width="100" height="100"></canvas>
 </canvas>
 </div>
+<% end %>
+<% content_for :head do -%>
+<%= javascript_include_tag "connect_four.js"%>
+<% end %>
+<%= render template: "layouts/result" %>

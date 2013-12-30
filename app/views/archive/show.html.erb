@@ -9,7 +9,7 @@
 	<% Challenge.where(:league => @league).reverse.each do |challenge| %>
 
 		<tr>
-			<td><%= link_to challenge.title.capitalize, "#{root_url}#{challenge.month}/#{challenge.league}"%> <%= "    " %> </td>
+			<td><%= link_to challenge.title.capitalize, challenge_path(month: challenge.month, league: challenge.league, year: challenge.year)%> <%= "    " %> </td>
 			<td><%= challenge.month.capitalize %> <%=challenge.year%> </td> 
 			<td><%= challenge.winner%></td>
 		</tr>

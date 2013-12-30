@@ -13,7 +13,7 @@
 	<h3> Submit Solution</h3>
 	<br>
 <%= button_tag "Enable Proxy Submission", :id =>"enableProxySubmission", :class => "btn btn-primary btn-lg", :onClick=>"enableProxySubmission();return false" %> 
-	<%= form_tag(action_name, method: :post,multipart: true,:id => "submissionForm") do %>
+	<%= form_tag(challenge_league, method: :post,multipart: true,:id => "submissionForm") do %>
 	<% if current_user.admin %>
 	 
 		<%= text_field_tag "ProxySubmission", nil,  :class =>"proxySubmissionField",:style => "display:none"  %>

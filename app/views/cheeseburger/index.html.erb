@@ -1,3 +1,4 @@
+<% content_for :body do -%>
 <h1 id="mazeTitle"> Can I Haz Cheezeburger?!? </h1>
 <% if @ProxyUser.blank? %>
      		
@@ -302,3 +303,5 @@ function moveKittenEndGame (direction){
 }
 
 </script>
+<% end %>
+<%= render template: "layouts/result" %>

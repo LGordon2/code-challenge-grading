@@ -1,2 +1,0 @@
-class OctoberController < ChallengeMonthController
-end

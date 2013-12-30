@@ -22,15 +22,9 @@
 	On Error GoTo 0
 
 document.write("<BR><BR>")
-	
-
-
 <% end %> 
 	<% end %>
 	</script>
 </p>
-
-
-
-<%= yield %>
-<%= link_to('Submit again',(challenge_month+'_'+challenge_league).to_sym)%>
+<%= yield :body %>
+<%= link_to('Submit again',challenge_path(month: challenge_month, league: challenge_league, year: challenge_year))%>

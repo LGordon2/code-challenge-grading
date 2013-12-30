@@ -1,4 +1,4 @@
-<% comments = Comment.where(month: controller_name, league: action_name) %>
+<% comments = Comment.where(month: challenge_month, league: challenge_league) %>
 <div id="commentRow">
 	<section id="comments">
 		<br>
@@ -34,8 +34,8 @@
 					<%= form_for @comment_reply, style: 'height: 100%' do |g|%>
 						<p class="comment-edit" style="display:none;">
 							<%= g.text_area :comment, class: 'animated' %>
-							<%= g.hidden_field :month, :value => controller_name %>
-							<%= g.hidden_field :league, :value => action_name %>
+							<%= g.hidden_field :month, :value => challenge_month %>
+							<%= g.hidden_field :league, :value => challenge_league %>
 							
 							<%= g.hidden_field :reply_id, :value => comment.id %>	
 						</p>
@@ -99,8 +99,8 @@
 	<br>
 	<h3>Post a comment</h3>
 	<p>
-		<%= f.hidden_field :month, :value => controller_name %>
-		<%= f.hidden_field :league, :value => action_name %>
+		<%= f.hidden_field :month, :value => challenge_month %>
+		<%= f.hidden_field :league, :value => challenge_league %>
 	</p>
 
 	<p>
