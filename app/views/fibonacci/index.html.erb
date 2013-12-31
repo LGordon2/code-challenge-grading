@@ -1,0 +1,26 @@
+<% content_for :body do -%>
+<h1>Numbers will flash for a while then turn to <em class="text-danger">red (fail)</em> or <em class="text-success">green (pass)</em>. </h1>
+
+<script type="text/vbscript">
+<%= @submission.submission_code.html_safe unless @submission.submission_code.blank? %>	
+<%= File.read('res/november/bronze/testcase.vbs').html_safe %>
+</script>
+<script type="text/javascript">
+  username = function(){
+  	return "<%= current_user.first_name.capitalize + current_user.last_name.capitalize %>";
+  };
+</script>
+<h1 id="numbers">
+	<% prev = 0 %>
+	<% for i in 0..35 %>
+	<% if i%3==1 %>
+	<%= all_fib(prev,i) %>, <%= content_tag :em, "Error", id: "fib_#{i+1}", class: "text-danger hidden theirnumber" %>,
+	<% prev = i+2 %>
+	<% end %>
+	<% end %> ...
+</h1>
+<% end %>
+<% content_for :head do -%>
+<%= javascript_include_tag "fibonacci.js"%>
+<% end %>
+<%= render template: "layouts/result" %>
