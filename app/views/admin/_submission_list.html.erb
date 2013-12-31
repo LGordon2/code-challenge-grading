@@ -10,7 +10,7 @@
 
 		<% submissions.order(created_at: :asc).each do |submission| %>
 		<tr>
-			<td><b><%= User.find(submission.user_id).display_name %></b></td>
+			<td><b><%= User.find(submission.user_id).display_name unless submission.user_id.blank? %></b></td>
 			<td><%= submission.month.capitalize unless submission.month.blank? %></td>
 			<td><%= submission.league.capitalize unless submission.league.blank? %></td>
 			
