@@ -57,7 +57,13 @@ class ChallengeController < ApplicationController
   end
 
   def all_submissions
-    render template: 'layouts/all_submissions'
+    unless current_user.admin?
+      redirect_to :root
+      return
+    end
+    respond_to do |format|
+      format.html {render template: 'layouts/all_submissions'}
+    end
   end
   
   def set_comment_reply
