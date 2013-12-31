@@ -7,7 +7,7 @@ class ChallengeController < ApplicationController
   
   def index
     @comment_reply = Comment.new
-    @challenge_title = Challenge.find_by(month: challenge_month, league: challenge_league, year: challenge_year).title
+    @challenge_title = Challenge.find_by(month: challenge_month.downcase, league: challenge_league.downcase, year: challenge_year).title
     begin
       render template: "#{challenge_month}/#{challenge_league}"
     rescue

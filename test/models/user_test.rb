@@ -6,12 +6,14 @@ class UserTest < ActiveSupport::TestCase
     user.username = "test.lew"
     user.first_name = "test"
     user.last_name = "lew"
-    assert user.save
+    user.email = "test.lew@orasi.com"
+    assert user.save!
   end
   
   test "user must have a first name and last name" do
     user = User.new
     user.username = "testing.user"
+    user.email = "testing.user@orasi.com"
     assert_raises ActiveRecord::RecordInvalid do
       user.save!
     end

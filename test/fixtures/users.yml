@@ -10,6 +10,7 @@ user:
   username: test.user
   first_name: test
   last_name: user
+  email: test.user@orasi.com
 
 admin:
   username: test.admin
