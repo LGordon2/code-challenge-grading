@@ -14,9 +14,6 @@ CodingChallengeGrading::Application.routes.draw do
   
   #Month submissions.
   get "challenge/:month/:year/:league", to: "challenge#index", as: :challenge
-  get "challenge/:month/:year/bronze", to: "challenge#index", as: :bronze_challenge
-  get "challenge/:month/:year/silver", to: "challenge#index", as: :silver_challenge
-  get "challenge/:month/:year/gold", to: "challenge#index", as: :gold_challenge
   
   #Results.
   post 'challenge/:month/:year/:league' => 'challenge#result'

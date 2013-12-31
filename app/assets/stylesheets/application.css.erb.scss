@@ -1,0 +1,212 @@
+/**
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.  
+ * 
+ *= require bootstrap
+ *= require_self
+ */
+$orasi_blue: #296FAB;
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('<%= asset_path "glyphicons-halflings-regular.eot" %>');
+  src: url('<%= asset_path "glyphicons-halflings-regular.eot" %>?#iefix') format('embedded-opentype'), url('<%= asset_path "glyphicons-halflings-regular.woff" %>') format('woff'), url('<%= asset_path "glyphicons-halflings-regular.ttf" %>') format('truetype'), url('<%= asset_path "glyphicons-halflings-regular.svg" %>#glyphicons_halflingsregular') format('svg');
+}
+a.navbar-brand
+{
+  padding:5px;
+}
+.nav
+{
+  li
+  {
+    p
+    {
+      color: #1417CC;
+      font-weight: bold;
+    }
+  }
+}
+.navbar
+{
+  border-radius: 0px;
+  margin-bottom: 0px;
+  .user-photo
+  {
+    width: 50px;
+    height: 50px;
+    margin-top: 2px;
+  }
+  .navbar-text
+  {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  a{
+    color: rgb(66, 139, 202)
+  }
+}
+body
+{
+  background-color: $orasi_blue;
+}
+
+.login-form
+{
+  width:200px;
+}
+
+.animated {
+-webkit-transition: height 0.2s;
+-moz-transition: height 0.2s;
+transition: height 0.2s;
+}
+
+
+.field{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.challenge_link{
+    transition:color 1s;
+  -webkit-transition:color 1s;
+}
+
+.challenge_link:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.dropdown-group
+{
+  position: relative;
+  display: block;
+  padding-top: 9px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  a.navbar-link
+  {
+    border: 1px solid;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  button
+  {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+  a.btn-bronze
+  {
+    border-color: #8C7853;
+  }
+  a.btn-silver
+  {
+    border-color: silver;
+  }
+  a.btn-gold
+  {
+    border-color: gold;
+  }
+}
+header {
+  background-color: white;
+}
+.bigtitle{
+  font-size: 80px;
+}
+.masthead {
+  padding: 70px 0 30px;
+  margin-bottom: 0;
+  color: #fff;
+}
+a
+{
+  color: #FF9C00;  
+}
+body
+{
+  color: #FFFFFF;
+}
+#mainContent {
+  display: table-cell;
+  width: 620px;
+  padding-right: 22px;
+  vertical-align:top;
+}
+
+
+aside {
+  vertical-align:top;
+
+  display: table-cell;
+  width: 500px;
+}
+#content{
+  display: table;
+}
+#mainContent{
+  display: table-cell;
+}
+#submitPanel{
+  vertical-align:top;
+  display: table-cell;
+}
+#comment_row{
+  display:table-row;
+}
+#comments{
+  text-align: left;
+  column-span:all;
+  -webkit-column-span:all; /* Safari and Chrome */
+}
+section#comments article:nth-child(odd) {
+  padding: 21px;
+  background: #d7d7d7;
+  border: 1px solid #d7d7d7;
+  color: #296FAB;
+  /* Border-radius not implemented yet */
+  border-radius: 11px;
+  -webkit-border-radius: 11px;
+}
+section#comments article:nth-child(even) {
+  padding: 21px;
+  background: #ffffff;
+  border: 1px solid #E3E3E3;
+  color: #296FAB;
+  /* Border-radius not implemented yet */
+  border-radius: 11px;
+  -webkit-border-radius: 11px;
+}
+textarea{
+  border-radius: 11px;
+}
+section#comments article:nth-child(odd) header{
+  background: #d7d7d7;
+  color: #296FAB;
+}
+#fileButton{
+  visibility: hidden;
+}
+#evaluateButton{
+  visibility: hidden;
+}
+#comments p{
+  color: #296FAB;
+}
+#loadingPanel{
+  display: none;
+}
+textarea {
+  width: 100%;
+  resize: none;
+}
+#admin-link
+{
+  margin-top: 1px;
+}
