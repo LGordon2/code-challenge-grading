@@ -46,17 +46,17 @@
 							<% ["Bronze","Silver","Gold"].each do |league_type| %>
 							<li class="dropdown">
 								<div class = "dropdown-group">
-								<%= link_to league_type, challenge_path(league: league_type, month: @month, year: @year), class: "btn btn-default navbar-link btn-#{league_type.downcase}" %>
+								<%= link_to league_type, challenge_path(league: league_type.downcase, month: @month.downcase, year: @year), class: "btn btn-default navbar-link btn-#{league_type.downcase}" %>
   								<button type="button" class="btn btn-default" data-toggle="dropdown"><b class="caret"></b></button>
 								<ul class="dropdown-menu" role="menu">
 									<% Challenge.where(league: league_type.downcase).last(5).reverse.each do |challenge| %>
 									<li>
-										<%= link_to challenge.title, challenge_path(league: league_type, month: challenge.month, year: challenge.year), :role => "menuitem"%>
+										<%= link_to challenge.title, challenge_path(league: league_type.downcase, month: challenge.month.downcase, year: challenge.year), :role => "menuitem"%>
 									</li>
 									<% end %>
 									<li class="divider"></li>
 									<li>
-										<%= link_to "Archive", "archive/#{league_type}", :role => "menuitem"%>
+										<%= link_to "Archive", archive_path(league: league_type.downcase), :role => "menuitem"%>
 									</li>
 								</ul>
 								</div>

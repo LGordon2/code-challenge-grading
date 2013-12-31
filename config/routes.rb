@@ -1,5 +1,5 @@
 CodingChallengeGrading::Application.routes.draw do
-  get "archive/:league", to: 'archive#show'
+  get "archive/:league", to: 'archive#show', as: :archive
 
   get 'login', to: 'welcome#login'
   get "logout", to: "welcome#logout"
