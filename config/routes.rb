@@ -17,7 +17,7 @@ CodingChallengeGrading::Application.routes.draw do
   
   #Results.
   post 'challenge/:month/:year/:league' => 'challenge#result'
-  get "challenge/november/2013/gold/demo" => 'connect_four#index', demo: 'true'
+  get "challenge/november/2013/gold/demo" => 'challenge#result', demo: 'true'
   
   #Getting all the submissions.
   get 'all_submissions' => 'november#all_submissions'

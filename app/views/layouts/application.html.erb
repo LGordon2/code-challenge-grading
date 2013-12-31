@@ -49,7 +49,7 @@
 								<%= link_to league_type, challenge_path(league: league_type.downcase, month: @month.downcase, year: @year), class: "btn btn-default navbar-link btn-#{league_type.downcase}" %>
   								<button type="button" class="btn btn-default" data-toggle="dropdown"><b class="caret"></b></button>
 								<ul class="dropdown-menu" role="menu">
-									<% Challenge.where(league: league_type.downcase).last(5).reverse.each do |challenge| %>
+									<% Challenge.where(league: league_type.downcase).where.not("month==? and year==?",@month.downcase, @year).last(5).reverse.each do |challenge| %>
 									<li>
 										<%= link_to challenge.title, challenge_path(league: league_type.downcase, month: challenge.month.downcase, year: challenge.year), :role => "menuitem"%>
 									</li>
