@@ -1,0 +1,32 @@
+<h1>This is a Tutorial Page</h1>
+<h3>Write a Function that combines two numbers</h3><br>
+<h4>Function YourFunction(num1, num2){</h4>
+<%= text_area_tag(:code_snippet) %>
+
+<h4>}</h4><br><br>
+<%= submit_tag :Submit,  :onClick => "return showAlert();", :id => "submit_button" %>
+	
+
+
+
+<script>
+	
+function showAlert(){
+	var num1;
+	var num2;
+	num1 = 54;
+	num2 =32;
+	var textValue = document.getElementById('code_snippet');
+	var functionHeader = "function testFunc(){" + textValue.value + "}";
+	eval(functionHeader);
+	eval("var results = testFunc()");
+	if (results == num1 + num2){
+		alert("Success:  You have succesfully completed this challenge");
+	}else{
+		alert("Failure: You have failed to complete this challenge");
+	}
+	
+	
+}
+</script>
+
