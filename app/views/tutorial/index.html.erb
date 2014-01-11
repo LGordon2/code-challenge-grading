@@ -1,115 +1,201 @@
-<h1>This is a Tutorial Page</h1>
-<h3>Write a Function that combines two numbers</h3><br>
+<input type="button" id ="showModal" style="display:none" data-toggle="modal" data-target="#myModal"></input>
+<h1><%= @tutorial[:title] %></h1>
+<h4><%= @tutorial[:desc] %> </h4><br>
+<div class="content" style="display:table;width:100%">
+	<div class="content_body" style="display:table-row">
+		<div class="leftColumn" style="display:table-cell;width:50%">
+			<textarea rows="20" id="code_snippet"></textarea>
+			<br><br>
+			<%= submit_tag :Submit, :class => "btn btn-primary btn-lg", :onClick => "return showAlert();", :id => "submit_button" %>
+			<%= submit_tag :Reset, :class => "btn btn-primary btn-lg", :onClick => "return resetArea();"%>
+		</div>	
 
-<textarea rows="10" id="code_snippet" name="code_snippet">Function MattWatson(num1,num2)
-
-
-
-
-
-
-End Function</textarea>
-
-
-<br><br>
-<%= submit_tag :Submit,  :onClick => "return showAlert();", :id => "submit_button" %>
-	
-
-   
-<br><br>
-  <div id="countdown"> <h3>The first clue will display in <b><div class="timer" id="timer">00:00</div> </b></h3></div>
-
-<div id="tip1" style="display:none"> <h3>Clue #1</h3>
-<b> Use MattWatson = num1+num2</b>
+		<div class="rightColumn" style="display:table-cell;vertical-align:top;width:50%;text-align:center;padding-left:10px">
+			<div class="clues" style="display:table:align-content:center;width:100%">
+				<div class="clue1" style="display:table:row;height:100px">
+					<div id="countdown"> 
+						<h3>The first clue will be available in: 
+							<div class="timer" id="counter">
+								1:00
+							</div> 
+						</h3>
+					</div>
+					<div id="available1" style="display:none">
+						<%= submit_tag :ShowTip1, :class => "btn btn-primary btn-lg",:onClick => "return showTip(1);", :id => "showTip1" %>
+					</div>
+					<div id="tip1" style="display:none"> 
+						<h3>
+							Clue #1
+						</h3>
+						<b> 
+							<%= @tutorial[:tip1] %>
+						</b>
+					</div>
+				</div>
+					
+				<div class="clue2" style="display:table:row;height:100px">
+					<div id="countdown2" style="display:none">
+						<h3>
+							The second clue will be available in: 
+							<div class="timer" id="counter2">
+								5:00
+							</div>
+						</h3>
+					</div>
+					<div id="available2" style="display:none">
+						<%= submit_tag :ShowTip2, :class => "btn btn-primary btn-lg",:onClick =>"return showTip(2);", :id => "showTip2" %>
+					</div>
+					<div id="tip2" style="display:none">
+						<h3>
+							Clue #2
+						</h3>
+						<b> 
+							<%= @tutorial[:tip2] %>
+						</b>
+					</div>
+				</div>
+				<div class="clue3" style="display:table:row;height:100px">
+					<div id="countdown3" style="display:none"> 
+						<h3>
+							The third clue will be available in:
+							<div class="timer" id="counter3">
+								5:00
+							</div>
+ 						</h3>
+					</div>
+					<div id="available3" style="display:none">
+						<%= submit_tag :ShowTip3, :class => "btn btn-primary btn-lg",:onClick =>"return showTip(3);", :id => "showTip3" %>
+					</div>
+					<div id="tip3" style="display:none">
+						<h3>
+							Clue #3
+						</h3>
+						<b> 
+							<%= @tutorial[:tip3] %>
+						</b>
+					</div>  
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-  <div id="countdown2" style="display:none"> <h3>The second clue will display in <b><div class="timer" id="timer2">00:00</div> </b></h3></div>  
-<div id="tip2" style="display:none"> <h3>Clue #2</h3>
-<b> Really?!? Clue 1 wasn't enough??</b>
-</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel" style="color:#2a6496">Results</h4>
+      </div>
+      <div class="modal-body" style="color:#2a6496" id="resultsStatus">
+        this is a test
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Retry</button>
+        <button type="button" class="btn btn-primary">Next Challenge</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <script>
-
-var w = null; // initialize variable
-
-// function to start the timer
-window.onload = startTimer();
-function startTimer()
-{
-   // First check whether Web Workers are supported
-   if (typeof(Worker)!=="undefined"){
-      // Check whether Web Worker has been created. If not, create a new Web Worker based on the Javascript file simple-timer.js
-      if (w==null){
-         w = new Worker("simple-timer.js");
-      }
-      // Update timer div with output from Web Worker
-      w.onmessage = function (event) {
-         document.getElementById("timer").innerHTML = event.data;
-      };
-   } else {
-      // Web workers are not supported by your browser
-      document.getElementById("timer").innerHTML = "Sorry, your browser does not support Web Workers ...";
-   }
+var futuretime;
+var timerFunc;
+var objectString = "counter";
+function startCountDown(seconds){
+	futureTime = new Date().getTime() + seconds*1000;
+	timerFunc = setInterval(timer, 1000);
 }
-
-// function to stop the timer
-function stopTimer()
-{
-   w.terminate();
-   timerStart = true;
-   w = null;
+function resetCountDown(seconds){
+	futureTime = new Date().getTime() + seconds*1000;
 }
-</script>
+function timer(){
+	var currentTime = new Date().getTime();
+	var timeRemaining = futureTime - currentTime;
+	var counter = document.getElementById(objectString);
+	if (timeRemaining >0){
+		var minutes = Math.floor(timeRemaining/1000/60);
+		var seconds = Math.floor(timeRemaining/1000 - minutes *60);
+		if (seconds.toString().length == 1){
+			seconds = "0" + seconds.toString();
+		}else{
+			seconds = seconds.toString();
+		}
 
-<script>
-	setTimeout(function(){
-$( "#countdown" ).fadeOut( "slow", function() {
-    $( "#tip1" ).fadeIn( "slow", function() {
-    	stopTimer();
-	document.getElementById("timer").id = "oldTimer";
-	document.getElementById("timer2").id ="timer";
-	
-	$( "#countdown2" ).fadeIn( "slow", function() {
-	 	startTimer();
-		setTimeout(function(){
-			$( "#countdown2" ).fadeOut( "slow", function() {
-				$( "#tip2" ).fadeIn( "slow", function() {
+		counter.innerHTML = minutes.toString() + ":" + seconds.toString();
+	}else{
+		counter.innerHTML = "0:00";	
+		
+		if (objectString == "counter"){
+			$("#countdown").fadeOut("slow", function(){
+				$("#available1").fadeIn("slow", function(){
+					$("#countdown2").fadeIn("slow", function(){});
 				});
 			});
-		},29000);
-	 });
-    }); 
-});
- 
-},29000);
-function showAlert2(){
-	var num1;
-	var num2;
-	num1 = 54;
-	num2 =32;
-	var textValue = document.getElementById('code_snippet');
-	var functionHeader = "textValue.value";
-	eval(textValue.value);
-	eval("var results = MattWatson(num1,num2)");
-		
-	if (results == num1 + num2){
-		alert("Success:  You have succesfully completed this challenge");
-	}else{
-		alert("Failure: You have failed to complete this challenge");
+			objectString = "counter2";
+		}else if (objectString == "counter2"){
+			
+			$("#countdown2").fadeOut("slow", function(){
+				$("#available2").fadeIn("slow", function(){
+					$("#countdown3").fadeIn("slow", function(){});
+				});
+			});
+			objectString = "counter3";
+		}else{
+			$("#countdown3").fadeOut("slow", function(){
+				$("#available3").fadeIn("slow", function(){});
+				clearInterval(timerFunc);	
+			});			
+		}
+		resetCountDown(60);
 	}
-	
-	
+}
+
+startCountDown(60);
+function showTip(n){
+var elem = document.getElementById("showTip" + n.toString())
+$("#available" + n.toString()).fadeOut("slow", function(){
+	$("#tip" + n.toString()).fadeIn("slow", function (){});
+});
 }
 </script>
 
 
 <script type="text/vbscript">
+codeString = "<%= "#{@tutorial[:code]}" %>"
+codeArray = split(codeString, "{nl}")
+For each code in codeArray
+	displayString = displayString & code & chr(10)
+Next	
+
+document.getElementById("code_snippet").value = displayString 
+Set elem = nothing
 Function showAlert()
-num1 =433
-num2 = 513
-Set textArea = document.getElementById("code_snippet")
-msgbox(textArea.value)
-Execute(textArea.value)
-execute("results = MattWatson(num1,num2)")
-msgbox (results)
+	num1 =433
+	num2 = 513
+	Set textArea = document.getElementById("code_snippet")
+	
+	On Error Resume Next	
+		Execute(textArea.value)
+		execute("results = MattWatson(num1,num2)")
+		errnum = Err.Number
+	On Error GoTo 0
+	
+	If errnum > 0 Then
+      		status = "Your code did not succesfully run.  Please check your syntax and try again"
+   	ElseIf results = num1 + num2 Then
+		status = "You correctly solved this challenge"
+	ElseIf results = "" Then
+		status = "Your code ran but did not return a result.  Please check that you are correctly returning a value"
+	Else
+		status = "Your code ran succesfully but failed to return the correct result: " & chr(10) & "Expected Result: " & num1 + num2 & "  Actualy Result: " & results
+	End If
+	document.getElementById("resultsStatus").innerHTML = status
+	document.getElementById("showModal").click
+End Function
+
+Function resetArea()
+	document.getElementById("code_snippet").value = displayString
 End Function
 </script>
 
