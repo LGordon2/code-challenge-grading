@@ -1,9 +1,7 @@
 <% content_for :body do -%>
-<% if @ProxyUser.blank? %>	
-	<% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
-<% else %>
-	<% functionName = @ProxyUser.first_name.capitalize + @ProxyUser.last_name.capitalize %>
-<% end %> 
+
+	<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
+	
 <script type="text/vbscript">
 <%= @submission.submission_code.html_safe if not @demo %>	
 <%= File.read('res/november/gold/testcase.vbs').html_safe %>
