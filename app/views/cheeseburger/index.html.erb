@@ -1,11 +1,9 @@
 <% content_for :body do-%>
 <h1 id="mazeTitle"> Can I Haz Cheezeburger?!? </h1>
-<% if @ProxyUser.blank? %>
+
      		
-		<% functionName = current_user.first_name.capitalize + current_user.last_name.capitalize %>
-	<% else %>
-		<% functionName = @ProxyUser.first_name.capitalize + @ProxyUser.last_name.capitalize %>
-	<% end %> 
+	<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
+	
 <script type="text/vbscript">
 
 <%= @submission.submission_code.html_safe if not @demo %>

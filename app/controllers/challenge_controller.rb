@@ -16,19 +16,20 @@ class ChallengeController < ApplicationController
   end
   
   def result
-    @submission = Submission.new
-    if params[:ProxySubmission].blank?
+    
+    if params[:ExistingCode].blank?
+		@submission = Submission.new
 	    @submission.user_id = session[:user_id]
+		@submission.submission_code = params[:script].read
+		@submission.month = challenge_month
+		@submission.league = challenge_league
+		@submission.save
+    
     else
-	    @ProxyUser = User.find_by_username(params[:ProxySubmission].downcase)
-    	    @submission.user_id = @ProxyUser.id
+		@submission = Submission.find(params[:ExistingCode])
     end
 
-    @submission.submission_code = params[:script].read
-    @submission.month = challenge_month
-    @submission.league = challenge_league
-    @submission.save
-    
+   
     if challenge_month.downcase == "november" and challenge_league.downcase == "bronze" and challenge_year == "2013"
       render template: 'fibonacci/index'
     elsif challenge_month.downcase == "november" and challenge_league.downcase == "silver" and challenge_year == "2013"
