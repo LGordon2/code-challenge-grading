@@ -22,10 +22,11 @@ module CodingChallengeGrading
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile << Proc.new do |path|
-      if path =~ /\.(css|js)\z/
+      if path =~ /\.(css|js|woff|svg|ttf|eot)\z/
         full_path = Rails.application.assets.resolve(path).to_path
         app_assets_path = Rails.root.join('app', 'assets').to_path
-        if full_path.starts_with? app_assets_path
+	vendor_assets_path = Rails.root.join('vendor', 'assets').to_path
+        if full_path.starts_with? app_assets_path or full_path.starts_with? vendor_assets_path
           puts "including asset: " + full_path
           true
         else

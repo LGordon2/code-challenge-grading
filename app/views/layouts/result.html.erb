@@ -7,7 +7,6 @@
  		
 		<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
 	
-	alert("<%=functionName%>");
 <% if Dir.exists?('res/'+challenge_month+'/'+challenge_league) %>
 <% Dir.entries('res/'+challenge_month+'/'+challenge_league).sort.each do |file| %>
    
