@@ -153,7 +153,7 @@ Set Towers = Nothing
 Set Towers = New TowersOfHanoi
 On Error Resume Next
 function_name Towers
-
+On Error GoTo 0
 towers_array = Towers.Towers
 solved = true
 For i = 0 to Towers.Disks

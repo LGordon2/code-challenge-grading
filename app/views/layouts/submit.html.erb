@@ -49,28 +49,64 @@
         <h4 class="modal-title" id="myModalLabel" style="color:#1417cc">Select Submission to Execute</h4>
       </div>
       <div class="modal-body">
-	  <table class="table table-striped">
-        <% submissions = Submission.where(month: challenge_month, league: challenge_league)%>
-			<% submissions.each do |submission| %>
 
-			<% user = User.find(submission.user_id) %>
-			
-			<tr><td onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'"
-   onMouseOut="this.style.color='#428bca'">
-			<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
-			</tr></td>
-			
-			<% end %>
-			</table>
+			<div id="fullList" style="display:none">
+				<table class="table table-striped table-hover">
+					<% submissions = Submission.where(month: challenge_month, league: challenge_league)%>
+					<% submissions.reverse.each do |submission| %>
+						<% user = User.find(submission.user_id) %>	
+						<tr><td onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
+							<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
+						</tr></td>
+					<% end %>
+				</table>
+			</div>
+			<div id="recentList">
+				<table class="table table-striped table-hover">		
+					<% Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').each do |submission| %>
+						<% user = User.find(submission.user_id) %>
+							<tr><td onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
+								<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
+							</tr></td>
+					<% end %>
+				</table>
+			</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" onClick="closeModal(); return false;">Cancel</button>
-      </div>
+        
+		 <button type="button" id="showAllButton" class="btn btn-default" onClick="showAllSubmissionsModal(); return false;">Show All Submissions</button>
+		  <button type="button" id="showRecentButton" class="btn btn-default" style="display:none" onClick="showRecentSubmissionsModal(); return false;">Show Most Recent Submissions</button>
+		<button type="button" class="btn btn-default" onClick="closeModal(); return false;">Cancel</button>	
+	  </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <script type="text/javascript">
+$('#myModal').on('hidden.bs.modal', function (e) {
+  $("#challengeDescription").fadeIn("slow");
+})
+function showAllSubmissionsModal(){
+	$("#showAllButton").fadeOut("slow", function() {});
+	$("#recentList").fadeOut("slow", function() {
+		$("#fullList").fadeIn("slow", function() {});
+		$("#showRecentButton").fadeIn("slow", function() {});
+	});	
+}
+function showRecentSubmissionsModal(){
+	$("#showRecentButton").fadeOut("slow", function() {});
+	$("#fullList").fadeOut("slow", function() {
+		$("#recentList").fadeIn("slow", function() {});
+		$("#showAllButton").fadeIn("slow", function() {});
+	});	
+}
+function donot(){
+
+	$("#showRecentButton").fadeOut("slow", function() {
+		$("#showAllButton").fadeIn("slow");
+	});
+}
+
 function hidePdf(){
 	$("#challengeDescription").hide();
 	$("#myModal").modal("show");
