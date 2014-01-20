@@ -14,10 +14,10 @@ class AdminController < ApplicationController
     def users
       @type = "users"
       if params[:time]
-        @users = User.where("created_at >= ?", getDateSince(params[:time]))
+        @all_users = User.where("created_at >= ?", getDateSince(params[:time]))
         @title = 'Users Created ' + @title 
       else
-        @user = User.all
+        @all_users = User.all
         @title = "Users Created All Time"
       end
       render 'index'
