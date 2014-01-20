@@ -2,7 +2,7 @@
 <div>
 	<table class="table">
 		<thead>
-			<td><strong><%= link_to "Name", admin_path(sort: 'last_name', reverse: params[:reverse]!='true') %></strong></td>
+			<td><strong><%= link_to "Name", admin_path(sort: 'first_name', reverse: params[:reverse]!='true') %></strong></td>
 			<td><strong><%= link_to "Created", admin_path(sort: 'created_at', reverse: params[:reverse]!='true') %></strong></td>
 			<td><strong><%= link_to "Last Login", admin_path(sort: 'updated_at', reverse: params[:reverse]!='true') %></strong></td>
 			<td><strong><%= link_to "Number of Submissions", admin_path(sort: 'submissions', reverse: params[:reverse]!='true') %></strong></td>
