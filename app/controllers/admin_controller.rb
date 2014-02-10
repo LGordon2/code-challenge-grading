@@ -4,7 +4,7 @@ class AdminController < ApplicationController
     @title = "Users Created All Time"
     @type = "users"
     if params[:sort]!='submissions'
-      @all_users = User.all.order("#{params[:sort].blank? ? 'first_name' : params[:sort] } #{params[:reverse]=='true' ? 'DESC' : 'ASC' }") 
+      @all_users = User.load.order("#{params[:sort].blank? ? 'first_name' : params[:sort] } #{params[:reverse]=='true' ? 'DESC' : 'ASC' }") 
     else 
       @all_users = User.joins('join submissions on submissions.user_id = users.id').group("submissions.user_id").order("count(*) #{params[:reverse]=='true' ? 'DESC' : 'ASC' }") 
       @all_users = params[:reverse]!='true' ?  User.where.not(id: @all_users.collect {|u| [u.id]}) + @all_users : @all_users + User.where.not(id: @all_users.collect {|u| [u.id]})
@@ -17,7 +17,7 @@ class AdminController < ApplicationController
         @all_users = User.where("created_at >= ?", getDateSince(params[:time]))
         @title = 'Users Created ' + @title 
       else
-        @all_users = User.all
+        @all_users = User.load
         @title = "Users Created All Time"
       end
       render 'index'
@@ -29,7 +29,7 @@ class AdminController < ApplicationController
         @submissions = Submission.where("created_at >= ?", getDateSince(params[:time]))
         @title = 'Submissions Created ' + @title
       else
-        @submissions = Submission.all
+        @submissions = Submission.load
         @title = 'Submissions Created All Time'
       end
       render 'index'
