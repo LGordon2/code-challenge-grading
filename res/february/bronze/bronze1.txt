@@ -1,0 +1,22 @@
+document.write("****Test Case 1****<BR>")
+Dim testCase1
+Dim expectedCalc_testCase1
+Dim actualCalc_testCase1
+
+
+expectedCalc_testCase1 = "Uijt jt b tvqfs tfdsfu nfttbhf"
+actualCalc_testCase1 = function_name("this is a super secret message")
+document.write("Test Phrase:   This is a super secret message <BR>Expected Cipher:  uijt jt b tvqfs tfdsfu nfttbhf<BR>Actual Cipher:  " & actualCalc_testCase1 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+
+End If
+
+If Trim(LCase(actualCalc_testCase1)) = Trim(LCase(expectedCalc_testCase1)) Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+

@@ -1,0 +1,21 @@
+document.write("****Test Case 4****<BR>")
+Dim testCase4
+Dim expectedCalc_testCase4
+Dim actualCalc_testCase4
+
+
+expectedCalc_testCase4 = "zpvs npn jt b tijgu djqifs"
+actualCalc_testCase4 = function_name("your mom is a shift cipher")
+document.write("Test Phrase:   Your mom is a shift cipher<BR>Expected Cipher:  zpvs npn jt b tijgu djqifs<BR>Actual Cipher:  " & actualCalc_testCase4 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+End If
+
+If Trim(LCase(actualCalc_testCase4)) = Trim(LCase(expectedCalc_testCase4)) Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+

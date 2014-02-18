@@ -1,0 +1,21 @@
+document.write("****Test Case 2****<BR>")
+Dim testCase2
+Dim expectedCalc_testCase2
+Dim actualCalc_testCase2
+
+
+expectedCalc_testCase2 = "xf dboopu tpmwf pvs qspcmfnt xjui uif tbnf uijoljoh xf vtfe xifo xf dsfbufe uifn"
+actualCalc_testCase2 = function_name("we cannot solve our problems with the same thinking we used when we created them")
+document.write("Test Phrase:   We cannot solve our problems with the same thinking we used when we created them <BR>Expected Cipher:  "&expectedCalc_testCase2&"<BR>Actual Cipher:  " & actualCalc_testCase2 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+End If
+
+If Trim(LCase(actualCalc_testCase2)) = Trim(LCase(expectedCalc_testCase2)) Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+
