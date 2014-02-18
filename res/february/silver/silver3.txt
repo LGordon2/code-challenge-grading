@@ -5,7 +5,7 @@ Dim actualPL_testCase3
 
 
 testCase3_string = 6432
-expectedPL_testCase3 = 6432
+expectedPL_testCase3 = 6446
 actualPL_testCase3 = function_name(testCase3_string)
 document.write("Starting Value:  " & testCase3_string & "<BR>")
 document.write("Next Lowest Palindrome:  " & expectedPL_testCase3 & "<BR>")
