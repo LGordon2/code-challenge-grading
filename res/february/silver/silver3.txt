@@ -4,16 +4,16 @@ Dim expectedPL_testCase3
 Dim actualPL_testCase3
 
 
-testCase3_string = "You there! Yes, you! Where are you going?"
-expectedPL_testCase3 = "Ouyay erethay! Esyay, ouyay! Erewhay areway ouyay oinggay?"
+testCase3_string = 6432
+expectedPL_testCase3 = 6432
 actualPL_testCase3 = function_name(testCase3_string)
-document.write("Phrase:  " & testCase3_string & "<BR>")
-document.write("Expected Value:  " & expectedPL_testCase3 & "<BR>")
+document.write("Starting Value:  " & testCase3_string & "<BR>")
+document.write("Next Lowest Palindrome:  " & expectedPL_testCase3 & "<BR>")
 
 If Err Then
 		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
-	document.write("Actual Value:  " & actualPL_testCase3&"<BR>")
+	document.write("Result:  " & actualPL_testCase3&"<BR>")
 End If
 
 If actualPL_testCase3 = expectedPL_testCase3 Then

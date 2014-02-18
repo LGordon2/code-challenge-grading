@@ -4,16 +4,16 @@ Dim expectedPL_testCase2
 Dim actualPL_testCase2
 
 
-testCase2_string = "We hold these truths to be self evident"
-expectedPL_testCase2 = "Eway oldhay esethay uthstray otay ebay elfsay evidentway"
+testCase2_string = 11
+expectedPL_testCase2 = 22
 actualPL_testCase2 = function_name(testCase2_string)
-document.write("Phrase:  " & testCase2_string & "<BR>")
-document.write("Expected Value:  " & expectedPL_testCase2 & "<BR>")
+document.write("Starting Value:  " & testCase2_string & "<BR>")
+document.write("Next Lowest Palindrome:  " & expectedPL_testCase2 & "<BR>")
 
 If Err Then
 		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
-	document.write("Actual Value:  " & actualPL_testCase2&"<BR>")
+	document.write("Result:  " & actualPL_testCase2&"<BR>")
 End If
 
 If actualPL_testCase2 = expectedPL_testCase2 Then
