@@ -1,15 +1,15 @@
-<h1> <%= "#{title}" %> </h1>
+<h1> <%= @title %> </h1>
 <div>
 	<table class="table">
 		<thead>
-			<td><b>Name</b></td>
-			<td><b>Created</b></td>
-			<td><b>Last Login</b></td>
-			<td><b>Number of Submissions</b></td>
-			<td><b>Admin?</b></td>
+			<td><strong><%= link_to "Name", admin_path(sort: 'first_name', reverse: params[:reverse]!='true') %></strong></td>
+			<td><strong><%= link_to "Created", admin_path(sort: 'created_at', reverse: params[:reverse]!='true') %></strong></td>
+			<td><strong><%= link_to "Last Login", admin_path(sort: 'updated_at', reverse: params[:reverse]!='true') %></strong></td>
+			<td><strong><%= link_to "Number of Submissions", admin_path(sort: 'submissions', reverse: params[:reverse]!='true') %></strong></td>
+			<td><strong><%= link_to "Admin?", admin_path(sort: "admin", reverse: params[:reverse]!='true') %></strong></td>
 		</thead>
-
-		<% users.order(last_name: :asc).each do |user| %>
+		
+		<% @all_users.each do |user| %>
 		<tr>
 			<td><b><%= user.display_name %></b></td>
 			<td id="testID"><%= user.created_at.to_formatted_s(:long_ordinal) %></td>

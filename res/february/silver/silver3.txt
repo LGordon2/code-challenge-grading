@@ -1,0 +1,25 @@
+document.write("****Test Case 3****<BR>")
+Dim testCase3
+Dim expectedPL_testCase3
+Dim actualPL_testCase3
+
+
+testCase3_string = 6432
+expectedPL_testCase3 = 6446
+actualPL_testCase3 = function_name(testCase3_string)
+document.write("Starting Value:  " & testCase3_string & "<BR>")
+document.write("Next Lowest Palindrome:  " & expectedPL_testCase3 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Result:  " & actualPL_testCase3&"<BR>")
+End If
+
+If actualPL_testCase3 = expectedPL_testCase3 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+
