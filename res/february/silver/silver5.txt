@@ -5,8 +5,9 @@ Dim actualPL_testCase5
 
 
 testCase5_string = 85461845
+testCase5_stringval = testCase5_string
 expectedPL_testCase5 =  85466458
-actualPL_testCase5 = function_name(testCase5_string)
+actualPL_testCase5 = function_name(testCase5_stringval)
 document.write("Starting Value:  " & testCase5_string & "<BR>")
 document.write("Next Lowest Palindrome:  " & expectedPL_testCase5 & "<BR>")
 
@@ -16,7 +17,7 @@ Else
 	document.write("Result:  " & actualPL_testCase5&"<BR>")
 End If
 
-If actualPL_testCase5 = expectedPL_testCase5 Then
+If CStr(actualPL_testCase5) = CStr(expectedPL_testCase5) Then
 	document.write("<font color=""#00ff00"">PASS</font><BR>")
 Else
 	document.write("<font color=""red"">FAIL</font><BR>")
