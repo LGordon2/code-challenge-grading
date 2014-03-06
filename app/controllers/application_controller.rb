@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_month_and_year
-    @month = "February"
+    @month = "March"
     @year = "2014"
   end
 
