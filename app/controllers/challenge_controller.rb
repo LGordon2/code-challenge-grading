@@ -9,7 +9,7 @@ class ChallengeController < ApplicationController
     @comment_reply = Comment.new
     @challenge_title = Challenge.find_by(month: challenge_month.downcase, league: challenge_league.downcase, year: challenge_year).title
     begin
-      render template: "#{challenge_month}/#{challenge_league}"
+      render template: "#{challenge_month}/#{challenge_year}/#{challenge_league}"
     rescue
       render template: "layouts/monthly_challenge"
     end

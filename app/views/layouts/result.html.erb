@@ -7,12 +7,12 @@
  		
 		<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
 	
-<% if Dir.exists?('res/'+challenge_month+'/'+challenge_league) %>
-<% Dir.entries('res/'+challenge_month+'/'+challenge_league).sort.each do |file| %>
+<% if Dir.exists?("res/#{challenge_month}/#{challenge_year}/#{challenge_league}") %>
+<% Dir.entries("res/#{challenge_month}/#{challenge_year}/#{challenge_league}").sort.each do |file| %>
    
 <% if(File.directory?(file)==false) %>
 
-    <% function_script = File.read('res/'+challenge_month+"/"+challenge_league+"/"+file) %>
+    <% function_script = File.read("res/#{challenge_month}/#{challenge_year}/#{challenge_league}/"+file) %>
 	On Error Resume Next	
      <%= function_script.gsub('function_name', functionName).html_safe %>
 	On Error GoTo 0
