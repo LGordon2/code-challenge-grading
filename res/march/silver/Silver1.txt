@@ -1,0 +1,255 @@
+
+Function isWinnerBoard(aBoard)
+	for i = 0 to 4
+		'Check horizontal
+		If aBoard(i,1) = True Then
+			
+			isWinnerH = True
+			for j = 0 to 4
+					
+				if aBoard(i,j) <> True Then
+					isWinnerH = False
+				
+				end If
+			next
+			If isWinnerH Then
+				isWinnerBoard = "H"&i
+				Exit Function
+			end If
+		End If
+		
+		'Check Vertical
+		If aBoard(1,i) = True Then
+			isWinnerV = True
+			for j = 0 to 4
+				if aBoard(j,i) <> True Then
+					isWinnerV = False
+				end If
+			next
+			
+			if isWinnerV Then
+				isWinnerBoard = "V"&i
+				Exit Function
+			End If
+		end If
+		
+	next
+
+	'Check Positive Diagonal
+	If aBoard(4,0) = True Then
+		isWinnerP = True
+		For i = 0 to 4
+			If aBoard(4-i, i) <> True Then
+				isWinnerP = False
+			End If
+		Next
+		
+		if isWinnerP Then
+			isWinnerBoard="P0"
+			Exit Function
+		End If
+	End If	
+
+	'Check Negative Diagonal
+	If aBoard(0,0) = True Then
+		isWinnerN = True
+		For i = 0 to 4
+			If aBoard(i, i) <> True Then
+				isWinnerN = False
+			End If
+		Next
+		
+		if isWinnerN Then
+			isWinnerBoard="N0"
+			Exit Function
+		End If
+	End If	
+End Function
+
+Function BingoNum()
+	Dim iMax : iMax = 76
+	Dim iMin : iMin = 1
+
+	'Create Random Number within the Range
+	Randomize
+	randomnNum = Int(((iMax - iMin) * Rnd) + iMin)
+
+	Randomize
+	randomLetter = Int(((6 - 1) * Rnd) + 1)
+	
+	Select Case randomLetter
+	Case 1
+		randomLetter = "B"
+	Case 2 
+		randomLetter = "I"
+	Case 3
+		randomLetter = "N"
+	Case 4
+		randomLetter = "G"
+	Case 5
+		randomLetter = "O"
+	End Select
+		 
+BingoNum = RandomLetter & randomnNum
+End Function
+'
+Function getLetter(letter)
+	Select Case letter
+	Case 1
+		letter = "B"
+	Case 2 
+		letter = "I"
+	Case 3
+		letter = "N"
+	Case 4
+		letter = "G"
+	Case 5
+		letter = "O"
+	End Select
+	getLetter = letter
+End Function
+
+Function getNum(num)
+	Select Case num
+	Case "B"
+		num = 0
+	Case "I"
+		num = 1
+	Case "N"
+		num = 2
+	Case "G"
+		num = 3
+	Case "O"
+		num = 4
+	End Select
+	getNum = num
+End Function
+'document.write("EOF")
+Function getGameBoard()
+	Dim arr_Initialize(74)
+	Dim i
+	Dim int_RandomIndex
+	Dim arr_board(4,4)
+	Randomize
+	
+	'Sets the array that references a number 1 - 75
+	For i = 0 To 74
+		arr_Initialize(i) = i + 1
+	Next
+	
+	'Sets each cell of the board to a value contained within the Initializer array
+	'The value itself will be 1-75 but will not repeat
+	'i will decrement representing the last index to be included in the random selection
+	For i = 74 To 50 Step -1
+		'Determines a random index between 0 - i
+		int_RandomIndex = Int((i + 1) * Rnd)
+		
+		'Using the random index, pull the value from the Initializer and insert it into the board
+		arr_board((74 - i) \ 5, (74 - i) Mod 5) = arr_Initialize(int_RandomIndex)
+		
+		'Replaces the value in the random index with the value in the currently "last" index
+		'Irrelevant if i = int_RandomIndex, but the code will function properly regardless
+		arr_Initialize(int_RandomIndex) = arr_Initialize(i)
+	Next
+	
+	Erase arr_Initialize
+	
+	getGameBoard = arr_board	
+End Function
+
+Function winningLine(winnerCode, i, j)
+	typeOfWin = Left(winnerCode,1)
+	where = Right(winnerCode,1)
+	Select Case typeOfWin
+	Case "H"
+		If CInt(where) = CInt(i) then
+			winningLine = True
+			Exit Function
+		End If
+	Case "V"
+		If CInt(where) = CInt(j) then
+			winningLine = True
+			Exit Function
+		End If
+	Case "P"
+		If i + j = 4 Then
+			winningLine = True
+			Exit Function
+		End If
+	Case "N"
+		If i = j Then
+			winningLine = True
+			Exit Function
+		End If
+		
+	End Select
+End Function
+'document.write("EOK")
+Dim resultBoard(4,4)
+
+arr_board = getGameBoard
+Set oBingo = new BingoPlayer
+oBingo.BingoBoard = arr_board
+
+continueGame = True
+
+Do While continueGame
+
+	bNum = BingoNum()
+	callString = callString & bNum & "     "
+	column = getNum(Left(bNum,1))
+	For i = 0 To 4 
+		If CInt(arr_board(i, column)) = CInt(Replace(bNum,Left(bNum,1),"")) Then
+			resultBoard(i, column) = True
+		End If
+	Next
+	
+	resultText = oBingo.BingoNumber(BingoNum())
+	winnerCode = isWinnerBoard(resultBoard)
+	if winnerCode <> "" Then
+		gameShouldEnd = True
+	End If
+	
+	If resultText = "BINGO!" or gameShouldEnd Then
+		continueGame = "False"
+	End If
+Loop 
+
+document.write("<BR><BR>****************************************** Test Case ***************************************************<BR><BR>")
+If gameShouldEnd  And resultText = "BINGO!" Then
+	document.Write("<H2>Challenge Completed Successfully</H2>")
+ElseIf gameShouldEnd Then
+	document.Write("<h2> Challenge Failed </h2>")
+	document.write("Game Ended with out Bingo being recognized<BR><BR>")
+ElseIf resultText = "BINGO!" Then
+	document.write("<h2> Challenge Failed </h2>")
+	document.write("Invalid Bingo Call.  See game board below<BR><BR>")
+	
+	
+End If
+displayString = "<table class=""table table-bordered"" style=""text-align:center""><TR><b><TD>B</TD><TD>I</TD><TD>N</TD><TD>G</TD><TD>O</TD></b></TR>"
+	for i = 0 to 4
+		displayString = displayString & "<TR>"
+		for j = 0 to 4
+			if resultBoard(i,j) Then
+				if winningLine(winnerCode,i,j) Then
+					displayString = displayString & "<TD class=""success""><font color=""#00ff00"">" & arr_board(i,j) & "</font></TD>"
+				Else
+					displayString = displayString & "<TD><font color=""#00ff00"">" & arr_board(i,j) & "</font></TD>"
+				End If
+			Else
+				displayString = displayString & "<TD>" & arr_board(i,j) & "</TD>"
+			End IF
+			
+		next
+		displayString = displayString & "</TR>"
+	next
+	displayString = displayString & "</table>"
+document.write("<h3>Expected Bingo Board</h3>")
+document.write("Green indicates matched number.  Highlighted cells are part of winning line")
+document.write(displayString)
+	
+document.write("<H3>Bingo Number History</H3>")
+document.write(callString)
+document.write("<BR>**************************************************************************************************************")
+

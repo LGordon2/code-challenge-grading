@@ -1,0 +1,5 @@
+document.write("*****************************************************<BR>")
+document.write("No Test Cases Currently Exist For This Challenge<BR>")
+document.write("Check Back Soon<BR>")
+document.write("*****************************************************<BR>")
+

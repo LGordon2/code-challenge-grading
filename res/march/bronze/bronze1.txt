@@ -1,0 +1,46 @@
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+document.write("<br>*********************************** Test Case 1 ************************************<BR>")
+Dim testCase1
+Dim i
+Dim resultsString
+Dim numberPart
+Dim letterPart
+Dim didPass
+
+didPass = True
+
+For i = 1 to 1000
+	
+	testCase1 = function_name()
+	letterPart = Left(testCase1,1)
+	numberPart = Replace(testCase1, letterPart, "")
+	
+	If (letterPart = "B" Or letterPart = "I"  Or letterPart = "N"  Or letterPart = "G" Or letterPart = "O") And (numberPart >0 And numberPart < 76) Then
+		resultsString = resultsString & "     <font color=""#00ff00"">" & testCase1 & "</font>   "
+
+	Else
+		resultsString = resultsString & "     <font color=""red"">" & testCase1 & "</font>   "
+		didPass = False
+
+	End If
+	If len(testCase1) = 2 Then
+		resultsString = resultsString & " "
+	End If
+Next 
+
+If didPass Then
+	document.write("<h2>Challenge Completed <font color=""#00ff00"">Successfully</font></h2>")
+	document.write(resultsString)
+Else
+	document.write("<h2>Challenge <font color=""red"">Failed</font></h1>")
+	document.write("Failures shown in red<br>")
+	document.write(resultsString)
+End If
+End If
+
+
+document.write("<br><br>*********************************************************************************")
+
