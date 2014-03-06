@@ -1,0 +1,20 @@
+<h1> <%= "#{title}" %> </h1>
+<div>
+	<table class="table">
+		<thead>
+			<td><b>Name</b></td>
+			<td><b>Month</b></td>
+			<td><b>League</b></td>
+			
+		</thead>
+
+		<% submissions.order(created_at: :asc).each do |submission| %>
+		<tr>
+			<td><b><%= User.find(submission.user_id).display_name unless submission.user_id.blank? %></b></td>
+			<td><%= submission.month.capitalize unless submission.month.blank? %></td>
+			<td><%= submission.league.capitalize unless submission.league.blank? %></td>
+			
+		</tr>
+		<% end %>
+	</table>
+</div>
