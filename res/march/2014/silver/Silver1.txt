@@ -153,7 +153,7 @@ Function getGameBoard()
 	Next
 	
 	Erase arr_Initialize
-	
+	arr_board(2,2) = "F"
 	getGameBoard = arr_board	
 End Function
 
@@ -185,7 +185,7 @@ Function winningLine(winnerCode, i, j)
 	End Select
 End Function
 'document.write("EOK")
-Dim resultBoard(4,4)
+resultBoard(2,2) = True
 
 arr_board = getGameBoard
 Set oBingo = new BingoPlayer

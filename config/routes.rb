@@ -7,8 +7,7 @@ CodingChallengeGrading::Application.routes.draw do
   
   #Admin routes.
   get 'admin' => 'admin#index'
-  post 'admin/add_admin'
-  put 'admin/add_admin'
+  patch 'admin/set' => 'admin#set_current_month_year'
   get 'admin/users/:time' => 'admin#users'
   get 'admin/submissions/:time' => 'admin#submissions'
   

@@ -4,7 +4,7 @@ class UserController < ApplicationController
   
   def update
     user = User.find(params[:id])
-    user.update(admin: !user.admin?)
+    user.update(admin: params['user']['admin'].to_s=="1")
     user.save
   end
   

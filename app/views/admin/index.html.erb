@@ -1,7 +1,0 @@
-<%= render 'admin_head'%>
-<% if @type == "users"%>
-<%= render 'user_list', :users => @users, :title => @title %>
-<% elsif @type == 'submissions' %>
-<%= render 'submission_list', :submissions => @submissions, :title => @title %>
-
-<% end %>

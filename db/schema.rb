@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306133144) do
+ActiveRecord::Schema.define(version: 20140306142406) do
 
   create_table "challenges", force: true do |t|
     t.string  "month"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20140306133144) do
   end
 
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "current_month_years", force: true do |t|
+    t.string   "month"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "submissions", force: true do |t|
     t.datetime "created_at"
