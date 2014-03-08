@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create({username: "test.user", first_name: "test", last_name: "user"})
+User.create({username: "Matt.Watson", first_name: "Matt", last_name: "Watson", admin: "t"})
 Challenge.create({month: "june", league: "bronze", year: 2013, title: "Hello, World", winner: ""})
 Challenge.create({month: "june", league: "silver", year: 2013, title: "String Character Counting", winner: "Cyntia Cali"})
 Challenge.create({month: "june", league: "gold", year: 2013, title: "Super Secret Message", winner: "Lewis Gordon"})
