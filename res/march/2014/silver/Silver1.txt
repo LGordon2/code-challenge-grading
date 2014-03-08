@@ -200,7 +200,7 @@ Do While continueGame
 	callString = callString & bNum & "     "
 	column = getNum(Left(bNum,1))
 	For i = 0 To 4
-		If i <> 2 And column <> 2 Then
+		If arr_board(i,column) <> "F" Then
 			If CInt(arr_board(i, column)) = CInt(Replace(bNum,Left(bNum,1),"")) Then
 				resultBoard(i, column) = True
 			End If

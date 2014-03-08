@@ -1,46 +1,116 @@
-
 If Err Then
 		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
 document.write("<br>*********************************** Test Case 1 ************************************<BR>")
 Dim testCase1
 Dim i
-Dim resultsString
-Dim numberPart
-Dim letterPart
-Dim didPass
+Dim tc1_resultsString
+Dim tc1_numberPart
+Dim tc1_letterPart
+Dim tc1_didPass
+Dim tc1_numberArray(74)
 
-didPass = True
+tc1_didPass = True
 
-For i = 1 to 1000
+	
+	For j = 0 to 74
+		tc1_numberArray(j) = j + 1
+	Next
+	
+	'Create Array to Track Letters
+	tc1_letterArray = Array("B","I","N","G","O")
+	
+
+For i = 1 to 2000
 	
 	testCase1 = function_name()
-	letterPart = Left(testCase1,1)
-	numberPart = Replace(testCase1, letterPart, "")
+	tc1_letterPart = Left(testCase1,1)
+	tc1_numberPart = Replace(testCase1, tc1_letterPart, "")
+
+	'Mark numbers used as True
+	tc1_numberArray(CInt(tc1_numberPart)-1) = True
 	
-	If (letterPart = "B" Or letterPart = "I"  Or letterPart = "N"  Or letterPart = "G" Or letterPart = "O") And (numberPart >0 And numberPart < 76) Then
-		resultsString = resultsString & "     <font color=""#00ff00"">" & testCase1 & "</font>   "
+	'Mark Letters Used as True
+	For l = 0 to 4
+		If tc1_letterArray(l) = tc1_letterPart Then
+			tc1_letterArray(l) = True
+		End If
+	Next
+	
+	If (tc1_letterPart = "B" Or tc1_letterPart = "I"  Or tc1_letterPart = "N"  Or tc1_letterPart = "G" Or tc1_letterPart = "O") And (tc1_numberPart >0 And tc1_numberPart < 76) Then
+		tc1_resultsString = tc1_resultsString & "     <font color=""#00ff00"">" & testCase1 & "</font>   "
 
 	Else
-		resultsString = resultsString & "     <font color=""red"">" & testCase1 & "</font>   "
-		didPass = False
+		tc1_resultsString = tc1_resultsString & "     <font color=""red"">" & testCase1 & "</font>   "
+		tc1_didPass = False
 
 	End If
 	If len(testCase1) = 2 Then
-		resultsString = resultsString & " "
+		tc1_resultsString = tc1_resultsString & " "
+	End If
+	
+	'Check if all Numbers have been used
+	tc1_allNumbers = True
+	For each tc1_num in tc1_numberArray
+		If CStr(tc1_num) <> CStr(True) Then
+			tc1_allNumbers = False
+		End If
+	Next
+	
+	'Check if all letters have been used
+	tc1_allLetters = True
+	For each tc1_letter in tc1_letterArray
+		If CStr(tc1_letter) <> CStr(True) Then
+			tc1_allLetters = False
+		End If
+	Next
+	 
+	If tc1_allLetters And tc1_allNumbers Then
+		Exit for
 	End If
 Next 
-
-If didPass Then
+If i = 2001 Then
+		tc1_didPassAllLetterNumbers = False
+		For each letter in tc1_letterArray
+			If Cstr(letter) <> CStr(True) Then
+				tc1_missingLetters = tc1_missingLetters & letter & ", "
+			End If
+		Next
+		tc1_missingLetters = Left(tc1_missingLetters, Len(tc1_missingLetters)-2)
+		
+		For each num in tc1_numberArray
+			If CStr(num) <> CStr(True) Then
+				tc1_missingNumbers = tc1_missingNumbers & num & ", "
+			End If
+		Next
+		tc1_missingNumbers = Left(tc1_missingNumbers, Len(tc1_missingNumbers)-2)
+End If
+	
+If tc1_didPass And tc1_didPassAllLetterNumbers And i > 75 Then
 	document.write("<h2>Challenge Completed <font color=""#00ff00"">Successfully</font></h2>")
-	document.write(resultsString)
+	document.write(tc1_resultsString)
+
 Else
 	document.write("<h2>Challenge <font color=""red"">Failed</font></h1>")
-	document.write("Failures shown in red<br>")
-	document.write(resultsString)
-End If
-End If
+	If tc1_didPassAllLetterNumbers <> True Then
+		document.write("Not all letters and numbers used<br>")
+		If tc1_missingLetters <> "" Then
+			document.write("Missing Letters : " & tc1_missingLetters & "<BR>")
+		End If
+		If tc1_missingNumbers <> "" Then
+			document.write("Missing Numbers : " & tc1_missingNumbers & "<BR>")
+		End If
+	End If
+	If tc1_didPass <> True Then
+		document.write("Failures shown in red<br>")
+	End If
+	If i < 76 Then
+		document.write("Not Random")
+	End If
+	document.write(tc1_resultsString)
+End if
 
 
 document.write("<br><br>*********************************************************************************")
 
+End If
