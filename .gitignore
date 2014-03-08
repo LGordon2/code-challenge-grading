@@ -18,7 +18,7 @@ sqlite3.exe
 .settings/*
 .DS_Store
 public/photos/
-#public/
+public/
 server.crt
 server.key
 /vendor/bundle
