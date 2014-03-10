@@ -1,0 +1,23 @@
+document.write("*************************Test Case 7***************************<BR>")
+'Dim testData_testCase7
+'Dim expectedResult_testCase7
+'Dim actualResult_testCase7
+
+testData_testCase7 = "ETH NRCHMNT EECNTR RGRTS TO NFRM UYO ATHT THSI NXT TSET IS MPSSBL AMKE NO TTMPEAT TO SLV IT"
+expectedResult_testCase7 = "THE ENRICHMENT CENTER REGRETS TO ?INFIRM/INFORM/UNIFORM? YOU THAT THIS NEXT TEST IS ?IMPASSABLE/IMPOSSIBLE? MAKE NO ATTEMPT TO ?SALIVA/SALVE/SALVO/SILVA/SILVIA/SLAV/SLAVE/SLEEVE/SOLVE? IT"
+actualResult_testCase7 = function_name( testData_testCase7)
+document.write("Coded Phrase: " & testData_testCase7 & "<BR>")
+document.write("Expected Decoded Phrase: "& expectedResult_testCase7 &"<BR>")
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualResult_testCase7&"<BR>")
+End If
+
+If actualResult_testCase7 = expectedResult_testCase7 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("***************************************************************")

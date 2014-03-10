@@ -1,0 +1,23 @@
+document.write("*************************Test Case 2***************************<BR>")
+'Dim testData_testCase2
+'Dim expectedResult_testCase2
+'Dim actualResult_testCase2
+
+testData_testCase2 = "TESTING ETSITNG TSTNG"
+expectedResult_testCase2 = "TESTING TESTING ?TASTING/TESTING/TOASTING?"
+actualResult_testCase2 = function_name( testData_testCase2)
+document.write("Coded Phrase: " & testData_testCase2 & "<BR>")
+document.write("Expected Decoded Phrase: "& expectedResult_testCase2 &"<BR>")
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualResult_testCase2&"<BR>")
+End If
+
+If actualResult_testCase2 = expectedResult_testCase2 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("***************************************************************")
