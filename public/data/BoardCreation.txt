@@ -1,0 +1,62 @@
+Option Explicit
+
+'**********************************************************************
+'Function Name:		BoardCreation
+'Author:			Kevin O'Grady
+'Created Date:		03/06/2014
+'Purpose:			Creates a 5x5 Bingo Board containing random integers
+'					1-75 with a free space in the center represented by 0
+'Prerequisites:		None
+'Parameters:		None
+'Return Value:		The 5x5 Bingo Board.
+'Change history:	03/06/14 -- Kevin O'Grady -- Initial submission
+'**********************************************************************
+Public Function BoardCreation()
+	Dim arr_Initialize(74)
+	Dim arr_Board(4, 4)
+	Dim i
+	Dim int_Col
+	Dim int_RandomIndex
+	Dim int_Row
+	
+	Randomize
+	
+	'Sets the array that references a number 1 - 75
+	For i = 0 To 74
+		arr_Initialize(i) = i + 1
+	Next
+	
+	'Sets the free space to 0
+	arr_Board(2,2) = 0
+	
+	'Sets each cell of the board (except the free space) to a value contained within the Initializer array
+	'The value itself will be 1-75 but will not repeat
+	'i will decrement representing the last index to be included in the random selection
+	For i = 74 To 51 Step -1
+		
+		'Determines the current row and column
+		If i > 62 Then
+			int_Row = (74 - i) \ 5
+			int_Col = (74 - i) Mod 5
+		Else
+			int_Row = (75 - i) \ 5
+			int_Col = (75 - i) Mod 5
+		End If
+		
+		'Determines a random index between 0 - i
+		int_RandomIndex = Int((i + 1) * Rnd)
+		
+		'Using the random index, pull the value from the Initializer and insert it into the board
+		arr_Board(int_Row, int_Col) = arr_Initialize(int_RandomIndex)
+		
+		'Replaces the value in the chosen random index with the value in the currently "last" index
+		'Irrelevant if i = int_RandomIndex, but the code will function properly regardless
+		arr_Initialize(int_RandomIndex) = arr_Initialize(i)
+		
+	Next
+	
+	'Set Free Space to F
+	arr_Board(2,2) = "F"
+	
+	BoardCreation = arr_Board
+End Function

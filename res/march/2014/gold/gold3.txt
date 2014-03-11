@@ -1,0 +1,23 @@
+document.write("*************************Test Case 3***************************<BR>")
+'Dim testData_testCase3
+'Dim expectedResult_testCase3
+'Dim actualResult_testCase3
+
+testData_testCase3 = "WRKNG PSS TST PRTL PRST PST"
+expectedResult_testCase3 = "?WORKING/WREAKING? ?APSES/OOPSES/OPUSES/PASS/PAUSES/PESOS/PISS/POESIES/POISES/POSES/POSIES/POSSE/PUSS? ?OUTSET/TAOIST/TASTE/TEST/TOAST/TOST? ?PARTIAL/PORTAL? ?PARASITE/POOREST/PRESET/PRESTO/PRIEST/PROUST/PUREST/PURIST/PURSUIT? ?PAST/PASTA/PASTE/PESETA/PEST/POSIT/POST/UPSET?"
+actualResult_testCase3 = function_name( testData_testCase3)
+document.write("Coded Phrase: " & testData_testCase3 & "<BR>")
+document.write("Expected Decoded Phrase: "& expectedResult_testCase3 &"<BR>")
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualResult_testCase3&"<BR>")
+End If
+
+If actualResult_testCase3 = expectedResult_testCase3 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("***************************************************************")

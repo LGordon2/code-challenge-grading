@@ -1,0 +1,34 @@
+
+
+Class BingoPlayer
+	
+	'Stores the original BingoBoard.  Each Cell will contain an integer 1-75 or F indicating a free space
+	Private arr_BingoBoard
+	
+	'Array to track matches.  Will need to be updated as game progress.
+	Private arr_MatchedNumbers(4,4)
+	
+	Private str_calls
+	
+	'Used to initialize the BingoBoard.  
+	'BingoBoard(Row, Column)
+	'Column 0 - B
+	'Column 1 - I
+	'Column 2 - N
+	'Column 3 - G
+	'Column 4 - O
+	Public Property Let BingoBoard(arr_Board)
+		arr_BingoBoard = arr_Board
+	End Property
+	
+	'Used to accept new BingoNumber to advance game.  Will need to be implemented
+	'Should Return a string indicating if the game is won.
+	' "BINGO!" indicates winner.  Any other string indicates the game continues
+	Public Function BingoNumber(ByVal str_bingoNumber)
+	
+	'User Code Goes here
+	
+	End Function
+
+	
+End Class

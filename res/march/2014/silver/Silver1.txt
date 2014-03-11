@@ -92,7 +92,7 @@ Function BingoNum()
 		 
 BingoNum = RandomLetter & randomnNum
 End Function
-'
+
 Function getLetter(letter)
 	Select Case letter
 	Case 1
@@ -124,7 +124,7 @@ Function getNum(num)
 	End Select
 	getNum = num
 End Function
-'document.write("EOF")
+
 Function getGameBoard()
 	Dim arr_Initialize(74)
 	Dim i
@@ -184,7 +184,8 @@ Function winningLine(winnerCode, i, j)
 		
 	End Select
 End Function
-'document.write("EOK")
+
+Dim resultBoard(4,4)
 resultBoard(2,2) = True
 
 arr_board = getGameBoard
@@ -198,10 +199,12 @@ Do While continueGame
 	bNum = BingoNum()
 	callString = callString & bNum & "     "
 	column = getNum(Left(bNum,1))
-	For i = 0 To 4 
-		If CInt(arr_board(i, column)) = CInt(Replace(bNum,Left(bNum,1),"")) Then
-			resultBoard(i, column) = True
-		End If
+	For i = 0 To 4
+		If arr_board(i,column) <> "F" Then
+			If CInt(arr_board(i, column)) = CInt(Replace(bNum,Left(bNum,1),"")) Then
+				resultBoard(i, column) = True
+			End If
+		End If	
 	Next
 	
 	resultText = oBingo.BingoNumber(bNum)

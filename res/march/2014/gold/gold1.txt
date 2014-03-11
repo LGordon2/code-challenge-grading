@@ -1,5 +1,24 @@
-document.write("*****************************************************<BR>")
-document.write("No Test Cases Currently Exist For This Challenge<BR>")
-document.write("Check Back Soon<BR>")
-document.write("*****************************************************<BR>")
+document.write("*************************Test Case 1***************************<BR>")
+'Dim testData_testCase1
+'Dim expectedResult_testCase1
+'Dim actualResult_testCase1
+
+testData_testCase1 = "I AM IT IF AT OR"
+expectedResult_testCase1 = "I AM IT IF AT OR"
+actualResult_testCase1 = function_name( testData_testCase1)
+document.write("Coded Phrase: " & testData_testCase1 & "<BR>")
+document.write("Expected Decoded Phrase: "& expectedResult_testCase1 &"<BR>")
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualResult_testCase1&"<BR>")
+End If
+
+If actualResult_testCase1 = expectedResult_testCase1 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("***************************************************************")
 
