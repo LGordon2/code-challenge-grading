@@ -66,6 +66,7 @@ For i = 1 to 2000
 	Next
 	 
 	If tc1_allLetters And tc1_allNumbers Then
+		tc1_didPassAllLetterNumbers = True
 		Exit for
 	End If
 Next 
