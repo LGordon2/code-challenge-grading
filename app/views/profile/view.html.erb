@@ -1,15 +1,13 @@
-<% Submission.joins(:user).where(user_id: current_user.id).order('created_at DESC').each do |submission| %>
-<% unless submission.submission_code.blank? or submission.month.blank? or submission.league.blank?%>
-<%# raise Exception, submission.lea %>
-<%= "#{submission.month.capitalize} #{submission.league.capitalize} #{submission.year}" %> submitted on: <%= submission.created_at.localtime.strftime('%b %e \'%g at %R') %>
-<pre>
-<code>
-<% submission.submission_code.lines do |line| %>
-<%= line %>
-<% end %>
-</code>
-<%= link_to 'Delete', submission,:method => :delete, data: {confirm: "Are you sure you want to delete this submission?" } %>
-</pre>
-<% end %>
+<% Submission.joins(:user).where(user_id: current_user.id, visible: "t").order('created_at DESC').each do |submission| %>
+	<%= "#{submission.month.capitalize} #{submission.league.capitalize} #{submission.year}" %> submitted on: <%= submission.created_at.localtime.strftime('%b %e \'%g at %R') %>
+	<pre>
+	<code>
+	<% submission.submission_code.lines do |line| %>
+		<%= line %>
+	<% end %>
+	</code>
+	<%= link_to 'Delete', submission,:method => :delete, data: {confirm: "Are you sure you want to delete this submission?" } %>
+	</pre>
+
  <BR>
 <% end %>
