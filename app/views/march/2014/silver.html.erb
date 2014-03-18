@@ -1,6 +1,11 @@
 <% content_for :supporting_link do %>
+
   <%= link_to "Template Class", "/data/TemplateClass.txt" %><BR>
   <%= link_to "Board Creation Function", "/data/BoardCreation.txt"%><BR>
+
+
+
+
 <% end %>
 <%@challenge_title = Challenge.find_by(month: challenge_month, league: "silver", year: 2014).title %>
 <%=render template: "layouts/monthly_challenge"%>
