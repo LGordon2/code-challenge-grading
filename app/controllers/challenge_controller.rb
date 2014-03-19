@@ -23,6 +23,7 @@ class ChallengeController < ApplicationController
 		@submission.submission_code = params[:script].read
 		@submission.month = challenge_month
 		@submission.league = challenge_league
+		@submission.visible = "t"
 		@submission.save
     
     else
