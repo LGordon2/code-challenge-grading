@@ -16,6 +16,12 @@
 //= require jquery.autosize
 //= require jquery.timeago
 
+$(document).on('ready', function() {
+  return $('textarea').autosize({
+    append: "\n"
+  });
+});
+
 function clickFileButton() {
 
 	document.getElementById("fileButton").click();

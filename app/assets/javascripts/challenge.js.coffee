@@ -14,7 +14,6 @@ $(document).on 'ready', ->
         $(@).text($.timeago(json))
     getTime();
     setInterval getTime, 5000
-  $('textarea').autosize({append: "\n"})
   $(".edit-btn").click ->
     $(@).siblings(".comment-body,.comment-edit,.cancel-btn,.update-btn").toggle "slow", =>
       $('textarea').trigger 'autosize.resize'
