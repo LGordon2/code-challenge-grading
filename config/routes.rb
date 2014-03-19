@@ -5,6 +5,10 @@ CodingChallengeGrading::Application.routes.draw do
   get "logout", to: "welcome#logout"
   post 'login', to: 'welcome#validate_login'
   
+  #Survey Routes
+  get 'survey' => 'survey#index', as: :surveys
+  post'survey' => 'survey#create'
+  
   #Admin routes.
   get 'admin' => 'admin#index'
   patch 'admin/set' => 'admin#set_current_month_year'

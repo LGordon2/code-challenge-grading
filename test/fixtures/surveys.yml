@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  haveParticipated: MyString
+  whyStart: MyString
+  newSkills: MyString
+  howUsedSkills: MyString
+  betterServe: MyString
+  whyNot: MyString
+  bestLeague: MyString
+  automation: MyString
+  otherDevelopment: MyString
+
+two:
+  haveParticipated: MyString
+  whyStart: MyString
+  newSkills: MyString
+  howUsedSkills: MyString
+  betterServe: MyString
+  whyNot: MyString
+  bestLeague: MyString
+  automation: MyString
+  otherDevelopment: MyString

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308054531) do
+ActiveRecord::Schema.define(version: 20140318194411) do
 
   create_table "challenges", force: true do |t|
     t.string  "month"
@@ -49,6 +49,23 @@ ActiveRecord::Schema.define(version: 20140308054531) do
     t.string   "month"
     t.string   "league"
     t.integer  "year"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.string   "haveParticipated"
+    t.string   "whyStart"
+    t.string   "newSkills"
+    t.string   "howUsedSkills"
+    t.string   "betterServe"
+    t.string   "whyNot"
+    t.string   "bestLeague"
+    t.string   "automation"
+    t.string   "otherDevelopment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "whatWouldInterest"
+    t.string   "whatWouldIncreaseParticipation"
+    t.string   "skillsExample"
   end
 
   create_table "users", force: true do |t|

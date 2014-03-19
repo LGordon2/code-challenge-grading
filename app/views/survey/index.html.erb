@@ -1,0 +1,126 @@
+<H1>Orasi Coding Challenge Survey</h1>
+<br>
+<br>
+
+
+ <%= form_for @survey do |s| %>
+	Have you participated in the Code Challenge?<br>
+		<%= s.radio_button(:haveParticipated, "yes", :class => "participatedGroup") %>
+		<%= s.label(:haveParticipated_yes, "Yes") %><br>
+		<%= s.radio_button(:haveParticipated, "no", :class => "participatedGroup") %>
+		<%= s.label(:haveParticipated_no, "No") %><br>
+<br><br>
+<div id="hasParticipated" style="display:none">
+	If you participate in the code challenge, why did you start?<br>
+		<%= s.radio_button(:whyStart, "interesting") %>
+		<%= s.label(:whyStart_interesting, "The challenges are interesting") %><br>
+		<%= s.radio_button(:whyStart, "mandatory") %>
+		<%= s.label(:whyStart_mandatory, "It was mandatory") %><br>
+		<%= s.radio_button(:whyStart, "learning") %>
+		<%= s.label(:whyStart_learning, "I wanted to learn new skills") %><br>
+		<%= s.radio_button(:whyStart, "rewards") %>
+		<%= s.label(:whyStart_rewards, "I wanted to win prizes") %><br>
+ <br><br>
+	Do you feel the Code Challenge has helped you develop new skills?<br>
+		<%= s.radio_button(:newSkills, "yes") %>
+		<%= s.label(:newSkills_yes, "Yes") %><br>
+		<%= s.radio_button(:newSkills, "no") %>
+		<%= s.label(:newSkills_no, "No") %><br>
+<br><br>
+	Have you used any skills learned or reinforced by the code challenge on project work?<br>
+		<%= s.radio_button(:howUsedSkills, "yes", :class => "projectWork") %>
+		<%= s.label(:howUsedSkills_yes, "Yes") %><br>
+		<%= s.radio_button(:howUsedSkills, "no", :class => "projectWork") %>
+		<%= s.label(:howUsedSkills_no, "No") %><br>
+<br><br>
+<div id="provideExample" style="display:none">
+	Can you provide an example where code challenge skills have helped you in a project?<br>
+		<%= s.text_area(:skillsExample) %><br>
+<br><br>
+</div>
+</div>
+<div id="notParticipated" style="display:none">
+	If you have not participated, which best describes you?<br>
+		<%= s.radio_button(:whyNot, "noTime") %>
+		<%= s.label(:whyNot_noTime, "I would like to participate, but don't have time") %><br>
+		<%= s.radio_button(:whyNot, "notEnoughInterestingChallenges") %>
+		<%= s.label(:whyNot_notEnoughInterestingChallenges, "I would participate if the challenges were more interesting") %><br>
+		<%= s.radio_button(:whyNot, "dontKnowWhereToStart") %>
+		<%= s.label(:whyNot_dontKnowWhereToStart, "I would like to participate, but I don't know where to start") %><br>
+		<%= s.radio_button(:whyNot, "notEnoughReward") %>
+		<%= s.label(:whyNot_notEnoughReward, "I would participate if the rewards were better") %><br>
+		<%= s.radio_button(:whyNot, "notInterestedInCompeting") %>
+		<%= s.label(:whyNot_notInterestedInCompeting, "I am interested in access to practice problems, but not in competition") %> <br>
+		<%= s.radio_button(:whyNot, "notInterested") %>
+		<%= s.label(:whyNot_notInterested, "I am not interested in participating") %><br>
+<br><br>
+	What types of challenges would you be interested in?<br>
+		<%= s.text_area(:whatWouldInterest) %><br>
+<br><br>
+	What could the code challenge do to increase your interest in participation?<br>
+		<%= s.text_area(:whatWouldIncreaseParticipation) %><br>
+<br><br>
+</div>
+	Which league do you feel is a match for your current skill level?<br>
+		<%= s.radio_button(:bestLeague, "subBronze") %>
+		<%= s.label(:bestLeague_subBronze, "All the leagues are too advanced") %><br>
+		<%= s.radio_button(:bestLeague, "bronze") %>
+		<%= s.label(:bestLeague_bronze, "Bronze League") %><br>
+		<%= s.radio_button(:bestLeague, "silver") %>
+		<%= s.label(:bestLeague_silver, "Silver League") %><br>
+		<%= s.radio_button(:bestLeague, "gold") %>
+		<%= s.label(:bestLeague_gold, "Gold League") %><br>
+		<%= s.radio_button(:bestLeague, "postGold") %>
+		<%= s.label(:bestLeague_postGold, "None of the leagues are advanced enough") %><br>
+<br><br>
+	Do you do, or have you done, automation as part of your job at Orasi?<br>
+		<%= s.radio_button(:automation, "yes") %>
+		<%= s.label(:automation_yes, "Yes") %><br>
+		<%= s.radio_button(:automation, "no") %>
+		<%= s.label(:automation_no, "No") %><br>
+<br><br>
+	Do you do, or have you done, any sort of coding/scripting/development outside of Orasi?<br>
+		<%= s.radio_button(:otherDevelopment, "yes") %>
+		<%= s.label(:otherDevelopment_yes, "Yes") %><br>
+		<%= s.radio_button(:otherDevelopment, "no") %>
+		<%= s.label(:otherDevelopment_no, "No") %><br>
+<br><br>
+	Is there anything the Code Challenge could do to better serve you?<br>
+		<%= s.text_area(:betterServe) %><br>
+ 
+ 
+<br><br>
+   <%= s.submit "Submit", :class => "btn btn-primary btn-lg" %>
+  <% end %>
+<script>
+
+$(".participatedGroup").change(function () {
+	if ($(this).val() == 'yes') {
+        $("#notParticipated").fadeOut( "slow", function() {
+			$("#hasParticipated").fadeIn( "slow", function() {
+				// Animation complete
+			});
+		});
+		
+    } else {
+		$("#hasParticipated").fadeOut( "slow", function() {
+			$("#notParticipated").fadeIn( "slow", function() {
+				// Animation complete
+			});
+		});
+    }
+});
+
+$(".projectWork").change(function () {
+	if ($(this).val() == 'yes') {
+        $("#provideExample").fadeIn( "slow", function() {
+			
+		});
+    } else {
+		$("#provideExample").fadeOut( "slow", function() {
+			
+		});
+	}
+});
+
+</script>
