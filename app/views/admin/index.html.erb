@@ -10,6 +10,8 @@
 <div class="error-for-date">
 	<h4><%= flash[:error]%></h4>
 </div>
+Total Survey Count: 
+<%= Survey.all.count %>
 <%= render 'admin_head'%>
 <% if @type == "users"%>
 <%= render 'user_list', :users => @users, :title => @title %>
