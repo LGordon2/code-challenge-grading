@@ -1,7 +1,7 @@
 <h1> Survey Results</h1>
 
 <% if @filter %>
-	Filter:  <%= @filter %>
+	Filter:  <%= @filter %>  - <%= link_to "Clear Filter", controller: "survey", action: "result" %>
 <% end %>
 
 <table width="100%">
