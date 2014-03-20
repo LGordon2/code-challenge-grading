@@ -14,7 +14,11 @@ class SurveyController < ApplicationController
 	end
 	
 	def result
-		 
+		if params[:id]
+		 @surveys = Survey.where(id: params[:id])
+		else
+		 @surveys = Survey.all
+		end
 	end
 	
 	private
