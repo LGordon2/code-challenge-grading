@@ -8,6 +8,7 @@ CodingChallengeGrading::Application.routes.draw do
   #Survey Routes
   get 'survey' => 'survey#index', as: :surveys
   post'survey' => 'survey#create'
+  get 'survey/result' => 'survey#result'
   
   #Admin routes.
   get 'admin' => 'admin#index'

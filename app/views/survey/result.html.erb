@@ -1,0 +1,213 @@
+<h1> Survey Results</h1>
+
+<table width="100%">
+	<tr>
+		<td colspan="2" align="center">
+			<h3>Have you previously participated in the coding challenge?</h3>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+		
+		<canvas id="hasParticipated" height="200" width="200"></canvas>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td border="2" bgcolor="#F7464A" width="20"></td>
+					<td>
+						 - No, I have not participated - <%= ((Survey.where(haveParticipated: "no").count.to_f)/(Survey.where.not(haveParticipated: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+				<tr>
+					<td border="2" bgcolor="#46BFBD" width="20"></td>
+					<td>
+						 - Yes, I have participated - <%= ((Survey.where(haveParticipated: "yes").count.to_f)/(Survey.where.not(haveParticipated: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<table width="100%">
+	<tr>
+		<td colspan="2" align="center">
+			<h3>Which league is the best fit for your current skill level?</h3>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<canvas id="bestLeague" height="200" width="200"></canvas>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td border="2" bgcolor="#F7464A" width="20"></td>
+					<td>
+						 - Below Bronze - <%= ((Survey.where(bestLeague: "subBronze").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+				<tr>
+					<td border="2" bgcolor="#46BFBD" width="20"></td>
+					<td>
+						 - Bronze - <%= ((Survey.where(bestLeague: "bronze").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+				<tr>
+					<td border="2" bgcolor="#D4CCC5" width="20"></td>
+					<td>
+						 - Silver - <%= ((Survey.where(bestLeague: "silver").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+				<tr>
+					<td border="2" bgcolor="#949FB1" width="20"></td>
+					<td>
+						 - Gold - <%= ((Survey.where(bestLeague: "gold").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+				<tr>
+					<td border="2" bgcolor="#4D5360" width="20"></td>
+					<td>
+						 - Above Gold - <%= ((Survey.where(bestLeague: "postGold").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<h3>Do you do, or have you done, automation as part of your job at Orasi?</h3>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<canvas id="automation" height="200" width="200"></canvas>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td border="2" bgcolor="#F7464A" width="20"></td>
+					<td>
+						 - No, they have not done automation at Orasi - <%= ((Survey.where(automation: "no").count.to_f)/(Survey.where.not(automation: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+				<tr>
+					<td border="2" bgcolor="#46BFBD" width="20"></td>
+					<td>
+						 - Yes, they have done automation at Orasi - <%= ((Survey.where(automation: "yes").count.to_f)/(Survey.where.not(automation: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<h3>Do you do, or have you done, coding/development outside of Orasi?</h3>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<canvas id="otherDevelopment" height="200" width="200"></canvas>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td border="2" bgcolor="#F7464A" width="20"></td>
+					<td>
+						 - No, they have not done coding/development outside of Orasi - <%= ((Survey.where(otherDevelopment: "no").count.to_f)/(Survey.where.not(otherDevelopment: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+				<tr>
+					<td border="2" bgcolor="#46BFBD" width="20"></td>
+					<td>
+						 - Yes, they have done coding/development outside of Orasi - <%= ((Survey.where(otherDevelopment: "yes").count.to_f)/(Survey.where.not(otherDevelopment: nil).count.to_f)*100).round(1) %>%
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<h3>How could the coding challenge better serve your needs?</h3>
+		</td>
+	</tr>
+	<tr>
+		<table class="table" width="100%">
+		<% Survey.where.not(betterServe: nil).each do |s| %>
+		<tr>
+			<td>
+				<%= s.betterServe %>
+			</td>
+		</tr>
+		<% end %>
+	</tr>
+</table>
+<script>
+
+var hasParticipatedData = [
+				{
+					value: <%= Survey.where(haveParticipated: "no").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(haveParticipated: "yes").count %>,
+					color : "#46BFBD"
+				}
+			];
+	
+	var myDoughnut = new Chart(document.getElementById("hasParticipated").getContext("2d")).Doughnut(hasParticipatedData );
+
+var bestLeagueData = [
+				{
+					value: <%= Survey.where(bestLeague: "subBronze").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(bestLeague: "bronze").count %>,
+					color : "#46BFBD"
+				},
+				{
+					value: <%= Survey.where(bestLeague: "silver").count %>,
+					color:"#D4CCC5"
+				},
+				{
+					value : <%= Survey.where(bestLeague: "gold").count %>,
+					color : "#949FB1"
+				},
+				{
+					value : <%= Survey.where(bestLeague: "postGold").count %>,
+					color : "#4D5360"
+				}
+				
+			];
+	
+	var bestLeagueDoughnut = new Chart(document.getElementById("bestLeague").getContext("2d")).Doughnut(bestLeagueData );
+	
+	var automationData = [
+				{
+					value: <%= Survey.where(automation: "no").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(automation: "yes").count %>,
+					color : "#46BFBD"
+				}
+			];
+	
+	var automationDoughnut = new Chart(document.getElementById("automation").getContext("2d")).Doughnut(automationData );
+	
+	var devData = [
+				{
+					value: <%= Survey.where(otherDevelopment: "no").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(otherDevelopment: "yes").count %>,
+					color : "#46BFBD"
+				}
+			];
+	
+	var devDoughnut = new Chart(document.getElementById("otherDevelopment").getContext("2d")).Doughnut(devData );
+
+</script>
