@@ -134,7 +134,7 @@
 	</tr>
 	<tr>
 		<table class="table" width="100%">
-		<% Survey.where.not(betterServe: nil).each do |s| %>
+		<% Survey.where.not(betterServe: "").each do |s| %>
 		<tr>
 			<td>
 				<%= s.betterServe %>
