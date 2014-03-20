@@ -24,9 +24,6 @@ CodingChallengeGrading::Application.routes.draw do
   post 'challenge/:month/:year/:league' => 'challenge#result'
   get "challenge/november/2013/gold/demo" => 'challenge#result', demo: 'true'
   
-  #Getting all the submissions.
-  get 'all_submissions' => 'november#all_submissions'
-  
   #Comments
   resources :comments
   get 'comments/time/created/:id' => 'comments#created_time', as: :comment_created_time

@@ -16,11 +16,11 @@ class ChallengeController < ApplicationController
   end
   
   def result
-    
     if params[:ExistingCode].blank?
 		@submission = Submission.new
 	    @submission.user_id = session[:user_id]
 		@submission.submission_code = params[:script].read
+		@submission.challenge = Challenge.find_by(month: challenge_month, league: challenge_league, year: challenge_year)
 		@submission.month = challenge_month
 		@submission.league = challenge_league
 		@submission.year = challenge_year
@@ -71,5 +71,11 @@ class ChallengeController < ApplicationController
   
   def set_comment_reply
     @comment_reply = Comment.new if @comment_reply.blank?
+  end
+  
+  private
+  
+  def submission_params
+    params.permit(:month,:year,:league)
   end
 end

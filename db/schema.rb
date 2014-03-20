@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320163024) do
+ActiveRecord::Schema.define(version: 20140320183630) do
+
+  create_table "challenge_winners", force: true do |t|
+    t.integer  "challenge_id"
+    t.integer  "submission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "challenges", force: true do |t|
     t.string  "month"
@@ -51,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140320163024) do
     t.integer  "year"
     t.string   "visible"
     t.integer  "challenge_id"
+    t.boolean  "complete"
   end
 
   create_table "surveys", force: true do |t|
