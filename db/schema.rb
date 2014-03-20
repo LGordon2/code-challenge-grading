@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140320163024) do
     t.boolean  "admin"
     t.string   "photo"
     t.string   "email"
+    t.string   "su"
   end
 
 end

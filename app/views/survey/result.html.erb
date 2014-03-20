@@ -1,5 +1,9 @@
 <h1> Survey Results</h1>
 
+<% if @filter %>
+	Filter:  <%= @filter %>  - <%= link_to "Clear Filter", controller: "survey", action: "result" %><br>
+<% end %>
+Total Responses Shown:   <%= @surveys.count%>
 <table width="100%">
 	<tr>
 		<td colspan="2" align="center">
@@ -16,13 +20,13 @@
 				<tr>
 					<td border="2" bgcolor="#F7464A" width="20"></td>
 					<td>
-						 - No, I have not participated - <%= ((Survey.where(haveParticipated: "no").count.to_f)/(Survey.where.not(haveParticipated: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'No, I have not participated', controller: "survey", action: "result", id: Survey.where(haveParticipated: "no").pluck(:id), filter: "Not Participated" %> - <%= ((@surveys.where(haveParticipated: "no").count.to_f)/(@surveys.where.not(haveParticipated: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 				<tr>
 					<td border="2" bgcolor="#46BFBD" width="20"></td>
 					<td>
-						 - Yes, I have participated - <%= ((Survey.where(haveParticipated: "yes").count.to_f)/(Survey.where.not(haveParticipated: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Yes, I have previously participated', controller: "survey", action: "result", id: Survey.where(haveParticipated: "yes").pluck(:id),  filter: "Has Participated" %> - <%= ((@surveys.where(haveParticipated: "yes").count.to_f)/(@surveys.where.not(haveParticipated: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 			</table>
@@ -51,13 +55,13 @@
 							<tr>
 								<td border="2" bgcolor="#F7464A" width="20"></td>
 								<td>
-									 - The Challenges are interesting - <%= ((Survey.where(whyStart: "interesting").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'The Challenges are interesting', controller: "survey", action: "result", id: Survey.where(whyStart: "interesting").pluck(:id),  filter: "Finds Challenges Interesting" %> - <%= ((@surveys.where(whyStart: "interesting").count.to_f)/(@surveys.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#46BFBD" width="20"></td>
 								<td>
-									 - It was mandatory - <%= ((Survey.where(whyStart: "mandatory").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+									 -  <%= link_to 'It was mandatory', controller: "survey", action: "result", id: Survey.where(whyStart: "mandatory").pluck(:id),  filter: "Mandated to participate" %>- <%= ((@surveys.where(whyStart: "mandatory").count.to_f)/(@surveys.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
@@ -66,13 +70,13 @@
 							
 								<td border="2" bgcolor=	"#D4CCC5" width="20"></td>
 								<td>
-									 - I wanted to learn new skills - <%= ((Survey.where(whyStart: "learning").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+									 -<%= link_to ' I wanted to learn new skills', controller: "survey", action: "result", id: Survey.where(whyStart: "learning").pluck(:id),  filter: "Wanted to learn new skills" %> - <%= ((@surveys.where(whyStart: "learning").count.to_f)/(@surveys.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#949FB1" width="20"></td>
 								<td>
-									 - I wanted to win prizes - <%= ((Survey.where(whyStart: "rewards").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'I wanted to win prizes', controller: "survey", action: "result", id: Survey.where(whyStart: "rewards").pluck(:id),  filter: "Wanted to win prizes" %> - <%= ((@surveys.where(whyStart: "rewards").count.to_f)/(@surveys.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 						</table>
@@ -92,13 +96,13 @@
 							<tr>
 								<td border="2" bgcolor="#F7464A" width="20"></td>
 								<td>
-									 - No, the challenges have not helped develop new skills - <%= ((Survey.where(newSkills: "no").count.to_f)/(Survey.where.not(newSkills: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'No, the challenges have not helped develop new skills', controller: "survey", action: "result", id: Survey.where(newSkills: "no").pluck(:id),  filter: "Not developed new skills" %> - <%= ((@surveys.where(newSkills: "no").count.to_f)/(@surveys.where.not(newSkills: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#46BFBD" width="20"></td>
 								<td>
-									 - Yes, the challenges have helped develop new skills - <%= ((Survey.where(newSkills: "yes").count.to_f)/(Survey.where.not(newSkills: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'Yes, the challenges have helped develop new skills', controller: "survey", action: "result", id: Survey.where(newSkills: "yes").pluck(:id),  filter: "Developed new skills" %> - <%= ((@surveys.where(newSkills: "yes").count.to_f)/(@surveys.where.not(newSkills: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 						</table>
@@ -118,13 +122,13 @@
 							<tr>
 								<td border="2" bgcolor="#F7464A" width="20"></td>
 								<td>
-									 - No, the challenges have not assisted with project work - <%= ((Survey.where(howUsedSkills: "no").count.to_f)/(Survey.where.not(howUsedSkills: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'No, the challenges have not assisted with project work', controller: "survey", action: "result", id: Survey.where(howUsedSkills: "no").pluck(:id),  filter: "Not used skills on project" %> - <%= ((@surveys.where(howUsedSkills: "no").count.to_f)/(@surveys.where.not(howUsedSkills: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#46BFBD" width="20"></td>
 								<td>
-									 - Yes, the challenges have assisted with project work - <%= ((Survey.where(howUsedSkills: "yes").count.to_f)/(Survey.where.not(howUsedSkills: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'Yes, the challenges have assisted with project work', controller: "survey", action: "result", id: Survey.where(howUsedSkills: "yes").pluck(:id),  filter: "Used skills on project" %> - <%= ((@surveys.where(howUsedSkills: "yes").count.to_f)/(@surveys.where.not(howUsedSkills: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 						</table>
@@ -137,7 +141,7 @@
 				</tr>
 				<tr>
 					<table class="table" width="100%">
-						<% Survey.where.not(skillsExample: "").each do |s| %>
+						<% @surveys.where.not(skillsExample: "").each do |s| %>
 						<tr>
 							<td>
 								<%= s.skillsExample %>
@@ -164,37 +168,37 @@
 							<tr>
 								<td border="2" bgcolor="#F7464A" width="20"></td>
 								<td>
-									 - I would like to participate, but don't have time  - <%= ((Survey.where(whyNot: "noTime").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+									 -   <%= link_to "I would like to participate, but don't have time", controller: "survey", action: "result", id: Survey.where(whyNot: "noTime").pluck(:id),  filter: "No Time To Participate" %>- <%= ((@surveys.where(whyNot: "noTime").count.to_f)/(@surveys.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#FDB45C" width="20"></td>
 								<td>
-									 - I would participate if the challenges were more interesting  - <%= ((Survey.where(whyNot: "notEnoughInterestingChallenges").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+									 -   <%= link_to 'I would participate if the challenges were more interesting', controller: "survey", action: "result", id: Survey.where(whyNot: "notEnoughInterestingChallenges").pluck(:id),  filter: "Not Enough Interesting Challenges" %>- <%= ((@surveys.where(whyNot: "notEnoughInterestingChallenges").count.to_f)/(@surveys.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#46BFBD" width="20"></td>
 								<td>
-									 - I would like to participate, but I don't know where to start  - <%= ((Survey.where(whyNot: "dontKnowWhereToStart").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+									 -   <%= link_to "I would like to participate, but I don't know where to start", controller: "survey", action: "result", id: Survey.where(whyNot: "dontKnowWhereToStart").pluck(:id),  filter: "Don't Know Where To Start" %>- <%= ((@surveys.where(whyNot: "dontKnowWhereToStart").count.to_f)/(@surveys.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#D4CCC5" width="20"></td>
 								<td>
-									 - I would participate if the rewards were better  - <%= ((Survey.where(whyNot: "notEnoughReward").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+									 -  <%= link_to 'I would participate if the rewards were better', controller: "survey", action: "result", id: Survey.where(whyNot: "notEnoughReward").pluck(:id),  filter: "Wants Better Rewards" %>- <%= ((@surveys.where(whyNot: "notEnoughReward").count.to_f)/(@surveys.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#949FB1" width="20"></td>
 								<td>
-									 - I am interested in access to practice problems, but not in competition  - <%= ((Survey.where(whyNot: "notInterestedInCompeting").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'I am interested in access to practice problems, but not in competition', controller: "survey", action: "result", id: Survey.where(whyNot: "notInterestedInCompeting").pluck(:id),  filter: "Not Interested In Competition" %>- <%= ((@surveys.where(whyNot: "notInterestedInCompeting").count.to_f)/(@surveys.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 							<tr>
 								<td border="2" bgcolor="#4D5360" width="20"></td>
 								<td>
-									 - I am not interested in participating  - <%= ((Survey.where(whyNot: "notInterested").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+									 - <%= link_to 'I am not interested in participating', controller: "survey", action: "result", id: Survey.where(whyNot: "notInterested").pluck(:id),  filter: "Not Interested In Participating" %>- <%= ((@surveys.where(whyNot: "notInterested").count.to_f)/(@surveys.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
 								</td>
 							</tr>
 						</table>
@@ -207,7 +211,7 @@
 				</tr>
 				<tr>
 					<table class="table" width="100%">
-						<% Survey.where.not(whatWouldInterest: "").each do |s| %>
+						<% @surveys.where.not(whatWouldInterest: "").each do |s| %>
 						<tr>
 							<td>
 								<%= s.whatWouldInterest %>
@@ -226,7 +230,7 @@ What could the code challenge do to increase your interest in participation?</h3
 				</tr>
 				<tr>
 					<table class="table" width="100%">
-						<% Survey.where.not(whatWouldIncreaseParticipation: "").each do |s| %>
+						<% @surveys.where.not(whatWouldIncreaseParticipation: "").each do |s| %>
 						<tr>
 							<td>
 								<%= s.whatWouldIncreaseParticipation %>
@@ -255,31 +259,31 @@ What could the code challenge do to increase your interest in participation?</h3
 				<tr>
 					<td border="2" bgcolor="#F7464A" width="20"></td>
 					<td>
-						 - Below Bronze - <%= ((Survey.where(bestLeague: "subBronze").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Below Bronze', controller: "survey", action: "result", id: Survey.where(bestLeague: "subBronze").pluck(:id),  filter: "Selected Below Bronze" %> - <%= ((@surveys.where(bestLeague: "subBronze").count.to_f)/(@surveys.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 				<tr>
 					<td border="2" bgcolor="#46BFBD" width="20"></td>
 					<td>
-						 - Bronze - <%= ((Survey.where(bestLeague: "bronze").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Bronze', controller: "survey", action: "result", id: Survey.where(bestLeague: "bronze").pluck(:id),  filter: "Selected Bronze" %> - <%= ((@surveys.where(bestLeague: "bronze").count.to_f)/(@surveys.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 				<tr>
 					<td border="2" bgcolor="#D4CCC5" width="20"></td>
 					<td>
-						 - Silver - <%= ((Survey.where(bestLeague: "silver").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Silver', controller: "survey", action: "result", id: Survey.where(bestLeague: "silver").pluck(:id),  filter: "Selected Silver" %>- <%= ((@surveys.where(bestLeague: "silver").count.to_f)/(@surveys.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 				<tr>
 					<td border="2" bgcolor="#949FB1" width="20"></td>
 					<td>
-						 - Gold - <%= ((Survey.where(bestLeague: "gold").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Gold', controller: "survey", action: "result", id: Survey.where(bestLeague: "gold").pluck(:id),  filter: "Selected Gold" %>- <%= ((@surveys.where(bestLeague: "gold").count.to_f)/(@surveys.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 				<tr>
 					<td border="2" bgcolor="#4D5360" width="20"></td>
 					<td>
-						 - Above Gold - <%= ((Survey.where(bestLeague: "postGold").count.to_f)/(Survey.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Above Gold', controller: "survey", action: "result", id: Survey.where(bestLeague: "postGold").pluck(:id),  filter: "Selected Above Gold" %>- <%= ((@surveys.where(bestLeague: "postGold").count.to_f)/(@surveys.where.not(bestLeague: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 			</table>
@@ -299,13 +303,13 @@ What could the code challenge do to increase your interest in participation?</h3
 				<tr>
 					<td border="2" bgcolor="#F7464A" width="20"></td>
 					<td>
-						 - No, they have not done automation at Orasi - <%= ((Survey.where(automation: "no").count.to_f)/(Survey.where.not(automation: nil).count.to_f)*100).round(1) %>%
+						 -  <%= link_to 'No, they have not done automation at Orasi', controller: "survey", action: "result", id: Survey.where(automation: "no").pluck(:id),  filter: "Does Not Do Automation" %>- <%= ((@surveys.where(automation: "no").count.to_f)/(@surveys.where.not(automation: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 				<tr>
 					<td border="2" bgcolor="#46BFBD" width="20"></td>
 					<td>
-						 - Yes, they have done automation at Orasi - <%= ((Survey.where(automation: "yes").count.to_f)/(Survey.where.not(automation: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Yes, they have done automation at Orasi ', controller: "survey", action: "result", id: Survey.where(automation: "yes").pluck(:id),  filter: "Does Automation" %>- <%= ((@surveys.where(automation: "yes").count.to_f)/(@surveys.where.not(automation: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 			</table>
@@ -325,13 +329,13 @@ What could the code challenge do to increase your interest in participation?</h3
 				<tr>
 					<td border="2" bgcolor="#F7464A" width="20"></td>
 					<td>
-						 - No, they have not done coding/development outside of Orasi - <%= ((Survey.where(otherDevelopment: "no").count.to_f)/(Survey.where.not(otherDevelopment: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'No, they have not done coding/development outside of Orasi', controller: "survey", action: "result", id: Survey.where(otherDevelopment: "no").pluck(:id),  filter: "Not Done Outside Coding/Development" %>- <%= ((@surveys.where(otherDevelopment: "no").count.to_f)/(@surveys.where.not(otherDevelopment: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 				<tr>
 					<td border="2" bgcolor="#46BFBD" width="20"></td>
 					<td>
-						 - Yes, they have done coding/development outside of Orasi - <%= ((Survey.where(otherDevelopment: "yes").count.to_f)/(Survey.where.not(otherDevelopment: nil).count.to_f)*100).round(1) %>%
+						 - <%= link_to 'Yes, they have done coding/development outside of Orasi ', controller: "survey", action: "result", id: Survey.where(otherDevelopment: "yes").pluck(:id),  filter: "Has Done Outside Coding/Development" %>- <%= ((@surveys.where(otherDevelopment: "yes").count.to_f)/(@surveys.where.not(otherDevelopment: nil).count.to_f)*100).round(1) %>%
 					</td>
 				</tr>
 			</table>
@@ -344,7 +348,7 @@ What could the code challenge do to increase your interest in participation?</h3
 	</tr>
 	<tr>
 		<table class="table" width="100%">
-			<% Survey.where.not(betterServe: "").each do |s| %>
+			<% @surveys.where.not(betterServe: "").each do |s| %>
 			<tr>
 				<td>
 					<%= s.betterServe %>
@@ -358,11 +362,11 @@ What could the code challenge do to increase your interest in participation?</h3
 
 var hasParticipatedData = [
 				{
-					value: <%= Survey.where(haveParticipated: "no").count %>,
+					value: <%= @surveys.where(haveParticipated: "no").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(haveParticipated: "yes").count %>,
+					value : <%= @surveys.where(haveParticipated: "yes").count %>,
 					color : "#46BFBD"
 				}
 			];
@@ -371,23 +375,23 @@ var hasParticipatedData = [
 
 var bestLeagueData = [
 				{
-					value: <%= Survey.where(bestLeague: "subBronze").count %>,
+					value: <%= @surveys.where(bestLeague: "subBronze").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(bestLeague: "bronze").count %>,
+					value : <%= @surveys.where(bestLeague: "bronze").count %>,
 					color : "#46BFBD"
 				},
 				{
-					value: <%= Survey.where(bestLeague: "silver").count %>,
+					value: <%= @surveys.where(bestLeague: "silver").count %>,
 					color:"#D4CCC5"
 				},
 				{
-					value : <%= Survey.where(bestLeague: "gold").count %>,
+					value : <%= @surveys.where(bestLeague: "gold").count %>,
 					color : "#949FB1"
 				},
 				{
-					value : <%= Survey.where(bestLeague: "postGold").count %>,
+					value : <%= @surveys.where(bestLeague: "postGold").count %>,
 					color : "#4D5360"
 				}
 				
@@ -397,11 +401,11 @@ var bestLeagueData = [
 	
 	var automationData = [
 				{
-					value: <%= Survey.where(automation: "no").count %>,
+					value: <%= @surveys.where(automation: "no").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(automation: "yes").count %>,
+					value : <%= @surveys.where(automation: "yes").count %>,
 					color : "#46BFBD"
 				}
 			];
@@ -410,11 +414,11 @@ var bestLeagueData = [
 	
 	var devData = [
 				{
-					value: <%= Survey.where(otherDevelopment: "no").count %>,
+					value: <%= @surveys.where(otherDevelopment: "no").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(otherDevelopment: "yes").count %>,
+					value : <%= @surveys.where(otherDevelopment: "yes").count %>,
 					color : "#46BFBD"
 				}
 			];
@@ -424,19 +428,19 @@ var bestLeagueData = [
 	
 var whyStartData = [
 				{
-					value: <%= Survey.where(whyStart: "interesting").count %>,
+					value: <%= @surveys.where(whyStart: "interesting").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(whyStart: "mandatory").count %>,
+					value : <%= @surveys.where(whyStart: "mandatory").count %>,
 					color : "#46BFBD"
 				},
 				{
-					value: <%= Survey.where(whyStart: "learning").count %>,
+					value: <%= @surveys.where(whyStart: "learning").count %>,
 					color:"#D4CCC5"
 				},
 				{
-					value : <%= Survey.where(whyStart: "rewards").count %>,
+					value : <%= @surveys.where(whyStart: "rewards").count %>,
 					color : "#949FB1"
 				}
 			];
@@ -445,11 +449,11 @@ var whyStartData = [
 	
 	var newSkillsData = [
 				{
-					value: <%= Survey.where(newSkills: "no").count %>,
+					value: <%= @surveys.where(newSkills: "no").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(newSkills: "yes").count %>,
+					value : <%= @surveys.where(newSkills: "yes").count %>,
 					color : "#46BFBD"
 				}
 			];
@@ -459,11 +463,11 @@ var whyStartData = [
 
 	var howUsedSkillsData = [
 				{
-					value: <%= Survey.where(howUsedSkills: "no").count %>,
+					value: <%= @surveys.where(howUsedSkills: "no").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(howUsedSkills: "yes").count %>,
+					value : <%= @surveys.where(howUsedSkills: "yes").count %>,
 					color : "#46BFBD"
 				}
 			];
@@ -472,27 +476,27 @@ var whyStartData = [
 
 	var whyNotData = [
 				{
-					value: <%= Survey.where(whyNot: "noTime").count %>,
+					value: <%= @surveys.where(whyNot: "noTime").count %>,
 					color:"#F7464A"
 				},
 				{
-					value: <%= Survey.where(whyNot: "notEnoughInterestingChallenges").count %>,
+					value: <%= @surveys.where(whyNot: "notEnoughInterestingChallenges").count %>,
 					color:"#F7464A"
 				},
 				{
-					value : <%= Survey.where(whyNot: "dontKnowWhereToStart").count %>,
+					value : <%= @surveys.where(whyNot: "dontKnowWhereToStart").count %>,
 					color : "#46BFBD"
 				},
 				{
-					value: <%= Survey.where(whyNot: "notEnoughReward").count %>,
+					value: <%= @surveys.where(whyNot: "notEnoughReward").count %>,
 					color:"#D4CCC5"
 				},
 				{
-					value : <%= Survey.where(whyNot: "notInterestedInCompeting").count %>,
+					value : <%= @surveys.where(whyNot: "notInterestedInCompeting").count %>,
 					color : "#949FB1"
 				},
 				{
-					value : <%= Survey.where(whyNot: "notInterested").count %>,
+					value : <%= @surveys.where(whyNot: "notInterested").count %>,
 					color : "#4D5360"
 				}
 				
