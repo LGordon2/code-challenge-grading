@@ -19,6 +19,9 @@ class SurveyController < ApplicationController
 		else
 		 @surveys = Survey.all
 		end
+		if params[:filter]
+			@filter = params[:filter]
+		end
 	end
 	
 	private
