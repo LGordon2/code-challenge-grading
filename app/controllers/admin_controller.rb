@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   
-  
+  before_action :require_admin
   
   def index
     @title = "Users Created All Time"

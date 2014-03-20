@@ -1,6 +1,6 @@
 class SurveyController < ApplicationController
 
-  before_action :require_admin
+  
 
 	def index
 		@survey = Survey.new
