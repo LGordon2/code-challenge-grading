@@ -12,6 +12,7 @@
 </div>
 Total Survey Count: 
 <%= Survey.all.count %>
+<%= link_to "Survey Results", controller: "survey", action: "result" %>
 <%= render 'admin_head'%>
 <% if @type == "users"%>
 <%= render 'user_list', :users => @users, :title => @title %>
