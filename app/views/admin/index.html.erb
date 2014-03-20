@@ -1,15 +1,19 @@
-<h1>Set current month/year</h1>
-<%= form_for CurrentMonthYear.first, html: {class: "form-inline", id: "set-date-form"}, url: admin_set_path do |f| %>
-	<div class="form-group">
-		<%= f.select :month, (1..12).collect {|month_no| Date.new(2014,month_no,1).strftime("%B")}, {selected: CurrentMonthYear.first.month.capitalize}, class: "form-control" %>
-	</div>
-	<div class="form-group">
-		<%= f.select :year, Challenge.distinct.pluck(:year), {}, class: "form-control" %>
+
+<% if current_user.su %>
+	<h1>Set current month/year</h1>
+	<%= form_for CurrentMonthYear.first, html: {class: "form-inline", id: "set-date-form"}, url: admin_set_path do |f| %>
+		<div class="form-group">
+			<%= f.select :month, (1..12).collect {|month_no| Date.new(2014,month_no,1).strftime("%B")}, {selected: CurrentMonthYear.first.month.capitalize}, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.select :year, Challenge.distinct.pluck(:year), {}, class: "form-control" %>
+		</div>
+	<% end %>
+	<div class="error-for-date">
+		<h4><%= flash[:error]%></h4>
 	</div>
 <% end %>
-<div class="error-for-date">
-	<h4><%= flash[:error]%></h4>
-</div>
+
 Total Survey Count: 
 <%= Survey.all.count %>
 <%= link_to "Survey Results", controller: "survey", action: "result" %>
