@@ -1,9 +1,9 @@
 <h1> Survey Results</h1>
 
 <% if @filter %>
-	Filter:  <%= @filter %>  - <%= link_to "Clear Filter", controller: "survey", action: "result" %>
+	Filter:  <%= @filter %>  - <%= link_to "Clear Filter", controller: "survey", action: "result" %><br>
 <% end %>
-
+Total Responses Shown:   <%= @surveys.count%>
 <table width="100%">
 	<tr>
 		<td colspan="2" align="center">
