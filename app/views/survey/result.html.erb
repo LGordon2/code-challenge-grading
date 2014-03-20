@@ -30,6 +30,216 @@
 	</tr>
 </table>
 
+
+
+
+<table width ="100%">
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td colspan="2" align="center">
+						<h3>What first interested you in the coding challenge?</h3>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<canvas id="whyStart" height="200" width="200"></canvas>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td border="2" bgcolor="#F7464A" width="20"></td>
+								<td>
+									 - The Challenges are interesting - <%= ((Survey.where(whyStart: "interesting").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#46BFBD" width="20"></td>
+								<td>
+									 - It was mandatory - <%= ((Survey.where(whyStart: "mandatory").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+							
+							
+							
+								<td border="2" bgcolor=	"#D4CCC5" width="20"></td>
+								<td>
+									 - I wanted to learn new skills - <%= ((Survey.where(whyStart: "learning").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#949FB1" width="20"></td>
+								<td>
+									 - I wanted to win prizes - <%= ((Survey.where(whyStart: "rewards").count.to_f)/(Survey.where.not(whyStart: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<h3>Do you feel the code challenge has helped you develop new skills?</h3>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<canvas id="newSkills" height="200" width="200"></canvas>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td border="2" bgcolor="#F7464A" width="20"></td>
+								<td>
+									 - No, the challenges have not helped develop new skills - <%= ((Survey.where(newSkills: "no").count.to_f)/(Survey.where.not(newSkills: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#46BFBD" width="20"></td>
+								<td>
+									 - Yes, the challenges have helped develop new skills - <%= ((Survey.where(newSkills: "yes").count.to_f)/(Survey.where.not(newSkills: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<h3>Have you used skills developed in the coding challenge on project work?</h3>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<canvas id="howUsedSkills" height="200" width="200"></canvas>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td border="2" bgcolor="#F7464A" width="20"></td>
+								<td>
+									 - No, the challenges have not assisted with project work - <%= ((Survey.where(howUsedSkills: "no").count.to_f)/(Survey.where.not(howUsedSkills: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#46BFBD" width="20"></td>
+								<td>
+									 - Yes, the challenges have assisted with project work - <%= ((Survey.where(howUsedSkills: "yes").count.to_f)/(Survey.where.not(howUsedSkills: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<h3>Provide Examples of how code challenge skills have been used on a project?</h3>
+					</td>
+				</tr>
+				<tr>
+					<table class="table" width="100%">
+						<% Survey.where.not(skillsExample: "").each do |s| %>
+						<tr>
+							<td>
+								<%= s.skillsExample %>
+							</td>
+						</tr>
+						<% end %>
+					<table>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td colspan="2" align="center">
+						<h3>If you have not participated, which of the following best describes you?</h3>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<canvas id="whyNot" height="200" width="200"></canvas>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td border="2" bgcolor="#F7464A" width="20"></td>
+								<td>
+									 - I would like to participate, but don't have time  - <%= ((Survey.where(whyNot: "noTime").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#FDB45C" width="20"></td>
+								<td>
+									 - I would participate if the challenges were more interesting  - <%= ((Survey.where(whyNot: "notEnoughInterestingChallenges").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#46BFBD" width="20"></td>
+								<td>
+									 - I would like to participate, but I don't know where to start  - <%= ((Survey.where(whyNot: "dontKnowWhereToStart").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#D4CCC5" width="20"></td>
+								<td>
+									 - I would participate if the rewards were better  - <%= ((Survey.where(whyNot: "notEnoughReward").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#949FB1" width="20"></td>
+								<td>
+									 - I am interested in access to practice problems, but not in competition  - <%= ((Survey.where(whyNot: "notInterestedInCompeting").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+							<tr>
+								<td border="2" bgcolor="#4D5360" width="20"></td>
+								<td>
+									 - I am not interested in participating  - <%= ((Survey.where(whyNot: "notInterested").count.to_f)/(Survey.where.not(whyNot: nil).count.to_f)*100).round(1) %>%
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<h3>What type of challenges would you be interested in?</h3>
+					</td>
+				</tr>
+				<tr>
+					<table class="table" width="100%">
+						<% Survey.where.not(whatWouldInterest: "").each do |s| %>
+						<tr>
+							<td>
+								<%= s.whatWouldInterest %>
+							</td>
+						</tr>
+						<% end %>
+					<table>
+				</tr>
+					<tr>
+					<td colspan="2" align="center">
+						<h3> 
+
+
+What could the code challenge do to increase your interest in participation?</h3>
+					</td>
+				</tr>
+				<tr>
+					<table class="table" width="100%">
+						<% Survey.where.not(whatWouldIncreaseParticipation: "").each do |s| %>
+						<tr>
+							<td>
+								<%= s.whatWouldIncreaseParticipation %>
+							</td>
+						</tr>
+						<% end %>
+					<table>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
 <table width="100%">
 	<tr>
 		<td colspan="2" align="center">
@@ -134,13 +344,14 @@
 	</tr>
 	<tr>
 		<table class="table" width="100%">
-		<% Survey.where.not(betterServe: "").each do |s| %>
-		<tr>
-			<td>
-				<%= s.betterServe %>
-			</td>
-		</tr>
-		<% end %>
+			<% Survey.where.not(betterServe: "").each do |s| %>
+			<tr>
+				<td>
+					<%= s.betterServe %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
 	</tr>
 </table>
 <script>
@@ -210,4 +421,84 @@ var bestLeagueData = [
 	
 	var devDoughnut = new Chart(document.getElementById("otherDevelopment").getContext("2d")).Doughnut(devData );
 
+	
+var whyStartData = [
+				{
+					value: <%= Survey.where(whyStart: "interesting").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(whyStart: "mandatory").count %>,
+					color : "#46BFBD"
+				},
+				{
+					value: <%= Survey.where(whyStart: "learning").count %>,
+					color:"#D4CCC5"
+				},
+				{
+					value : <%= Survey.where(whyStart: "rewards").count %>,
+					color : "#949FB1"
+				}
+			];
+	
+	var whyStartDoughnut = new Chart(document.getElementById("whyStart").getContext("2d")).Doughnut(whyStartData );
+	
+	var newSkillsData = [
+				{
+					value: <%= Survey.where(newSkills: "no").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(newSkills: "yes").count %>,
+					color : "#46BFBD"
+				}
+			];
+	
+	var devDoughnut = new Chart(document.getElementById("newSkills").getContext("2d")).Doughnut(newSkillsData );
+
+
+	var howUsedSkillsData = [
+				{
+					value: <%= Survey.where(howUsedSkills: "no").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(howUsedSkills: "yes").count %>,
+					color : "#46BFBD"
+				}
+			];
+	
+	var howUsedSkillsDoughnut = new Chart(document.getElementById("howUsedSkills").getContext("2d")).Doughnut(howUsedSkillsData );
+
+	var whyNotData = [
+				{
+					value: <%= Survey.where(whyNot: "noTime").count %>,
+					color:"#F7464A"
+				},
+				{
+					value: <%= Survey.where(whyNot: "notEnoughInterestingChallenges").count %>,
+					color:"#F7464A"
+				},
+				{
+					value : <%= Survey.where(whyNot: "dontKnowWhereToStart").count %>,
+					color : "#46BFBD"
+				},
+				{
+					value: <%= Survey.where(whyNot: "notEnoughReward").count %>,
+					color:"#D4CCC5"
+				},
+				{
+					value : <%= Survey.where(whyNot: "notInterestedInCompeting").count %>,
+					color : "#949FB1"
+				},
+				{
+					value : <%= Survey.where(whyNot: "notInterested").count %>,
+					color : "#4D5360"
+				}
+				
+			];
+	
+	var whyNotDoughnut = new Chart(document.getElementById("whyNot").getContext("2d")).Doughnut(whyNotData );
+	
+	
 </script>
