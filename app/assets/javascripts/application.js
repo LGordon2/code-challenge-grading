@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require jquery.autosize
 //= require jquery.timeago
+//= require Chart
 
 $(document).on('ready', function() {
   return $('textarea').autosize({

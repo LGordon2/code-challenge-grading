@@ -13,7 +13,7 @@
 </div>
 <div id="hasParticipated" style="display:none">
 	<div class="form-group">
-		<h5>If you participate in the code challenge, why did you start?</h5>
+		<h5>If you have previously participated in the code challenge, what first interested you about it?</h5>
 		<div class="radio">
 			<label> <%= s.radio_button(:whyStart, "interesting") %>
 				The challenges are interesting</label>
@@ -54,7 +54,8 @@
 		</div>
 	</div>
 	<div id="provideExample" style="display:none">
-		Can you provide an example where code challenge skills have helped you in a project?
+		Can you provide an example where code challenge skills have helped you on a project?
+		<br>
 		<%= s.text_area(:skillsExample) %>
 	</div>
 </div>
