@@ -9,7 +9,7 @@ CodingChallengeGrading::Application.routes.draw do
   get 'survey' => 'survey#index', as: :surveys
   post'survey' => 'survey#create'
   get 'survey/result' => 'survey#result'
-  
+   
   #Admin routes.
   get 'admin' => 'admin#index'
   patch 'admin/set' => 'admin#set_current_month_year'
