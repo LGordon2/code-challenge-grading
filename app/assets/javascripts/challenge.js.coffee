@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready', ->
+  $(".complete_checkbox").on "change", ->
+    $(this).parent().submit()
   $('.created-time').each ->
     getTime = =>
       $.ajax(url: '/comments/time/created/'+$(@).data('comment-id')+'.json').done (json) =>

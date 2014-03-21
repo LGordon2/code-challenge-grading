@@ -57,7 +57,12 @@
 						<% user = User.find(submission.user_id) %>	
 						<tr><td onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
 							<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
-						</tr></td>
+							<% if submission.complete %>
+								<%= image_tag("check.png") %>
+							<% end %>
+						</td>
+							
+						</tr>
 					<% end %>
 				</table>
 			</div>
@@ -67,7 +72,11 @@
 						<% user = User.find(submission.user_id) %>
 							<tr><td onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
 								<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
-							</tr></td>
+									<% if submission.complete %>
+										<%= image_tag("check.png") %>
+									<% end %>
+								</td>
+							</tr>
 					<% end %>
 				</table>
 			</div>
@@ -83,6 +92,7 @@
 </div><!-- /.modal -->
 
 <script type="text/javascript">
+
 $('#myModal').on('hidden.bs.modal', function (e) {
   $("#challengeDescription").fadeIn("slow");
 })
