@@ -61,6 +61,9 @@
 								<%= image_tag("check.png") %>
 							<% end %>
 						</td>
+						<td>
+							<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
+						</td>
 							
 						</tr>
 					<% end %>
@@ -75,6 +78,9 @@
 									<% if submission.complete %>
 										<%= image_tag("check.png") %>
 									<% end %>
+								</td>
+								<td>
+									<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
 								</td>
 							</tr>
 					<% end %>
