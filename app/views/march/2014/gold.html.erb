@@ -1,0 +1,7 @@
+<% content_for :supporting_link do %>
+
+  <%= link_to "getWordList Function", "/data/getWordList.txt" %><BR>
+
+<% end %>
+<%@challenge_title = Challenge.find_by(month: challenge_month, league: "silver", year: 2014).title %>
+<%=render template: "layouts/monthly_challenge"%>
