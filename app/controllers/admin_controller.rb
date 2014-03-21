@@ -31,7 +31,7 @@ class AdminController < ApplicationController
       @submissions = Submission.where("created_at >= ?", getDateSince(params[:time]))
       @title = 'Submissions Created ' + @title
     else
-      @submissions = Submission.load
+      @submissions = Submission.all
       @title = 'Submissions Created All Time'
     end
     render 'index'
