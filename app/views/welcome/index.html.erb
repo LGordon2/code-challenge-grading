@@ -7,7 +7,7 @@
   </ol>
 
   <!-- Wrapper for slides -->
-  <% newsfeed_files = Dir.entries(ActionView::PathSet.new(['app/views/newsfeed']).first.to_path).sort.last(3).reverse %>
+  <% newsfeed_files = Dir.entries(ActionView::PathSet.new(['app/assets/images/newsfeed']).first.to_path).sort.last(3).reverse %>
   <% counter = 0 %>
   <div class="carousel-inner">
   	<% newsfeed_files.each do |feed| %>
@@ -17,7 +17,7 @@
     		<div class="item">
     	<% end %>
           <div style="width:620px;background-color: #123456;height: 400px;margin-top: 0px">
-          	<%= render template: "newsfeed/#{feed}" %>
+          	<%= image_tag "newsfeed/#{feed}" %>
           </div>
       <div class="carousel-caption">
   
