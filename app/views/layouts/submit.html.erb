@@ -8,7 +8,7 @@
 <%= link_to "Get all submissions", submissions_path(month: challenge_month, league: challenge_league, year: challenge_year) %><BR>
 <% end %>
 <% if challenge_month != CurrentMonthYear.first.month and challenge_year != CurrentMonthYear.first.year %>
-	<h4> Challenge Winners </h4>
+	<h3> Challenge Winners </h3>
 	<% Challenge.find_by(month: challenge_month, league: challenge_league, year: challenge_year).challenge_winners.each do |winner| %>
 		<% winner_name = User.find(Submission.find(winner.submission_id).user_id).display_name %>
 		<%= link_to winner_name, controller: "submission", action: "show", id: winner.submission_id %>
