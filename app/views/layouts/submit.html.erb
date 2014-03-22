@@ -13,6 +13,7 @@
 		<% winner_name = User.find(Submission.find(winner.submission_id).user_id).display_name %>
 		<%= link_to winner_name, controller: "submission", action: "show", id: winner.submission_id %>
 	<% end %>
+	<br>
 <% end %>
 <%= yield :supporting_link %>
 <div id="submitButtonPanel">
