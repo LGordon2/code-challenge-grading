@@ -3,5 +3,5 @@
   <%= link_to "getWordList Function", "/data/getWordList.txt" %><BR>
 
 <% end %>
-<%@challenge_title = Challenge.find_by(month: challenge_month, league: "silver", year: 2014).title %>
+<%@challenge_title = Challenge.find_by(month: challenge_month, league: "gold", year: 2014).title %>
 <%=render template: "layouts/monthly_challenge"%>

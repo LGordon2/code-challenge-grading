@@ -11,7 +11,14 @@
 		<tr>
 			<td><%= link_to challenge.title.capitalize, challenge_path(month: challenge.month, league: challenge.league, year: challenge.year)%> <%= "    " %> </td>
 			<td><%= challenge.month.capitalize %> <%=challenge.year%> </td> 
-			<td><%= challenge.winner%></td>
+			<td><table>
+			<% challenge.challenge_winners.each do |winner|%></td>
+			<tr><td>
+				<% winner_name = User.find(Submission.find(winner.submission_id).user_id).display_name %>
+				<%= link_to winner_name, controller: "submission", action: "show", id: winner.submission_id %>
+			</td></tr>
+			<% end %>
+			</table>
 		</tr>
 <% end %>
 </table>

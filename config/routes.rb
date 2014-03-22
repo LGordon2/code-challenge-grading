@@ -21,6 +21,8 @@ CodingChallengeGrading::Application.routes.draw do
   get "submissions/:month/:year/:league", to: "challenge#all_submissions", as: :submissions
   patch "profile/submissions/:id" => "submission#update"
   get 'submission/:id' => 'submission#show'
+  post 'challenge_winners/winner' => 'submission#winner'
+  
   #Results.
   post 'challenge/:month/:year/:league' => 'challenge#result'
   get "challenge/november/2013/gold/demo" => 'challenge#result', demo: 'true'

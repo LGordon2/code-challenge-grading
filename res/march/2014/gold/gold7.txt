@@ -1,7 +1,7 @@
 document.write("*************************Test Case 7***************************<BR>")
-'Dim testData_testCase7
-'Dim expectedResult_testCase7
-'Dim actualResult_testCase7
+Dim testData_testCase7
+Dim expectedResult_testCase7
+Dim actualResult_testCase7
 
 testData_testCase7 = "ETH NRCHMNT EECNTR RGRTS TO NFRM UYO ATHT THSI NXT TSET IS MPSSBL AMKE NO TTMPEAT TO SLV IT"
 expectedResult_testCase7 = "THE ENRICHMENT CENTER REGRETS TO ?INFIRM/INFORM/UNIFORM? YOU THAT THIS NEXT TEST IS ?IMPASSABLE/IMPOSSIBLE? MAKE NO ATTEMPT TO ?SALIVA/SALVE/SALVO/SILVA/SILVIA/SLAV/SLAVE/SLEEVE/SOLVE? IT"

@@ -1,7 +1,7 @@
 document.write("*************************Test Case 1***************************<BR>")
-'Dim testData_testCase1
-'Dim expectedResult_testCase1
-'Dim actualResult_testCase1
+Dim testData_testCase1
+Dim expectedResult_testCase1
+Dim actualResult_testCase1
 
 testData_testCase1 = "I AM IT IF AT OR"
 expectedResult_testCase1 = "I AM IT IF AT OR"

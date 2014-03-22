@@ -1,7 +1,7 @@
 document.write("*************************Test Case 3***************************<BR>")
-'Dim testData_testCase3
-'Dim expectedResult_testCase3
-'Dim actualResult_testCase3
+Dim testData_testCase3
+Dim expectedResult_testCase3
+Dim actualResult_testCase3
 
 testData_testCase3 = "WRKNG PSS TST PRTL PRST PST"
 expectedResult_testCase3 = "?WORKING/WREAKING? ?APSES/OOPSES/OPUSES/PASS/PAUSES/PESOS/PISS/POESIES/POISES/POSES/POSIES/POSSE/PUSS? ?OUTSET/TAOIST/TASTE/TEST/TOAST/TOST? ?PARTIAL/PORTAL? ?PARASITE/POOREST/PRESET/PRESTO/PRIEST/PROUST/PUREST/PURIST/PURSUIT? ?PAST/PASTA/PASTE/PESETA/PEST/POSIT/POST/UPSET?"

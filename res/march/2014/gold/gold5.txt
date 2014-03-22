@@ -1,7 +1,7 @@
 document.write("*************************Test Case 5***************************<BR>")
-'Dim testData_testCase5
-'Dim expectedResult_testCase5
-'Dim actualResult_testCase5
+Dim testData_testCase5
+Dim expectedResult_testCase5
+Dim actualResult_testCase5
 
 testData_testCase5 = "RMMBR EWHN ETH PLTFRM AWS SLDNG NTOI TEH EFRI PTI NAD I IASD GDBY NDA OUY EWRE ELIK NO WYA AND ETHN I WSA LLA WE PRTNDD WE EWRE GNG TO MRDR YUO"
 expectedResult_testCase5 = "REMEMBER WHEN THE PLATFORM WAS SLIDING INTO THE FIRE PIT AND I SAID GOODBYE AND YOU ?EWER/WEER/WERE? LIKE NO WAY AND THEN I WAS ALL WE ?PORTENDED/PRETENDED? WE ?EWER/WEER/WERE? ?AGEING/AGING/GANG/GEEING/GOING/GONG? TO ?MARAUDER/MURDER? YOU"

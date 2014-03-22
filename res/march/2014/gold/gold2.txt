@@ -1,7 +1,7 @@
 document.write("*************************Test Case 2***************************<BR>")
-'Dim testData_testCase2
-'Dim expectedResult_testCase2
-'Dim actualResult_testCase2
+Dim testData_testCase2
+Dim expectedResult_testCase2
+Dim actualResult_testCase2
 
 testData_testCase2 = "TESTING ETSITNG TSTNG"
 expectedResult_testCase2 = "TESTING TESTING ?TASTING/TESTING/TOASTING?"

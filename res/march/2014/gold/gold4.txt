@@ -1,7 +1,7 @@
 document.write("*************************Test Case 4***************************<BR>")
-'Dim testData_testCase4
-'Dim expectedResult_testCase4
-'Dim actualResult_testCase4
+Dim testData_testCase4
+Dim expectedResult_testCase4
+Dim actualResult_testCase4
 
 testData_testCase4 = "QWRTYPSDFGHJKLZXCVBNM LAKSPQOWIERUTYXM"
 expectedResult_testCase4 = "?QWRTYPSDFGHJKLZXCVBNM? ?LAKSPQOWIERUTYXM?"

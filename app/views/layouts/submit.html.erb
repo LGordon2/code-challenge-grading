@@ -52,36 +52,67 @@
 
 			<div id="fullList" style="display:none">
 				<table class="table table-striped table-hover">
+					<tr style="color:#428bca">
+						<th>Submission Details</th>
+						<th></th>
+						<% if current_user.su %>
+							<th style="text-align:right">Winner?</th>
+						<% end %>
+					</tr>
 					<% submissions = Submission.where(month: challenge_month, league: challenge_league)%>
 					<% submissions.reverse.each do |submission| %>
 						<% user = User.find(submission.user_id) %>	
-						<tr><td onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
+						<tr><td onClick="existingSubmission(<%= submission.id %>);" style="text-align:left;cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
 							<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
 							<% if submission.complete %>
 								<%= image_tag("check.png") %>
 							<% end %>
 						</td>
 						<td>
-							<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
+							<%= button_tag "View", controller: "submission", action: "show", id: submission.id, class: "btn btn-xs btn-default" %>
 						</td>
-							
+							<% if current_user.su %>
+								<td align="center" >
+									<%= form_for :winner, url: { controller: "submission", action: "winner"}, remote: true do |c| %>			
+										<%= c.check_box :isWinner, class: "complete_checkbox", checked: ChallengeWinner.where(:submission_id => submission.id, :challenge_id => submission.challenge.id).count != 0 %>
+										<%= c.hidden_field "submission_id", {:value => submission.id} %>						
+									<% end %>
+								</td>
+							<% end %>
 						</tr>
 					<% end %>
 				</table>
 			</div>
 			<div id="recentList">
-				<table class="table table-striped table-hover">		
+				<table class="table table-striped table-hover">	
+					<tr style="color:#428bca">
+						<th>Submission Details</th>
+						<th></th>
+						<% if current_user.su %>
+							<th style="text-align:right">Winner?</th>
+						<% end %>
+					</tr>
 					<% Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').each do |submission| %>
 						<% user = User.find(submission.user_id) %>
-							<tr><td onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
+							<tr><td align="left" onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
 								<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
 									<% if submission.complete %>
 										<%= image_tag("check.png") %>
 									<% end %>
 								</td>
 								<td>
-									<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
+									<%= button_tag "View", controller: "submission", action: "show", id: submission.id , class: "btn btn-xs btn-default"%>
 								</td>
+									<% if current_user.su %>
+										<td align="center" >
+											<%= form_for :winner, url: { controller: "submission", action: "winner"}, remote: true do |c| %>
+											
+												<%= c.check_box :isWinner, class: "complete_checkbox", checked: ChallengeWinner.where(:submission_id => submission.id, :challenge_id => submission.challenge.id).count != 0 %>
+												<%= c.hidden_field "submission_id", {:value => submission.id} %>
+												
+											<% end %>
+										</td>
+									<% end %>
 							</tr>
 					<% end %>
 				</table>

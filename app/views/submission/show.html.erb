@@ -1,8 +1,10 @@
 <pre>
 <code>
 <%= @submission.submission_code %>
-<%= form_for @submission, remote: true do |u| %>
-	<h4> Mark as Complete? <%= u.check_box :complete, class: "complete_checkbox" %></h3>
+<% if current_user.admin %>
+	<%= form_for @submission, remote: true do |u| %>
+		<h4> Mark as Complete? <%= u.check_box :complete, class: "complete_checkbox" %></h3>
+	<% end %>
 <% end %>
 </code>
 </pre>
