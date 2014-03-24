@@ -1,0 +1,24 @@
+Function bronzeSolution(numArray)
+	ascOrder = True
+	descOrder = True
+
+	For i = 1 to UBound(numArray)-1
+		If numArray(i-1) > numArray(i) And ascOrder Then
+			descOrder = false
+		ElseIf numArray(i-1) < numArray(i) And descOrder Then
+			ascOrder = false
+		Else
+			noOrder = true
+			Exit for
+		End If
+	Next
+	
+	If noOrder Then
+		bronzeSolution = "NoOrder"
+	ElseIf descOrder Then
+		bronzeSolution = "DESC"
+	ElseIf ascOrder Then
+		bronzeSolution = "ASC"
+	End If
+
+End Function

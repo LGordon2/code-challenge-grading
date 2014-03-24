@@ -1,0 +1,26 @@
+document.write("****Test Case 3****<BR>")
+Dim testCase3
+Dim expectedResult_testCase3
+Dim actualResult_testCase3
+Dim testData_testCase3
+
+testData_testCase3= Array(124, 1236, 1, 5236, 756423, 1245, 124)
+passData_testCase3 = testData_testCase3
+expectedResult_testCase3 = bronzeSolution(testData_testCase3)
+actualResult_testCase3 = function_name(passData_testCase3)
+document.write("Test Data:  124, 1236, 1, 5236, 756423, 1245, 124<BR>")
+document.write("Expected Result: "& expectedResult_testCase3 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualResult_testCase3&"<BR>")
+End If
+
+If actualResult_testCase3 = expectedResult_testCase3 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+
