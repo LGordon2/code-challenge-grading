@@ -1,0 +1,10 @@
+Function bronzeSolution(byVal normalString)
+	
+	For i = 0 to len(normalString)-1
+		
+		newString = newString & right(normalString,1)
+		normalString = Left(normalString, Len(normalString)-1)
+	Next
+	
+	bronzeSolution = newString
+End Function

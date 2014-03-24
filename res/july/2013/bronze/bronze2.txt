@@ -1,0 +1,26 @@
+document.write("****Test Case 2****<BR>")
+Dim testCase2
+Dim expectedResult_testCase2
+Dim actualResult_testCase2
+Dim testData_testCase2
+
+testData_testCase2= "Test With Spaces"
+passData_testCase2 = testData_testCase2
+expectedResult_testCase2 = bronzeSolution(testData_testCase2)
+actualResult_testCase2 = function_name(passData_testCase2)
+document.write("Test Data:  " & testData_testCase2 & "<BR>")
+document.write("Expected Result: "& expectedResult_testCase2 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualResult_testCase2&"<BR>")
+End If
+
+If actualResult_testCase2 = expectedResult_testCase2 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+
