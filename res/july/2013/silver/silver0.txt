@@ -1,0 +1,30 @@
+
+Public Function silverSolution( Num)
+	ReDim aPrimeLists(Num)
+	RootNum = sqr(Num)
+	For I = 2 to RootNum
+		If aPrimeLists(I) ="" Then
+			Temp = I^2
+			X = 0
+			For J = Temp to Num
+				If J > Num Then
+					Exit for
+				End If
+				Targetcell = (I^2) + (X * I)
+				If Targetcell > Num Then
+					Exit for
+				End If
+				aPrimeLists(Targetcell) = 1
+				X = X +1
+			Next
+		End If
+	Next
+	For Y = 2 to Num
+		If aPrimeLists(Y) <> 1Then
+			List = List & Y & ";"	
+		End If
+	Next
+	If Len(list) <> 0 Then
+		silverSolution = left(List, len(List)-1)
+	End If
+End Function

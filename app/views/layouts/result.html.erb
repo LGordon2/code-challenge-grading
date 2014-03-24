@@ -13,9 +13,10 @@
 <% if(File.directory?(file)==false) %>
 
     <% function_script = File.read("res/#{challenge_month}/#{challenge_year}/#{challenge_league}/"+file) %>
-	On Error Resume Next	
+	'On Error Resume Next	
      <%= function_script.gsub('function_name', functionName).html_safe %>
-	On Error GoTo 0
+	
+	'On Error GoTo 0
 
 document.write("<BR><BR>")
 <% end %> 

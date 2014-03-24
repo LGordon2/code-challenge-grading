@@ -1,0 +1,26 @@
+document.write("****Test Case 5****<BR>")
+Dim testCase5
+Dim expectedResult_testCase5
+Dim actualResult_testCase5
+Dim testData_testCase5
+
+testData_testCase5= 113523
+passData_testCase5 = testData_testCase5
+expectedResult_testCase5 = silverSolution(testData_testCase5)
+actualResult_testCase5 = function_name(passData_testCase5)
+document.write("Test Data:  " & testData_testCase5 & "<BR>")
+document.write("Expected Result: "& expectedResult_testCase5 & "<BR>")
+
+If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Actual Result:"&actualResult_testCase5&"<BR>")
+End If
+
+If actualResult_testCase5 = expectedResult_testCase5 Then
+	document.write("<font color=""#00ff00"">PASS</font><BR>")
+Else
+	document.write("<font color=""red"">FAIL</font><BR>")
+End If
+document.write("*****************")
+
