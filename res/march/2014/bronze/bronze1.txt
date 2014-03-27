@@ -91,7 +91,7 @@ If i = 2001 Then
 		Next
 		tc1_missingNumbers = Left(tc1_missingNumbers, Len(tc1_missingNumbers)-2)
 End If
-	Dim tc1_didPass
+	
 If tc1_didPass And tc1_didPassAllLetterNumbers And i > 75 Then
 	document.write("<h2>Challenge Completed <font color=""#00ff00"">Successfully</font></h2>")
 	document.write(tc1_resultsString)
