@@ -77,7 +77,8 @@
 							<% end %>
 						</td>
 						<td>
-							<%= button_tag "View", controller: "submission", action: "show", id: submission.id, class: "btn btn-xs btn-default" %>
+							<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
+							
 						</td>
 							<% if current_user.su %>
 								<td align="center" >
@@ -109,7 +110,7 @@
 									<% end %>
 								</td>
 								<td>
-									<%= button_tag "View", controller: "submission", action: "show", id: submission.id , class: "btn btn-xs btn-default"%>
+									<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
 								</td>
 									<% if current_user.su %>
 										<td align="center" >
