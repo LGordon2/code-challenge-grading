@@ -1,3 +1,7 @@
+Function RandomNumber(min, max)
+	Randomize
+	RandomNumber = (Int((max-min+1)*Rnd+min))
+End Function
 If Err Then
 		document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
