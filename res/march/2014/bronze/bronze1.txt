@@ -3,13 +3,16 @@ If Err Then
 Else
 document.write("<br>*********************************** Test Case 1 ************************************<BR>")
 Dim testCase1
-Dim i
+Dim i, j
 Dim tc1_resultsString
 Dim tc1_numberPart
 Dim tc1_letterPart
 Dim tc1_didPass
 Dim tc1_numberArray(74)
-
+Dim tc1_letterArray
+Dim tc1_allNumbers
+Dim tc1_allLetters
+Dim tc1_didPassAllLetterNumbers
 tc1_didPass = True
 
 	
@@ -70,6 +73,8 @@ For i = 1 to 2000
 		Exit for
 	End If
 Next 
+Dim tc1_missingLetters
+Dim tc1_missingNumbers
 If i = 2001 Then
 		tc1_didPassAllLetterNumbers = False
 		For each letter in tc1_letterArray
@@ -86,7 +91,7 @@ If i = 2001 Then
 		Next
 		tc1_missingNumbers = Left(tc1_missingNumbers, Len(tc1_missingNumbers)-2)
 End If
-	
+	Dim tc1_didPass
 If tc1_didPass And tc1_didPassAllLetterNumbers And i > 75 Then
 	document.write("<h2>Challenge Completed <font color=""#00ff00"">Successfully</font></h2>")
 	document.write(tc1_resultsString)
