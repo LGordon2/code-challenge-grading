@@ -13,6 +13,11 @@ Dim tc1_letterArray
 Dim tc1_allNumbers
 Dim tc1_allLetters
 Dim tc1_didPassAllLetterNumbers
+Dim tc1_num
+Dim tc1_letter
+Dim tc_letter
+Dim tc_num
+
 tc1_didPass = True
 
 	
@@ -78,15 +83,15 @@ Dim tc1_missingNumbers
 If i = 2001 Then
 		tc1_didPassAllLetterNumbers = False
 		For each letter in tc1_letterArray
-			If Cstr(letter) <> CStr(True) Then
-				tc1_missingLetters = tc1_missingLetters & letter & ", "
+			If Cstr(tc_letter) <> CStr(True) Then
+				tc1_missingLetters = tc1_missingLetters & tc_letter & ", "
 			End If
 		Next
 		tc1_missingLetters = Left(tc1_missingLetters, Len(tc1_missingLetters)-2)
 		
-		For each num in tc1_numberArray
-			If CStr(num) <> CStr(True) Then
-				tc1_missingNumbers = tc1_missingNumbers & num & ", "
+		For each tc_num in tc1_numberArray
+			If CStr(tc_num) <> CStr(True) Then
+				tc1_missingNumbers = tc1_missingNumbers & tc_num & ", "
 			End If
 		Next
 		tc1_missingNumbers = Left(tc1_missingNumbers, Len(tc1_missingNumbers)-2)
