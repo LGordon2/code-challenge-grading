@@ -3,7 +3,7 @@ If Err Then
 Else
 document.write("<br>*********************************** Test Case 1 ************************************<BR>")
 Dim testCase1
-Dim i, j
+Dim i, j, l
 Dim tc1_resultsString
 Dim tc1_numberPart
 Dim tc1_letterPart
