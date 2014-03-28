@@ -10,5 +10,20 @@ If Err Then
 	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
 	document.write("Actual Result:"&actualNonReducingPrime_testCase1&"<BR>")
+
+	document.write("Coded Phrase: " & testData_testCase3 & "<BR>")
+	document.write("Expected Decoded Phrase: "& expectedResult_testCase3 &"<BR>")
+
+	If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+	Else
+		document.write("Actual Result:"&actualResult_testCase3&"<BR>")
+	End If
+
+	If actualResult_testCase3 = expectedResult_testCase3 Then
+		document.write("<font color=""#00ff00"">PASS</font><BR>")
+	Else
+		document.write("<font color=""red"">FAIL</font><BR>")
+	End If
 End If
 document.write("***************************************************************")
