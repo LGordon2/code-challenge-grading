@@ -6,18 +6,24 @@ Dim actualResult_testCase4
 testData_testCase4 = "QWRTYPSDFGHJKLZXCVBNM LAKSPQOWIERUTYXM"
 expectedResult_testCase4 = "?QWRTYPSDFGHJKLZXCVBNM? ?LAKSPQOWIERUTYXM?"
 actualResult_testCase4 = function_name( testData_testCase4)
-document.write("Coded Phrase: " & testData_testCase4 & "<BR>")
-document.write("Expected Decoded Phrase: "& expectedResult_testCase4 &"<BR>")
-
 If Err Then
-	document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
-	document.write("Actual Result:"&actualResult_testCase4&"<BR>")
-End If
+	document.write("Actual Result:"&actualNonReducingPrime_testCase1&"<BR>")
 
-If actualResult_testCase4 = expectedResult_testCase4 Then
-	document.write("<font color=""#00ff00"">PASS</font><BR>")
-Else
-	document.write("<font color=""red"">FAIL</font><BR>")
+	document.write("Coded Phrase: " & testData_testCase4 & "<BR>")
+	document.write("Expected Decoded Phrase: "& expectedResult_testCase4 &"<BR>")
+
+	If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+	Else
+		document.write("Actual Result:"&actualResult_testCase4&"<BR>")
+	End If
+
+	If actualResult_testCase4 = expectedResult_testCase4 Then
+		document.write("<font color=""#00ff00"">PASS</font><BR>")
+	Else
+		document.write("<font color=""red"">FAIL</font><BR>")
+	End If
 End If
 document.write("***************************************************************")

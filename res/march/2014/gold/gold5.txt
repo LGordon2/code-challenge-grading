@@ -6,18 +6,24 @@ Dim actualResult_testCase5
 testData_testCase5 = "RMMBR EWHN ETH PLTFRM AWS SLDNG NTOI TEH EFRI PTI NAD I IASD GDBY NDA OUY EWRE ELIK NO WYA AND ETHN I WSA LLA WE PRTNDD WE EWRE GNG TO MRDR YUO"
 expectedResult_testCase5 = "REMEMBER WHEN THE PLATFORM WAS SLIDING INTO THE FIRE PIT AND I SAID GOODBYE AND YOU ?EWER/WEER/WERE? LIKE NO WAY AND THEN I WAS ALL WE ?PORTENDED/PRETENDED? WE ?EWER/WEER/WERE? ?AGEING/AGING/GANG/GEEING/GOING/GONG? TO ?MARAUDER/MURDER? YOU"
 actualResult_testCase5 = function_name( testData_testCase5)
-document.write("Coded Phrase: " & testData_testCase5 & "<BR>")
-document.write("Expected Decoded Phrase: "& expectedResult_testCase5 &"<BR>")
-
 If Err Then
-	document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
-	document.write("Actual Result:"&actualResult_testCase5&"<BR>")
-End If
+	document.write("Actual Result:"&actualNonReducingPrime_testCase1&"<BR>")
 
-If actualResult_testCase5 = expectedResult_testCase5 Then
-	document.write("<font color=""#00ff00"">PASS</font><BR>")
-Else
-	document.write("<font color=""red"">FAIL</font><BR>")
+	document.write("Coded Phrase: " & testData_testCase5 & "<BR>")
+	document.write("Expected Decoded Phrase: "& expectedResult_testCase5 &"<BR>")
+
+	If Err Then
+		document.write("<font color=""red"">Error Processing Test Case. Error Description [" & Err.Description & "]</font><br>")
+	Else
+		document.write("Actual Result:"&actualResult_testCase5&"<BR>")
+	End If
+
+	If actualResult_testCase5 = expectedResult_testCase5 Then
+		document.write("<font color=""#00ff00"">PASS</font><BR>")
+	Else
+		document.write("<font color=""red"">FAIL</font><BR>")
+	End If
 End If
 document.write("***************************************************************")
