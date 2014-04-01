@@ -1,0 +1,37 @@
+Function IsVowel_ss(letter)
+If UCase(letter) = "A" Or UCase(letter) = "E" Or UCase(letter) = "I" Or UCase(letter) = "O" Or UCase(letter) = "U" Then
+	IsVowel_ss = True
+Else
+	IsVowel_ss = False
+End If
+End Function
+
+Function silverSolution(byVal textValue)
+
+Dim sentenceArray
+Dim i, j
+Dim vowelText
+Dim consonantText
+Dim reconstructedText
+
+textValue = Replace(textValue, " ", "")
+sentenceArray = Split(textValue, ".")
+
+For i = 0 to UBound(sentenceArray)-1
+	
+	For j = 1 to Len(sentenceArray(i))
+		
+		If IsVowel_ss(Mid(sentenceArray(i), j, 1)) Then
+			vowelText = vowelText & Mid(sentenceArray(i), j, 1)
+		Else
+			consonantText = consonantText & Mid(sentenceArray(i), j, 1)
+		End If
+	Next
+	reconstructedText = reconstructedText & vowelText & " " & consonantText & ".  "
+	vowelText = ""
+	consonantText = ""
+Next 
+
+silverSolution = Trim(reconstructedText)
+
+End Function

@@ -1,0 +1,25 @@
+document.write("***************************Test Case 2***************************<BR>")
+Dim testCase2
+Dim n0_testCase2
+Dim dataString_testCase2
+
+testCase2 = Array("The Beatles")
+dataString_testCase2 = Join(testCase2, ", ")
+n0_testCase2 = function_name(testCase2, 0)
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Test Array Data:      """& dataString_testCase2 & """<BR>")
+
+	Document.write("Expected Value N = 0: ""The Beatles""<br>")
+	document.write("Actual Value  N = 0:  " & n0_testCase2 & "<br>")
+
+	If n0_testCase2 = "The Beatles" Then
+		document.write("<font color=""#00ff00"">PASS</font><BR>")
+	Else
+		document.write("<font color=""red"">FAIL</font><BR>")
+	End If
+End If
+document.write("***********************************************************************<BR>")
+

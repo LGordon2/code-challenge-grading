@@ -1,0 +1,26 @@
+document.write("***************************Test Case 5***************************<BR>")
+Dim testCase5
+Dim n0_testCase5
+Dim dataString_testCase5
+
+testCase5 = "A String, not an Array"
+dataString_testCase5 = testCase5
+n0_testCase5 = function_name(testCase5, 0)
+
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Test Array Data:      """& dataString_testCase5 & """<BR>")
+
+	Document.write("Expected Value N = 0: Error message indicating no array found<br>")
+	document.write("Actual Value  N = 0:  " & n0_testCase5 & "<br>")
+
+	If InStr(n0_testCase5, "ERROR:") Then
+		document.write("<font color=""#00ff00"">PASS</font><BR>")
+	Else
+		document.write("<font color=""red"">FAIL</font><BR>")
+	End If
+End If
+document.write("***********************************************************************<BR>")
+

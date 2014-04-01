@@ -6,7 +6,7 @@ Dim actualResult_testCase1
 testData_testCase1 = "I AM IT IF AT OR"
 expectedResult_testCase1 = "I AM IT IF AT OR"
 actualResult_testCase1 = function_name( testData_testCase1)
-If Err Then
+If Err.Number <> 0 Then
 	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
 	document.write("Actual Result:"&actualNonReducingPrime_testCase1&"<BR>")

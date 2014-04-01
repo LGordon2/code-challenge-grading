@@ -1,0 +1,40 @@
+document.write("***************************Test Case 1***************************<BR>")
+Dim testCase1
+Dim n0_testCase1
+Dim n1_testCase1
+Dim n2_testCase1
+Dim n3_testCase1
+Dim dataString_testCase1
+
+testCase1 = Array("John", "Paul", "George", "Ringo")
+dataString_testCase1 = Join(testCase1, ", ")
+n0_testCase1 = function_name(testCase1, 0)
+n1_testCase1 = function_name(testCase1, 1)
+n2_testCase1 = function_name(testCase1, 2)
+n3_testCase1 = function_name(testCase1, 3)
+
+If Err Then
+	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.write("Test Array Data:      """& dataString_testCase1 & """<BR><br>")
+
+	Document.write("Expected Value N = 0: ""Ringo""<br>")
+	document.write("Actual Value  N = 0:  " & n0_testCase1 & "<br><br>")
+
+	Document.write("Expected Value N = 1: ""George""<br>")
+	document.write("Actual Value  N = 1:  " & n1_testCase1 & "<br><br>")
+
+	Document.write("Expected Value N = 2: ""Paul""<br>")
+	document.write("Actual Value  N = 2:  " & n2_testCase1 & "<br><br>")
+
+	Document.write("Expected Value N = 3: ""John""<br>")
+	document.write("Actual Value  N = 3:  " & n3_testCase1 & "<br><br>")
+
+	If n0_testCase1 = "Ringo" And n1_testCase1 = "George" And n2_testCase1 = "Paul" And n3_testCase1 = "John" Then
+		document.write("<font color=""#00ff00"">PASS</font><BR>")
+	Else
+		document.write("<font color=""red"">FAIL</font><BR>")
+	End If
+End If
+document.write("***********************************************************************<BR>")
+
