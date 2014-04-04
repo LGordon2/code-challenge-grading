@@ -1,23 +1,4 @@
-document.write("****Test Case 1****<BR>")
-Dim testCase1
-Dim expectedNonReducingPrime_testCase1
-Dim actualNonReducingPrime_testCase1
-
-expectedNonReducingPrime_testCase1 = 113
-actualNonReducingPrime_testCase1 = function_name(99)
-document.write("Expected Result: "& expectedNonReducingPrime_testCase1 &"<BR>")
-
-
-If Err Then
-	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
-Else
-	document.write("Actual Result:"&actualNonReducingPrime_testCase1&"<BR>")
-End If
-
-If actualNonReducingPrime_testCase1 = expectedNonReducingPrime_testCase1 Then
-	document.write("<font color=""#00ff00"">PASS</font><BR>")
-Else
-	document.write("<font color=""red"">FAIL</font><BR>")
-End If
-document.write("*****************")
+document.write("*****************************************************************************************************<BR>")
+document.write("Due to the nature of this challenge there will be no automatic grading.<br> Your Submission has been received.<br>")
+document.write("*****************************************************************************************************<BR>")
 
