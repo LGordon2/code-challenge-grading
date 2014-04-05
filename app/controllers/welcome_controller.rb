@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
       redirect_to :login, flash: {error: "Invalid username or password."}
       return
     end
-
+	
     if user.save
       user.touch
       session[:user_id] = user.id
@@ -27,5 +27,8 @@ class WelcomeController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-
+  
+  def rules
+  
+  end
 end
