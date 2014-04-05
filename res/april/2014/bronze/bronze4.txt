@@ -1,4 +1,4 @@
-document.write("***************************Test Case 4***************************<BR>")
+'document.write("***************************Test Case 4***************************<BR>")
 Dim testCase4
 Dim n0_testCase4
 Dim n1_testCase4
@@ -12,18 +12,18 @@ n0_testCase4 = function_name(testCase4, "A")
 
 
 If Err Then
-	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+	document.getElementById("testCase4").innerhtml =  ("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
-	document.write("Test Array Data:      """& dataString_testCase4 & """<BR>")
+	document.getElementById("testCase4").innerhtml = ("Test Array Data:      """& dataString_testCase4 & """<BR>")
 
-	Document.write("Expected Value N = A: Error message indicating index not an integer<br>")
-	document.write("Actual Value  N = A:  " & n0_testCase4 & "<br>")
+	document.getElementById("testCase4").innerhtml = document.getElementById("testCase4").innerhtml & ("Expected Value N = A: Error message indicating index not an integer<br>")
+	document.getElementById("testCase4").innerhtml = document.getElementById("testCase4").innerhtml & ("Actual Value  N = A:  " & n0_testCase4 & "<br>")
 
 	If InStr(n0_testCase4, "ERROR:") Then
-		document.write("<font color=""#00ff00"">PASS</font><BR>")
+		document.getElementById("testCase4").innerhtml = document.getElementById("testCase4").innerhtml & ("<font color=""#00ff00"">PASS</font><BR>")
 	Else
-		document.write("<font color=""red"">FAIL</font><BR>")
+		document.getElementById("testCase4").innerhtml = document.getElementById("testCase4").innerhtml & ("<font color=""red"">FAIL</font><BR>")
 	End If
 End If
-document.write("***********************************************************************<BR>")
+'document.write("***********************************************************************<BR>")
 

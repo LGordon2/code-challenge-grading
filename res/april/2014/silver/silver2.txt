@@ -1,4 +1,4 @@
-document.write("***************************Test Case 2***************************<BR>")
+'document.write("***************************Test Case 2***************************<BR>")
 Dim testCase2
 Dim expected_testCase2
 Dim actual_testCase2
@@ -6,19 +6,18 @@ Dim actual_testCase2
 testCase2 = "This is a test sentence.  It has a second test sentence as well."
 expected_testCase2 = silverSolution(testCase2)
 actual_testCase2 = function_name(testCase2)
-document.write("Test Case Data:  """ & testCase2 & """<br>")
-document.write("Expected String:  """& expected_testCase2 &"""<BR>")
+document.getElementById("testCase2").innerhtml = ("Test Case Data:  """ & testCase2 & """<br>") & ("Expected String:  """& expected_testCase2 &"""<BR>")
 
 If Err Then
-	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+	document.getElementById("testCase2").innerhtml =document.getElementById("testCase2").innerhtml &("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
-	document.write("Actual String:  """& actual_testCase2 & """<BR>")
+	document.getElementById("testCase2").innerhtml =document.getElementById("testCase2").innerhtml &("Actual String:  """& actual_testCase2 & """<BR>")
 End If
 
 If actual_testCase2 = expected_testCase2 Then
-	document.write("<font color=""#00ff00"">PASS</font><BR>")
+	document.getElementById("testCase2").innerhtml =document.getElementById("testCase2").innerhtml &("<font color=""#00ff00"">PASS</font><BR>")
 Else
-	document.write("<font color=""red"">FAIL</font><BR>")
+	document.getElementById("testCase2").innerhtml =document.getElementById("testCase2").innerhtml &("<font color=""red"">FAIL</font><BR>")
 End If
-document.write("********************************************************************<BR>")
+'document.write("********************************************************************<BR>")
 

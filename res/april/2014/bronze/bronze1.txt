@@ -1,4 +1,4 @@
-document.write("***************************Test Case 1***************************<BR>")
+'document.write("***************************Test Case 1***************************<BR>")
 Dim testCase1
 Dim n0_testCase1
 Dim n1_testCase1
@@ -14,27 +14,27 @@ n2_testCase1 = function_name(testCase1, 2)
 n3_testCase1 = function_name(testCase1, 3)
 
 If Err Then
-	document.write("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+	document.getElementById("testCase1").innerhtml = ("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
 Else
-	document.write("Test Array Data:      """& dataString_testCase1 & """<BR><br>")
+	document.getElementById("testCase1").innerhtml =("Test Array Data:      """& dataString_testCase1 & """<BR><br>")
 
-	Document.write("Expected Value N = 0: ""Ringo""<br>")
-	document.write("Actual Value  N = 0:  " & n0_testCase1 & "<br><br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Expected Value N = 0: ""Ringo""<br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Actual Value  N = 0:  " & n0_testCase1 & "<br><br>")
 
-	Document.write("Expected Value N = 1: ""George""<br>")
-	document.write("Actual Value  N = 1:  " & n1_testCase1 & "<br><br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Expected Value N = 1: ""George""<br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Actual Value  N = 1:  " & n1_testCase1 & "<br><br>")
 
-	Document.write("Expected Value N = 2: ""Paul""<br>")
-	document.write("Actual Value  N = 2:  " & n2_testCase1 & "<br><br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Expected Value N = 2: ""Paul""<br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Actual Value  N = 2:  " & n2_testCase1 & "<br><br>")
 
-	Document.write("Expected Value N = 3: ""John""<br>")
-	document.write("Actual Value  N = 3:  " & n3_testCase1 & "<br><br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Expected Value N = 3: ""John""<br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("Actual Value  N = 3:  " & n3_testCase1 & "<br><br>")
 
 	If n0_testCase1 = "Ringo" And n1_testCase1 = "George" And n2_testCase1 = "Paul" And n3_testCase1 = "John" Then
-		document.write("<font color=""#00ff00"">PASS</font><BR>")
+		document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("<font color=""#00ff00"">PASS</font><BR>")
 	Else
-		document.write("<font color=""red"">FAIL</font><BR>")
+		document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml &("<font color=""red"">FAIL</font><BR>")
 	End If
 End If
-document.write("***********************************************************************<BR>")
+'document.write("***********************************************************************<BR>")
 
