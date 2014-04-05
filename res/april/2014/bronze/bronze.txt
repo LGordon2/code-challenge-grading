@@ -16,21 +16,21 @@
 <div class="form-group">
 *********************************** Test Case 3 *******************************
 <div id="testCase3">
-<font color="red"><h4>Error Processing Test Case<br>Please check syntax and function name.</h4></font>
+<font color="red"><h4>Test Case Failed. <br> Error not handled when integer is outside bounds of array.</h4></font>
 </div>
 **********************************************************************************
 </div>
 <div class="form-group">
 *********************************** Test Case 4 *******************************
 <div id="testCase4">
-<font color="red"><h4>Error Processing Test Case<br>Please check syntax and function name.</h4></font>
+<font color="red"><h4>Test Case Failed. <br> Error not handled when non-integer is passed.</h4></font>
 </div>
 **********************************************************************************
 </div>
 <div class="form-group">
 *********************************** Test Case 5 *******************************
 <div id="testCase5">
-<font color="red"><h4>Error Processing Test Case<br>Please check syntax and function name.</h4></font>
+<font color="red"><h4>Test Case Failed. <br> Error not handled when non-array is passed.</h4></font>
 </div>
 **********************************************************************************
 </div>
