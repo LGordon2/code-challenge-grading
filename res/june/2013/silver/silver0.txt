@@ -1,0 +1,20 @@
+Function silverSolution(paragraph)
+Dim letterArray
+
+letterArray = Array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+
+For i = 1 to Len(paragraph)
+	currentLetter = UCase(mid(paragraph,i,1))
+	If Asc(currentLetter) > 64 And Asc(currentLetter) < 91 Then
+		LetterArray(Asc(currentLetter)-65) = LetterArray(Asc(currentLetter)-65) & "1"
+	End If
+Next
+currentMax = ""
+For Each letter in letterArray
+	If Len(letter) > Len(currentMax) Then
+		currentMax = letter
+	End If
+Next
+
+silverSolution = LCase(Left(currentMax,1)) & Len(currentMax)-1
+End Function
