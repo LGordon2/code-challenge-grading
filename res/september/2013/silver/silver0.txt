@@ -1,4 +1,4 @@
-Function silverSolution(byVal num)
+Function getCollatz(byVal num)
 For i = 0 to 1000000
 	If num = 1 Then
 		collatzNumber = i
@@ -12,5 +12,17 @@ For i = 0 to 1000000
 	End If
 Next
 
-silverSolution = collatzNumber
+getCollatz = collatzNumber
+End Function
+
+Function silverSolution(num1, num2)
+currentMaxCollatz = 0
+currentMaxNum = 0
+For i = num1 to num2
+	If getCollatz(i) > currentMaxCollatz Then
+		currentMaxCollatz = getCollatz(i)
+		currentMaxNum = i
+	End If
+Next
+silverSolution = currentMaxCollatz & ";" & currentMaxNum
 End Function

@@ -1,5 +1,6 @@
-Dim testCase4
-
+Dim testCaseStartNum4
+Dim testCaseEndNum4
+Dim testCase4_array
 Dim testCase4_expected
 Dim testCase4_actual
 
@@ -7,20 +8,24 @@ Dim testCase4_actual
 testCaseNum = 4
 
 'Test Data
-testCase4 = "1235465"
+testCaseStartNum4 = 1000
+testCaseEndNum4 = 2000
 
 'Run Solution and User Submission
-testCase4_expected = silverSolution(testCase4)
-testCase4_actual = function_name(testCase4)
+testCase4_expected = silverSolution(testCaseStartNum4,testCaseEndNum4)
+testCase4_actual = function_name(testCaseStartNum4,testCaseEndNum4)
+
+testCase4_array = Split(testCase4_expected, ";")
 
 'Clear testCase div and start adding results
 clearTestCase(testCaseNum)
-addTestCaseResults testCaseNum, "Test Data:      " & testCase4
-addTestCaseResults testCaseNum, "Expected Result:   " & testCase4_expected
+addTestCaseResults testCaseNum, "Starting Number:      " & testCaseStartNum4
+addTestCaseResults testCaseNum, "Ending Number:      " & testCaseEndNum4
+addTestCaseResults testCaseNum, "Expected Result:   The number with the highest Collatz Number in the range is [" & testCase4_array(1) & "] with a Collatz Number of [" & testCase4_array(0) & "]."
 addTestCaseResults testCaseNum, "Actual Result:     " & testCase4_actual
 
 
-If testCase4_expected = testCase4_actual Then
+If InStr(testCase4_actual, testCase4_array(0)) And InStr(testCase4_actual, testCase4_array(1)) Then
 	testCaseStatus testCaseNum, "pass"
 Else	
 	testCaseStatus testCaseNum, "fail"
