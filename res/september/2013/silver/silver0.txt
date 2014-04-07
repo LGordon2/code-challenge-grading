@@ -1,0 +1,16 @@
+Function silverSolution(byVal num)
+For i = 0 to 1000000
+	If num = 1 Then
+		collatzNumber = i
+		Exit For
+	Else
+		If CStr(Right(num,1)) = "0" Or CStr(Right(num,1)) = "2" Or CStr(Right(num,1)) = "4" Or CStr(Right(num,1)) = "6" Or CStr(Right(num,1)) = "8"  Then
+			num = num/2
+		Else
+			num = num * 3 +1
+		End If
+	End If
+Next
+
+silverSolution = collatzNumber
+End Function

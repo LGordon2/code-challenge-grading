@@ -1,0 +1,28 @@
+Dim testCase4
+
+Dim testCase4_expected
+Dim testCase4_actual
+
+'Test Case Number
+testCaseNum = 4
+
+'Test Data
+testCase4 = "1235465"
+
+'Run Solution and User Submission
+testCase4_expected = silverSolution(testCase4)
+testCase4_actual = function_name(testCase4)
+
+'Clear testCase div and start adding results
+clearTestCase(testCaseNum)
+addTestCaseResults testCaseNum, "Test Data:      " & testCase4
+addTestCaseResults testCaseNum, "Expected Result:   " & testCase4_expected
+addTestCaseResults testCaseNum, "Actual Result:     " & testCase4_actual
+
+
+If testCase4_expected = testCase4_actual Then
+	testCaseStatus testCaseNum, "pass"
+Else	
+	testCaseStatus testCaseNum, "fail"
+End If
+
