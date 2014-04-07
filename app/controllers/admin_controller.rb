@@ -28,7 +28,7 @@ class AdminController < ApplicationController
   def submissions
     @type = "submissions"
     if params[:time] != "alltime"
-      @submissions = Submission.where("created_at >= ?", getDateSince(params[:time]))
+      @submissions = Submission.where(created_at: getDateSince(params[:time]))
       @title = 'Submissions Created ' + @title
     else
       @submissions = Submission.all
@@ -37,20 +37,7 @@ class AdminController < ApplicationController
     render 'index'
   end
 
-  def getDateSince(dateFrom)
-    case dateFrom
-    when "day"
-      time = Date.today.beginning_of_day
-      @title = "Today"
-    when "week"
-      time = Date.today.beginning_of_week
-      @title = "This Week"
-    when "month"
-      time = Date.today.beginning_of_month
-      @title = "This Month"
-    end
-    time
-  end
+  
 
   def set_current_month_year
     set_params = params.require(:current_month_year).permit(:month,:year)
@@ -63,6 +50,21 @@ class AdminController < ApplicationController
   end
 
   private
+
+  def getDateSince(dateFrom)
+    case dateFrom
+    when "day"
+      time = Date.today.beginning_of_day
+      @title = "Today"
+    when "week"
+      time = (Date.today.beginning_of_week..Date.today.end_of_week)
+      @title = "This Week"
+    when "month"
+      time = (Date.today.beginning_of_month..Date.today.end_of_month)
+      @title = "This Month"
+    end
+    time
+  end
 
   def require_admin
     redirect_to :root unless current_user and current_user.admin
