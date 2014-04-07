@@ -5,9 +5,10 @@ CodingChallengeGrading::Application.routes.draw do
   get "logout", to: "welcome#logout"
   post 'login', to: 'welcome#validate_login'
   get 'rules', to: 'welcome#rules'
+  
   #Survey Routes
-  get 'survey' => 'survey#index', as: :surveys
-  post'survey' => 'survey#create'
+  #get 'survey' => 'survey#index', as: :surveys
+  #post'survey' => 'survey#create'
   get 'survey/result' => 'survey#result'
    
   #Admin routes.
