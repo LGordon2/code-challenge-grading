@@ -1,4 +1,13 @@
-document.write("*****************************************************************************************************<BR>")
-document.write("Due to the nature of this challenge there will be no automatic grading.<br> Your Submission has been received.<br>")
-document.write("*****************************************************************************************************<BR>")
+Dim testCase1_result
 
+testCase1_result = function_name()
+
+clearTestCase 1
+addTestCaseResults 1, "Actual Value Returned :   " & testCase1_result
+addTestCaseResults 1, "Expected Value Returned :    Hello World"
+
+If UCase("hello world") = UCase(testCase1_result) Then
+	testCaseStatus 1, "Pass"
+Else
+	testCaseStatus 1, "Fail"
+End If
