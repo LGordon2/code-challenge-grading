@@ -54,13 +54,13 @@ class AdminController < ApplicationController
   def getDateSince(dateFrom)
     case dateFrom
     when "day"
-      time = Date.today.beginning_of_day
+      time = (Date.today.beginning_of_day..Date.today.end_of_day)
       @title = "Today"
     when "week"
-      time = (Date.today.beginning_of_week..Date.today.end_of_week)
+      time = (Date.today.beginning_of_week.beginning_of_day..Date.today.end_of_week.end_of_day)
       @title = "This Week"
     when "month"
-      time = (Date.today.beginning_of_month..Date.today.end_of_month)
+      time = (Date.today.beginning_of_month.beginning_of_day..Date.today.end_of_month.end_of_day)
       @title = "This Month"
     end
     time
