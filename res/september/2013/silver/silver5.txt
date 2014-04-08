@@ -1,0 +1,33 @@
+Dim testCaseStartNum5
+Dim testCaseEndNum5
+Dim testCase5_array
+Dim testCase5_expected
+Dim testCase5_actual
+
+'Test Case Number
+testCaseNum = 5
+
+'Test Data
+testCaseStartNum5 = 10000
+testCaseEndNum5 = 20000
+
+'Run Solution and User Submission
+testCase5_expected = silverSolution(testCaseStartNum5,testCaseEndNum5)
+testCase5_actual = function_name(testCaseStartNum5,testCaseEndNum5)
+
+testCase5_array = Split(testCase5_expected, ";")
+
+'Clear testCase div and start adding results
+clearTestCase(testCaseNum)
+addTestCaseResults testCaseNum, "Starting Number:      " & testCaseStartNum5
+addTestCaseResults testCaseNum, "Ending Number:      " & testCaseEndNum5
+addTestCaseResults testCaseNum, "Expected Result:   The number with the highest Collatz Number in the range is [" & testCase5_array(1) & "] with a Collatz Number of [" & testCase5_array(0) & "]."
+addTestCaseResults testCaseNum, "Actual Result:     " & testCase5_actual
+
+
+If InStr(testCase5_actual, testCase5_array(0)) And InStr(testCase5_actual, testCase5_array(1)) Then
+	testCaseStatus testCaseNum, "pass"
+Else	
+	testCaseStatus testCaseNum, "fail"
+End If
+

@@ -1,0 +1,21 @@
+Function bronzeSolution(byVal textValue)
+	textValue = UCase(Replace(textValue, " ", ""))
+	textValue = Replace(textValue, ".", "")
+	textValue = Replace(textValue, ",", "")
+	textValue = Replace(textValue, "'", "")
+	textValue = Replace(textValue, ")", "")
+	textValue = Replace(textValue, "(", "")
+	textValue = Replace(textValue, "-", "")
+	textValue = Replace(textValue, "?", "")
+	
+	For i = Len(textValue) to 1 Step -1
+		newString = newString & mid(textValue, i, 1)
+	Next
+	
+	If textValue = newString Then
+		bronzeSolution = True
+	Else
+		bronzeSolution = False
+	End If
+
+End Function
