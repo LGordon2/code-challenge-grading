@@ -14,14 +14,14 @@ CodingChallengeGrading::Application.routes.draw do
   #Admin routes.
   get 'admin' => 'admin#index'
   patch 'admin/set' => 'admin#set_current_month_year'
-  get 'admin/users/:time' => 'admin#users'
-  get 'admin/submissions/:time' => 'admin#submissions'
+  get 'admin/users/:time' => 'admin#users', as: :admin_users
+  get 'admin/submissions/:time' => 'admin#submissions', as: :admin_submissions
   
   #Month submissions.
   get "challenge/:month/:year/:league", to: "challenge#index", as: :challenge
   get "submissions/:month/:year/:league", to: "challenge#all_submissions", as: :submissions
   patch "profile/submissions/:id" => "submission#update"
-  get 'submission/:id' => 'submission#show'
+  get 'submission/:id' => 'submission#show', as: :user_submission
   post 'challenge_winners/winner' => 'submission#winner'
   
   #Results.

@@ -1,0 +1,26 @@
+<div id="pagination">
+	<ul class="pagination">
+		<%= content_tag :li, class: (if @page_number == 1 then "disabled" end) do %>
+			<%= link_to "&laquo;".html_safe, controller.send(path, page: @page_number-1, sort: params[:sort], reverse: params[:reverse]) %>
+		<% end %>
+
+		<% if @page_number > (@max_pagination_pages/2) %>
+			<% if @page_number < @page_count-(@max_pagination_pages/2-1) %>
+				<% range = (@page_number-(@max_pagination_pages/2)..@page_number+(@max_pagination_pages/2-1)) %>
+			<% else %>
+				<% range = ([@page_count-(@max_pagination_pages-1),1].max..@page_count) %>
+			<% end %>
+		<% else %>
+			<% range = (1..@page_count) %>
+		<% end %>
+
+		<% range.first(@max_pagination_pages).each do |num| %>
+			<%= content_tag :li, class: (if @page_number == num then "active" end) do %>
+			<%= link_to num, controller.send(path, page: num, sort: params[:sort], reverse: params[:reverse]) %>
+		<% end %>
+		<% end %>
+		<%= content_tag :li, class: (if @page_number == @page_count then "disabled" end) do %>
+			<%= link_to "&raquo;".html_safe, controller.send(path, page: @page_number+1, sort: params[:sort], reverse: params[:reverse]) %>
+		<% end %>
+	</ul>
+</div>

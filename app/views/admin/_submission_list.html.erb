@@ -2,20 +2,23 @@
 <div>
 	<table class="table">
 		<thead>
-			<td><b>Name</b></td>
-			<td><b>Month</b></td>
-			<td><b>League</b></td>
-			
+			<td><strong>Name</strong></td>
+			<td><strong>Month</strong></td>
+			<td><strong>League</strong></td>
 		</thead>
-
-		<% submissions.order(created_at: :asc).each do |submission| %>
+		<% submissions.order(created_at: :asc).limit(@pagination_size).offset(@pagination_size*(@page_number-1)).each do |submission| %>
 			<tr>
-				
-					<td><b><%= link_to User.find(submission.user_id).display_name, controller: "submission", action: "show", id: submission.id %></b></td>
-					<td><%= submission.month.capitalize unless submission.month.blank? %></td>
-					<td><%= submission.league.capitalize unless submission.league.blank? %></td>
-				
+				<td>
+					<strong>
+						<%= link_to User.find(submission.user_id).display_name, user_submission_path(submission) %>
+					</strong>
+				</td>
+				<td><%= submission.month.capitalize unless submission.month.blank? %></td>
+				<td><%= submission.league.capitalize unless submission.league.blank? %></td>
 			</tr>
 		<% end %>
 	</table>
+	<% unless @page_count == 1 %>
+		<%= render partial: "pagination", locals: {path: :admin_submissions_path} %>
+	<% end %>
 </div>
