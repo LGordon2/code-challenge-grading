@@ -26,6 +26,7 @@ class AdminController < ApplicationController
       @all_users = User.all
       @title = "Users Created All Time"
     end
+    @page_count = @all_users.count
     render 'index'
   end
 
