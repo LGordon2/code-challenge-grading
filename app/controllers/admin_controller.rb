@@ -26,7 +26,7 @@ class AdminController < ApplicationController
       @all_users = User.all
       @title = "Users Created All Time"
     end
-    @page_count = @all_users.count
+    @page_count = (@all_users.count.to_f / @pagination_size.to_f).ceil
     render 'index'
   end
 
@@ -39,7 +39,7 @@ class AdminController < ApplicationController
       @submissions = Submission.all
       @title = 'Submissions Created All Time'
     end
-    @page_count = @submissions.count
+    @page_count = (@submissions.count.to_f / @pagination_size.to_f).ceil
     render 'index'
   end
   
