@@ -6,3 +6,5 @@ $(document).ready ->
     $("#set-date-form").submit()
   $(".admin_checkbox").on "change", ->
     $(this).parent().submit()
+  $("li.disabled a").on "click", ->
+    return false

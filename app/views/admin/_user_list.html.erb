@@ -2,13 +2,12 @@
 <div>
 	<table class="table">
 		<thead>
-			<td><strong><%= link_to "Name", admin_path(sort: 'first_name', reverse: params[:reverse]!='true') %></strong></td>
-			<td><strong><%= link_to "Created", admin_path(sort: 'created_at', reverse: params[:reverse]!='true') %></strong></td>
-			<td><strong><%= link_to "Last Login", admin_path(sort: 'updated_at', reverse: params[:reverse]!='true') %></strong></td>
-			<td><strong><%= link_to "Number of Submissions", admin_path(sort: 'submissions', reverse: params[:reverse]!='true') %></strong></td>
-			<td><strong><%= link_to "Admin?", admin_path(sort: "admin", reverse: params[:reverse]!='true') %></strong></td>
+			<td><strong><%= link_to "Name", admin_path(sort: 'first_name', reverse: params[:reverse]!='true',page: @page_number) %></strong></td>
+			<td><strong><%= link_to "Created", admin_path(sort: 'created_at', reverse: params[:reverse]!='true',page: @page_number) %></strong></td>
+			<td><strong><%= link_to "Last Login", admin_path(sort: 'updated_at', reverse: params[:reverse]!='true',page: @page_number) %></strong></td>
+			<td><strong><%= link_to "Number of Submissions", admin_path(sort: 'submissions', reverse: params[:reverse]!='true',page: @page_number) %></strong></td>
+			<td><strong><%= link_to "Admin?", admin_path(sort: "admin", reverse: params[:reverse]!='true',page: @page_number) %></strong></td>
 		</thead>
-		
 		<% @all_users.each do |user| %>
 		<tr>
 			<td><b><%= user.display_name %></b></td>
@@ -23,4 +22,7 @@
 		</tr>
 		<% end %>
 	</table>
+	<% unless @page_count == 1 %>
+		<%= render partial: "pagination", locals: {path: :admin_path} %>
+	<% end %>
 </div>
