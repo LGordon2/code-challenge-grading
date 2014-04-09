@@ -4,8 +4,9 @@ Dim expected_testCase1
 Dim actual_testCase1
 
 testCase1 = "This is a test sentence."
+testCase1_val = testCase1
 expected_testCase1 = silverSolution(testCase1)
-actual_testCase1 = function_name(testCase1)
+actual_testCase1 = function_name(testCase1_val)
 document.getElementById("testCase1").innerhtml = ("Test Case Data:  """ & testCase1 & """<br>")& ("Expected String:  """& expected_testCase1 &"""<BR>")
 
 If Err Then
