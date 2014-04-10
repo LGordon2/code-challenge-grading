@@ -1,0 +1,12 @@
+<br><Br><table cellpadding="0">
+
+<%  @newstring.split(";").each do |row| %>
+<tr>
+<% row.split(",").each do |cell| %>
+<td>
+ <%= image_tag ("#{cell}.png") %>
+</td>
+<% end %>
+</tr>
+<% end %>
+</table>

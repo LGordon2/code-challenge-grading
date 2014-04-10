@@ -29,6 +29,6 @@ class WelcomeController < ApplicationController
   end
   
   def rules
-  
+	
   end
 end
