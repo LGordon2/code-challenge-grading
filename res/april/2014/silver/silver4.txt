@@ -4,8 +4,9 @@ Dim expected_testCase4
 Dim actual_testCase4
 
 testCase4 = "Space, the final frontier. These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange new worlds, to seek out new life, new civilizations, To boldly go where no one has gone before."
+testCase4_val = testCase4
 expected_testCase4 = silverSolution(testCase4)
-actual_testCase4 = function_name(testCase4)
+actual_testCase4 = function_name(testCase4_val)
 document.getElementById("testCase4").innerhtml = ("Test Case Data:  """ & testCase4 & """<br>") & ("Expected String:  """& expected_testCase4 &"""<BR>")
 
 If Err Then

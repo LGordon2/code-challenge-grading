@@ -13,11 +13,41 @@
 Function getFileNameByIndex(index)
 
 	If isNumeric(index) Then
-		If Kitty.get_directions(index) = "" Then
-			getFileNameByIndex = "/assets/blank.png"
-		else
-			getFileNameByIndex = "/assets/" & Kitty.get_directions(index) & ".png"
-		End If
+		Select Case Kitty.get_directions(index)
+		Case ""
+			getFileNameByIndex = "<%= image_url 'blank.png' %>"
+		Case "E"
+			getFileNameByIndex = "<%= image_url 'E.png' %>"
+		Case "ES"
+			getFileNameByIndex = "<%= image_url 'ES.png' %>"
+		Case "EW"
+			getFileNameByIndex = "<%= image_url 'EW.png' %>"
+		Case "EWS"
+			getFileNameByIndex = "<%= image_url 'EWS.png' %>"
+		Case "N"
+			getFileNameByIndex = "<%= image_url 'N.png' %>"
+		Case "NE"
+			getFileNameByIndex = "<%= image_url 'NE.png' %>"
+		Case "NES"
+			getFileNameByIndex = "<%= image_url 'NES.png' %>"
+		Case "NEW"
+			getFileNameByIndex = "<%= image_url 'NEW.png' %>"
+		Case "NS"
+			getFileNameByIndex = "<%= image_url 'NS.png' %>"
+		Case "NW"
+			getFileNameByIndex = "<%= image_url 'NW.png' %>"
+		Case "NWS"
+			getFileNameByIndex = "<%= image_url 'NWS.png' %>"
+		Case "S"
+			getFileNameByIndex = "<%= image_url 'S.png' %>"
+		Case "W"
+			getFileNameByIndex = "<%= image_url 'W.png' %>"
+		Case "WS"
+			getFileNameByIndex = "<%= image_url 'WS.png' %>"
+		Case "X"
+			getFileNameByIndex = "<%= image_url 'blank.png' %>"
+		End Select
+
 	End If
 end Function
 
@@ -67,7 +97,7 @@ Class Kitten
       		x_location= 9
 		y_location= 9
 		goal="2,3"
-		mazeArray = Array("ES","WS","","ES","EW","EW","EW","EW","EW","WS","NS","NS","","NE","EW","EW","EW","EW","W","NS","NS","NS","","ES","EW","EW","EW","EWS","EW","NWS","NS","NE","	X","NS","","","","NS","","NS","NS","S","S","NS","ES","EW","WS","NS","","NS","NS","NS","NES","NWS","NS","S","NS","NS","ES","NW","NS","NS","NS","NS","NS","NS","NS","NS","NS","S","NS","NS","NS","NS","NS","NS","N","NS","NS","NS","NS","NE","NW","NS","NS","NE","EW","NW","NS","NS","NE","EW","EW","NW","NE","EW","EW","EW","NEW","NW")
+		mazeArray = Array("ES","WS","","ES","EW","EW","EW","EW","EW","WS","NS","NS","","NE","EW","EW","EW","EW","W","NS","NS","NS","","ES","EW","EW","EW","EWS","EW","NWS","NS","NE","X","NS","","","","NS","","NS","NS","S","S","NS","ES","EW","WS","NS","","NS","NS","NS","NES","NWS","NS","S","NS","NS","ES","NW","NS","NS","NS","NS","NS","NS","NS","NS","NS","S","NS","NS","NS","NS","NS","NS","N","NS","NS","NS","NS","NE","NW","NS","NS","NE","EW","NW","NS","NS","NE","EW","EW","NW","NE","EW","EW","EW","NEW","NW")
 	End Sub
 
 	Private Function add_to_location_history()
