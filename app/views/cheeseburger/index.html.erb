@@ -144,7 +144,7 @@ End Function
 <div id="MazePanel" style="position:relative;font-size:0px">
 <% (1..10).each do |y| %>
 	<% (1..10).each do |x| %>
-			<%= image_tag("NEWS.png", :class => "Maze", :style => "position:absolute,top:#{y*30-30}px,left:#{x*30-30}px") %>
+			<%= image_tag("NEWS.png", :class => "Maze", :style => "position:absolute,top:#{y*30-30}px,left:#{x*30-30}px", :digest => false) %>
 	<% end %>
 	<br>
 <% end %>
