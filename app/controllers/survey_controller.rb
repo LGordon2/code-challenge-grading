@@ -12,10 +12,8 @@ class SurveyController < ApplicationController
 		
 		Survey.create(survey_params)
 	end
-	def result
 	
-	end
-	def maze
+	def result
 		if params[:id]
 		 @surveys = Survey.where(id: params[:id])
 		else
@@ -25,12 +23,16 @@ class SurveyController < ApplicationController
 		if params[:filter]
 			@filter = params[:filter]
 		end
+	end
+	
+	def maze
+		
 		options = ["N", "S", "E", "W", "NE", "NS", "NW", "ES", "EW", "WS", "NES", "NWS", "EWS", "NEW", "NEWS"]
 	maze = Hash.new(0)
 
 	use_random = true
 
-	maze_size = 19
+	maze_size = params[:size].to_i
 	maze_size.times do |i| 
 	  maze_size.times do |j|
 		if use_random
