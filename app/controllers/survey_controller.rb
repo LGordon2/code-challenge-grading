@@ -1,6 +1,6 @@
 class SurveyController < ApplicationController
 
-  
+    before_action :require_admin
 
 	def index
 		
@@ -103,7 +103,7 @@ class SurveyController < ApplicationController
 		replace=""
 		current_replace = 0
 		path_counter = 1
-
+        
 		maze_size.times do |y|
 		  maze_size.times do |x|
 		   
