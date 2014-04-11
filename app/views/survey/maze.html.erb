@@ -10,3 +10,19 @@
 </tr>
 <% end %>
 </table>
+<h1> <%= @result %> </h1>
+<%= @value1 %><br>
+<%= @value2 %>
+<br><Br><table cellpadding="7">
+
+<%  @pathString.split(";").each do |row| %>
+<tr>
+<% row.split(",").each do |cell| %>
+<td>
+ <%= cell %>
+</td>
+<% end %>
+</tr>
+<% end %>
+</table>
+<%= @oldReplace %><br><br><br>
