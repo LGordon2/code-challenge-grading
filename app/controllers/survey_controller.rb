@@ -1,3 +1,4 @@
+require 'matrix'
 class Matrix
   public :"[]=", :set_element, :set_component
 end
@@ -29,7 +30,7 @@ class SurveyController < ApplicationController
 	end
 	
 	def maze
-		require 'matrix'
+		
 		x_size = 25
 		y_size = 25
 		startPoint = [rand(y_size), rand(x_size)]
