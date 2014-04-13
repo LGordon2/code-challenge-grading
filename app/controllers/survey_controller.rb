@@ -36,7 +36,7 @@ class SurveyController < ApplicationController
 		startPoint = [rand(y_size), rand(x_size)]
 		endPoint = [rand(y_size), rand(x_size)]
 		
-		direction_options = ["N", "S", "E", "W", "NE", "NS", "NW", "ES", "EW", "WS", "NES", "NWS", "EWS", "NEW", "NEWS"]
+		direction_options = ["N", "S", "E", "W", "NE", "NS", "NW", "ES", "EW", "SW", "NES", "NSW", "ESW", "NEW", "NESW"]
 		init_maze = Matrix.build(y_size,x_size) {|row, col| (row %2)==(col%2)? direction_options[rand(direction_options.count)]:0}
 		maze = Matrix.build(y_size,x_size){|row, col| (row %2)==(col%2)? init_maze[row,col]: complete_maze_from_neighbors(row,col, init_maze)}
 		display_maze = maze.clone
