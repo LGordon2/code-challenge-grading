@@ -1,6 +1,6 @@
 <br><Br><table cellpadding="0">
 
-<%  @newstring.split(";").each do |row| %>
+<%  @maze_string.split(";").each do |row| %>
 <tr>
 <% row.split(",").each do |cell| %>
 <td>
@@ -10,12 +10,12 @@
 </tr>
 <% end %>
 </table>
-<h1> <%= @result %> </h1>
-<%= @value1 %><br>
-<%= @value2 %>
-<br><Br><table cellpadding="7">
+<h1><%= @result %></h1>
+Start:    <%= @start %><br>
+End:      <%= @end %>
+<br><Br><table cellpadding="10">
 
-<%  @pathString.split(";").each do |row| %>
+<%  @path_string.split(";").each do |row| %>
 <tr>
 <% row.split(",").each do |cell| %>
 <td>
@@ -25,4 +25,3 @@
 </tr>
 <% end %>
 </table>
-<%= @oldReplace %><br><br><br>
