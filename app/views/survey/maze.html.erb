@@ -1,27 +1,43 @@
 <br><Br><table cellpadding="0">
 
-<%  @maze_string.split(";").each do |row| %>
-<tr>
-<% row.split(",").each do |cell| %>
-<td>
- <%= image_tag ("#{cell}.png") %>
-</td>
+<% path_array = @path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if @result %>
+	<% @maze_string.split(";").each_with_index do |row,y| %>
+		<tr>
+			<% row.split(",").each_with_index do |cell,x| %>
+					<% if path_array2[y][x].to_i == @start.to_i %>
+						<td bgcolor="purple">
+						<%= image_tag ("maze/t_#{cell}.png") %>
+					<% else %>
+						<td bgcolor="yellow">
+						<%= image_tag ("maze/t_#{cell}.png") %>
+					<% end %>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+	</table>
+<% else %>
+	<% @maze_string.split(";").each_with_index do |row,y| %>
+		<tr>
+			<% row.split(",").each_with_index do |cell,x| %>
+					<% if path_array2[y][x].to_i == @start.to_i %>
+						<td bgcolor="red">
+					<% elsif path_array2[y][x].to_i == @end.to_i%>
+						<td bgcolor="blue">
+					<% else %>
+						<td bgcolor="yellow">
+					<% end %>
+					<%= image_tag ("maze/t_#{cell}.png") %>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+	</table>
 <% end %>
-</tr>
+<% if @result %>
+	<h1>A Path Does Exist</h1>
+<% else %>
+	<h1>A Path Does NOT Exist</h1>
 <% end %>
-</table>
-<h1><%= @result %></h1>
-Start:    <%= @start %><br>
-End:      <%= @end %>	
-<br><Br><table cellpadding="10">
-
-<%  @path_string.split(";").each do |row| %>
-<tr>
-<% row.split(",").each do |cell| %>
-<td>
- <%= cell %>
-</td>
-<% end %>
-</tr>
-<% end %>
-</table>
