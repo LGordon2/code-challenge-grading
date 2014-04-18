@@ -31,8 +31,8 @@ class SurveyController < ApplicationController
 	
 	def maze
 		
-		x_size = 25
-		y_size = 25
+		x_size = 30
+		y_size = 10
 		startPoint = [rand(y_size), rand(x_size)]
 		endPoint = [rand(y_size), rand(x_size)]
 		
@@ -42,8 +42,7 @@ class SurveyController < ApplicationController
 		display_maze = maze.clone
 		display_maze[startPoint[0], startPoint[1]] = "points"
 		display_maze[endPoint[0], endPoint[1]] = "point"
-		@start = maze[startPoint[0], startPoint[1]]
-		@end = maze[endPoint[0], endPoint[1]]
+		
 		@maze_string = getString(display_maze)
 		
 		counter = 1
@@ -91,6 +90,9 @@ class SurveyController < ApplicationController
 			end	
 			
 		end
+		
+		@start = paths[startPoint[0], startPoint[1]]
+		@end = paths[endPoint[0], endPoint[1]]
 		
 		@path_string = getString(paths)
 		@result = paths[startPoint[0], startPoint[1]] == paths[endPoint[0], endPoint[1]] 
