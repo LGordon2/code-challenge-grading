@@ -1,121 +1,226 @@
+<% result = Array.new %>
+<% maze = Array.new %>
+<% startArray = Array.new %>
+<% endArray = Array.new %>
 <table width="100%">
-<tr>
-<td>
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-<td>
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-<td>
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-</tr>
-<tr>
-<td>
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-<td>
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-<td>
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-</tr>
-<tr>
-<td colspan="3">
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(10,40) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-</tr>
-<tr>
-<td colspan="3">
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(10,40) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-</tr>
-<tr>
-<td colspan="3">
-<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(40,40) %>
-<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
-<% result = startValue.to_i == endValue.to_i %>
-<% path_array = path_string.split(";") %>
-<% path_array2 = path_array.map {|path| path.split(",")} %>
-<% if result %>
-	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
-<% else %>
-	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
-<% end %>
-</td>
-</tr>
+	<tr>
+		<td>
+			<% display_maze_string, maze_string1, startPoint1, endPoint1 = getRandomMaze(5,10) %>
+			<% path_string1, startValue1, endValue1 = getPaths(maze_string1, startPoint1, endPoint1) %>
+			<% result << (startValue1.to_i == endValue1.to_i) %>
+			<% maze << maze_string1 %>
+			<% startArray << startPoint1 %>
+			<% endArray << endPoint1 %>
+			<% path_array = path_string1.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[0] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue1} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue1, endValue: endValue1} %>
+			<% end %>
+			<div id="testCase1">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+	
+		<td>
+			<% display_maze_string, maze_string2, startPoint2, endPoint2 = getRandomMaze(5,10) %>
+			<% path_string2, startValue2, endValue2 = getPaths(maze_string2, startPoint2, endPoint2) %>
+			<% result << (startValue2.to_i == endValue2.to_i) %>
+			<% maze << maze_string2 %>
+			<% startArray << startPoint2 %>
+			<% endArray << endPoint2 %>
+			<% path_array = path_string2.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[1] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue2} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue2, endValue: endValue2} %>
+			<% end %>
+			<div id="testCase2">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+		
+		<td>
+			<% display_maze_string, maze_string3, startPoint3, endPoint3 = getRandomMaze(5,10) %>
+			<% path_string3, startValue3, endValue3 = getPaths(maze_string3, startPoint3, endPoint3) %>
+			<% result << (startValue3.to_i == endValue3.to_i) %>
+			<% maze << maze_string3 %>
+			<% startArray << startPoint3 %>
+			<% endArray << endPoint3 %>
+			<% path_array = path_string3.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[2] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue3} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue3, endValue: endValue3} %>
+			<% end %>
+			<div id="testCase3">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<% display_maze_string, maze_string4, startPoint4, endPoint4 = getRandomMaze(5,10) %>
+			<% path_string4, startValue4, endValue4 = getPaths(maze_string4, startPoint4, endPoint4) %>
+			<% result << (startValue4.to_i == endValue4.to_i) %>
+			<% maze << maze_string4 %>
+			<% startArray << startPoint4 %>
+			<% endArray << endPoint4 %>
+			<% path_array = path_string4.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[3] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue4} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue4, endValue: endValue4} %>
+			<% end %>
+			<div id="testCase4">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+
+		<td>
+			<% display_maze_string, maze_string5, startPoint5, endPoint5 = getRandomMaze(5,10) %>
+			<% path_string5, startValue5, endValue5 = getPaths(maze_string5, startPoint5, endPoint5) %>
+			<% result << (startValue5.to_i == endValue5.to_i) %>
+			<% maze << maze_string5 %>
+			<% startArray << startPoint5 %>
+			<% endArray << endPoint5 %>
+			<% path_array = path_string5.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[4] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue5} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue5, endValue: endValue5} %>
+			<% end %>
+			<div id="testCase5">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+
+		<td>
+			<% display_maze_string, maze_string6, startPoint6, endPoint6 = getRandomMaze(5,10) %>
+			<% path_string6, startValue6, endValue6 = getPaths(maze_string6, startPoint6, endPoint6) %>
+			<% result << (startValue6.to_i == endValue6.to_i) %>
+			<% maze << maze_string6 %>
+			<% startArray << startPoint6 %>
+			<% endArray << endPoint6 %>
+			<% path_array = path_string6.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[5] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue6} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue6, endValue: endValue6} %>
+			<% end %>
+			<div id="testCase6">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="3">
+			<% display_maze_string, maze_string7, startPoint7, endPoint7 = getRandomMaze(10,40) %>
+			<% path_string7, startValue7, endValue7 = getPaths(maze_string7, startPoint7, endPoint7) %>
+			<% result << (startValue7.to_i == endValue7.to_i) %>
+			<% maze << maze_string7 %>
+			<% startArray << startPoint7 %>
+			<% endArray << endPoint7 %>
+			<% path_array = path_string7.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[6] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue7} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue7, endValue: endValue7} %>
+			<% end %>
+			<div id="testCase7">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="3">
+			<% display_maze_string, maze_string8, startPoint8, endPoint8 = getRandomMaze(10,40) %>
+			<% path_string8, startValue8, endValue8 = getPaths(maze_string8, startPoint8, endPoint8) %>
+			<% result << (startValue8.to_i == endValue8.to_i) %>
+			<% maze << maze_string8 %>
+			<% startArray << startPoint8 %>
+			<% endArray << endPoint8 %>
+			<% path_array = path_string8.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[7] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue8} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue8, endValue: endValue8} %>
+			<% end %>
+			<div id="testCase8">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="3">
+			<% display_maze_string, maze_string9, startPoint9, endPoint9 = getRandomMaze(40,40) %>
+			<% path_string9, startValue9, endValue9 = getPaths(maze_string9, startPoint9, endPoint9) %>
+			<% result << (startValue9.to_i == endValue9.to_i) %>
+			<% maze << maze_string9 %>
+			<% startArray << startPoint9 %>
+			<% endArray << endPoint9 %>
+			<% path_array = path_string9.split(";") %>
+			<% path_array2 = path_array.map {|path| path.split(",")} %>
+			<% if result[8] %>
+				<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue9} %>
+			<% else %>
+				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue9, endValue: endValue9} %>
+			<% end %>
+			<div id="testCase9">
+				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+			</div>
+		</td>
+	</tr>
 </table>
 
+<script type="text/vbscript">
+
+	Function clearTestCase(testCaseNum)
+		document.getElementById("testCase"&testCaseNum).innerhtml = ""
+	End Function
+	
+	Function initTestCase(testCaseNum)
+		document.getElementById("testCase"&testCaseNum).innerhtml = "********** Test Case " & testCaseNum & "**********"
+	End Function
+
+	Function addTestCaseResults(testCaseNum, htmlValue)
+		document.getElementById("testCase"&testCaseNum).innerhtml = document.getElementById("testCase"&testCaseNum).innerhtml & "<h5>" & htmlValue & "</h5>"
+	End Function
+
+	Function testCaseStatus(testCaseNum, status)
+		If UCase(status) = "PASS" Then
+			document.getElementById("testCase"&testCaseNum).innerhtml = document.getElementById("testCase"&testCaseNum).innerhtml & "<h4>" & "<font color=""#00ff00"">PASS</font>" & "</h4>"
+		ElseIf UCase(status) = "FAIL" Then
+			document.getElementById("testCase"&testCaseNum).innerhtml = document.getElementById("testCase"&testCaseNum).innerhtml & "<h4>" & "<font color=""red"">FAIL</font>" & "</h4>"
+		End If
+	End Function
+
+	<%= @submission.submission_code.html_safe %>
+	
+	<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
+	
+	
+	<% 1..9.times do |t| %>
+		testCase<%= t+1 %>_result = <%= functionName %>("<%= maze[t] %>", "<%= startArray[t][0].to_s + "," + startArray[t][1].to_s %>","<%= endArray[t][0].to_s + "," + endArray[t][1].to_s %>")
+			initTestCase <%= t+1 %>
+			addTestCaseResults <%= t+1 %>, "Expected Value:    <%= result[t].to_s.capitalize  %>"
+			addTestCaseResults <%= t+1 %>, "Actual Value:   " & testCase<%= t+1 %>_result
+		If testCase1_result = <%= result[t] %> Then
+			testCaseStatus <%= t+1 %>, "Pass"
+		Else
+			testCaseStatus <%= t+1 %>, "Fail"
+		End If
+	<% end %>
+</script>

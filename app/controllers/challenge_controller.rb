@@ -38,6 +38,8 @@ class ChallengeController < ApplicationController
       render template: 'cheeseburger/index'
     elsif challenge_month.downcase == "november" and challenge_league.downcase == "gold" and challenge_year == "2013"
       render template: "connect_four/index"
+	  elsif challenge_month.downcase == "may" and challenge_league.downcase == "gold" and challenge_year == "2014"
+      redirect_to "/maze/index/#{@submission.id}"
     else
       render template: 'layouts/result'
     end

@@ -7,9 +7,7 @@ class MazeController < ApplicationController
 	helper_method :getRandomMaze
 	helper_method :getPaths
 	def index
-	 @result = true
-	 @start = 1
-	 @end = 2
+		@submission = Submission.find(params[:id])
 	end
 	
 	#Helper Functions
