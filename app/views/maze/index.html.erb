@@ -215,7 +215,7 @@
 		clearTestCase <%= t+1 %>
 		addTestCaseResults <%= t+1 %>, "Test Case Loading"
 	<% end %>
-
+	noUse = document.getElementById("testCase1").innerhtml
 	<% 1..9.times do |t| %>
 		initTestCase <%= t+1 %>
 		On Error Resume Next
