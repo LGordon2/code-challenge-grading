@@ -1,0 +1,18 @@
+<br><Br><table cellpadding="0">
+<% display_maze_string.split(";").each_with_index do |row,y| %>
+		<tr>
+			<% row.split(",").each_with_index do |cell,x| %>
+					<% if path_array2[y][x].to_i == startValue.to_i %>
+						<td bgcolor="red">
+					<% elsif path_array2[y][x].to_i == endValue.to_i%>
+						<td bgcolor="blue">
+					<% else %>
+						<td bgcolor="yellow">
+					<% end %>
+					<%= image_tag ("maze/t_#{cell}.png") %>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+	</table>
+	<h1>False</h1>

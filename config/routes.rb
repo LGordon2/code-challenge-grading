@@ -18,6 +18,7 @@ CodingChallengeGrading::Application.routes.draw do
   get 'admin/submissions/:time' => 'admin#submissions', as: :admin_submissions
   
   #Month submissions.
+  get "challenge/may/2014/gold", to: "maze#index"
   get "challenge/:month/:year/:league", to: "challenge#index", as: :challenge
   get "submissions/:month/:year/:league", to: "challenge#all_submissions", as: :submissions
   patch "profile/submissions/:id" => "submission#update"

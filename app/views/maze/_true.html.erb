@@ -1,0 +1,17 @@
+<br><Br><table cellpadding="0">
+<% display_maze_string.split(";").each_with_index do |row,y| %>
+	<tr>
+		<% row.split(",").each_with_index do |cell,x| %>
+				<% if path_array2[y][x].to_i == startValue.to_i %>
+					<td bgcolor="purple">
+					<%= image_tag ("maze/t_#{cell}.png") %>
+				<% else %>
+					<td bgcolor="yellow">
+					<%= image_tag ("maze/t_#{cell}.png") %>
+				<% end %>
+			</td>
+		<% end %>
+	</tr>
+<% end %>
+</table>
+<h1>True</h1>
