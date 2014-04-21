@@ -19,7 +19,7 @@
 				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue1, endValue: endValue1} %>
 			<% end %>
 			<div id="testCase1">
-				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+				<h4>Test Case Loading</h4>
 			</div>
 		</td>
 	
@@ -158,7 +158,7 @@
 				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue8, endValue: endValue8} %>
 			<% end %>
 			<div id="testCase8">
-				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+				<h4>Test Case Loading</h4>
 			</div>
 		</td>
 	</tr>
@@ -179,7 +179,7 @@
 				<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue9, endValue: endValue9} %>
 			<% end %>
 			<div id="testCase9">
-				<font color="red"><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>
+				<h4>Test Case Loading</h4>
 			</div>
 		</td>
 	</tr>
@@ -207,15 +207,22 @@
 		End If
 	End Function
 
+	<% 1..9.times do |t| %>
+		clearTestCase <%= t+1 %>
+		addTestCaseResults <%= t+1 %>, "<font color=""red""><h4>Error Processing Test Case.<br>Please check syntax and function name.</h4></font>"
+	<% end %>
+	
 	<%= @submission.submission_code.html_safe %>
 	
 	<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
 	
 	<% 1..9.times do |t| %>
 		clearTestCase <%= t+1 %>
-		addTestCaseResults <%= t+1 %>, "Test Case Loading"
+		addTestCaseResults <%= t+1 %>, "Running Script"
 	<% end %>
+	
 	noUse = document.getElementById("testCase1").innerhtml
+	
 	<% 1..9.times do |t| %>
 		initTestCase <%= t+1 %>
 		On Error Resume Next
