@@ -2,7 +2,7 @@ root = exports ? this
 
 root.createCandyCountJSON = ->
   max_candy_count = 1000
-  max_guesser_count = 50
+  max_guesser_count = 250
   number_of_people_guessing = randomNumberForTest(max_guesser_count)
   names = ["Valentin","Albert","Naum","Evgeniya","Ludmila","Volya","Grigory", "Tatiana", "Harvey", "Stefan", "Warrick", "Briallen", "Moyna", 'Nur',
   "Seung", "Corneille", "Chiamaka", "Colum", "Baldwin", "Gisela", "Avitus", 'Kathe',"Joni","Laura","Miyoko","Debra","Molly","Madeleine","Amada"]
