@@ -16,6 +16,7 @@
 //= require jquery.autosize
 //= require jquery.timeago
 //= require Chart
+//= require create_json
 
 $(document).on('ready', function() {
   return $('textarea').autosize({

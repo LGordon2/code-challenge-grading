@@ -1,0 +1,121 @@
+<table width="100%">
+<tr>
+<td>
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+<td>
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+<td>
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+</tr>
+<tr>
+<td>
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+<td>
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+<td>
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(5,10) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(10,40) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(10,40) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<% display_maze_string, maze_string, startPoint, endPoint = getRandomMaze(40,40) %>
+<% path_string, startValue, endValue = getPaths(maze_string, startPoint, endPoint) %>
+<% result = startValue.to_i == endValue.to_i %>
+<% path_array = path_string.split(";") %>
+<% path_array2 = path_array.map {|path| path.split(",")} %>
+<% if result %>
+	<%= render partial: "true", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue} %>
+<% else %>
+	<%= render partial: "false", locals: {display_maze_string: display_maze_string, path_array2: path_array2, startValue: startValue, endValue: endValue} %>
+<% end %>
+</td>
+</tr>
+</table>
+
