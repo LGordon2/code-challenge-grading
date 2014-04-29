@@ -1,87 +1,80 @@
-
 <head>
-<style>
-#header{
-	color:#296FAB;
-	background-color:#ffffff;
-	align:left;
-	vertical-align:center;
-}
-#email_table{
-	margin:0px;
-	padding:0px;
-	spacing:0px;
-	border:0px;
-}
-h2{
-	color:#296FAB;
-{
-.email_body{
-	background-color:#296FAB;
-}
+	<style>
+		#header {
+			color: #296FAB;
+			background-color: #ffffff;
+			align: left;
+			vertical-align: center;
+		}
+		#email_table {
+			margin: 0px;
+			padding: 0px;
+			spacing: 0px;
+			border: 0px;
+		}
+		h2 {
+			color: #296FAB;{
+			.email_body{
+			background-color: #296FAB;
+		}
 
-body { padding: 11px 15px; font-family: Arial, Tahoma, sans-serif; font-size: 12px; color: #454545; line-height: 14px; }
+		body {
+			padding: 11px 15px;
+			font-family: Arial, Tahoma, sans-serif;
+			font-size: 12px;
+			color: #454545;
+			line-height: 14px;
+		}
 
-
-</style>
+	</style>
 </head>
 <body style="margin:0px;font-family: Arial, Tahoma, sans-serif; font-size: 12px; color: #454545; line-height: 14px">
-<table id="email_table" cellspacing="0px" height="100%" width="100%">
+	<table id="email_table" cellspacing="0px" height="100%" width="100%">
 
-<tr height="75px">
-	<td id="header">
-		<table width="100%">
-			<tr>
-				<td align="left">
-<%= image_tag("https://codechallenge.orasi.com/Logo.png",:style => "vertical-align:middle;width:65px;height:57") %>
-</td>
-				<td align="right" style="color:#296FAB;background-color:#ffffff;align:right;vertical-align:middle" width="500px" align="right"><h2 align="right">        Orasi Monthly Coding Challenge</h2></td>
-			</tr>
+		<tr height="75px">
+			<td id="header">
+			<table width="100%">
+				<tr>
+					<td align="left"> <%= image_tag("https://codechallenge.orasi.com/Logo.png",:style => "vertical-align:middle;width:65px;height:57") %> </td>
+					<td align="right" style="color:#296FAB;background-color:#ffffff;align:right;vertical-align:middle" width="500px" align="right"><h2 align="right"> Orasi Monthly Coding Challenge</h2></td>
+				</tr>
 
-		</table>
-	</td>
-</tr>
-<tr style="background-color:#296FAB;color:#ffffff;height:500px" class="email_body" >
-	<td style="vertical-align:top" class="email_body">
-	<table width="100%" align="left">
-	<tr><td align="left">
-		<h2 align="left" style="color:#ffffff">A New Comment Has Been Posted</h2>
-	</td></tr><tr><br>
-	<td>
-	<table width="100%"><tr><td>
-		<%= image_tag("https://codechallenge.orasi.com/photos/#{@user.first_name.downcase}#{@user.last_name.downcase}.jpg",:style=>"margin-left:25px; vertical-align:text-top") %>
-		</td><td bgcolor="#f8fafd" width="100%">
-		
-
-    <div width="400px" bgcolor="#f8fafd" class="bq2" style=" width: 400px; overflow: hidden; border: 1px solid #dde5ed; background: #f8fafd; color: #758fa3">
-      <span class="source" width="100%"  bgcolor="#eaeff5" height="100%" style="color:#296FAB;display: block; width: 100%; height:100%" margin-bottom: 5px; font-weight: bold; font-size: 13px; text-shadow: 0px 1px 0px #f8fafb; padding: 6px 11px; background: #eaeff5; border-top: 1px solid #f4f7fa; border-bottom: 1px solid #dde5ed">
-<table width="100%" color="#296FAB">
-<tr><td color="#296FAB" align="left">
-<h3 style="color:#296FAB"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
-</td><td color="#296FAB" align="right">
- <h3 style="color:#296FAB"><%= @comment.month.capitalize %> <%= @comment.league.capitalize %> Challenge</h3>
-</td></tr></table></span>		
-      <p bgcolor="#f8fafd" style="background:#f8fafd;line-height: 19px; margin-right:15px;margin-left:15px;margin-bottom: 10px; font-style: italic; padding-left: 15px">
-" <%= @comment.comment %> "
-</p>       <br>
-
-      </div>
-
-
-
-
-		
-		
-		</td><td></td></tr>
-	</table>
-
+			</table></td>
+		</tr>
+		<tr style="background-color:#296FAB;color:#ffffff;height:500px" class="email_body" >
+			<td style="vertical-align:top" class="email_body">
+			<table width="100%" align="left">
+				<tr>
+					<td align="left"><h2 align="left" style="color:#ffffff">A New Comment Has Been Posted</h2></td>
+				</tr>
+				<tr>
+					<br>
+					<td>
+					<table width="100%">
+						<tr>
+							<td> <%= image_tag("https://codechallenge.orasi.com/photos/#{@user.first_name.downcase}#{@user.last_name.downcase}.jpg",:style=>"margin-left:25px; vertical-align:text-top") %> </td><td bgcolor="#f8fafd" width="100%">
+							<div width="400px" bgcolor="#f8fafd" class="bq2" style=" width: 400px; overflow: hidden; border: 1px solid #dde5ed; background: #f8fafd; color: #758fa3">
+								<span class="source" width="100%"  bgcolor="#eaeff5" height="100%" style="color:#296FAB;display: block; width: 100%; height:100%" margin-bottom: 5px; font-weight: bold; font-size: 13px; text-shadow: 0px 1px 0px #f8fafb; padding: 6px 11px; background: #eaeff5; border-top: 1px solid #f4f7fa; border-bottom: 1px solid #dde5ed">
+								<table width="100%" color="#296FAB">
+								<tr><td color="#296FAB" align="left">
+								<h3 style="color:#296FAB"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
+								</td><td color="#296FAB" align="right">
+								<h3 style="color:#296FAB"><%= @comment.month.capitalize %> <%= @comment.league.capitalize %> Challenge</h3>
+							</td>
+						</tr>
+					</table></span>
+					<p bgcolor="#f8fafd" style="background:#f8fafd;line-height: 19px; margin-right:15px;margin-left:15px;margin-bottom: 10px; font-style: italic; padding-left: 15px">
+						" <%= @comment.comment %> "
+					</p>
+					<br>
+					</div> </td><td></td>
+				</tr>
+			</table>
 	</table>
 	</td>
-</tr>
-<tr height="100%" bgcolor="184A65">
-	<td>
-	
-	</td>
-</tr>
-</table>
+	</tr>
+	<tr height="100%" bgcolor="184A65">
+		<td></td>
+	</tr>
+	</table>
 <body>

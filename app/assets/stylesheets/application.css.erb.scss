@@ -151,24 +151,6 @@ aside {
   column-span:all;
   -webkit-column-span:all; /* Safari and Chrome */
 }
-section#comments article:nth-child(odd) {
-  padding: 21px;
-  background: #d7d7d7;
-  border: 1px solid #d7d7d7;
-  color: #296FAB;
-  /* Border-radius not implemented yet */
-  border-radius: 11px;
-  -webkit-border-radius: 11px;
-}
-section#comments article:nth-child(even) {
-  padding: 21px;
-  background: #ffffff;
-  border: 1px solid #E3E3E3;
-  color: #296FAB;
-  /* Border-radius not implemented yet */
-  border-radius: 11px;
-  -webkit-border-radius: 11px;
-}
 textarea{
   border-radius: 11px;
 }
@@ -197,3 +179,46 @@ textarea {
 {
   margin-top: 1px;
 }
+.comment
+{
+  padding: 21px;
+  background-color: #ffffff;
+  border: 1px solid #E3E3E3;
+  color: #296FAB;
+  margin: 10px 0;
+  /* Border-radius not implemented yet */
+  $border-radius: 5px;
+  border-radius: $border-radius;
+  -webkit-border-radius: $border-radius;
+  
+  .comment-header{
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  .comment-body{
+    height: 100%;
+    p.comment-body{
+      display: block;
+      max-width: 1140px;
+      overflow: hidden;
+    }
+    p.comment-edit{
+      display:none;
+    }
+  }
+  
+  .comment-reply{
+     height: 100%;
+     p.comment-edit{
+       display:none;
+     }
+   }
+   
+   &.comment-child-reply{
+    background-color: rgb(245,246,247);
+  }
+}
+
