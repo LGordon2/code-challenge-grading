@@ -30,7 +30,6 @@
 				<%= g.text_area :comment, class: 'animated' %>
 				<%= g.hidden_field :month, :value => challenge_month %>
 				<%= g.hidden_field :league, :value => challenge_league %>
-				
 				<%= g.hidden_field :reply_id, :value => comment.id %>	
 			</p>
 			<%= link_to 'Reply', 'javascript:void(0);', class: 'edit-btn'%>
