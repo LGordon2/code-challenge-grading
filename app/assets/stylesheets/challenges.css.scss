@@ -2,10 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #submit-header-panel{
-  margin-top: 85px;
 }
 #challenge-winner-links{
   a{
     display:block;
+  }
+}
+#challenge-description
+{
+  &>div{
+    display: inline-block;
+    &>iframe{
+      min-width: 100%;
+    }
+    @media (min-width: 768px) {
+      &>iframe{
+        min-width: 650px;
+      }
+    }
+  }
+  #submitPanel{
+    margin: 50px;
+    vertical-align: top;
+    display: inline-block;
+    max-width: 350px;
   }
 }

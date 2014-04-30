@@ -9,7 +9,7 @@
 		<title>Orasi Coding Challenge</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= stylesheet_link_tag "application.css" %>
-		<%= javascript_include_tag "application.js"%>
+		<%= javascript_include_tag "application.js" %>
 		<%= javascript_include_tag params[:controller] %>
 		<%= yield :head %>
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -19,35 +19,43 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
 	</head>
-
 	<body>
-		<header class="navbar">
+		<header class="navbar navbar-static-top bs-docs-nav" role="banner">
 			<div class="container">
-				<nav class="navbar" role="navigation">
-					<div class="navbar-header">
-						<%= link_to root_path, class: "navbar-brand" do %>
-						<%= image_tag "Logo.png", class: "img-responsive", width: "50px" %>
+				<div class="navbar-header">
+					<% unless current_user.blank? %>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<% end %>
+					<%= link_to root_path, class: "navbar-brand" do %>
+					<%= image_tag "Logo.png", class: "img-responsive brand", width: "50px", style: "display:inline;" %>
+					<% end %>
+				</div>
+
+				<nav class="navbar-collapse bs-navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<% if current_user.nil? %>
+						<li>
+							<%= link_to "Login", login_path %>
+						</li>
+						<% else %>
+						<% if current_user.admin %>
+						<li>
+							<%= link_to "Admin", :admin, id: "admin-link" %>
+						</li>
 						<% end %>
-					</div>
 
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav navbar-right">
-							<% if current_user.nil? %>
-							<li>
-								<%= link_to "Login", login_path %>
-							</li>
-							<% else %>
-							<% if current_user.admin %>
-							<li>
-								<%= link_to "Admin", :admin, id: "admin-link" %>
-							</li>
-							<% end %>
-
-							<% ["Bronze","Silver","Gold"].each do |league_type| %>
-							<li class="dropdown">
-								<div class = "dropdown-group">
+						<% ["Bronze","Silver","Gold"].each do |league_type| %>
+						<li class="dropdown">
+							<div class = "dropdown-group">
 								<%= link_to league_type, challenge_path(league: league_type.downcase, month: @month.downcase, year: @year), class: "btn btn-default navbar-link btn-#{league_type.downcase}" %>
-  								<button type="button" class="btn btn-default" data-toggle="dropdown"><b class="caret"></b></button>
+								<button type="button" class="btn btn-default" data-toggle="dropdown">
+									<b class="caret"></b>
+								</button>
 								<ul class="dropdown-menu" role="menu">
 									<% Challenge.where(league: league_type.downcase).select {|c| Date.parse("#{c.month} #{c.year}") <= Date.parse("#{@month} #{@year}")}.last(5).reverse.each do |challenge| %>
 									<li>
@@ -59,23 +67,22 @@
 										<%= link_to "Archive", archive_path(league: league_type.downcase), :role => "menuitem"%>
 									</li>
 								</ul>
-								</div>
-							</li>
-							<% end %>
-							<li>
-								<%= link_to "Logout", logout_path %>
-							</li>
-							<li>
-								<p class="navbar-text">
-									Welcome, <%= link_to current_user.first_name.capitalize + ' ' + current_user.last_name.capitalize, profile_view_path, class: "navbar-link" %>
-								</p>
-							</li>
-							<li>
-								<%= image_tag current_user.photo, class: "user-photo"%>
-							</li>
-							<% end %>
-						</ul>
-					</div>
+							</div>
+						</li>
+						<% end %>
+						<li>
+							<%= link_to "Logout", logout_path %>
+						</li>
+						<li>
+							<p class="navbar-text">
+								Welcome, <%= link_to current_user.first_name.capitalize + ' ' + current_user.last_name.capitalize, profile_view_path, class: "navbar-link" %>
+							</p>
+						</li>
+						<li>
+							<%= image_tag current_user.photo, class: "user-photo"%>
+						</li>
+						<% end %>
+					</ul>
 				</nav>
 			</div>
 		</header>

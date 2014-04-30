@@ -19,6 +19,11 @@ $border-radius: 5px;
   src: url('<%= asset_path "glyphicons-halflings-regular.eot" %>');
   src: url('<%= asset_path "glyphicons-halflings-regular.eot" %>?#iefix') format('embedded-opentype'), url('<%= asset_path "glyphicons-halflings-regular.woff" %>') format('woff'), url('<%= asset_path "glyphicons-halflings-regular.ttf" %>') format('truetype'), url('<%= asset_path "glyphicons-halflings-regular.svg" %>#glyphicons_halflingsregular') format('svg');
 }
+.dropdown-group{
+  button{
+    padding: 6px;
+  }
+}
 a.navbar-brand
 {
   padding:5px;
@@ -104,13 +109,14 @@ transition: height 0.2s;
 header {
   background-color: white;
 }
-.bigtitle{
-  font-size: 80px;
-}
 .masthead {
   padding: 70px 0 30px;
   margin-bottom: 0;
   color: #fff;
+}
+.icon-bar
+{
+  background-color: $orasi_blue;
 }
 a
 {
@@ -126,22 +132,10 @@ body
   padding-right: 22px;
   vertical-align:top;
 }
-
-
-aside {
-  vertical-align:top;
-
-  display: table-cell;
-  width: 500px;
-}
 #content{
   display: table;
 }
 #mainContent{
-  display: table-cell;
-}
-#submitPanel{
-  vertical-align:top;
   display: table-cell;
 }
 #comment_row{
