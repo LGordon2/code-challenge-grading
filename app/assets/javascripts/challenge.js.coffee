@@ -5,7 +5,7 @@ $(document).on 'ready', ->
   $("abbr.timeago").timeago()
   $(".complete_checkbox").on "change", ->
     $(this).parent().submit()
-  $(".edit-btn").click ->
+  $(".edit-btn").click (event) ->
     $(@).parent().siblings("div.comment-edit").show()
     $(@).parent().siblings("p.comment-content").hide()
     $('textarea').trigger 'autosize.resize'
@@ -13,6 +13,6 @@ $(document).on 'ready', ->
   $(".cancel-btn").click ->
     $(@).parent("div").hide()
     $(@).parent("div").siblings("p.comment-content").show()
-  $(".reply-btn").click ->
+  $(".reply-btn").click (event) ->
     $(@).parents("div.comment-body").children(".comment-reply").show()
     event.preventDefault()
