@@ -17,9 +17,13 @@ $(document).on 'ready', ->
     getTime();
     setInterval getTime, 5000
   $(".edit-btn").click ->
-    $(@).siblings(".comment-body,.comment-edit,.cancel-btn,.update-btn").toggle "slow", =>
-      $('textarea').trigger 'autosize.resize'
-    $(@).toggle("slow")
+    $(@).siblings("div.comment-edit").show()
+    $(@).siblings("p.comment-content").hide()
+    $('textarea').trigger 'autosize.resize'
+    event.preventDefault()
   $(".cancel-btn").click ->
-    $(@).siblings(".comment-body,.comment-edit,.update-btn,.edit-btn").toggle("slow")
-    $(@).toggle("slow")
+    $(@).parent("div").hide()
+    $(@).parent("div").siblings("p.comment-content").show()
+  $(".reply-btn").click ->
+    $(@).parent().siblings(".comment-reply").show()
+    event.preventDefault()

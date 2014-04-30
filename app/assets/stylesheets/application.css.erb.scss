@@ -13,6 +13,7 @@
  *= require_self
  */
 $orasi_blue: #296FAB;
+$border-radius: 5px;
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('<%= asset_path "glyphicons-halflings-regular.eot" %>');
@@ -152,11 +153,7 @@ aside {
   -webkit-column-span:all; /* Safari and Chrome */
 }
 textarea{
-  border-radius: 11px;
-}
-section#comments article:nth-child(odd) header{
-  background: #d7d7d7;
-  color: #296FAB;
+  border-radius: $border-radius;
 }
 #fileButton{
   visibility: hidden;
@@ -187,7 +184,7 @@ textarea {
   color: #296FAB;
   margin: 10px 0;
   /* Border-radius not implemented yet */
-  $border-radius: 5px;
+  
   border-radius: $border-radius;
   -webkit-border-radius: $border-radius;
   
@@ -201,20 +198,22 @@ textarea {
   .comment-body{
     height: 100%;
     margin: 10px 0;
-    p.comment-body{
+    p.comment-content{
       display: block;
-      max-width: 1140px;
-      overflow: hidden;
     }
-    p.comment-edit{
+    div.comment-edit{
       display:none;
+      textarea{
+        margin: 10px 0;
+      }
     }
   }
   
   .comment-reply{
      height: 100%;
-     p.comment-edit{
-       display:none;
+     display: none;
+     form{
+       display: inline;
      }
    }
    
@@ -222,4 +221,7 @@ textarea {
     background-color: rgb(245,246,247);
   }
 }
-
+.circle-avatar
+{
+  border-radius: 100%;
+}
