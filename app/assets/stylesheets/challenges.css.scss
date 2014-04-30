@@ -5,6 +5,14 @@
   #non-ie-warning{
     display: none;
   }
+  #submitButtonPanel{
+    label{
+       margin: 10px;
+    }
+    #fileButton,#evaluateButton{
+      display: none;
+    }
+  }
 }
 #challenge-winner-links{
   a{
