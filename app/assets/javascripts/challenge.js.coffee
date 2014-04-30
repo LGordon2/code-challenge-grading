@@ -16,3 +16,9 @@ $(document).on 'ready', ->
   $(".reply-btn").click (event) ->
     $(@).parents("div.comment-body").children(".comment-reply").show()
     event.preventDefault()
+  $("#evaluate-btn").click (event) ->
+    $('#submitButtonPanel').fadeOut "slow", ->
+      $('#loadingPanel').fadeIn("slow").delay 2000, ->
+        $("#submissionForm").submit()
+    event.preventDefault()
+   

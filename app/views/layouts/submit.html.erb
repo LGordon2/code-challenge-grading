@@ -28,8 +28,7 @@
 		<% end %>
 		<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
 		<%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
-		<%= submit_tag 'Evaluate', :id => "evaluateButton", :onClick =>"clickSubmitButton();return false" %>
-		<%= label_tag(:evaluateButton, "Evaluate",:class => "btn btn-primary btn-lg") %>
+		<%= submit_tag 'Evaluate', id: "evaluate-btn", class: "btn btn-primary btn-lg" %>
 		<% end %>
 		<p id="filePath"></p>
 	</div>
@@ -176,8 +175,7 @@
 
         $("#ExistingCode").val(sub_id);
         $("#myModal").modal("hide");
-
-        clickSubmitButton();
+        $("#evaluate-btn").click();
     }
 <% if !request.env['HTTP_USER_AGENT'].include?'MSIE' and !request.env['HTTP_USER_AGENT'].include?'rv:11.0' %>
     $("#submitButtonPanel").hide();

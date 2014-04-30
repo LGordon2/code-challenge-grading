@@ -6,10 +6,10 @@
     display: none;
   }
   #submitButtonPanel{
-    label{
+    label,input{
        margin: 10px;
     }
-    #fileButton,#evaluateButton{
+    #fileButton{
       display: none;
     }
   }

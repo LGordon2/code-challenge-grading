@@ -32,14 +32,6 @@ function getFilePath() {
     document.getElementById("filePath").innerHTML = document.getElementById("fileButton").files.item(0).name;
 }
 
-function clickSubmitButton() {
-    $('#submitButtonPanel').fadeOut("slow", function() {
-        $('#loadingPanel').fadeIn("slow").delay(2000, function() {
-            $("#submissionForm").submit();
-        });
-    });
-}
-
 function enableProxySubmission() {
     $('#enableProxySubmission').fadeOut("slow", function() {
         $('.proxySubmissionField').fadeIn("slow").delay(2000, function() {
