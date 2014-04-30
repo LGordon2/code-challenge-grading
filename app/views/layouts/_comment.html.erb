@@ -1,11 +1,11 @@
 <div class="comment <%= "comment-child-reply" if change_background %>">
 	<div class="comment-header">
 		<% comment_user = User.find(comment.user_id) %>
-		<%= image_tag User.find_by(id: comment.user_id).photo, class: "circle-avatar" %>
-		<strong><%= comment_user.first_name.capitalize + ' ' + comment_user.last_name.capitalize %></strong> -- 
-		<strong class='created-time' data-comment-id=<%=comment.id%>></strong>.
-		<% if comment.created_at != comment.updated_at %>
-			<sup>*updated <strong class='updated-time' data-comment-id=<%=comment.id%>></strong></sup>
+		<%= image_tag User.find(comment.user_id).photo, class: "circle-avatar" %>
+		<strong><%= comment_user.display_name %></strong> - 
+		<%= content_tag :abbr, nil, class: "timeago", title: comment.created_at.to_s(:iso8601) %>
+		<% unless comment.created_at == comment.updated_at %>
+			<sup>*updated <%= content_tag :abbr, nil, class: "timeago", title: comment.updated_at.to_s(:iso8601) %></sup>
 		<% end %>
 	</div>
 	<div class="comment-body">
