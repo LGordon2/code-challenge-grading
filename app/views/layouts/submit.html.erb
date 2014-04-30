@@ -38,7 +38,7 @@
 		<h3>Results are loading...</h3>
 		<%= image_tag 'loader.gif' %>
 	</div>
-	<div id="NonIEWarning">
+	<div id="non-ie-warning">
 		<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.
 		Please use Internet Explorer to upload files.</h3>
 	</div>
@@ -181,8 +181,8 @@
     }
 <% if !request.env['HTTP_USER_AGENT'].include?'MSIE' and !request.env['HTTP_USER_AGENT'].include?'rv:11.0' %>
     $("#submitButtonPanel").hide();
-    $("#NonIEWarning").show(); 
+    $("#non-ie-warning").show(); 
 <% else %>
     $("#submitButtonPanel").show();
-    $("#NonIEWarning").hide(); 
+    $("#non-ie-warning").hide(); 
 <% end %></script>
