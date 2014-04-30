@@ -6,13 +6,13 @@ $(document).on 'ready', ->
   $(".complete_checkbox").on "change", ->
     $(this).parent().submit()
   $(".edit-btn").click ->
-    $(@).siblings("div.comment-edit").show()
-    $(@).siblings("p.comment-content").hide()
+    $(@).parent().siblings("div.comment-edit").show()
+    $(@).parent().siblings("p.comment-content").hide()
     $('textarea').trigger 'autosize.resize'
     event.preventDefault()
   $(".cancel-btn").click ->
     $(@).parent("div").hide()
     $(@).parent("div").siblings("p.comment-content").show()
   $(".reply-btn").click ->
-    $(@).parent().siblings(".comment-reply").show()
+    $(@).parents("div.comment-body").children(".comment-reply").show()
     event.preventDefault()
