@@ -1,4 +1,4 @@
 document.write("<br>*****************************************************************************************************************<BR>")
-document.write("Due to the nature of this challenge no automated grading will be performed<BR>Your submission has been received")
+document.write("Automated grading is currently being developed for this challenge.  Check back soon.<BR>Your submission has been received")
 document.write("<br>*****************************************************************************************************************<BR>")
 
