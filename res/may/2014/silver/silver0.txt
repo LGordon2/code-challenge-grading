@@ -3,7 +3,7 @@
 	Array.prototype.average = function (array){
 		return this.reduce(function(prev,curr){return prev+curr;})/this.length;
 	}
-	function silverChallenge(candyCountObj){
+	function silverSolution(candyCountObj){
 		var candyCountJsonObj = JSON.parse(candyCountObj);
 		var candyCountsParsed = {};
 		var actualCandyCount = candyCountJsonObj.candy_count;
