@@ -1,26 +1,26 @@
-Dim testCase1
+Dim testCase5
 Dim testCaseNum
-Dim testCase1_expected
-Dim testCase1_actual
+Dim testCase5_expected
+Dim testCase5_actual
 
 'Test Case Number
 testCaseNum = 5
 
 'Test Data
-testCase1 = createCandyCountJSON()
+testCase5 = createCandyCountJSON()
 
 'Run Solution and User Submission
-testCase1_expected = silverSolution(testCase1)
-testCase1_actual = function_name(testCase1)
+testCase5_expected = silverSolution(testCase5)
+testCase5_actual = function_name(testCase5)
 
 'Clear testCase div and start adding results
 clearTestCase(testCaseNum)
-addTestCaseResults testCaseNum, "Test Data:      " & testCase1
-addTestCaseResults testCaseNum, "Expected Result:   " & testCase1_expected
-addTestCaseResults testCaseNum, "Actual Result:     " & testCase1_actual
+addTestCaseResults testCaseNum, "Test Data:      " & testCase5
+addTestCaseResults testCaseNum, "Expected Result:   " & testCase5_expected
+addTestCaseResults testCaseNum, "Actual Result:     " & testCase5_actual
 
 
-If testCase1_expected = testCase1_actual Then
+If testCase5_expected = testCase5_actual Then
 	testCaseStatus testCaseNum, "pass"
 Else	
 	testCaseStatus testCaseNum, "fail"
