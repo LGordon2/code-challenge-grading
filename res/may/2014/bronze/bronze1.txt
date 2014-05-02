@@ -13,7 +13,7 @@ didPass = True
 'Clear testCase div and start adding results
 clearTestCase(1)
 
-For numberForFunction = 1 to 100
+For numberForFunction = 1 to 500
 	didPassNumber = True
 	actualResult = function_name(numberForFunction)
 	expectedResult = bronzeSolution(numberForFunction)
