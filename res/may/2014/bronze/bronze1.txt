@@ -14,7 +14,7 @@ For numberForFunction = 1 to 100
 	expectedResult = bronzeSolution(numberForFunction)
 	
 	If actualResult = expectedResult Then
-		addTestCaseResults 1, "<font color=""green"">" & actualResult & "</font>, "
+		addTestCaseResults 1, "<font color=""#00ff00"">" & actualResult & "</font>, "
 	Else
 		addTestCaseResults 1, "<font color=""red"">" & actualResult & "</font>, "
 		didPass = False
