@@ -9,7 +9,7 @@ For numberForFunction = 1 to 100
 	If actualResult = expectedResult Then
 		addTestCaseResults 1, "<font color=""green"">" & actualResult & "</font>, "
 	Else
-		addTestCaseResults 1, "<font color=""red"">" & actualResult & "</font>"
+		addTestCaseResults 1, "<font color=""red"">" & actualResult & "</font>, "
 	End If
 	
 Next
