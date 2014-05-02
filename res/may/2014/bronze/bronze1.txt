@@ -22,13 +22,13 @@ For numberForFunction = 1 to 100
 	arrActualResult = Split(actualResult, " ")
 	
 	For Each result In arrExpectedResult
-		If Not InStr(UCase(actualResult),UCase(Trim(result))) Then
+		If  InStr(UCase(actualResult),UCase(Trim(result))) = 0 Then
 			didPassNumber = False
 		End If
 	Next
 	
 	For Each result In arrActualResult
-		If Not InStr(UCase(expectedResult),UCase(Trim(result))) Then
+		If  InStr(UCase(expectedResult),UCase(Trim(result))) = 0 Then
 			didPassNumber = False
 		End If
 	Next
