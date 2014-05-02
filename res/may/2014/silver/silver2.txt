@@ -1,5 +1,5 @@
 Dim testCase2
-Dim testCaseNum
+
 Dim testCase2_expected
 Dim testCase2_actual
 
