@@ -1,8 +1,12 @@
 
 Dim actualResult
+Dim arrActualResult
 Dim expectedResult
+Dim arrExpectedResult
 Dim numberForFunction
 Dim didPass
+Dim didPassNumber
+Dim result
 
 didPass = True
 
@@ -10,10 +14,27 @@ didPass = True
 clearTestCase(1)
 
 For numberForFunction = 1 to 100
+	didPassNumber = True
 	actualResult = function_name(numberForFunction)
 	expectedResult = bronzeSolution(numberForFunction)
 	
-	If actualResult = expectedResult Then
+	arrExpectedResult = Split(expectedResult, " ")
+	arrActualResult = Split(actualResult, " ")
+	
+	For Each result In arrExpectedResult
+		If Not InStr(UCase(actualResult),UCase(Trim(result))) Then
+			didPassNumber = False
+		End If
+	Next
+	
+	For Each result In arrActualResult
+		If Not InStr(UCase(expectedResult),UCase(Trim(result))) Then
+			didPassNumber = False
+		End If
+	Next
+	
+	
+	If didPassNumber Then
 		addTestCaseResults 1, "<font color=""#00ff00"">" & actualResult & "</font>, "
 	Else
 		addTestCaseResults 1, "<font color=""red"">" & actualResult & "</font>, "
