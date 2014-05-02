@@ -1,0 +1,17 @@
+Function bronzeSolution(number)
+Dim answer
+
+If number mod 3 = 0 Then
+	answer = "Fizz" & " "
+End If
+
+If number mod 5 = 0 Then 
+	answer = answer & "Buzz" & " "
+End If
+
+If number mod 7 = 0 Then
+	answer = answer & "Woof"
+End If
+
+silverSolution = Trim(answer) 
+End Function
