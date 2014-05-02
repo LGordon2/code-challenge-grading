@@ -14,7 +14,7 @@ Function clearTestCase(testCaseNum)
 End Function
 
 Function addTestCaseResults(testCaseNum, htmlValue)
-	document.getElementById("testCase"&testCaseNum).innerhtml = document.getElementById("testCase"&testCaseNum).innerhtml & "<h5>" & htmlValue & "</h5>"
+	document.getElementById("testCase"&testCaseNum).innerhtml = document.getElementById("testCase"&testCaseNum).innerhtml & htmlValue 
 End Function
 
 Function testCaseStatus(testCaseNum, status)
