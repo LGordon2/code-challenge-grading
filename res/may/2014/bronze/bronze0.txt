@@ -13,5 +13,5 @@ If number mod 7 = 0 Then
 	answer = answer & "Woof"
 End If
 
-silverSolution = Trim(answer) 
+bronzeSolution = Trim(answer) 
 End Function
