@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   def retrieve_picture(ldap)
     filter = Net::LDAP::Filter.eq("samaccountname", self.username.downcase)
     treebase = "dc=orasi, dc=com"
-    f = File.open(Rails.root.join('public', 'photos', self.first_name+self.last_name+'.jpg'), 'w')
+    f = File.open(Rails.root.join('public', 'photos', self.first_name+self.last_name+'.jpg'), 'wb')
     thumbnail_array = ldap.search(:base => treebase, :filter => filter).first["thumbnailphoto"].first
     thumbnail_array.each_line {|line| f.puts line} unless thumbnail_array.nil? 
     f.close

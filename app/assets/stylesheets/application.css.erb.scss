@@ -13,10 +13,19 @@
  *= require_self
  */
 $orasi_blue: #296FAB;
+$border-radius: 5px;
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('<%= asset_path "glyphicons-halflings-regular.eot" %>');
   src: url('<%= asset_path "glyphicons-halflings-regular.eot" %>?#iefix') format('embedded-opentype'), url('<%= asset_path "glyphicons-halflings-regular.woff" %>') format('woff'), url('<%= asset_path "glyphicons-halflings-regular.ttf" %>') format('truetype'), url('<%= asset_path "glyphicons-halflings-regular.svg" %>#glyphicons_halflingsregular') format('svg');
+}
+.dropdown-group{
+  button{
+    padding: 6px;
+  }
+}
+h1.bigtitle{
+  font-size: 80px;
 }
 a.navbar-brand
 {
@@ -103,13 +112,14 @@ transition: height 0.2s;
 header {
   background-color: white;
 }
-.bigtitle{
-  font-size: 80px;
-}
 .masthead {
   padding: 70px 0 30px;
   margin-bottom: 0;
   color: #fff;
+}
+.icon-bar
+{
+  background-color: $orasi_blue;
 }
 a
 {
@@ -125,22 +135,10 @@ body
   padding-right: 22px;
   vertical-align:top;
 }
-
-
-aside {
-  vertical-align:top;
-
-  display: table-cell;
-  width: 500px;
-}
 #content{
   display: table;
 }
 #mainContent{
-  display: table-cell;
-}
-#submitPanel{
-  vertical-align:top;
   display: table-cell;
 }
 #comment_row{
@@ -151,39 +149,11 @@ aside {
   column-span:all;
   -webkit-column-span:all; /* Safari and Chrome */
 }
-section#comments article:nth-child(odd) {
-  padding: 21px;
-  background: #d7d7d7;
-  border: 1px solid #d7d7d7;
-  color: #296FAB;
-  /* Border-radius not implemented yet */
-  border-radius: 11px;
-  -webkit-border-radius: 11px;
-}
-section#comments article:nth-child(even) {
-  padding: 21px;
-  background: #ffffff;
-  border: 1px solid #E3E3E3;
-  color: #296FAB;
-  /* Border-radius not implemented yet */
-  border-radius: 11px;
-  -webkit-border-radius: 11px;
-}
 textarea{
-  border-radius: 11px;
-}
-section#comments article:nth-child(odd) header{
-  background: #d7d7d7;
-  color: #296FAB;
-}
-#fileButton{
-  visibility: hidden;
-}
-#evaluateButton{
-  visibility: hidden;
+  border-radius: $border-radius;
 }
 #comments p{
-  color: #296FAB;
+  color: $orasi_blue;
 }
 #loadingPanel{
   display: none;
@@ -196,4 +166,58 @@ textarea {
 #admin-link
 {
   margin-top: 1px;
+}
+.comment
+{
+  padding: 21px;
+  background-color: #ffffff;
+  border: 1px solid #E3E3E3;
+  color: $orasi_blue;
+  margin: 10px 0;
+  /* Border-radius not implemented yet */
+  
+  border-radius: $border-radius;
+  -webkit-border-radius: $border-radius;
+  
+  .comment-header{
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  .comment-body{
+    height: 100%;
+    margin: 10px 0;
+    p.comment-content{
+      display: block;
+    }
+    div.comment-edit{
+      display:none;
+      textarea{
+        margin: 10px 0;
+      }
+    }
+  }
+  
+  .comment-reply{
+     height: 100%;
+     display: none;
+     form{
+       display: inline;
+     }
+   }
+   
+   &.comment-child-reply{
+    background-color: rgb(245,246,247);
+  }
+}
+.circle-avatar
+{
+  border-radius: 100%;
+}
+abbr.timeago
+{
+  border: none;
+  cursor: text;
 }

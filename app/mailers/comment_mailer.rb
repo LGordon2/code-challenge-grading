@@ -1,6 +1,6 @@
 class CommentMailer < ActionMailer::Base
   
-	default from: "CodeChallenge@Orasi.com"
+	default from: "codechallenge@orasi.com"
 
 	def new_comment(user, comment)
 		@user = user 

@@ -1,188 +1,186 @@
-<br>
-<br>
-<br>
-<Br>
 <script type="text/javascript">var browserIsIE;</script>
 <script type='text/vbscript'>browserIsIE = true</script>
-<% if current_user.admin %>
-<%= link_to "Get all submissions", submissions_path(month: challenge_month, league: challenge_league, year: challenge_year) %><BR>
-<% end %>
-<% if challenge_month != CurrentMonthYear.first.month and challenge_year != CurrentMonthYear.first.year %>
-	<h3> Challenge Winners </h3>
-	<% Challenge.find_by(month: challenge_month, league: challenge_league, year: challenge_year).challenge_winners.each do |winner| %>
-		<% winner_name = User.find(Submission.find(winner.submission_id).user_id).display_name %>
-		<%= link_to winner_name, controller: "submission", action: "show", id: winner.submission_id %>
-	<% end %>
-	<br><br>
-<% end %>
-<%= yield :supporting_link %>
-<div id="submitButtonPanel">
-
-	<h3> Submit Solution</h3>
-	<br>
-<% if current_user.admin %>
-<%= button_tag "Run Existing Submission", :id =>"enableProxySubmission", :class => "btn btn-primary btn-lg", :onClick => "hidePdf(); return false;" %> 
-<% end %>
-	<%= form_tag(challenge_league, method: :post,multipart: true,:id => "submissionForm") do %>
-	<% if current_user.admin %>
-	 
-		
+<div id="submit-header-panel">
+	<div id="submit-links">
+		<%= yield :supporting_link %>
+		<% if current_user.admin %>
+		<%= link_to "Get all submissions", submissions_path(month: challenge_month, league: challenge_league, year: challenge_year) %>
+		<% end %>
+	</div>
+	<div>
+		<% if challenge_month != CurrentMonthYear.first.month and challenge_year != CurrentMonthYear.first.year %>
+		<h3>Challenge Winners</h3>
+		<div id="challenge-winner-links">
+			<% Challenge.find_by(month: challenge_month, league: challenge_league, year: challenge_year).challenge_winners.each do |winner| %>
+			<%= link_to User.find(Submission.find(winner.submission_id).user_id).display_name, user_submission_path(winner.submission_id) %>
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+	<div id="submitButtonPanel">
+		<h3> Submit Solution</h3>
+		<% if current_user.admin %>
+		<%= button_tag "Run Existing Submission", :id =>"enableProxySubmission", :class => "btn btn-primary btn-lg", :onClick => "hidePdf(); return false;" %>
+		<% end %>
+		<%= form_tag(challenge_league, method: :post,multipart: true,:id => "submissionForm") do %>
+		<% if current_user.admin %>
 		<%= text_area_tag "ExistingCode", nil, :style => "display:none" %>
-	<% end %>
-	<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
-	<%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
-	<%= submit_tag 'Evaluate', :id => "evaluateButton", :onClick =>"clickSubmitButton();return false" %>
-	<%= label_tag(:evaluateButton, "Evaluate",:class => "btn btn-primary btn-lg") %>
+		<% end %>
+		<%= file_field_tag 'script', :id => "fileButton", :onChange => "getFilePath()" %>
+		<%= label_tag(:fileButton, "Select File", :class => "btn btn-primary btn-lg") %>
+		<%= submit_tag 'Evaluate', id: "evaluate-btn", class: "btn btn-primary btn-lg" %>
+		<% end %>
+		<p id="filePath"></p>
+	</div>
 
-	<% end %>
-	<p id="filePath"></p>
-</div>
-
-<div id="loadingPanel">
-	<h3> Results are Loading.
-	<br>
-	Please be patient...</h3>
-</div>
-<div id="NonIEWarning">
-	<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.
-	<br>
-	Please use Internet Explorer to upload files.</h3>
+	<div id="loadingPanel">
+		<h3>Results are loading...</h3>
+		<%= image_tag 'loader.gif' %>
+	</div>
+	<div id="non-ie-warning">
+		<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.
+		Please use Internet Explorer to upload files.</h3>
+	</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel" style="color:#1417cc">Select Submission to Execute</h4>
-      </div>
-      <div class="modal-body">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel" style="color:#1417cc">Select Submission to Execute</h4>
+			</div>
+			<div class="modal-body">
 
-			<div id="fullList" style="display:none">
-				<table class="table table-striped table-hover">
-					<tr style="color:#428bca">
-						<th>Submission Details</th>
-						<th></th>
-						<% if current_user.su %>
-							<th style="text-align:right">Winner?</th>
-						<% end %>
-					</tr>
-					<% submissions = Submission.where(month: challenge_month, league: challenge_league)%>
-					<% submissions.reverse.each do |submission| %>
-						<% user = User.find(submission.user_id) %>	
-						<tr><td onClick="existingSubmission(<%= submission.id %>);" style="text-align:left;cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
-							<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
-							<% if submission.complete %>
-								<%= image_tag("check.png") %>
-							<% end %>
-						</td>
-						<td>
-							<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
-							
-						</td>
+				<div id="fullList" style="display:none">
+					<table class="table table-striped table-hover">
+						<tr style="color:#428bca">
+							<th>Submission Details</th>
+							<th></th>
 							<% if current_user.su %>
-								<td align="center" >
-									<%= form_for :winner, url: { controller: "submission", action: "winner"}, remote: true do |c| %>			
-										<%= c.check_box :isWinner, class: "complete_checkbox", checked: ChallengeWinner.where(:submission_id => submission.id, :challenge_id => submission.challenge.id).count != 0 %>
-										<%= c.hidden_field "submission_id", {:value => submission.id} %>						
-									<% end %>
-								</td>
+							<th style="text-align:right">Winner?</th>
 							<% end %>
 						</tr>
-					<% end %>
-				</table>
-			</div>
-			<div id="recentList">
-				<table class="table table-striped table-hover">	
-					<tr style="color:#428bca">
-						<th>Submission Details</th>
-						<th></th>
-						<% if current_user.su %>
-							<th style="text-align:right">Winner?</th>
-						<% end %>
-					</tr>
-					<% Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').each do |submission| %>
+						<% submissions = Submission.where(month: challenge_month, league: challenge_league)%>
+						<% submissions.reverse.each do |submission| %>
 						<% user = User.find(submission.user_id) %>
-							<tr><td align="left" onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'">
-								<%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
-									<% if submission.complete %>
-										<%= image_tag("check.png") %>
-									<% end %>
-								</td>
-								<td>
-									<%= link_to "View", controller: "submission", action: "show", id: submission.id %>
-								</td>
-									<% if current_user.su %>
-										<td align="center" >
-											<%= form_for :winner, url: { controller: "submission", action: "winner"}, remote: true do |c| %>
-											
-												<%= c.check_box :isWinner, class: "complete_checkbox", checked: ChallengeWinner.where(:submission_id => submission.id, :challenge_id => submission.challenge.id).count != 0 %>
-												<%= c.hidden_field "submission_id", {:value => submission.id} %>
-												
-											<% end %>
-										</td>
-									<% end %>
-							</tr>
-					<% end %>
-				</table>
+						<tr>
+							<td onClick="existingSubmission(<%= submission.id %>);" style="text-align:left;cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'"> <%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
+							<% if submission.complete %>
+							<%= image_tag("check.png") %>
+							<% end %> </td>
+							<td> <%= link_to "View", controller: "submission", action: "show", id: submission.id %> </td>
+							<% if current_user.su %>
+							<td align="center" > <%= form_for :winner, url: { controller: "submission", action: "winner"}, remote: true do |c| %>
+							<%= c.check_box :isWinner, class: "complete_checkbox", checked: ChallengeWinner.where(:submission_id => submission.id, :challenge_id => submission.challenge.id).count != 0 %>
+							<%= c.hidden_field "submission_id", {:value => submission.id} %>
+							<% end %> </td>
+							<% end %>
+						</tr>
+						<% end %>
+					</table>
+				</div>
+				<div id="recentList">
+					<table class="table table-striped table-hover">
+						<tr style="color:#428bca">
+							<th>Submission Details</th>
+							<th></th>
+							<% if current_user.su %>
+							<th style="text-align:right">Winner?</th>
+							<% end %>
+						</tr>
+						<% Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').each do |submission| %>
+						<% user = User.find(submission.user_id) %>
+						<tr>
+							<td align="left" onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'"> <%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
+							<% if submission.complete %>
+							<%= image_tag("check.png") %>
+							<% end %> </td>
+							<td> <%= link_to "View", controller: "submission", action: "show", id: submission.id %> </td>
+							<% if current_user.su %>
+							<td align="center" > <%= form_for :winner, url: { controller: "submission", action: "winner"}, remote: true do |c| %>
+
+							<%= c.check_box :isWinner, class: "complete_checkbox", checked: ChallengeWinner.where(:submission_id => submission.id, :challenge_id => submission.challenge.id).count != 0 %>
+							<%= c.hidden_field "submission_id", {:value => submission.id} %>
+
+							<% end %> </td>
+							<% end %>
+						</tr>
+						<% end %>
+					</table>
+				</div>
 			</div>
-      </div>
-      <div class="modal-footer">
-        
-		 <button type="button" id="showAllButton" class="btn btn-default" onClick="showAllSubmissionsModal(); return false;">Show All Submissions</button>
-		  <button type="button" id="showRecentButton" class="btn btn-default" style="display:none" onClick="showRecentSubmissionsModal(); return false;">Show Most Recent Submissions</button>
-		<button type="button" class="btn btn-default" onClick="closeModal(); return false;">Cancel</button>	
-	  </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+			<div class="modal-footer">
+
+				<button type="button" id="showAllButton" class="btn btn-default" onClick="showAllSubmissionsModal(); return false;">
+					Show All Submissions
+				</button>
+				<button type="button" id="showRecentButton" class="btn btn-default" style="display:none" onClick="showRecentSubmissionsModal(); return false;">
+					Show Most Recent Submissions
+				</button>
+				<button type="button" class="btn btn-default" onClick="closeModal(); return false;">
+					Cancel
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <script type="text/javascript">
+    $('#myModal').on('hidden.bs.modal', function(e) {
+        $("#challengeDescription").fadeIn("slow");
+    })
+    function showAllSubmissionsModal() {
+        $("#showAllButton").fadeOut("slow", function() {
+        });
+        $("#recentList").fadeOut("slow", function() {
+            $("#fullList").fadeIn("slow", function() {
+            });
+            $("#showRecentButton").fadeIn("slow", function() {
+            });
+        });
+    }
 
-$('#myModal').on('hidden.bs.modal', function (e) {
-  $("#challengeDescription").fadeIn("slow");
-})
-function showAllSubmissionsModal(){
-	$("#showAllButton").fadeOut("slow", function() {});
-	$("#recentList").fadeOut("slow", function() {
-		$("#fullList").fadeIn("slow", function() {});
-		$("#showRecentButton").fadeIn("slow", function() {});
-	});	
-}
-function showRecentSubmissionsModal(){
-	$("#showRecentButton").fadeOut("slow", function() {});
-	$("#fullList").fadeOut("slow", function() {
-		$("#recentList").fadeIn("slow", function() {});
-		$("#showAllButton").fadeIn("slow", function() {});
-	});	
-}
-function donot(){
+    function showRecentSubmissionsModal() {
+        $("#showRecentButton").fadeOut("slow", function() {
+        });
+        $("#fullList").fadeOut("slow", function() {
+            $("#recentList").fadeIn("slow", function() {
+            });
+            $("#showAllButton").fadeIn("slow", function() {
+            });
+        });
+    }
 
-	$("#showRecentButton").fadeOut("slow", function() {
-		$("#showAllButton").fadeIn("slow");
-	});
-}
+    function donot() {
 
-function hidePdf(){
-	$("#challengeDescription").hide();
-	$("#myModal").modal("show");
-}
-function closeModal(){
-	$("#myModal").modal("hide");
-	$("#challengeDescription").fadeIn("slow");
-}
-function existingSubmission(sub_id){
+        $("#showRecentButton").fadeOut("slow", function() {
+            $("#showAllButton").fadeIn("slow");
+        });
+    }
 
-$("#ExistingCode").val(sub_id);
-$("#myModal").modal("hide");
+    function hidePdf() {
+        $("#challengeDescription").hide();
+        $("#myModal").modal("show");
+    }
 
-clickSubmitButton();
-}
-<% if !request.env['HTTP_USER_AGENT'].include?'MSIE' and !request.env['HTTP_USER_AGENT'].include?'rv:11.0'%>
-  $("#submitButtonPanel").hide();
-  $("#NonIEWarning").show();
+    function closeModal() {
+        $("#myModal").modal("hide");
+        $("#challengeDescription").fadeIn("slow");
+    }
+
+    function existingSubmission(sub_id) {
+
+        $("#ExistingCode").val(sub_id);
+        $("#myModal").modal("hide");
+        $("#evaluate-btn").click();
+    }
+<% if !request.env['HTTP_USER_AGENT'].include?'MSIE' and !request.env['HTTP_USER_AGENT'].include?'rv:11.0' %>
+    $("#submitButtonPanel").hide();
+    $("#non-ie-warning").show(); 
 <% else %>
-  $("#submitButtonPanel").show();
-  $("#NonIEWarning").hide();
-<% end %>
-</script>
+    $("#submitButtonPanel").show();
+    $("#non-ie-warning").hide(); 
+<% end %></script>

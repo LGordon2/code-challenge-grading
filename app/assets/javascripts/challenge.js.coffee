@@ -2,24 +2,23 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready', ->
+  $("abbr.timeago").timeago()
   $(".complete_checkbox").on "change", ->
     $(this).parent().submit()
-  $('.created-time').each ->
-    getTime = =>
-      $.ajax(url: '/comments/time/created/'+$(@).data('comment-id')+'.json').done (json) =>
-        $(@).text($.timeago(json))
-    getTime();
-    setInterval getTime, 5000
-  $('.updated-time').each ->
-    getTime = =>
-      $.ajax(url: "/comments/time/updated/"+$(@).data('comment-id')+'.json').done (json) =>
-        $(@).text($.timeago(json))
-    getTime();
-    setInterval getTime, 5000
-  $(".edit-btn").click ->
-    $(@).siblings(".comment-body,.comment-edit,.cancel-btn,.update-btn").toggle "slow", =>
-      $('textarea').trigger 'autosize.resize'
-    $(@).toggle("slow")
+  $(".edit-btn").click (event) ->
+    $(@).parent().siblings("div.comment-edit").show()
+    $(@).parent().siblings("p.comment-content").hide()
+    $('textarea').trigger 'autosize.resize'
+    event.preventDefault()
   $(".cancel-btn").click ->
-    $(@).siblings(".comment-body,.comment-edit,.update-btn,.edit-btn").toggle("slow")
-    $(@).toggle("slow")
+    $(@).parent("div").hide()
+    $(@).parent("div").siblings("p.comment-content").show()
+  $(".reply-btn").click (event) ->
+    $(@).parents("div.comment-body").children(".comment-reply").show()
+    event.preventDefault()
+  $("#evaluate-btn").click (event) ->
+    $('#submitButtonPanel').fadeOut "slow", ->
+      $('#loadingPanel').fadeIn("slow").delay 2000, ->
+        $("#submissionForm").submit()
+    event.preventDefault()
+   

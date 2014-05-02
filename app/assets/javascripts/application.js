@@ -19,45 +19,22 @@
 //= require create_json
 
 $(document).on('ready', function() {
-  return $('textarea').autosize({
-    append: "\n"
-  });
+    return $('textarea').autosize({
+        append : "\n"
+    });
 });
 
 function clickFileButton() {
-
-	document.getElementById("fileButton").click();
-
+    document.getElementById("fileButton").click();
 }
 
 function getFilePath() {
-	document.getElementById("filePath").innerHTML = document.getElementById("fileButton").files.item(0).name;
+    document.getElementById("filePath").innerHTML = document.getElementById("fileButton").files.item(0).name;
 }
 
-function clickSubmitButton() {
-    $('#submitButtonPanel').fadeOut("slow",function(){
-        $('#loadingPanel').fadeIn("slow").delay(2000,function(){
-
-            $("#submissionForm").submit();
-
-
+function enableProxySubmission() {
+    $('#enableProxySubmission').fadeOut("slow", function() {
+        $('.proxySubmissionField').fadeIn("slow").delay(2000, function() {
         });
     });
-
-}
-function enableProxySubmission() {
- $('#enableProxySubmission').fadeOut("slow",function(){
-        $('.proxySubmissionField').fadeIn("slow").delay(2000,function(){
-
-		});
-	});
-}
-
-
-function FlyIn(x,y){
-//alert('#r' + x.toString() + '_' + y.toString());
-document.getElementById("r" + x + "_" + y).css.display="inline";
-
-
-	
 }

@@ -1,0 +1,47 @@
+<div class="comment <%= "comment-child-reply" if change_background %>">
+	<div class="comment-header">
+		<% comment_user = User.find(comment.user_id) %>
+		<%= image_tag User.find(comment.user_id).photo, class: "circle-avatar" %>
+		<strong><%= comment_user.display_name %></strong> - 
+		<%= content_tag :abbr, nil, class: "timeago", title: comment.created_at.to_s(:iso8601) %>
+		<% unless comment.created_at == comment.updated_at %>
+			<sup>*updated <%= content_tag :abbr, nil, class: "timeago", title: comment.updated_at.to_s(:iso8601) %></sup>
+		<% end %>
+	</div>
+	<div class="comment-body">
+		<%= form_for comment do |f|%>
+			<p class="comment-content">
+				<%= comment.comment %>
+			</p>
+			<div class="comment-edit">
+				<%= f.text_area :comment, class: 'edit-field animated' %>
+				<%= f.submit 'Update', class: 'update-btn btn' %>
+				<%= button_tag 'Cancel', class: "cancel-btn btn", type: 'button' %>
+			</div>
+			<div>
+				<% if comment.user_id == current_user.id or current_user.admin %>
+					<%= link_to 'Edit', nil, class: 'edit-btn'%>
+					<%= link_to 'Delete', comment_path(comment) , method: :delete, data: {confirm: "Are you sure you want to delete this comment?" }, id: comment.id %>
+				<% end %>
+				<%= link_to 'Reply', nil, class: 'reply-btn' %>
+			</div>
+		<% end %>
+		<div class="comment-reply">
+			<%= form_for @comment_reply do |g|%>
+				<p class="comment-edit">
+					<%= g.text_area :comment, class: 'animated' %>
+					<%= g.hidden_field :month, :value => challenge_month %>
+					<%= g.hidden_field :league, :value => challenge_league %>
+					<%= g.hidden_field :reply_id, :value => comment.id %>	
+				</p>
+				<%= g.submit 'Reply', class: 'update-btn btn' %>
+			<% end %> 
+			<%= button_tag 'Cancel', class: "cancel-btn btn", type: 'button' %>
+		</div>
+	</div>
+	
+	<% comment.replies.each do |reply| %>
+	  <%= render partial: "layouts/comment", locals: {comment: reply, change_background: !change_background} %>
+	<% end %>
+</div>
+

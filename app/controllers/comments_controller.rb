@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
   before_action :verify_user, except: [:create, :show, :created_time, :updated_time]
   before_action :set_comment, except: [:create, :show]
   
@@ -37,7 +36,6 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find(params[:id])
     CommentMailer.updated_comment(User.find(@comment.user_id), @comment, params[:comment][:comment]).deliver
     @comment.comment = params[:comment][:comment]
     @comment.save
@@ -45,8 +43,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @replies = Comment.where(:reply_id => params[:id])
+    @replies = Comment.where(reply_id: params[:id])
     CommentMailer.deleted_comment(User.find(@comment.user_id), @comment, current_user).deliver
     @replies.each do |reply|
 	reply.destroy
@@ -62,11 +59,10 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    
     params.require(:comment).permit(:comment,:month,:league,:name,:reply_id)
   end
  
   def verify_user
-    redirect_to :back, notice: "Insufficient privileges" unless current_user.admin or Comment.find(params[:id]).user_id==current_user.id
+    redirect_to :back, notice: "Insufficient privileges" unless current_user.admin or Comment.find(params[:id]).user==current_user
   end
 end
