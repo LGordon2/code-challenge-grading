@@ -8,14 +8,14 @@ testCaseNum = 4
 
 'Test Data
 testCase4 = createCandyCountJSON()
-
+testCase4_disp = testCase4
 'Run Solution and User Submission
 testCase4_expected = silverSolution(testCase4)
 testCase4_actual = function_name(testCase4)
 
 'Clear testCase div and start adding results
 clearTestCase(testCaseNum)
-addTestCaseResults testCaseNum, "Test Data:      " & testCase4
+addTestCaseResults testCaseNum, "Test Data:      " & testCase4_disp
 addTestCaseResults testCaseNum, "Expected Result:   " & testCase4_expected
 addTestCaseResults testCaseNum, "Actual Result:     " & testCase4_actual
 
