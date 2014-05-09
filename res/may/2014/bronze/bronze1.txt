@@ -1,0 +1,50 @@
+
+Dim actualResult
+Dim arrActualResult
+Dim expectedResult
+Dim arrExpectedResult
+Dim numberForFunction
+Dim didPass
+Dim didPassNumber
+Dim result
+
+didPass = True
+expectedResult = function_name(300)
+'Clear testCase div and start adding results
+clearTestCase(1)
+
+For numberForFunction = 1 to 500
+	didPassNumber = True
+	actualResult = function_name(numberForFunction)
+	expectedResult = bronzeSolution(numberForFunction)
+	
+	arrExpectedResult = Split(expectedResult, " ")
+	arrActualResult = Split(actualResult, " ")
+	
+	For Each result In arrExpectedResult
+		If  InStr(UCase(actualResult),UCase(Trim(result))) = 0 Then
+			didPassNumber = False
+		End If
+	Next
+	
+	For Each result In arrActualResult
+		If  InStr(UCase(expectedResult),UCase(Trim(result))) = 0 Then
+			didPassNumber = False
+		End If
+	Next
+	
+	
+	If didPassNumber Then
+		addTestCaseResults 1, "<font color=""#00ff00"">" & actualResult & "</font>, "
+	Else
+		addTestCaseResults 1, "<font color=""red"">" & actualResult & "</font>, "
+		didPass = False
+	End If
+	
+Next
+
+If didPass Then
+	testCaseStatus 1, "Pass"
+Else
+	testCaseStatus 1, "Fail"
+End If

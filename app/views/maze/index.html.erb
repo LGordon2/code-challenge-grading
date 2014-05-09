@@ -226,7 +226,7 @@
 	<% 1..9.times do |t| %>
 		initTestCase <%= t+1 %>
 		On Error Resume Next
-		testCase<%= t+1 %>_result = <%= functionName %>("<%= maze[t] %>", "<%= startArray[t][0].to_s + "," + startArray[t][1].to_s %>","<%= endArray[t][0].to_s + "," + endArray[t][1].to_s %>")
+		testCase<%= t+1 %>_result = <%= functionName %>("<%= maze[t] %>", "<%= startArray[t][1].to_s + "," + startArray[t][0].to_s %>","<%= endArray[t][1].to_s + "," + endArray[t][0].to_s %>")
 		If Err.Number <> 0 Then
 			addTestCaseResults <%= t+1 %>, "<h5><font color=""red"">Error Processing Test Case </font></h5>"
 			addTestCaseResults <%= t+1 %>, "<h5><font color=""red"">Error Source:  " & Err.Source & "</font></h5>"
@@ -234,7 +234,7 @@
 		Else
 			addTestCaseResults <%= t+1 %>, "Expected Value:    <%= result[t].to_s.capitalize  %>"
 			addTestCaseResults <%= t+1 %>, "Actual Value:   " & testCase<%= t+1 %>_result
-			If testCase1_result = <%= result[t] %> Then
+			If CBool(testCase<%= t+1 %>_result) = CBool(<%= result[t] %>) Then
 				testCaseStatus <%= t+1 %>, "Pass"
 			Else
 				testCaseStatus <%= t+1 %>, "Fail"

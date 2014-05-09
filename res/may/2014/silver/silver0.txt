@@ -1,0 +1,38 @@
+	</script>
+	<script>
+	Array.prototype.average = function (array){
+		return this.reduce(function(prev,curr){return prev+curr;})/this.length;
+	}
+	function silverSolution(candyCountObj){
+		var candyCountJsonObj = JSON.parse(candyCountObj);
+		var candyCountsParsed = {};
+		var actualCandyCount = candyCountJsonObj.candy_count;
+		var calculatedDelta;
+		var winners = [];
+		var winner_name_array = [];
+		
+		candyCountJsonObj['guessers'].forEach(function(element){
+			if (element.name in candyCountsParsed){
+				candyCountsParsed[element.name].push(element.guess);
+			}else{
+				candyCountsParsed[element.name] = [element.guess];	
+			}
+		});
+		for (key in candyCountsParsed){
+			calculatedDelta = Math.abs(candyCountsParsed[key].average()-actualCandyCount);
+			if(winners.length === 0 || calculatedDelta < winners[0].delta){
+				winners = [];
+				winners.push({name: key, delta: calculatedDelta});
+			}else if(calculatedDelta === winners[0].delta){
+				winners.push({name: key, delta: calculatedDelta});
+			}
+		}
+		winners.forEach(function (element){
+			winner_name_array.push(element.name);
+		});
+		return winner_name_array.join(" ");
+	}
+	</script>
+	<script type="text/vbscript">
+	
+	
