@@ -19,13 +19,18 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql
-  encoding: utf8
-  database: codechallenge
+  adapter: sqlite3
+  database: db/production.sqlite3
   pool: 5
-  username: apps
-  password: gso-pass
-  socket: /tmp/mysql.sock
+  timeout: 5000
+#production:
+#  adapter: mysql
+#  encoding: utf8
+#  database: codechallenge
+#  pool: 5
+#  username: apps
+#  password: gso-pass
+#  socket: /tmp/mysql.sock
 
 staging:
   adapter: mysql
