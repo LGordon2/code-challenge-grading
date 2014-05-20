@@ -35,7 +35,7 @@
 
 	<div id="loadingPanel">
 		<h3>Results are loading...</h3>
-		<%= image_tag 'loader.gif' %>
+		<div class="loader"></div>
 	</div>
 	<div id="non-ie-warning">
 		<h3>We regret to inform you that you can not use a real browser to upload challenge submissions.
@@ -177,10 +177,12 @@
         $("#myModal").modal("hide");
         $("#evaluate-btn").click();
     }
+<% unless Rails.env.development? %>
 <% if !request.env['HTTP_USER_AGENT'].include?'MSIE' and !request.env['HTTP_USER_AGENT'].include?'rv:11.0' %>
     $("#submitButtonPanel").hide();
     $("#non-ie-warning").show(); 
 <% else %>
     $("#submitButtonPanel").show();
     $("#non-ie-warning").hide(); 
+<% end %>
 <% end %></script>
