@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421184446) do
+ActiveRecord::Schema.define(version: 20140520130544) do
 
   create_table "challenge_winners", force: true do |t|
     t.integer  "challenge_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140421184446) do
 
   create_table "comments", force: true do |t|
     t.string   "name"
-    t.string   "comment"
+    t.text     "comment"
     t.string   "month"
     t.string   "league"
     t.datetime "created_at"
