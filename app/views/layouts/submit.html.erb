@@ -92,7 +92,7 @@
 							<% end %>
 						</tr>
 						<% Submission.where(month: challenge_month, league: challenge_league).group(:user_id).having('max(created_at)').each do |submission| %>
-						<% user = User.find(submission.user_id) %>
+						<% user = submission.user %>
 						<tr>
 							<td align="left" onClick="existingSubmission(<%= submission.id %>);" style="cursor:pointer;color:#428bca" onMouseOver="this.style.color='#1417cc'" onMouseOut="this.style.color='#428bca'"> <%= user.first_name.capitalize + " " + user.last_name.capitalize + "    -   " + submission.created_at.localtime.to_s(:long) %>
 							<% if submission.complete %>
@@ -178,8 +178,8 @@
         $("#evaluate-btn").click();
     }
 <% if !request.env['HTTP_USER_AGENT'].include?'MSIE' and !request.env['HTTP_USER_AGENT'].include?'rv:11.0' %>
-    $("#submitButtonPanel").show();
-    $("#non-ie-warning").hide(); 
+    $("#submitButtonPanel").hide();
+    $("#non-ie-warning").show(); 
 <% else %>
     $("#submitButtonPanel").show();
     $("#non-ie-warning").hide(); 
