@@ -1,0 +1,46 @@
+<style>
+    i{
+    	font-style: normal;
+    }
+    i.pass{
+    	color: #44EB23;
+    }
+    i.fail{
+    	color: red;
+    }
+</style>
+<div>
+	<%= (1..Random.rand(10000)+1000).to_a.collect do |n|
+		  word = []
+		  if n % 3 == 0
+		  	word << "Fizz"
+		  end
+		  
+		  if n % 5 == 0
+		  	word << "Buzz"
+		  end
+		  
+		  if n % 7 == 0
+		  	word << "Woof"
+		  end
+		  
+		  word << n if word.length == 0
+		  "<i>#{word.join(" ")}</i>"
+		end.join(", ").html_safe %>
+</div>
+<div>
+	<span id="exeTime"></span>
+</div>
+<script>
+	var startingTime;
+	startingTime = new Date().getTime();
+	$("i").each(function(){
+		if($(this).text() == "Buzz"){
+			$(this).addClass("pass");
+		}else{
+			$(this).addClass("fail");
+		}
+	});
+	$("#exeTime").text("Execution time: "+(new Date().getTime() - startingTime));
+</script>
+
