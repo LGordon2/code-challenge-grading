@@ -24,11 +24,15 @@ class SubmissionController < ApplicationController
   
   private
   
+  def is_winner?
+    
+  end
+  
   def set_submission
     @submission = Submission.find(params[:id])
   end
   
   def require_user_or_admin
-    redirect_to :root unless current_user.admin? or current_user == @submission.user
+    redirect_to :root unless current_user.admin? or current_user == @submission.user or @submission.is_winner?
   end
 end
