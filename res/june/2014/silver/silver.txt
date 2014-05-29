@@ -1,0 +1,143 @@
+</script>
+<canvas id="battleshipCanvas" width="726" height="726"></canvas>
+<script>
+
+	function BattleShip(pixels){
+		this.canvas = document.getElementById("battleshipCanvas");
+		this.canvas.width = pixels*11;
+		this.canvas.height = pixels*11;
+		this.ctx = this.canvas.getContext("2d");
+		this.gameBoard = [];
+		for (var i = 0; i < 10 ; i++){
+			this.gameBoard[i] = [];	
+		}
+		this.pixels = pixels;
+		this.rows = [];
+		this.columns = [];
+		this.radius = pixels * .4;
+		for (var i = 0; i < 10; i++) {
+			this.rows[i] = pixels*1.5 + pixels *i;
+			this.columns[i] = pixels*.5 + pixels *i;
+		}
+		
+		this.drawBoard = function(){
+			ctx = this.ctx;
+			ctx.fillStyle = "#65C2C9";
+			ctx.fillRect(this.pixels,0,this.pixels*10, this.pixels*10);
+			var letters = ["A", "B", "C", "D", "E", "F", "G","H", "I", "J"]
+			for (var i = 0; i < 11; i++) { 
+				ctx.moveTo(0,this.pixels*i);
+				ctx.lineTo(this.pixels*11,this.pixels*i);
+				ctx.stroke();
+				
+				ctx.moveTo(this.pixels+this.pixels*i, 0);
+				ctx.lineTo(this.pixels+this.pixels*i, this.pixels*11);
+				ctx.stroke();
+				
+				if (i != 10){
+					ctx.font = "30px Arial";
+					ctx.fillStyle = "#FFFFFF";
+					ctx.fillText(i + 1,this.pixels/2-10,this.pixels/2+this.pixels*i+10);
+					ctx.fillText(letters[i], this.pixels*1.3 + this.pixels*i, this.pixels*10.7);
+				}
+				
+				
+			}
+
+		}
+		
+		this.drawShip = function (p1, p2){
+			ctx.beginPath()
+			ctx = this.ctx;
+			ctx.arc(this.rows[p1[0]], this.columns[p1[1]], this.radius, 0, 2*Math.PI, false);
+			ctx.fillStyle="#867970";
+			ctx.fill();
+			ctx.arc(this.rows[p2[0]], this.columns[p2[1]], this.radius, 0, 2*Math.PI, false);
+			ctx.fill();
+			
+			if(p1[0] == p2[0]){
+				var spaces = p2[1] - p1[1];
+				ctx.fillRect(this.rows[p1[0]]-this.radius,this.columns[p1[1]], this.radius*2, this.rows[p2[1]]-this.rows[p1[1]]);
+				for (var i = 0; i < spaces+1; i++){
+					ctx.beginPath();
+					ctx.arc(this.rows[p1[0]], this.columns[p1[1]+i], this.radius/3, 0, 2*Math.PI, false);
+					ctx.fillStyle = "#000000";
+					ctx.fill();
+				}
+			}else if(p2[1] == p2[1]){
+				var spaces = p2[0] - p1[0];
+				ctx.fillRect(this.rows[p1[0]],this.columns[p1[1]] - this.radius, this.rows[p2[0]]-this.rows[p1[0]],this.radius*2);
+				for (var i = 0; i < spaces+1; i++){
+					ctx.beginPath();
+					ctx.arc(this.rows[p1[0]+i], this.columns[p1[1]], this.radius/3, 0, 2*Math.PI, false);
+					ctx.fillStyle = "#000000";
+					ctx.fill();
+				}
+			}
+			
+			
+		}
+		
+		this.placeShips = function (sizes){
+			for (var y = 0; y <10; y++){
+				for (var x = 0; x <10; x++){
+					this.gameBoard[x][y]="o";
+				}	
+			}
+			
+			for (index = 0; index < sizes.length; ++index) {
+				notPlaced = true;
+				while (notPlaced) {
+					shipX = Math.floor((Math.random() * 10) + 1) - 1;
+					shipY = Math.floor((Math.random() * 10) + 1) - 1;
+					direction = Math.floor((Math.random() * 2) + 1) - 1;
+					if (shipX + sizes[index] < 10 ){
+						noConflict = true;
+						for (var i = 0 ; i < sizes[index] ; i++ ){
+							if (direction == 0 && this.gameBoard[shipX + i][shipY] != "o"){
+								noConflict = false;
+							}else if (direction == 1 && this.gameBoard[shipX][shipY + i] != "o"){
+								noConflict = false;
+							}
+						}
+						if (noConflict){
+							for (var i = 0 ; i < sizes[index] ; i++ ){
+								if(direction == 0) {
+									this.gameBoard[shipX + i][shipY] = "S";
+								}else{
+									this.gameBoard[shipX][shipY + i] = "S";
+								}
+							}
+							notPlaced = false;
+							if (direction == 0){
+								this.drawShip([shipX, shipY], [shipX + sizes[index]-1, shipY]);
+							}else{
+								this.drawShip([shipX, shipY], [shipX, shipY + sizes[index]-1]);
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		this.guess = function(guess){
+			this.ctx.font = "45px Arial";
+			if (this.gameBoard[guess[0]][guess[1]] == "S"){
+				this.ctx.fillStyle = "#FF0000";
+				ctx.fillText("X",  this.rows[guess[0]]-this.pixels*.25,this.columns[guess[1]]+this.pixels*.25);
+			}else{
+				this.ctx.fillStyle = "#FFFFFF";
+				this.ctx.fillText("X", this.rows[guess[0]]-this.pixels*.25,this.columns[guess[1]]+this.pixels*.25);
+			}
+		}
+	}
+	
+	var ship = new BattleShip(60);
+	ship.drawBoard();
+	//ship.drawShip([7,1], [7,3]);
+	//ship.drawShip([0,0],[5,0]);
+	ships = [5, 4, 4, 3, 3, 3, 2, 2, 2, 2];
+	ship.placeShips(ships);
+	ship.guess([0,0]);
+</script>
+<script type="text/vbscript">
