@@ -138,6 +138,9 @@
 	//ship.drawShip([0,0],[5,0]);
 	ships = [5, 4, 4, 3, 3, 3, 2, 2, 2, 2];
 	ship.placeShips(ships);
-	ship.guess([0,0]);
+	//ship.guess([0,0]);
+	for (var i = 0; i < 30; i++){
+		ship.guess([Math.floor((Math.random() * 10)+1)-1,Math.floor((Math.random() * 10) + 1)-1]);
+	}
 </script>
 <script type="text/vbscript">
