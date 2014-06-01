@@ -1,7 +1,19 @@
-</script>
+</script><table><tr><td>
 <canvas id="battleshipCanvas" width="726" height="726"></canvas>
+</td>
+<td style="vertical-align:top;align-items:center">
+<div style="margin-left:100px" id="disclaimer"> *** Additional games are running in the background *** </div>
+<div id="results" style="display:none">
+	<H1 style="margin-left:40px"> Results </H1>
+	<h3 style="margin-left:50px"> Number of games run: </h4>
+	<p style="margin-left:100px"id = "gamesRun"></p>
+	<h3 style="margin-left:50px">Average Accuracy:</h4>
+	<p style="margin-left:100px"id="answer"></p>
+</div>
+</td>
+</tr>
+</table>
 <div id="justForFun"></div>
-<div id="answer"></div>
 <script>
 
 	function BattleShip(pixels,draw){
@@ -269,10 +281,17 @@ function playGame(){
 					playGame();
 				}
 			}else{
+				$("#disclaimer").fadeOut("fast");
 				var arraySum = 0;
 				$.each(guessArray,function(){arraySum+=parseFloat(this) || 0;});
-				
-				$("#answer").text(arraySum/guessArray.length);
+				$("#gamesRun").text(guessArray.length);
+				var accuracy = (arraySum/guessArray.length*100).toString()
+				if (accuracy.length > 5 ){
+					$("#answer").text(accuracy.substring(0,5) + "%");
+				}else{
+					$("#answer").text(accuracy + "%");
+				}
+				$("#results").fadeIn("slow");
 				//$("#answer").text(guessArray.join(","));
 			}
 			
