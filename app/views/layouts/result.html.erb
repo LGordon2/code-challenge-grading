@@ -8,7 +8,8 @@
 		  <%= render file: file %>
 		<% else %>
 			<script type="text/vbscript">
-				<%= function_script = File.read(file) %>
+				<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
+				<% function_script = File.read(file) %>
 				<%= function_script.gsub('function_name', functionName).html_safe %>
 			</script>
 		<% end %>
