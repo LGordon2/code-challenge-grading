@@ -54,8 +54,8 @@
 				if (i != 10){
 					ctx.font = "30px Arial";
 					ctx.fillStyle = "#FFFFFF";
-					ctx.fillText(i + 1,this.pixels/2-10,this.pixels/2+this.pixels*i+10);
-					ctx.fillText(letters[i], this.pixels*1.3 + this.pixels*i, this.pixels*10.7);
+					ctx.fillText(i,this.pixels/2-10,this.pixels/2+this.pixels*i+10);
+					ctx.fillText(i, this.pixels*1.3 + this.pixels*i, this.pixels*10.7);
 				}
 				
 				
