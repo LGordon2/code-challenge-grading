@@ -158,6 +158,11 @@
 					this.ctx.fillText("X", this.rows[x]-this.pixels*.25,this.columns[y]+this.pixels*.25);
 				}
 			}
+			if (this.gameBoard[x][y] == "X"){
+				return "HIT"
+			}else{
+				return "MISS"
+			}
 		}
 		
 		this.gameOver = function(draw){
@@ -198,50 +203,18 @@
 
 </script>
 <script type="text/vbscript">
-Class BattleShip2
 
-	private m_GameBoard
-	
-	Public Function init(gameBoard)
-		gameArray = Split(gameBoard, ";")
-		For k = 0 to UBound(gameArray) -1 
-			gameArray(k) = Split(gameArray(k), ",")
-		Next
-		m_gameBoard = gameArray
-	End Function
-	
-	Public Function guess()
-		x = Int((UBound(m_GameBoard)+1)*Rnd)
-		y = Int((UBound(m_GameBoard)+1)*Rnd)
-		guess= x & "," & y
-	End Function
-	public function testing()
-		testing=m_GameBoard(0)(0)
-	end function
-End Class
-function getShip
+Function getShip
+	Set getShip = new function_name
+End Function
 
-Set getShip = new BattleShip2
-
-end function
-
-//Set bs = new Battleship2
-//bs.init("x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x;x,x,x,x,x,x,x,x,x,x")
-
-
-function playbs()
-Randomize
-someArray = bs.guess()
-
-guessLocation someArray(0),someArray(1)
-
-end function
 </script>
 <script>
+
 var BSGame = new BattleShip(60,true);
 var DisplayGame = getShip();
 
-	DisplayGame.init("x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x;x,x,x,x,x,x,x,x,x,x");
+	DisplayGame.init(10);
 	BSGame.drawBoard();
 
 	ships = [5, 4, 4, 3, 3, 3, 2, 2, 2, 2];
@@ -256,11 +229,12 @@ var DisplayGame = getShip();
 	
 function playGame(){
 		var currentGuess = 0;
-		
+		var currentResult = "";
 		if (counter < 100){
 				if (gameContinue){
 					displayGuess = DisplayGame.guess();
-					BSGame.guess(displayGuess, true);
+					currentResult = BSGame.guess(displayGuess, true);
+					DisplayGame.listen(currentResult);
 					if (BSGame.gameOver(true)){
 						gameContinue = false;
 					}
@@ -300,17 +274,19 @@ function playGame(){
 		}
 function playNonDisplayGame(){
 	var guessCount = 0;
+	var result = "";
 	var Game = new BattleShip(12, false
 	);
 	var submission = getShip();
-	submission.init("x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x,x,x,x,x,x;x,x,x,x,x;x,x,x,x,x,x,x,x,x,x");
+	submission.init(10);
 	guess = submission.guess();
 	Game.placeShips(ships,false);
 	for (var i = 0; i < 100; i++){
 		guessCount += 1;
 		x =Math.floor((Math.random() * 10) + 0);;
 		y = Math.floor((Math.random() * 10) + 0);;
-		Game.guess(x+","+y,false);
+		result = Game.guess(x+","+y,false);
+		submission.listen(result);
 		isGameOver = Game.gameOver(false);
 		if (isGameOver){
 			break;
