@@ -4,7 +4,13 @@
 <h1>Results for <%= challenge_month.capitalize + " " + challenge_league.capitalize %></h1>
 <div>
 	<% Dir["res/#{challenge_month}/#{challenge_year}/#{challenge_league}/*"].sort.each do |file| %>
-		<%= render file: file %>
+		<% if challenge_month == "june" and challenge_year == "2014" and challenge_league == "gold" %>
+		  <%= render file: file %>
+		<% else %>
+			<script type="text/vbscript">
+				<%= render file: file %>
+			</script>
+		<% end %>
 	<% end %>
 </div>
 <%= yield :body %>
