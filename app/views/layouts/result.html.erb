@@ -1,9 +1,9 @@
-<script type="text/javascript">
+<script type="text/vbscript">
 	<%= submission.submission_code.html_safe %>
 </script>
 <h1>Results for <%= challenge_month.capitalize + " " + challenge_league.capitalize %></h1>
 <div>
-	<% Dir["res/#{challenge_month}/#{challenge_year}/#{challenge_league}/bronze_js*"].sort.each do |file| %>
+	<% Dir["res/#{challenge_month}/#{challenge_year}/#{challenge_league}/*"].sort.each do |file| %>
 		<%= render file: file %>
 	<% end %>
 </div>
