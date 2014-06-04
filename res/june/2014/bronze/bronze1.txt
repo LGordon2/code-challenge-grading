@@ -1,0 +1,26 @@
+'document.write("***************************Test Case 1***************************<BR>")
+Dim testCase1
+Dim actual_testCase1
+Dim dataString_testCase1
+
+testCase1 = Array("1C","2C","3C","4C","5C","6C","7C","8C","9C","10C","JC","QC","KC","AC","1D","2D","3D","4D","5D","6D","7D","8D","9D","10D","JD","QD","KD","AD","1H","2H","3H","4H","5H","6H","7H","8H","9H","10H","JH","QH","KH","AH","1S","2S","3S","4S","5S","6S","7S","8S","9S","10S","JS","QS","KS","AS")
+
+dataString_testCase1 = Join(testCase1, ", ")
+actual_testCase1 = function_name(testCase1)
+
+If Err Then
+	document.getElementById("testCase1").innerhtml = ("<font color=""red"">Error Processing Test Case. Error Desciption [" & Err.Description & "]</font><br>")
+Else
+	document.getElementById("testCase1").innerhtml = ("Test Data:      """& dataString_testCase1 & """<BR>")
+
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml & ("Expected Value: True<br>")
+	document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml & ("Actual Value:  " & actual_testCase1 & "<br>")
+
+	If actual_testCase1 = True Then
+		document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml & ("<font color=""#00ff00"">PASS</font><BR>")
+	Else
+		document.getElementById("testCase1").innerhtml = document.getElementById("testCase1").innerhtml & ("<font color=""red"">FAIL</font><BR>")
+	End If
+End If
+'document.write("***********************************************************************<BR>")
+
