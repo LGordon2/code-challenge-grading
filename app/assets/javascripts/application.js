@@ -18,6 +18,7 @@
 //= require Chart
 //= require create_json
 
+
 $(document).on('ready', function() {
     return $('textarea').autosize({
         append : "\n"

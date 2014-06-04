@@ -1,10 +1,13 @@
-<pre>
-<code>
-<%= @submission.submission_code %>
+<pre  class="brush: vb">
+	<%= @submission.submission_code %>
+</pre>
 <% if current_user.admin %>
 	<%= form_for @submission, remote: true do |u| %>
 		<h4> Mark as Complete? <%= u.check_box :complete, class: "complete_checkbox" %></h3>
 	<% end %>
 <% end %>
-</code>
-</pre>
+
+
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
