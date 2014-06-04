@@ -6,7 +6,7 @@
 
 </pre>
 <%= form_for submission, remote: true do |u| %>
-	<h4> Mark as Complete? <%= u.check_box :complete, class: "complete_checkbox" %></h3>
+	<h4> Mark <%=User.find(submission.user_id).display_name %> as Complete? <%= u.check_box :complete, class: "complete_checkbox" %></h3>
 <% end %>
 
 <BR><BR>
