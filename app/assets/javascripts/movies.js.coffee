@@ -25,7 +25,7 @@ $.each Object.keys(movies), (index, movieName) ->
     return passed = passed && scenarioPass
 
 showMovie = (movieData) ->
-  console.log(movieData)
+  return if typeof(movieData) == "undefined"
   movieObj = $("<div class='movie'></div>").appendTo("div.results")
   $("<img src class='movie-poster' id='#{movieData.name}'>").appendTo(movieObj)
   for actor in movieData.actors
@@ -44,6 +44,6 @@ $(document).ajaxStop ->
     msg.text("Failed")
 
   for movie in allMovieData
-    showMovie(movie) unless typeof(movie) == "undefined"
+    showMovie(movie)
 
   $("div.results > div.loader").hide();
