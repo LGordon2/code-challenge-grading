@@ -24,7 +24,7 @@ function codechallenge(result){return result;}
 
   passed = true;
   $.each(Object.keys(movies), function(index, movieName) {
-    $.getJSON("https://localhost:4567/?callback=?",
+    $.getJSON("https://10.238.240.36:4567/?callback=?",
     {search: movieName},
     function(data) {
         actorName = movies[movieName];
