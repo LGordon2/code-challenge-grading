@@ -29,3 +29,26 @@ Function inArray(array, value)
 	Next
 	inArray = found
 End Function
+
+Function ArrayShuffle(arr)
+    Dim index
+    Dim newIndex
+    Dim firstIndex
+    Dim itemCount
+    Dim tmpValue
+    
+    firstIndex = LBound(arr)
+    itemCount = UBound(arr) - LBound(arr) + 1
+    
+    For index = UBound(arr) To LBound(arr) + 1 Step -1
+        ' evaluate a random index from LBound to INDEX
+        newIndex = firstIndex + Int(Rnd * itemCount)
+        ' swap the two items
+        tmpValue = arr(index)
+        arr(index) = arr(newIndex)
+        arr(newIndex) = tmpValue
+        ' prepare for next iteration
+        itemCount = itemCount - 1
+    Next
+	ArrayShuffle = arr
+End Function
