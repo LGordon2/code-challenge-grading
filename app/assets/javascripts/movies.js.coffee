@@ -17,16 +17,15 @@ $.each Object.keys(movies), (index, movieName) ->
   (data) ->
     actorName = movies[movieName]
     nextActor = movies[Object.keys(movies)[index+1]]
-    console.log("#{movieName} #{index}")
     if typeof(nextActor) == "undefined"
       nextActor = "Kevin Bacon"
     scenarioPass = (data.actors.indexOf(actorName) >= 0) && #The actor specified is in the movie.
     (data.actors.indexOf(nextActor) >= 0)  #The next actor is in the movie.
     allMovieData[index] = {name: movieName, poster: data.poster, pass: scenarioPass, actors: [actorName,nextActor]}
-    console.log(allMovieData)
     return passed = passed && scenarioPass
 
 showMovie = (movieData) ->
+  console.log(movieData)
   movieObj = $("<div class='movie'></div>").appendTo("div.results")
   $("<img src class='movie-poster' id='#{movieData.name}'>").appendTo(movieObj)
   for actor in movieData.actors
@@ -45,6 +44,6 @@ $(document).ajaxStop ->
     msg.text("Failed")
 
   for movie in allMovieData
-    showMovie(movie)
+    showMovie(movie) unless typeof(movie) == "undefined"
 
   $("div.results > div.loader").hide();
