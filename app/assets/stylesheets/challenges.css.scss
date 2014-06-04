@@ -14,6 +14,14 @@
     }
   }
 }
+h4.msg{
+  &.fail{
+    color: red;
+  }
+  &.pass{
+    color: green;
+  }
+}
 #challenge-winner-links{
   a{
     display:block;
@@ -37,5 +45,25 @@
     vertical-align: top;
     display: inline-block;
     max-width: 350px;
+  }
+}
+.test-case{
+  div{
+    span{
+      display:block;
+    }
+  }
+}
+div.movie{
+  display: inline-block;
+  max-width: 200px;
+  text-align: center;
+  padding: 10px;
+
+  img.movie-poster{
+    height: 200px;
+  }
+  span.actor-name{
+    display:block;
   }
 }

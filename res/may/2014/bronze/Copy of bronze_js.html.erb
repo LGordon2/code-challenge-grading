@@ -1,0 +1,32 @@
+<% times_to_run = 10 %>
+<div class="test-case">
+	<% times_to_run.times do |num|%>
+	<% num += 1 %>
+	<h1>Test Case <%= num %></h1>
+	<div>
+		<span>Expected: <span id="expected<%= num %>" style="display:inline;"></span></span>
+		<span>Actual: <span id="result<%= num %>" style="display:inline;"></span></span>
+		<span id="porf<%= num %>"></span>
+		<span>Execution time: <span id="time-taken<%=num%>" style="display:inline;"></span></span>
+	</div>
+	<% end %>
+</div>
+
+<script>
+	var executionTime, startTime;
+	for(i=0;i<=<%=times_to_run%>;i++){
+		rand_num = Math.floor((Math.random() * 10) + 1);
+		$("#expected"+i).text(rand_num);
+		startTime = new Date().getTime();
+		$("#result"+i).text(test());
+		executionTime = new Date().getTime() - startTime;
+		if(test()==rand_num){
+			$("#porf"+i).text("PASS");
+			$("#porf"+i).css("color", "green");
+		}else{
+			$("#porf"+i).text("FAIL");
+			$("#porf"+i).css("color", "red");
+		}
+		$("#time-taken"+i).text(executionTime);
+	}
+</script>
