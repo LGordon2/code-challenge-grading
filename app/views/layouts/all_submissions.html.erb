@@ -1,11 +1,16 @@
 <% Challenge.find_by(month: challenge_month, league: challenge_league,year: challenge_year).submissions.group(:user_id).having('max(created_at)').each do |submission| %>
-<pre>
-<code>
+<pre  class="brush: vb">
+
 <%= submission.submission_code %>
+
+
+</pre>
 <%= form_for submission, remote: true do |u| %>
 	<h4> Mark as Complete? <%= u.check_box :complete, class: "complete_checkbox" %></h3>
 <% end %>
-</code>
-</pre>
+
 <BR><BR>
 <%end%>
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
