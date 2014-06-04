@@ -23,6 +23,7 @@ $.each Object.keys(movies), (index, movieName) ->
     scenarioPass = (data.actors.indexOf(actorName) >= 0) && #The actor specified is in the movie.
     (data.actors.indexOf(nextActor) >= 0)  #The next actor is in the movie.
     allMovieData[index] = {name: movieName, poster: data.poster, pass: scenarioPass, actors: [actorName,nextActor]}
+    console.log(allMovieData)
     return passed = passed && scenarioPass
 
 showMovie = (movieData) ->
