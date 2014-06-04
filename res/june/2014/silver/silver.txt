@@ -2,7 +2,9 @@
 <canvas id="battleshipCanvas" width="726" height="726"></canvas>
 </td>
 <td style="vertical-align:top;align-items:center">
+<div class="loader"></div>
 <div style="margin-left:100px" id="disclaimer"> *** Additional games are running in the background *** </div>
+
 <div id="results" style="display:none">
 	<H1 style="margin-left:40px"> Results </H1>
 	<h3 style="margin-left:50px"> Number of games run: </h4>
@@ -14,6 +16,7 @@
 </tr>
 </table>
 <div id="justForFun"></div>
+
 <script>
 
 	function BattleShip(pixels,draw){
@@ -186,6 +189,25 @@
 			}
 			return hitCount;
 		}
+		
+		this.loseGame = function(){
+			ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+			ctx.fillRect(this.pixels,0,this.pixels*10, this.pixels*10);
+			this.ctx.font = "65px Arial";
+			this.ctx.fillStyle = "#FF0000";
+			this.ctx.fillText("Failed to Sink All", this.canvas.width/7, this.canvas.height/3);
+			this.ctx.fillText("Battleships!", this.canvas.width/4, this.canvas.height/2.25);
+			this.ctx.fillText("   You Lose!", this.canvas.width/4.5, this.canvas.height/1.5);
+		}
+		
+		this.endGame = function(){
+			ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+			ctx.fillRect(this.pixels,0,this.pixels*10, this.pixels*10);
+			this.ctx.font = "65px Arial";
+			this.ctx.fillStyle = "#FF0000";
+			this.ctx.fillText("Battleships Sunk!", this.canvas.width/7, this.canvas.height/3);
+			this.ctx.fillText("   You Win!", this.canvas.width/4, this.canvas.height/2);
+		}
 	}
 	function guessLocation(x,y){
 		ship.guess(x,y,true);
@@ -236,6 +258,7 @@ function playGame(){
 					currentResult = BSGame.guess(displayGuess, true);
 					DisplayGame.listen(currentResult);
 					if (BSGame.gameOver(true)){
+						BSGame.endGame();
 						gameContinue = false;
 					}
 				}
@@ -265,6 +288,10 @@ function playGame(){
 				}else{
 					$("#answer").text(accuracy + "%");
 				}
+				if (gameContinue){
+					BSGame.loseGame();
+				}
+				$(".loader").fadeOut("slow");
 				$("#results").fadeIn("slow");
 				//$("#answer").text(guessArray.join(","));
 			}
@@ -289,6 +316,7 @@ function playNonDisplayGame(){
 		submission.listen(result);
 		isGameOver = Game.gameOver(false);
 		if (isGameOver){
+			
 			break;
 		}
 	}
