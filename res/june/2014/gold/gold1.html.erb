@@ -24,9 +24,8 @@ function codechallenge(result){return result;}
 
   passed = true;
   $.each(Object.keys(movies), function(index, movieName) {
-    $.getJSON("http://www.omdbapi.com/?callback=?",
-    {t: movieName},
-
+    $.getJSON("https://portalbox:4567/",
+    {search: movieName},
     function(data) {
         actorName = movies[movieName];
         nextActor = movies[Object.keys(movies)[index+1]];
@@ -39,9 +38,9 @@ function codechallenge(result){return result;}
         for(actor in actors){
           $("<span class='actor-name'>"+ actors[actor] +"</span>").appendTo(movieObj);
         }
-        $("div.results .movie:last-child > img").attr("src", data.Poster);
-        scenarioPass = (data.Actors.indexOf(actorName) >= 0) && //The actor specified is in the movie.
-        (data.Actors.indexOf(nextActor) >= 0);  //The next actor is in the movie.
+        $("div.results .movie:last-child > img").attr("src", data.poster);
+        scenarioPass = (data.actors.indexOf(actorName) >= 0) && //The actor specified is in the movie.
+        (data.actors.indexOf(nextActor) >= 0);  //The next actor is in the movie.
         if(!scenarioPass){
           movieObj.css("border", "2px solid red");
         }
