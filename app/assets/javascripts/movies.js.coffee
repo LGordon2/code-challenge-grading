@@ -3,6 +3,15 @@ $("div.results h4.submission-string").text(submissionString)
 actorList = submissionString.split(" -> ")
 movies = {}
 
+$.ajax(
+  {
+    async: false,
+    url: "https://codechallenge.orasi.com/actors",
+    data: {random: "true"}
+  }
+).success (data)->
+    $("#init-actor").text($.parseJSON(data).name)
+
 #Get all movie data
 for actor in actorList
   [_,actorName,actorMovie] = /^<(.*?)>\[(.*?)\]$/.exec(actor)
