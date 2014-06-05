@@ -15,6 +15,8 @@ $.each Object.keys(movies), (index, movieName) ->
   $.getJSON "https://codechallenge.orasi.com/movies?callback=?",
   {search: movieName},
   (data) ->
+    if "error" of data
+      return passed = passed && scenarioPass
     actorName = movies[movieName]
     nextActor = movies[Object.keys(movies)[index+1]]
     if typeof(nextActor) == "undefined"
