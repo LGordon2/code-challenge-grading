@@ -9,8 +9,8 @@ $.ajax(
     url: "https://codechallenge.orasi.com/actors",
     data: {random: "true"}
   }
-).success (data)->
-    $("#init-actor").text($.parseJSON(data).name)
+).complete (xhr) ->
+    $("#init-actor").text($.parseJSON(xhr.responseText).name)
 
 #Get all movie data
 for actor in actorList
