@@ -1,6 +1,26 @@
 <div class="results">
   <span>Your string: <h4 class="submission-string"></h4></span>
   <span id="init-actor"></span>
+  <h4 class="msg"></h4>
+  <div class="errors" style="display: none;">
+    <h5>Errors</h5>
+    <ul>
+    </ul>
+  </div>
   <div class="loader" style="margin: 100px auto;"></div>
 </div>
+<script>
+var _random_actor;
+$.ajax({
+  async: false,
+  url: "https://codechallenge.orasi.com/actors",
+  data: {
+    random: "true"
+  }
+}).complete(function(xhr) {
+  return _random_actor = $.parseJSON(xhr.responseText).name;
+});
+
+cc_challenge_result = <%= "#{username}(_random_actor)" %>
+</script>
 <%= javascript_include_tag "movies" %>

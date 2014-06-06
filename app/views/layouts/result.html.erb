@@ -1,16 +1,19 @@
-<script type="text/vbscript">
-	<%= submission.submission_code.html_safe %>
-</script>
 <h1>Results for <%= challenge_month.capitalize + " " + challenge_league.capitalize %></h1>
 <div>
 	<% Dir["res/#{challenge_month}/#{challenge_year}/#{challenge_league}/*"].sort.each do |file| %>
 		<% if challenge_month == "june" and challenge_year == "2014" and challenge_league == "gold" %>
-		  <%= render file: file %>
+			<script <%= 'type=text/vbscript'.html_safe unless params["script"].original_filename.end_with?("js") %>>
+			<%= submission.submission_code.html_safe %>
+			</script>
+		  <%= render file: file, locals: {username: (User.find(submission.user_id).first_name.capitalize + User.find(submission.user_id).last_name.capitalize).delete(" ")} %>
 		<% else %>
 			<script type="text/vbscript">
 				<% functionName = User.find(@submission.user_id).first_name.capitalize + User.find(@submission.user_id).last_name.capitalize %>
 				<% function_script = File.read(file) %>
 				<%= function_script.gsub('function_name', functionName).html_safe %>
+			</script>
+			<script type="text/vbscript">
+				<%= submission.submission_code.html_safe %>
 			</script>
 		<% end %>
 	<% end %>

@@ -1,37 +1,62 @@
-submissionString = "<Leonardo DiCaprio>[Gangs of New York] -> <Daniel Day-Lewis>[Lincoln] -> <Sally Field>[Forrest Gump] -> <Tom Hanks>[Apollo 13]"
-$("div.results h4.submission-string").text(submissionString)
-actorList = submissionString.split(" -> ")
-movies = {}
+errors = []
 
-$.ajax(
-  {
-    async: false,
-    url: "https://codechallenge.orasi.com/actors",
-    data: {random: "true"}
-  }
-).complete (xhr) ->
-    $("#init-actor").text($.parseJSON(xhr.responseText).name)
+finish = ->
+  msg = $("div.results > h4.msg")
+
+  unless typeof(allMovieData) == "undefined"
+    errors.push("No movie data could be retrieved, possibly due to an invalid string.") if allMovieData.length == 0
+    for movie in allMovieData
+      showMovie(movie)
+
+  if passed
+    msg.addClass("pass")
+    msg.text("Passed")
+  else
+    msg.addClass("fail")
+    msg.text("Failed")
+    errors.push("Unknown error") unless errors.length > 0
+  $("div.results > div.errors").show() if errors.length > 0
+  for error in errors
+    $("<li>#{error}</li>").appendTo("div.results > div.errors > ul")
+
+  $("div.results > div.loader").hide()
+
+submissionString = cc_challenge_result
+
+if typeof(submissionString) == "undefined"
+  errors.push("There is no submission string...")
+  finish()
+
+$("div.results h4.submission-string").text(submissionString)
+
+actorList = submissionString.split(" -> ")
+
+movies = {}
 
 #Get all movie data
 for actor in actorList
-  [_,actorName,actorMovie] = /^<(.*?)>\[(.*?)\]$/.exec(actor)
+  parsedActor = /^<(.*?)>\[(.*?)\]$/.exec(actor)
+  [_,actorName,actorMovie] = parsedActor unless parsedActor == null
   movies[actorMovie] = actorName
 
 allMovieData = []
 
 passed = true
 $.each Object.keys(movies), (index, movieName) ->
-  $.getJSON "https://codechallenge.orasi.com/movies?callback=?",
+  $.getJSON "https://codechallenge.orasi.com/movies",
   {search: movieName},
   (data) ->
     if "error" of data
+      errors.push("Movie #{movieName} not found in the database.")
       return passed = passed && scenarioPass
     actorName = movies[movieName]
     nextActor = movies[Object.keys(movies)[index+1]]
     if typeof(nextActor) == "undefined"
       nextActor = "Kevin Bacon"
-    scenarioPass = (data.actors.indexOf(actorName) >= 0) && #The actor specified is in the movie.
-    (data.actors.indexOf(nextActor) >= 0)  #The next actor is in the movie.
+    scenarioPass = (data.actors.indexOf(actorName) >= 0) #The actor specified is in the movie.
+    errors.push("#{actorName} is not in the movie #{movieName}") unless scenarioPass
+    scenarioPass = scenarioPass && (data.actors.indexOf(nextActor) >= 0) #The next actor is in the movie.
+    errors.push("#{nextActor} is not in the movie #{movieName}") unless scenarioPass
     allMovieData[index] = {name: movieName, poster: data.poster, pass: scenarioPass, actors: [actorName,nextActor]}
     return passed = passed && scenarioPass
 
@@ -46,15 +71,4 @@ showMovie = (movieData) ->
     movieObj.css("border", "2px solid red")
 
 $(document).ajaxStop ->
-  msg = $("div.results > h4.msg")
-  if passed
-    msg.addClass("pass")
-    msg.text("Passed")
-  else
-    msg.addClass("fail")
-    msg.text("Failed")
-
-  for movie in allMovieData
-    showMovie(movie)
-
-  $("div.results > div.loader").hide();
+  finish()
