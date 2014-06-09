@@ -279,10 +279,12 @@ function playGame(){
 				}
 			}else{
 				$("#disclaimer").fadeOut("fast");
-				var arraySum = 0;
-				$.each(guessArray,function(){arraySum+=parseFloat(this) || 0;});
+				var hitSum = 0;
+				var guessSum = 0;
+				$.each(guessArray,function(){hitSum+=parseFloat(this[0]) || 0;});
+				$.each(guessArray,function(){guessSum+=parseFloat(this[1]) || 0;});
 				$("#gamesRun").text(guessArray.length);
-				var accuracy = (arraySum/guessArray.length*100).toString()
+				var accuracy = (hitSum/guessSum*100).toString()
 				if (accuracy.length > 5 ){
 					$("#answer").text(accuracy.substring(0,5) + "%");
 				}else{
@@ -324,7 +326,7 @@ function playNonDisplayGame(){
 	//if (guessCount == 100 && !isGameOver){
 		hitCount = Game.getHitCount();
 		if (hitCount != 0){
-			return hitCount/guessCount;
+			return [hitCount, guessCount];
 		}else{
 			return 0;
 		}
