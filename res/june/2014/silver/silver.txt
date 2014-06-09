@@ -291,8 +291,9 @@ function playGame(){
 				if (gameContinue){
 					BSGame.loseGame();
 				}
-				$(".loader").fadeOut("slow");
-				$("#results").fadeIn("slow");
+				$(".loader").fadeOut("slow", function(){
+					$("#results").fadeIn("slow");
+				});
 				//$("#answer").text(guessArray.join(","));
 			}
 			
@@ -320,18 +321,18 @@ function playNonDisplayGame(){
 			break;
 		}
 	}
-	if (guessCount == 100 && !isGameOver){
+	//if (guessCount == 100 && !isGameOver){
 		hitCount = Game.getHitCount();
 		if (hitCount != 0){
 			return hitCount/guessCount;
 		}else{
 			return 0;
 		}
-	}else{
-		var shipSum = 0;
-		$.each(ships,function(){shipSum+=parseFloat(this) || 0;});
-		return  shipSum/guessCount;
-	}
+	//}else{
+	//	var shipSum = 0;
+	//	$.each(ships,function(){shipSum+=parseFloat(this) || 0;});
+	//	return  shipSum/guessCount;
+	//}
 }
 </script>
 <script type="text/vbscript">
