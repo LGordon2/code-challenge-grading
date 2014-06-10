@@ -313,9 +313,7 @@ function playNonDisplayGame(){
 	Game.placeShips(ships,false);
 	for (var i = 0; i < 100; i++){
 		guessCount += 1;
-		x =Math.floor((Math.random() * 10) + 0);;
-		y = Math.floor((Math.random() * 10) + 0);;
-		result = Game.guess(x+","+y,false);
+		result = Game.guess(submission.guess(),false);
 		submission.listen(result);
 		isGameOver = Game.gameOver(false);
 		if (isGameOver){
