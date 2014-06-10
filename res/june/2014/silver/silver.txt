@@ -309,11 +309,12 @@ function playNonDisplayGame(){
 	);
 	var submission = getShip();
 	submission.init(10);
-	guess = submission.guess();
+	
 	Game.placeShips(ships,false);
 	for (var i = 0; i < 100; i++){
 		guessCount += 1;
-		result = Game.guess(submission.guess(),false);
+		guess = submission.guess();
+		result = Game.guess(guess,false);
 		submission.listen(result);
 		isGameOver = Game.gameOver(false);
 		if (isGameOver){
