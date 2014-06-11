@@ -55,8 +55,9 @@ $.each Object.keys(movies), (index, movieName) ->
       nextActor = "Kevin Bacon"
     scenarioPass = (data.actors.indexOf(actorName) >= 0) #The actor specified is in the movie.
     errors.push("#{actorName} is not in the movie #{movieName}") unless scenarioPass
-    scenarioPass = scenarioPass && (data.actors.indexOf(nextActor) >= 0) #The next actor is in the movie.
-    errors.push("#{nextActor} is not in the movie #{movieName}") unless scenarioPass
+    nextActorIsInMovie = (data.actors.indexOf(nextActor) >= 0)
+    scenarioPass = scenarioPass && nextActorIsInMovie #The next actor is in the movie.
+    errors.push("#{nextActor} is not in the movie #{movieName}") unless nextActorIsInMovie
     allMovieData[index] = {name: movieName, poster: data.poster, pass: scenarioPass, actors: [actorName,nextActor]}
     return passed = passed && scenarioPass
 
