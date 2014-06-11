@@ -279,10 +279,12 @@ function playGame(){
 				}
 			}else{
 				$("#disclaimer").fadeOut("fast");
-				var arraySum = 0;
-				$.each(guessArray,function(){arraySum+=parseFloat(this) || 0;});
+				var hitSum = 0;
+				var guessSum = 0;
+				$.each(guessArray,function(){hitSum+=parseFloat(this[0]) || 0;});
+				$.each(guessArray,function(){guessSum+=parseFloat(this[1]) || 0;});
 				$("#gamesRun").text(guessArray.length);
-				var accuracy = (arraySum/guessArray.length*100).toString()
+				var accuracy = (hitSum/guessSum*100).toString()
 				if (accuracy.length > 5 ){
 					$("#answer").text(accuracy.substring(0,5) + "%");
 				}else{
@@ -291,8 +293,9 @@ function playGame(){
 				if (gameContinue){
 					BSGame.loseGame();
 				}
-				$(".loader").fadeOut("slow");
-				$("#results").fadeIn("slow");
+				$(".loader").fadeOut("slow", function(){
+					$("#results").fadeIn("slow");
+				});
 				//$("#answer").text(guessArray.join(","));
 			}
 			
@@ -306,13 +309,12 @@ function playNonDisplayGame(){
 	);
 	var submission = getShip();
 	submission.init(10);
-	guess = submission.guess();
+	
 	Game.placeShips(ships,false);
 	for (var i = 0; i < 100; i++){
 		guessCount += 1;
-		x =Math.floor((Math.random() * 10) + 0);;
-		y = Math.floor((Math.random() * 10) + 0);;
-		result = Game.guess(x+","+y,false);
+		guess = submission.guess();
+		result = Game.guess(guess,false);
 		submission.listen(result);
 		isGameOver = Game.gameOver(false);
 		if (isGameOver){
@@ -320,18 +322,18 @@ function playNonDisplayGame(){
 			break;
 		}
 	}
-	if (guessCount == 100 && !isGameOver){
+	//if (guessCount == 100 && !isGameOver){
 		hitCount = Game.getHitCount();
 		if (hitCount != 0){
-			return hitCount/guessCount;
+			return [hitCount, guessCount];
 		}else{
 			return 0;
 		}
-	}else{
-		var shipSum = 0;
-		$.each(ships,function(){shipSum+=parseFloat(this) || 0;});
-		return  shipSum/guessCount;
-	}
+	//}else{
+	//	var shipSum = 0;
+	//	$.each(ships,function(){shipSum+=parseFloat(this) || 0;});
+	//	return  shipSum/guessCount;
+	//}
 }
 </script>
 <script type="text/vbscript">
