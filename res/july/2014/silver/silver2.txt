@@ -1,0 +1,15 @@
+</script><script>
+test_data_1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+test_data_for_submission = test_data_1;
+solution1 = silver_solution(test_data_1);
+submission1 = function_name(test_data_for_submission);
+
+clearTestCase(1);
+
+addTestCaseResults(1, "Test Data: " + test_data_1 + "<br><table style=\"font-family:'Lucida Console', Monaco, monospace\"><tr><td>Expected Result :<br>   "+ solution1.split(";").join("<br>") + "</td><td>Actual Result:<br>   " + submission1.split(";").join("<br>") + "</td></tr></table>");
+
+if (solution1 == submission1){
+   testCaseStatus(1, "PASS")
+}else{
+   testCaseStatus(1, "FAIL")
+}
