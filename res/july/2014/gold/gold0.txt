@@ -100,7 +100,7 @@ function findYIndex(arr,value, yres){
 function parseSolution(input){
   input = input.split(";");
   for (i=0;i<input.length;i++){
-    input[i] = input[i].split("").join(" ");
+    input[i] = input[i].split("").join("");
   }
   
   return input.join("<br>");

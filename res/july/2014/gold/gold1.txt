@@ -20,14 +20,14 @@ clearTestCase(1);
 displaySub1 = submission1;
 displaySol1 = solution1;
 
-if(submission1 === 'undefined'){
-addTestCaseResults(1, "Function: " + test_data_1 + "<br>" + "X-Range: " + test_data_1_xrange + "<br>"+ "Y-Range: " + test_data_1_yrange + "<br>"+ "X-Resolution: " + test_data_1_xres + "<br>"+ "Y-Resolution: " + test_data_1_yres + "<br><br><table><tr><td>Expected Result:</td><td width='40px'></td><td>Actual Result</td></tr><tr><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySol1) + "</div></td><td width='40px'>  </td><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySub1) + "</div></td></tr></table>");
+if(typeof(submission1) === typeof("")){
+  addTestCaseResults(1, "Function: " + test_data_1 + "<br>" + "X-Range: " + test_data_1_xrange + "<br>"+ "Y-Range: " + test_data_1_yrange + "<br>"+ "X-Resolution: " + test_data_1_xres + "<br>"+ "Y-Resolution: " + test_data_1_yres + "<br><br><table><tr><td>Expected Result:</td><td width='40px'></td><td>Actual Result</td></tr><tr><td><div style=\"font-family:'Lucida Console', Monaco, monospace;line-height:0.75\">" + parseSolution(displaySol1) + "</div></td><td width='40px'>  </td><td><div style=\"font-family:'Lucida Console', Monaco, monospace;line-height:0.75\">" + parseSolution(displaySub1) + "</div></td></tr></table>");
 
-if (solution1 == submission1){
-   testCaseStatus(1, "PASS")
-}else{
-   testCaseStatus(1, "FAIL")
-}
+  if (solution1 == submission1){
+     testCaseStatus(1, "PASS")
+  }else{
+     testCaseStatus(1, "FAIL")
+  }
 }else{
   addTestCaseResults(1, "Function: " + test_data_1 + "<br>" + "X-Range: " + test_data_1_xrange + "<br>"+ "Y-Range: " + test_data_1_yrange + "<br>"+ "X-Resolution: " + test_data_1_xres + "<br>"+ "Y-Resolution: " + test_data_1_yres + "<br><br>Function failed to return a value")
   testCaseStatus(1, "FAIL")
