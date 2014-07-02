@@ -1,0 +1,34 @@
+</script><script>
+test_data_4 = "sin(x)";
+test_data_4_xrange = 3.2;
+test_data_4_xres = 0.2;
+test_data_4_yrange = 1;
+test_data_4_yres = 0.05;
+
+tc4_f = test_data_4;
+tc4_x = test_data_4_xrange;
+tc4_xr = test_data_4_xres;
+tc4_y = test_data_4_yrange;
+tc4_yr = test_data_4_yres;
+
+
+solution4 = gold_solution(test_data_4, test_data_4_xrange, test_data_4_xres, test_data_4_yrange, test_data_4_yres);
+submission4 = function_name(tc4_f, tc4_x, tc4_xr, tc4_y, tc4_yr);
+
+clearTestCase(4);
+
+displaySub4 = submission4;
+displaySol4 = solution4;
+
+if(submission4 === 'undefined'){
+addTestCaseResults(4, "Function: " + test_data_4 + "<br>" + "X-Range: " + test_data_4_xrange + "<br>"+ "Y-Range: " + test_data_4_yrange + "<br>"+ "X-Resolution: " + test_data_4_xres + "<br>"+ "Y-Resolution: " + test_data_4_yres + "<br><br><table><tr><td>Expected Result:</td><td width='40px'></td><td>Actual Result</td></tr><tr><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySol4) + "</div></td><td width='40px'>  </td><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySub4) + "</div></td></tr></table>");
+
+if (solution4 == submission4){
+   testCaseStatus(4, "PASS")
+}else{
+   testCaseStatus(4, "FAIL")
+}
+}else{
+  addTestCaseResults(4, "Function: " + test_data_4 + "<br>" + "X-Range: " + test_data_4_xrange + "<br>"+ "Y-Range: " + test_data_4_yrange + "<br>"+ "X-Resolution: " + test_data_4_xres + "<br>"+ "Y-Resolution: " + test_data_4_yres + "<br><br>Function failed to return a value")
+  testCaseStatus(4, "FAIL")
+}

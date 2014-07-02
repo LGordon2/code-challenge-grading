@@ -1,0 +1,109 @@
+</script><div style="font-family:'Lucida Console', Monaco, monospace" id="test"><script>
+function gold_solution(func,xrange, xres, yrange,yres){
+  xaxis=Math.ceil(xrange/xres) *2 +1;
+  yaxis = Math.ceil(yrange/yres) *2 +1;
+  xstring = "";
+  
+  var resultarray = [];
+  var rowarray = [];
+  
+  for (y=0;y<yaxis;y++){
+    if (y==Math.floor(yaxis/2)){
+      middle_point = "+";
+      other_points = "_";
+    }else{
+      middle_point = "|";
+      other_points = ".";
+    }
+
+    for (i = 0; i< xaxis;i++){
+      if (i==Math.floor(xaxis/2)){
+        rowarray.push(middle_point);
+      }else{
+        rowarray.push(other_points);
+      }
+    }
+    resultarray.push(rowarray);
+      rowarray = [];
+  }
+  xvalues = "0;";
+  for(i=1;i<=Math.floor(xaxis/2);i++){
+     xvalues = (xres*i*-1).toString()+";" + xvalues + (xres*i).toString() + ";";
+  }
+  xvalues = xvalues.slice(0, -1);
+
+  yvalues = "0;";
+  for(j=1;j<=Math.floor(yaxis/2);j++){
+     yvalues = (yres*j*-1).toString()+";" + yvalues + (yres*j).toString() + ";";
+  }
+  yvalues = yvalues.slice(0,-1);
+  
+  yvalues = yvalues.split(";");
+  xvalues = xvalues.split(";");
+
+  answers = "";
+  
+  for (i=0; i<xvalues.length;i++){
+    thisAnswer = eval(func.replace("sin","Math.sin").split("x").join(xvalues[i].toString()));
+//    if (yvalues.indexOf(thisAnswer.toString()) > -1){
+      index= findYIndex(yvalues,thisAnswer.toString(), yres);
+      if (index > -1){
+        resultarray[index][i]="*";
+      }
+  }
+  
+  for (k=0;k<xvalues.length;k++){
+    if (parseInt(xvalues[k]) == xvalues[k] && resultarray[yvalues.indexOf("0")][k] != "*"){
+      resultarray[yvalues.indexOf("0")][k] = xvalues[k].replace("-", "");
+    }
+  }
+ 
+  for (m=0;m<xvalues.length;m++){
+    if (parseInt(yvalues[m]) == yvalues[m] && resultarray[m][xvalues.indexOf("0")] != "*"){
+      resultarray[m][xvalues.indexOf("0")] = yvalues[m].replace("-", "");
+    }
+  }
+
+  resultarray = resultarray.reverse();
+
+  for (i=0;i<resultarray.length;i++){
+    resultarray[i] = resultarray[i].join("");
+  }
+  
+  return resultarray.join(";");
+}
+
+
+
+function findYIndex(arr,value, yres){
+   currentDistance = 100;
+   if (arr.indexOf(value.toString()) > -1){
+      return arr.indexOf(value.toString());
+   }else{
+      if (value < (parseFloat(arr[arr.length-1]) + yres/2) && value > arr[0] -yres/2){
+        for (ind=0; ind<arr.length;ind++){
+          distanceToValue =  Math.abs(value - arr[ind]);
+          if (distanceToValue < currentDistance){
+            currentDistance = distanceToValue;
+            currentIndex = ind;
+          }
+        }
+      }else{
+         currentIndex = -1;
+      }
+   }
+  return currentIndex;
+}	
+//test = gold_solution("Math.sin(x)",3.1,.1,1,.1);
+//document.write(parseSolution(test));
+
+function parseSolution(input){
+  input = input.split(";");
+  for (i=0;i<input.length;i++){
+    input[i] = input[i].split("").join(" ");
+  }
+  
+  return input.join("<br>");
+}
+
+</script></div

@@ -1,0 +1,34 @@
+</script><script>
+test_data_3 = "2 * x - 3";
+test_data_3_xrange = 9;
+test_data_3_xres = 0.5;
+test_data_3_yrange = 9;
+test_data_3_yres = 0.5;
+
+tc3_f = test_data_3;
+tc3_x = test_data_3_xrange;
+tc3_xr = test_data_3_xres;
+tc3_y = test_data_3_yrange;
+tc3_yr = test_data_3_yres;
+
+
+solution3 = gold_solution(test_data_3, test_data_3_xrange, test_data_3_xres, test_data_3_yrange, test_data_3_yres);
+submission3 = function_name(tc3_f, tc3_x, tc3_xr, tc3_y, tc3_yr);
+
+clearTestCase(3);
+
+displaySub3 = submission3;
+displaySol3 = solution3;
+
+if(submission3 === 'undefined'){
+addTestCaseResults(3, "Function: " + test_data_3 + "<br>" + "X-Range: " + test_data_3_xrange + "<br>"+ "Y-Range: " + test_data_3_yrange + "<br>"+ "X-Resolution: " + test_data_3_xres + "<br>"+ "Y-Resolution: " + test_data_3_yres + "<br><br><table><tr><td>Expected Result:</td><td width='40px'></td><td>Actual Result</td></tr><tr><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySol3) + "</div></td><td width='40px'>  </td><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySub3) + "</div></td></tr></table>");
+
+if (solution3 == submission3){
+   testCaseStatus(3, "PASS")
+}else{
+   testCaseStatus(3, "FAIL")
+}
+}else{
+  addTestCaseResults(3, "Function: " + test_data_3 + "<br>" + "X-Range: " + test_data_3_xrange + "<br>"+ "Y-Range: " + test_data_3_yrange + "<br>"+ "X-Resolution: " + test_data_3_xres + "<br>"+ "Y-Resolution: " + test_data_3_yres + "<br><br>Function failed to return a value")
+  testCaseStatus(3, "FAIL")
+}

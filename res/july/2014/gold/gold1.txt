@@ -1,0 +1,34 @@
+</script><script>
+test_data_1 = "x";
+test_data_1_xrange = 5;
+test_data_1_xres = 0.5;
+test_data_1_yrange = 5;
+test_data_1_yres = 0.5;
+
+tc1_f = test_data_1;
+tc1_x = test_data_1_xrange;
+tc1_xr = test_data_1_xres;
+tc1_y = test_data_1_yrange;
+tc1_yr = test_data_1_yres;
+
+
+solution1 = gold_solution(test_data_1, test_data_1_xrange, test_data_1_xres, test_data_1_yrange, test_data_1_yres);
+submission1 = function_name(tc1_f, tc1_x, tc1_xr, tc1_y, tc1_yr);
+
+clearTestCase(1);
+
+displaySub1 = submission1;
+displaySol1 = solution1;
+
+if(submission1 === 'undefined'){
+addTestCaseResults(1, "Function: " + test_data_1 + "<br>" + "X-Range: " + test_data_1_xrange + "<br>"+ "Y-Range: " + test_data_1_yrange + "<br>"+ "X-Resolution: " + test_data_1_xres + "<br>"+ "Y-Resolution: " + test_data_1_yres + "<br><br><table><tr><td>Expected Result:</td><td width='40px'></td><td>Actual Result</td></tr><tr><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySol1) + "</div></td><td width='40px'>  </td><td><div style=\"font-family:'Lucida Console', Monaco, monospace\">" + parseSolution(displaySub1) + "</div></td></tr></table>");
+
+if (solution1 == submission1){
+   testCaseStatus(1, "PASS")
+}else{
+   testCaseStatus(1, "FAIL")
+}
+}else{
+  addTestCaseResults(1, "Function: " + test_data_1 + "<br>" + "X-Range: " + test_data_1_xrange + "<br>"+ "Y-Range: " + test_data_1_yrange + "<br>"+ "X-Resolution: " + test_data_1_xres + "<br>"+ "Y-Resolution: " + test_data_1_yres + "<br><br>Function failed to return a value")
+  testCaseStatus(1, "FAIL")
+}
