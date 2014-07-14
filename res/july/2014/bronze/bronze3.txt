@@ -1,0 +1,15 @@
+</script><script>
+test_data_3 = "LETS GO TO THE MALL";
+test_data_for_submission = test_data_3;
+solution3 = "5553387770466608666084433062555 555";
+submission3 = function_name(test_data_for_submission);
+
+clearTestCase(3);
+
+addTestCaseResults(3, "Input String:  "  & test_data_3 & "<br>Expected Result:  " &  solution3 & "<br>Actual Result:   " & submission3);
+
+if (solution3 == submission3){
+   testCaseStatus(3, "PASS")
+}else{
+   testCaseStatus(3, "FAIL")
+}

@@ -1,0 +1,15 @@
+</script><script>
+test_data_2 = "A@b#C$D%E%F^G&H*I(J$K$L@M@N%OP+Q_R(S*T&U&V^W^X^%y$Z!";
+test_data_for_submission = test_data_2;
+solution2 = silver_solution(test_data_2);
+submission2 = function_name(test_data_for_submission);
+
+clearTestCase(2);
+
+addTestCaseResults(2, "Test Data: " + test_data_2 + "<br><table style=\"font-family:'Lucida Console', Monaco, monospace\"><tr><td>Expected Result :<br>   "+ solution2.split(";").join("<br>") + "</td><td>Actual Result:<br>   " + submission2.split(";").join("<br>") + "</td></tr></table>");
+
+if (solution2 == submission2){
+   testCaseStatus(2, "PASS")
+}else{
+   testCaseStatus(2, "FAIL")
+}

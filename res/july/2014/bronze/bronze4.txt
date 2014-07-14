@@ -1,0 +1,15 @@
+</script><script>
+test_data_4 = "ITS SO NINETEEN NINETY NINE"
+test_data_for_submission = test_data_4;
+solution4 = "44487777077776660664446633 3366066444663389990664446633";
+submission4 = function_name(test_data_for_submission);
+
+clearTestCase(4);
+
+addTestCaseResults(4, "Input String:  "  & test_data_4 & "<br>Expected Result:  " &  solution4 & "<br>Actual Result:   " & submission4);
+
+if (solution4 == submission4){
+   testCaseStatus(4, "PASS")
+}else{
+   testCaseStatus(4, "FAIL")
+}

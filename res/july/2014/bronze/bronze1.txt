@@ -1,0 +1,15 @@
+</script><script>
+test_data_1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+test_data_for_submission = test_data_1;
+solution1 = "2 22 222 3 33 333 4 44 444 5 55 555 6 66 666 7 77 777 7777 8 88 888 9 99 999 9999";
+submission1 = function_name(test_data_for_submission);
+
+clearTestCase(1);
+
+addTestCaseResults(1, "Input String:  "  & test_data_1 & "<br>Expected Result:  " &  solution1 & "<br>Actual Result:   " & submission1);
+
+if (solution1 == submission1){
+   testCaseStatus(1, "PASS")
+}else{
+   testCaseStatus(1, "FAIL")
+}
