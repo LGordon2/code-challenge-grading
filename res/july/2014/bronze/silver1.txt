@@ -1,2 +1,0 @@
-</script><script>
-function silver_solution(e){e=e.toUpperCase();input_string_length=e.length;var t=[];for(i=65;i<=90;i++){letter_string="-"+String.fromCharCode(i)+"-";letter_count=input_string_length-e.split(String.fromCharCode(i)).join("").length;for(j=0;j<letter_count;j++){letter_string=letter_string+"*"}t.push(letter_string)}t=t.sort(function(e,t){if(e.length!=t.length){return t.length-e.length}else{if(e<t){return-1}else{return 1}}});return t.join(";")}
