@@ -6,7 +6,7 @@ submission4 = function_name(test_data_for_submission);
 
 clearTestCase(4);
 
-addTestCaseResults(4, "Input String:  "  & test_data_4 & "<br>Expected Result:  " &  solution4 & "<br>Actual Result:   " & submission4);
+addTestCaseResults(4, "Input String:  "  + test_data_4 + "<br>Expected Result:  " +  solution4 + "<br>Actual Result:   " + submission4);
 
 if (solution4 == submission4){
    testCaseStatus(4, "PASS")
