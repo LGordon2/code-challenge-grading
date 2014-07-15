@@ -1,7 +1,7 @@
 </script><script>
 test_data_3 = "LETS GO TO THE MALL";
 test_data_for_submission = test_data_3;
-solution3 = "5553387770466608666084433062555 555";
+solution3 = "55533877770466608666084433062555 555";
 submission3 = function_name(test_data_for_submission);
 
 clearTestCase(3);

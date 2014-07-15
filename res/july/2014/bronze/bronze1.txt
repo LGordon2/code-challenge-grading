@@ -1,7 +1,7 @@
 </script><script>
 test_data_1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 test_data_for_submission = test_data_1;
-solution1 = "2 22 222 3 33 333 4 44 444 5 55 555 6 66 666 7 77 777 7777 8 88 888 9 99 999 9999";
+solution1 = "2 22 2223 33 3334 44 4445 55 5556 66 6667 77 777 77778 88 8889 99 999 9999";
 submission1 = function_name(test_data_for_submission);
 
 clearTestCase(1);
