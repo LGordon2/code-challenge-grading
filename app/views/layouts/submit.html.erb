@@ -92,7 +92,7 @@
 							<th style="text-align:right">Winner?</th>
 							<% end %>
 						</tr>
-                                                <% subs = Submission.where('created_at < ? ', DateTime.new(2014, Date::MONTHNAMES.index('june'.capitalize)+1).to_datetime) %>
+                                                <% subs = Submission.where('created_at < ? ', DateTime.new(2014, Date::MONTHNAMES.index(challenge_month.capitalize)+1).to_datetime) %>
 
 						<% subs.where(month: challenge_month, league: challenge_league, year: challenge_year).group(:user_id).having('max(created_at)').each do |submission| %>
 						<% user = submission.user %>
