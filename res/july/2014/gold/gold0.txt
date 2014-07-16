@@ -52,7 +52,7 @@ function gold_solution(func,xrange, xres, yrange,yres){
       }
   }
   
-  for (k=0;k<xvalues.length;k++){
+  for (k=0;k<yvalues.length;k++){
     if (parseInt(xvalues[k]) == xvalues[k] && resultarray[yvalues.indexOf("0")][k] != "*"){
       resultarray[yvalues.indexOf("0")][k] = xvalues[k].replace("-", "");
     }
