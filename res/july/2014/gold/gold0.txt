@@ -52,13 +52,13 @@ function gold_solution(func,xrange, xres, yrange,yres){
       }
   }
   
-  for (k=0;k<yvalues.length;k++){
+  for (k=0;k<xvalues.length;k++){
     if (parseInt(xvalues[k]) == xvalues[k] && resultarray[yvalues.indexOf("0")][k] != "*"){
       resultarray[yvalues.indexOf("0")][k] = xvalues[k].replace("-", "");
     }
   }
  
-  for (m=0;m<xvalues.length;m++){
+  for (m=0;m<yvalues.length;m++){
     if (parseInt(yvalues[m]) == yvalues[m] && resultarray[m][xvalues.indexOf("0")] != "*"){
       resultarray[m][xvalues.indexOf("0")] = yvalues[m].replace("-", "");
     }
