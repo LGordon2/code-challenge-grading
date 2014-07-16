@@ -63,7 +63,9 @@ function gold_solution(func,xrange, xres, yrange,yres){
       resultarray[m][xvalues.indexOf("0")] = yvalues[m].replace("-", "");
     }
   }
-  resultarray[yvalues.indexOf("0")][xvalues.indexOf("0")]= "+"
+  if (resultarray[yvalues.indexOf("0")][xvalues.indexOf("0")]= "+" == "0"){
+    resultarray[yvalues.indexOf("0")][xvalues.indexOf("0")]= "+";
+  }
   resultarray = resultarray.reverse();
 
   for (i=0;i<resultarray.length;i++){
