@@ -1,43 +1,6 @@
-<div id="carousel-example-generic" class="carousel slide container" data-ride="carousel"  style="margin-top:15px;width: 630px;height: 400px">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <% newsfeed_files = Dir.entries(ActionView::PathSet.new(['app/assets/images/newsfeed']).first.to_path).sort.last(3).reverse %>
-  <% counter = 0 %>
-   <div class="carousel-inner">
-  	<% newsfeed_files.each do |feed| %>
-  		<% if counter == 0 %>
-    		<div class="item active">
-    	<% else %>
-    		<div class="item">
-    	<% end %>
-          <div style="width:620px;background-color: #123456;height: 400px;margin-top: 0px">
-          	<%= image_tag "newsfeed/#{feed}" %>
-          </div>
-      <div class="carousel-caption">
-
-      </div>
-      </div>
-      <% counter = counter + 1%>
-      <% end %>
-
-
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+<div id='hangout' style="padding-top:40px;width:100%;text-align:center">
+ <iframe width="640" height="360" src="//www.youtube.com/embed/J9GNIn7iyCk?autoplay=1" frameborder="0"  allowfullscreen style="margin:auto"></iframe>
 </div>
-
 <div id="rulesSection" width="100%" style="text-align:center;margin-top:50px">
 <%= link_to "Orasi Code Challenge Rules", "rules", "class" => "btn btn-lg btn-primary" %>
 </div>
